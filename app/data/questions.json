@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "prompt": "Which SOLID principle states a class should have one responsibility?",
+    "options": [
+      "Open Closed Principle",
+      "Single Responsibility Principle",
+      "Dependency Inversion Principle"
+    ],
+    "answer": "Single Responsibility Principle",
+    "explanation": "SRP states a class should have only one responsibility."
+  },
+  {
+    "id": 2,
+    "prompt": "Which principle allows behaviour extension without modifying existing code?",
+    "options": [
+      "Open Closed Principle",
+      "Liskov Substitution Principle",
+      "Interface Segregation Principle"
+    ],
+    "answer": "Open Closed Principle",
+    "explanation": "OCP means code should be open for extension but closed for modification."
+  }
+]
