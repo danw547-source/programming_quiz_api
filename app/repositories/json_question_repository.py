@@ -8,12 +8,18 @@ class JsonQuestionRepository(QuestionRepository):
     def __init__(self, file_path:str):
         self.file_path = file_path
         self.questions = self.load_questions()
+        # Store questions in a dictionary keyed by id for fast O(1) lookup instead of scanning the whole list each time.
+        self._questions_by_id = {q.id: q for q in self.questions}
 
     # The load_questions method reads the JSON file, parses it, and creates a list of Question objects from the data. It uses a list comprehension to iterate over the parsed JSON data and unpack each question's attributes into the Question constructor.
     def load_questions(self) -> List[Question]:
-        
-        with open(self.file_path, "r", encoding="utf-8") as file: # Open the JSON file in read mode using a context manager (with statement) to ensure that the file is properly closed after reading.
-            data = json.load(file)# Load the JSON data from the file and store it in the data variable. The json.load function reads the file and parses the JSON content into a Python data structure (in this case, a list of dictionaries).
+        try:
+            with open(self.file_path, "r", encoding="utf-8") as file: # Open the JSON file in read mode using a context manager (with statement) to ensure that the file is properly closed after reading.
+                data = json.load(file)# Load the JSON data from the file and store it in the data variable. The json.load function reads the file and parses the JSON content into a Python data structure (in this case, a list of dictionaries).
+        except FileNotFoundError:
+            raise RuntimeError(f"Questions file not found: {self.file_path}")
+        except json.JSONDecodeError as e:
+            raise RuntimeError(f"Invalid JSON in questions file: {e}")
             
         return [Question(**q) for q in data] # Unpack the question data into the Question constructor using **q, where q is a dictionary representing a single question from the JSON file. This allows us to create a Question object for each entry in the JSON array.
     
@@ -21,11 +27,7 @@ class JsonQuestionRepository(QuestionRepository):
         return self.questions
     
     def get_by_id(self, question_id:int) -> Question | None:
-        
-        for question in self.questions:
-            if question.id == question_id:
-                return question
-        return None
+        return self._questions_by_id.get(question_id)
     
 # This is a concrete implementation of the repository interface.
 

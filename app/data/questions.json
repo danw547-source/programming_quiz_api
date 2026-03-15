@@ -1,24 +1,122 @@
 [
   {
     "id": 1,
-    "prompt": "Which SOLID principle states a class should have one responsibility?",
+    "prompt": "Which SOLID principle says a class should have only one reason to change?",
     "options": [
       "Open Closed Principle",
       "Single Responsibility Principle",
+      "Liskov Substitution Principle",
       "Dependency Inversion Principle"
     ],
     "answer": "Single Responsibility Principle",
-    "explanation": "SRP states a class should have only one responsibility."
+    "explanation": "SRP encourages each class to focus on one responsibility, making changes safer and easier."
   },
   {
     "id": 2,
-    "prompt": "Which principle allows behaviour extension without modifying existing code?",
+    "prompt": "A UserService handles user creation, email sending, and report exports. Which principle is most clearly violated?",
+    "options": [
+      "Single Responsibility Principle",
+      "Open Closed Principle",
+      "Interface Segregation Principle",
+      "Liskov Substitution Principle"
+    ],
+    "answer": "Single Responsibility Principle",
+    "explanation": "Combining unrelated duties gives the class multiple reasons to change, which violates SRP."
+  },
+  {
+    "id": 3,
+    "prompt": "What is the core idea of the Open Closed Principle?",
+    "options": [
+      "Classes should avoid inheritance",
+      "Code should be optimized before release",
+      "Software should be open for extension but closed for modification",
+      "Interfaces should contain every possible method"
+    ],
+    "answer": "Software should be open for extension but closed for modification",
+    "explanation": "OCP allows adding new behavior without editing stable, existing code paths."
+  },
+  {
+    "id": 4,
+    "prompt": "You add a new payment type by creating a new PaymentProcessor class implementing the same interface. Which principle does this follow?",
     "options": [
       "Open Closed Principle",
-      "Liskov Substitution Principle",
+      "Single Responsibility Principle",
+      "Dependency Inversion Principle",
       "Interface Segregation Principle"
     ],
     "answer": "Open Closed Principle",
-    "explanation": "OCP means code should be open for extension but closed for modification."
+    "explanation": "Creating a new implementation extends behavior without modifying existing processor logic."
+  },
+  {
+    "id": 5,
+    "prompt": "What does the Liskov Substitution Principle require?",
+    "options": [
+      "Subclasses must be faster than base classes",
+      "Subclasses should be usable anywhere their base class is expected",
+      "Base classes should depend on subclasses",
+      "Only interfaces may be inherited"
+    ],
+    "answer": "Subclasses should be usable anywhere their base class is expected",
+    "explanation": "LSP ensures replacing a base type with a subtype does not break expected behavior."
+  },
+  {
+    "id": 6,
+    "prompt": "Why is treating Square as a Rectangle sometimes used as an LSP violation example?",
+    "options": [
+      "Squares cannot be instantiated",
+      "Rectangle methods may assume width and height can change independently",
+      "Squares are slower to render",
+      "Rectangle has too many interfaces"
+    ],
+    "answer": "Rectangle methods may assume width and height can change independently",
+    "explanation": "If a subtype changes core expectations of the base contract, substitutability can fail."
+  },
+  {
+    "id": 7,
+    "prompt": "Which statement best describes the Interface Segregation Principle?",
+    "options": [
+      "Use one large interface for all clients",
+      "Clients should not depend on methods they do not use",
+      "All interfaces must include CRUD methods",
+      "Interfaces should contain business logic"
+    ],
+    "answer": "Clients should not depend on methods they do not use",
+    "explanation": "ISP favors focused interfaces so consumers only implement what they actually need."
+  },
+  {
+    "id": 8,
+    "prompt": "A PrintOnlyScanner must implement fax(), scan(), and copy() methods even though it only prints. Which principle is violated?",
+    "options": [
+      "Open Closed Principle",
+      "Dependency Inversion Principle",
+      "Single Responsibility Principle",
+      "Interface Segregation Principle"
+    ],
+    "answer": "Interface Segregation Principle",
+    "explanation": "Forcing a client to implement irrelevant methods is the exact problem ISP addresses."
+  },
+  {
+    "id": 9,
+    "prompt": "According to Dependency Inversion Principle, high-level modules should depend on what?",
+    "options": [
+      "Concrete utility classes",
+      "Low-level database drivers",
+      "Abstractions",
+      "Global state"
+    ],
+    "answer": "Abstractions",
+    "explanation": "DIP reduces coupling by making both high-level and low-level modules rely on abstractions."
+  },
+  {
+    "id": 10,
+    "prompt": "Why does constructor injection of an interface improve design in a service class?",
+    "options": [
+      "It prevents unit testing",
+      "It tightly couples code to framework internals",
+      "It encourages coupling to concrete classes",
+      "It allows swapping implementations without changing service logic"
+    ],
+    "answer": "It allows swapping implementations without changing service logic",
+    "explanation": "Injecting abstractions supports flexibility, easier testing, and cleaner boundaries."
   }
 ]

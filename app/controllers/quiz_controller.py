@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends 
 from app.services.quiz_service import QuizService
 from app.dependencies import get_quiz_service
+from app.schemas.answer import AnswerSubmission
 
 # This controller handles quiz-related endpoints, such as fetching quiz questions and submitting answers. It uses the QuizService to perform business logic related to quizzes.
 
@@ -13,11 +14,11 @@ def get_questions(service: QuizService = Depends(get_quiz_service)):
 @router.post("/answer/{question_id}") # Endpoint to submit an answer for a specific question
 def submit_answer(
     question_id: int,
-    answer: str,
+    submission: AnswerSubmission, # The answer is received as a JSON request body to avoid it appearing in server logs
     service: QuizService = Depends(get_quiz_service) # Inject the QuizService dependency using FastAPI's Depends function
 ):
     
-    result = service.check_answer(question_id, answer) # Check the submitted answer using the QuizService
+    result = service.check_answer(question_id, submission.answer) # Check the submitted answer using the QuizService
     
     if result is None:
         raise HTTPException(status_code=404, detail="Question not found") # If the question is not found, raise a 404 HTTP exception

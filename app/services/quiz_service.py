@@ -1,6 +1,7 @@
+# This file defines the QuizService class, which contains the business logic for the quiz application. The service interacts with the QuestionRepository to retrieve questions and check answers. It provides methods to get all questions and to check a user's answer for a specific question. The service is designed to be independent of the data source, allowing for flexibility in how questions are stored and retrieved.
+
 from app.repositories.question_repository import QuestionRepository
 
-# This file defines the QuizService class, which contains the business logic for the quiz application. The service interacts with the QuestionRepository to retrieve questions and check answers. It provides methods to get all questions and to check a user's answer for a specific question. The service is designed to be independent of the data source, allowing for flexibility in how questions are stored and retrieved.
 class QuizService:
     
     def __init__(self, repository: QuestionRepository):
@@ -28,7 +29,8 @@ class QuizService:
         
         correct = question.check_answer(answer)
         
-        return{
+        return {
             "correct": correct,
-            "explanation": question.explanation if not correct else "Correct!"
+            "correct_answer": question.answer,
+            "explanation": question.explanation,
         }
