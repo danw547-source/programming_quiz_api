@@ -86,7 +86,7 @@ function App() {
                 <p className={`mt-0.5 hidden text-sm leading-relaxed sm:block sm:text-base ${subtitleClasses}`}>
                   Practical programming and music theory quizzes, one focused round at a time.
                 </p>
-                <div className="mt-1 hidden md:flex flex-wrap items-center gap-2">
+                <div className="mt-1 flex flex-wrap items-center gap-1 sm:gap-2">
                   {QUIZ_CATEGORIES.map((category) => {
                     const isActiveCategory = selectedCategory === category.id;
                     const categoryButtonTone = isActiveCategory
@@ -102,7 +102,7 @@ function App() {
                         key={category.id}
                         type="button"
                         onClick={() => setSelectedCategory(category.id)}
-                        className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${categoryButtonTone}`}
+                        className={`rounded-full border px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.1em] transition sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.12em] ${categoryButtonTone}`}
                         aria-pressed={isActiveCategory}
                       >
                         {category.label}
