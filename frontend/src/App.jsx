@@ -66,8 +66,8 @@ function App() {
         />
       </div>
 
-      <section className="relative mx-auto flex h-full w-full max-w-300 flex-col px-4 py-2 sm:px-6 sm:py-5">
-        <div className="mx-auto mb-2 flex w-full max-w-180 items-center justify-between gap-4 sm:mb-4">
+      <section className="relative mx-auto flex h-full w-full max-w-300 flex-col px-3 py-1.5 sm:px-6 sm:py-4">
+        <div className="mx-auto mb-1 flex w-full max-w-180 items-center justify-between gap-3 sm:mb-3">
           <div className="min-w-0">
             <div className="flex items-center gap-3">
               <div
@@ -80,13 +80,13 @@ function App() {
                 BTB
               </div>
               <div className="min-w-0">
-                <h1 className={`truncate text-xl font-bold tracking-tight sm:text-[1.75rem] font-['Space_Grotesk'] ${headingClasses}`}>
+                <h1 className={`truncate text-lg font-bold tracking-tight sm:text-[1.75rem] font-['Space_Grotesk'] ${headingClasses}`}>
                   Beat the Backlog Quiz
                 </h1>
                 <p className={`mt-0.5 hidden text-sm leading-relaxed sm:block sm:text-base ${subtitleClasses}`}>
                   Practical programming and music theory quizzes, one focused round at a time.
                 </p>
-                <div className="mt-2 flex flex-wrap items-center gap-2">
+                <div className="mt-1 hidden md:flex flex-wrap items-center gap-2">
                   {QUIZ_CATEGORIES.map((category) => {
                     const isActiveCategory = selectedCategory === category.id;
                     const categoryButtonTone = isActiveCategory

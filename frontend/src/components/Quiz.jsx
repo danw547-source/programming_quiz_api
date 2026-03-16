@@ -766,20 +766,20 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
 
   return (
     <div
-      className={`flex min-h-0 w-full flex-col rounded-2xl border p-3 shadow-[0_20px_40px_rgba(2,6,23,0.28),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl sm:p-5 ${surfaceCardClasses}`}
+      className={`flex min-h-0 w-full flex-col rounded-2xl border p-2 shadow-[0_20px_40px_rgba(2,6,23,0.28),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl sm:p-4 ${surfaceCardClasses}`}
     >
       <div className="mx-auto min-h-0 flex w-full flex-1 flex-col">
-        <section className={`border-b pb-2 sm:pb-3 ${dividerTone}`}>
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <section className={`border-b pb-1 sm:pb-2.5 ${dividerTone}`}>
+          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
             <div
-              className={`flex w-full max-w-120 items-center gap-2 rounded-2xl border px-2.5 py-2 sm:gap-3 sm:px-4 sm:py-3 ${
+              className={`flex w-full max-w-120 items-center gap-1.5 rounded-2xl border px-2 py-1 sm:gap-2.5 sm:px-3.5 sm:py-2.5 ${
                 isLightTheme
                   ? "border-[#d7e1f9] bg-[#f7faff] text-[#334060]"
                   : "border-[#617192] bg-[#394866] text-slate-100"
               }`}
             >
               <div
-                className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl sm:h-11 sm:w-11 text-[11px] font-black tracking-[0.08em] ${
+                className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg sm:h-10 sm:w-10 text-[10px] font-black tracking-[0.06em] ${
                   isLightTheme
                     ? "bg-[#dff7e8] text-[#1b6c44]"
                     : "bg-[#c2f4d8] text-[#1b6c44]"
@@ -796,7 +796,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
                   Topic
                 </p>
                 <p
-                  className={`mt-0.5 truncate text-base font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${headingClasses}`}
+                  className={`mt-0.5 truncate text-sm font-semibold leading-none font-['Space_Grotesk'] sm:text-lg ${headingClasses}`}
                 >
                   {activeQuestionSetLabel}
                 </p>
@@ -879,18 +879,18 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
           </div>
         </section>
 
-        <section key={`question-content-${question.id}`} className={`question-enter border-b py-2 sm:py-3 ${dividerTone}`}>
+        <section key={`question-content-${question.id}`} className={`question-enter border-b py-1 sm:py-2.5 ${dividerTone}`}>
           <h2
-            className={`mt-1 text-[1.15rem] font-bold leading-tight sm:mt-2 sm:text-[1.4rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
+            className={`mt-0.5 text-[1.1rem] font-bold leading-tight sm:mt-1.5 sm:text-[1.35rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
           >
             {question.prompt}
           </h2>
-          <p className={`mt-2 hidden text-sm sm:block ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
+          <p className={`mt-1 hidden text-xs sm:block sm:text-sm ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
             Keyboard: Press A-D or use arrow keys to choose. Press Enter to submit or continue.
           </p>
         </section>
 
-        <section key={question.id} className="mx-auto w-full max-w-176 space-y-2 pt-2 sm:space-y-3 sm:pt-3">
+        <section key={question.id} className="mx-auto w-full max-w-176 space-y-1.5 pt-1 sm:space-y-3 sm:pt-2.5">
           {question.options.map((opt, index) => {
             const isSelected = selectedAnswer === opt;
             const isSelectedResult = result && isSelected;
@@ -984,13 +984,13 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
               onClick={handleSubmit}
               disabled={!selectedAnswer || isSubmitting}
               aria-keyshortcuts="Enter"
-              className="mt-3 w-full rounded-2xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-5 py-3.5 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 sm:mt-5 sm:py-4 sm:text-base"
+              className="mt-2 w-full rounded-2xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-5 py-3 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 sm:mt-4 sm:py-3.5 sm:text-base"
             >
               {submitButtonLabel}
             </button>
           ) : (
             <div
-              className={`mt-3 rounded-xl border px-3 py-3 text-sm sm:mt-4 sm:rounded-2xl sm:px-4 ${
+              className={`mt-2 rounded-xl border px-3 py-2.5 text-sm sm:mt-3 sm:rounded-2xl sm:px-4 sm:py-3 ${
                 result.correct
                   ? (isLightTheme
                       ? "border-emerald-300 bg-emerald-50 text-emerald-800"
