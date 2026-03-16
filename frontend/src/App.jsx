@@ -17,10 +17,6 @@ function App() {
     ? "bg-[#eff3ff] text-slate-900"
     : "bg-[#25314a] text-slate-100";
 
-  const shellClasses = isLightTheme
-    ? "border-[#c9d7f4] bg-white/90 shadow-2xl shadow-[#d3dcf8]/70"
-    : "border-[#4e5e7f] bg-[#32405e]/90 shadow-2xl shadow-[#141d2f]/70";
-
   const headingClasses = isLightTheme ? "text-[#243252]" : "text-white";
   const subtitleClasses = isLightTheme ? "text-slate-600" : "text-slate-200";
 
@@ -45,15 +41,37 @@ function App() {
         />
       </div>
 
-      <section className="relative mx-auto flex h-full w-full max-w-384 flex-col px-4 py-4 sm:px-8 sm:py-6">
-        <div className="mb-3 flex justify-end sm:mb-4">
+      <section className="relative mx-auto flex h-full w-full max-w-208 flex-col px-3 py-3 sm:px-6 sm:py-5">
+        <div className="mb-2 flex items-end justify-between gap-3 sm:mb-3">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2.5">
+              <div
+                className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-xs font-black uppercase tracking-[0.18em] sm:h-11 sm:w-11 ${
+                  isLightTheme
+                    ? "bg-white/90 text-[#5d44d2] shadow-lg shadow-[#d3dcf8]/60"
+                    : "bg-[#32405e]/90 text-[#d9d2ff] shadow-lg shadow-[#141d2f]/50"
+                }`}
+              >
+                BTB
+              </div>
+              <div className="min-w-0">
+                <h1 className={`truncate text-xl font-bold tracking-tight sm:text-3xl font-['Space_Grotesk'] ${headingClasses}`}>
+                  Beat the Backlog Quiz
+                </h1>
+                <p className={`mt-0.5 text-xs leading-relaxed sm:text-sm ${subtitleClasses}`}>
+                  Core engineering fundamentals, one fast round at a time.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <button
             type="button"
             // Toggle between dark and light mode for readability preference.
             onClick={() => setIsLightTheme((prev) => !prev)}
             aria-pressed={isLightTheme}
             aria-label={`Switch to ${isLightTheme ? "dark" : "light"} theme`}
-            className={`relative z-20 flex items-center gap-3 rounded-full border px-3 py-2 backdrop-blur transition ${
+            className={`relative z-20 mb-0.5 flex shrink-0 items-center gap-3 rounded-full border px-3 py-2 backdrop-blur transition ${
               isLightTheme
                 ? "border-[#b9c8ee] bg-white/85 text-[#334060]"
                 : "border-[#6a7694] bg-[#3a4664]/85 text-slate-200"
@@ -61,7 +79,7 @@ function App() {
           >
             <span className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${isLightTheme ? "opacity-100" : "opacity-40"}`}>Light</span>
             <span
-              className="relative h-6 w-12 rounded-full p-1 transition bg-linear-to-r from-[#8f46ff] to-[#b260ff]"
+              className="relative h-6 w-12 rounded-full bg-linear-to-r from-[#8f46ff] to-[#b260ff] p-1 transition"
             >
               <span
                 className={`absolute top-1 h-4 w-4 rounded-full bg-white transition-all ${
@@ -73,19 +91,8 @@ function App() {
           </button>
         </div>
 
-        <div className={`app-enter flex min-h-0 flex-1 flex-col overflow-hidden rounded-4xl border p-6 backdrop-blur sm:p-8 ${shellClasses}`}>
-
-          <h1 className={`text-2xl font-bold tracking-tight sm:text-3xl font-['Space_Grotesk'] ${headingClasses}`}>
-            Test Your Core Engineering Fundamentals
-          </h1>
-
-          <p className={`mt-2 max-w-3xl text-sm leading-relaxed sm:text-base ${subtitleClasses}`}>
-            Answer each question, review instant feedback, and finish with your final score.
-          </p>
-
-          <div className="mt-6 flex min-h-0 flex-1 flex-col">
-            <Quiz isLightTheme={isLightTheme} />
-          </div>
+        <div className="app-enter min-h-0 flex-1">
+          <Quiz isLightTheme={isLightTheme} />
         </div>
       </section>
     </main>
