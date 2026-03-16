@@ -1,6 +1,6 @@
-import json # Import the json module to work with JSON data
-from typing import List # Import the List type from the typing module for type annotations
-from app.models.question import Question # Import the Question class from the models package
+import json
+from typing import List
+from app.models.question import Question
 from app.repositories.question_repository import QuestionRepository
 
 class JsonQuestionRepository(QuestionRepository):
@@ -21,16 +21,10 @@ class JsonQuestionRepository(QuestionRepository):
         except json.JSONDecodeError as e:
             raise RuntimeError(f"Invalid JSON in questions file: {e}")
             
-        return [Question(**q) for q in data] # Unpack the question data into the Question constructor using **q, where q is a dictionary representing a single question from the JSON file. This allows us to create a Question object for each entry in the JSON array.
+        return [Question(**q) for q in data]
     
     def get_all(self) -> List[Question]:
         return self.questions
     
     def get_by_id(self, question_id:int) -> Question | None:
         return self._questions_by_id.get(question_id)
-    
-# This is a concrete implementation of the repository interface.
-
-# Later you could add: DatabaseQuestionRepository, ApiQuestionRepository without modifying the rest of the system.
-
-# This demonstrates Open Closed Principle.

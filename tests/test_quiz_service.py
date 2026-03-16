@@ -51,13 +51,15 @@ def test_get_questions_returns_expected_fields():
 # --- check_answer ---
 
 def test_check_answer_correct():
-    result = make_service().check_answer(1, "A")
+    service = make_service()
+    result = service.check_answer(1, "A")
     assert result["correct"] is True
     assert result["correct_answer"] == "A"
 
 
 def test_check_answer_wrong():
-    result = make_service().check_answer(1, "B")
+    service = make_service()
+    result = service.check_answer(1, "B")
     assert result["correct"] is False
     assert result["correct_answer"] == "A"
 

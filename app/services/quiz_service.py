@@ -8,7 +8,6 @@ class QuizService:
         self.repository = repository
         
     def get_questions(self):
-        
         questions = self.repository.get_all()
         
         # Return only what the UI needs to render each question, keeping answers private.
@@ -21,8 +20,7 @@ class QuizService:
             for q in questions
         ]
         
-    def check_answer(self, question_id, answer: str):
-        
+    def check_answer(self, question_id: int, answer: str):
         question = self.repository.get_by_id(question_id)
         
         if not question:

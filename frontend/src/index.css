@@ -14,11 +14,14 @@ body {
   min-height: 100vh;
   background: #25314a;
   color: #e2e8f0;
-  font-family: "Sora", "Segoe UI", sans-serif;
 }
 
 #root {
   min-height: 100vh;
+}
+
+button:not(:disabled):hover {
+  cursor: pointer;
 }
 
 @keyframes panel-enter {
@@ -45,6 +48,18 @@ body {
   }
 }
 
+@keyframes question-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .app-enter {
   animation: panel-enter 520ms ease-out both;
 }
@@ -52,4 +67,8 @@ body {
 .option-enter {
   opacity: 0;
   animation: option-enter 420ms ease-out forwards;
+}
+
+.question-enter {
+  animation: question-enter 220ms ease-out both;
 }

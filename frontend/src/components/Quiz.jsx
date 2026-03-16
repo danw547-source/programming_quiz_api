@@ -6,6 +6,16 @@ import {
   submitAnswer,
 } from "../services/quizService";
 
+const OPTION_INDEX_BY_KEY = Object.freeze({ a: 0, b: 1, c: 2, d: 3 });
+
+const getRequestFailureLabels = (err) => {
+  const status = err?.response?.status;
+  return {
+    statusLabel: status ? ` (HTTP ${status})` : "",
+    timeoutLabel: err?.code === "ECONNABORTED" ? " Request timed out." : "",
+  };
+};
+
 export default function Quiz({ isLightTheme }) {
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,6 +26,32 @@ export default function Quiz({ isLightTheme }) {
   const [error, setError] = useState("");
   const [score, setScore] = useState(0);
 
+  const surfaceCardClasses = isLightTheme
+    ? "border-[#c9d7f4] bg-white/90"
+    : "border-white/10 bg-[#2b3651]/80";
+
+  const neutralCardClasses = isLightTheme
+    ? "border-[#c9d7f4] bg-white/90"
+    : "border-[#556483] bg-[#2e3a57]/85";
+
+  const neutralTextClasses = isLightTheme ? "text-[#334060]" : "text-slate-200";
+
+  const summaryTileClasses = isLightTheme
+    ? "rounded-2xl border border-[#d8e2fb] bg-[#f5f8ff] px-4 py-3 text-[#334060]"
+    : "rounded-2xl border border-[#617192] bg-[#394866] px-4 py-3 text-slate-100";
+
+  const summaryMetaTextClasses = isLightTheme ? "text-slate-500" : "text-slate-300";
+
+  const accentTextClasses = isLightTheme ? "text-[#5d44d2]" : "text-[#d9d2ff]";
+  const headingClasses = isLightTheme ? "text-[#243252]" : "text-white";
+  const metaTextClasses = isLightTheme ? "text-slate-500" : "text-slate-400";
+
+  const clearQuestionState = useCallback(() => {
+    setSelectedAnswer("");
+    setResult(null);
+    setError("");
+  }, []);
+
   // Fetch the full question set once and keep it in component state.
   const loadQuestions = useCallback(async () => {
     setIsLoading(true);
@@ -24,9 +60,7 @@ export default function Quiz({ isLightTheme }) {
       const data = await getQuestions();
       setQuestions(data);
     } catch (err) {
-      const status = err?.response?.status;
-      const statusLabel = status ? ` (HTTP ${status})` : "";
-      const timeoutLabel = err?.code === "ECONNABORTED" ? " Request timed out." : "";
+      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
       setError(
         `Unable to load quiz questions from ${QUESTIONS_ENDPOINT}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
       );
@@ -43,11 +77,8 @@ export default function Quiz({ isLightTheme }) {
   // Quiz is complete after the user advances past the last question index.
   const isFinished = totalQuestions > 0 && currentIndex >= totalQuestions;
   const question = questions[currentIndex];
-  const progressPercent = totalQuestions
-    ? Math.round((currentIndex / totalQuestions) * 100)
-    : 0;
 
-  const handleSubmit = async () => {
+  const handleSubmit = useCallback(async () => {
     // Prevent duplicate submissions or empty answer submits.
     if (!question || !selectedAnswer || result) {
       return;
@@ -64,33 +95,27 @@ export default function Quiz({ isLightTheme }) {
         setScore((prev) => prev + 1);
       }
     } catch (err) {
-      const status = err?.response?.status;
-      const statusLabel = status ? ` (HTTP ${status})` : "";
-      const timeoutLabel = err?.code === "ECONNABORTED" ? " Request timed out." : "";
+      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
       setError(
         `Your answer could not be submitted to ${getAnswerEndpoint(question.id)}${statusLabel}.${timeoutLabel} Please try again.`,
       );
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [question, result, selectedAnswer]);
 
-  const nextQuestion = () => {
+  const nextQuestion = useCallback(() => {
     // Reset per-question state before moving forward.
-    setSelectedAnswer("");
-    setResult(null);
-    setError("");
+    clearQuestionState();
     setCurrentIndex((prev) => prev + 1);
-  };
+  }, [clearQuestionState]);
 
-  const restartQuiz = () => {
+  const restartQuiz = useCallback(() => {
     // Full reset lets the user replay without reloading the page.
     setCurrentIndex(0);
-    setSelectedAnswer("");
-    setResult(null);
-    setError("");
+    clearQuestionState();
     setScore(0);
-  };
+  }, [clearQuestionState]);
 
   useEffect(() => {
     if (!question || isFinished) {
@@ -110,9 +135,9 @@ export default function Quiz({ isLightTheme }) {
         }
       }
 
-      const optionIndexByKey = { a: 0, b: 1, c: 2, d: 3 };
       const pressedKey = event.key.toLowerCase();
-      const optionIndex = optionIndexByKey[pressedKey];
+      const optionIndex = OPTION_INDEX_BY_KEY[pressedKey];
+      const isArrowNavigationKey = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key);
 
       if (!result && optionIndex !== undefined && question.options[optionIndex]) {
         event.preventDefault();
@@ -120,9 +145,33 @@ export default function Quiz({ isLightTheme }) {
         return;
       }
 
-      if (event.key === "Enter" && !result && selectedAnswer && !isSubmitting) {
+      if (!result && isArrowNavigationKey && question.options.length) {
         event.preventDefault();
-        void handleSubmit();
+
+        const currentOptionIndex = question.options.findIndex((option) => option === selectedAnswer);
+        const isBackwardKey = event.key === "ArrowUp" || event.key === "ArrowLeft";
+        const defaultIndex = isBackwardKey ? question.options.length - 1 : 0;
+        const nextOptionIndex = currentOptionIndex === -1
+          ? defaultIndex
+          : isBackwardKey
+            ? (currentOptionIndex - 1 + question.options.length) % question.options.length
+            : (currentOptionIndex + 1) % question.options.length;
+
+        setSelectedAnswer(question.options[nextOptionIndex]);
+        return;
+      }
+
+      if (event.key === "Enter") {
+        if (result) {
+          event.preventDefault();
+          nextQuestion();
+          return;
+        }
+
+        if (selectedAnswer && !isSubmitting) {
+          event.preventDefault();
+          void handleSubmit();
+        }
       }
     };
 
@@ -131,18 +180,14 @@ export default function Quiz({ isLightTheme }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleSubmit, isFinished, isSubmitting, question, result, selectedAnswer]);
+  }, [handleSubmit, isFinished, isSubmitting, nextQuestion, question, result, selectedAnswer]);
 
   if (isLoading) {
     return (
       <div
-        className={`rounded-2xl border p-5 ${
-          isLightTheme
-            ? "border-[#c9d7f4] bg-white/90"
-            : "border-[#556483] bg-[#2e3a57]/85"
-        }`}
+        className={`rounded-2xl border p-5 ${neutralCardClasses}`}
       >
-        <p className={`text-sm font-medium ${isLightTheme ? "text-[#334060]" : "text-slate-200"}`}>
+        <p className={`text-sm font-medium ${neutralTextClasses}`}>
           Loading questions...
         </p>
         <div className={`mt-3 h-2 overflow-hidden rounded-full ${isLightTheme ? "bg-[#e1e9fb]" : "bg-[#465474]"}`}>
@@ -179,11 +224,7 @@ export default function Quiz({ isLightTheme }) {
   if (!questions.length) {
     return (
       <div
-        className={`rounded-2xl border p-5 ${
-          isLightTheme
-            ? "border-[#c9d7f4] bg-white/90 text-[#334060]"
-            : "border-[#556483] bg-[#2e3a57]/85 text-slate-200"
-        }`}
+        className={`rounded-2xl border p-5 ${neutralCardClasses} ${neutralTextClasses}`}
       >
         No questions are available yet.
       </div>
@@ -198,25 +239,17 @@ export default function Quiz({ isLightTheme }) {
 
     return (
       <div
-        className={`mx-auto max-w-208 rounded-[1.35rem] border p-4 shadow-[0_20px_50px_rgba(148,163,184,0.24)] backdrop-blur-xl sm:rounded-[1.7rem] sm:p-7 ${
-          isLightTheme
-            ? "border-[#c9d7f4] bg-white/88"
-            : "border-[#556483] bg-[#2d3956]/88 shadow-[0_26px_60px_rgba(2,6,23,0.45)]"
-        }`}
+        className={`mx-auto w-full max-w-180 rounded-2xl border p-4 shadow-[0_20px_40px_rgba(2,6,23,0.28),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl sm:p-8 ${surfaceCardClasses}`}
       >
         <p
-          className={`text-xs font-semibold uppercase tracking-[0.2em] ${
-            isLightTheme ? "text-[#5d44d2]" : "text-[#d9d2ff]"
-          }`}
+          className={`text-xs font-semibold uppercase tracking-[0.2em] ${accentTextClasses}`}
         >
           Quiz Complete
         </p>
         <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-6">
           <div>
             <h2
-              className={`text-2xl font-bold font-['Space_Grotesk'] sm:text-3xl ${
-                isLightTheme ? "text-[#243252]" : "text-white"
-              }`}
+              className={`text-2xl font-bold font-['Space_Grotesk'] sm:text-3xl ${headingClasses}`}
             >
               You scored {score} / {totalQuestions}
             </h2>
@@ -225,50 +258,20 @@ export default function Quiz({ isLightTheme }) {
             </p>
           </div>
 
-          <div
-            className={`inline-flex items-center gap-3 rounded-2xl border px-4 py-3 text-left ${
-              isLightTheme
-                ? "border-[#d8e2fb] bg-[#f5f8ff] text-[#334060]"
-                : "border-[#617192] bg-[#394866] text-slate-100"
-            }`}
-          >
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] text-lg font-black text-white">
-              {percentage}
-            </div>
-            <div>
-              <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${isLightTheme ? "text-slate-500" : "text-slate-300"}`}>
-                Accuracy
-              </p>
-              <p className="text-lg font-semibold">{percentage}%</p>
-            </div>
-          </div>
         </div>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div
-            className={`rounded-2xl border px-4 py-3 ${
-              isLightTheme
-                ? "border-[#d8e2fb] bg-[#f5f8ff] text-[#334060]"
-                : "border-[#617192] bg-[#394866] text-slate-100"
-            }`}
-          >
-            <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${isLightTheme ? "text-slate-500" : "text-slate-300"}`}>
-              Correct Answers
-            </p>
-            <p className="mt-1 text-2xl font-bold font-['Space_Grotesk']">{score}</p>
-          </div>
-          <div
-            className={`rounded-2xl border px-4 py-3 ${
-              isLightTheme
-                ? "border-[#d8e2fb] bg-[#f5f8ff] text-[#334060]"
-                : "border-[#617192] bg-[#394866] text-slate-100"
-            }`}
-          >
-            <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${isLightTheme ? "text-slate-500" : "text-slate-300"}`}>
-              Questions Played
-            </p>
-            <p className="mt-1 text-2xl font-bold font-['Space_Grotesk']">{totalQuestions}</p>
-          </div>
+          {[
+            { label: "Correct Answers", value: score },
+            { label: "Questions Played", value: totalQuestions },
+          ].map((item) => (
+            <div key={item.label} className={summaryTileClasses}>
+              <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${summaryMetaTextClasses}`}>
+                {item.label}
+              </p>
+              <p className="mt-1 text-2xl font-bold font-['Space_Grotesk']">{item.value}</p>
+            </div>
+          ))}
         </div>
 
         <button
@@ -281,11 +284,6 @@ export default function Quiz({ isLightTheme }) {
     );
   }
 
-  if (!question) {
-    return null;
-  }
-
-  const progressWidth = `${Math.min(progressPercent, 100)}%`;
   const dividerTone = isLightTheme ? "border-[#d6e0f6]/90" : "border-[#4c5e83]/70";
   const activeQuestionNumber = currentIndex + 1;
   const submitButtonLabel = isSubmitting
@@ -296,14 +294,10 @@ export default function Quiz({ isLightTheme }) {
 
   return (
     <div
-      className={`flex h-full min-h-0 flex-col rounded-[1.35rem] border p-4 shadow-[0_20px_50px_rgba(148,163,184,0.24)] backdrop-blur-xl lg:h-auto sm:rounded-[1.7rem] sm:p-7 ${
-        isLightTheme
-          ? "border-[#c9d7f4] bg-white/88"
-          : "border-[#556483] bg-[#2d3956]/88 shadow-[0_26px_60px_rgba(2,6,23,0.45)]"
-      }`}
+      className={`flex min-h-0 w-full flex-col rounded-2xl border p-3 shadow-[0_20px_40px_rgba(2,6,23,0.28),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl sm:p-5 ${surfaceCardClasses}`}
     >
-      <div className="mx-auto min-h-0 flex w-full max-w-208 flex-1 flex-col">
-        <section className={`border-b pb-5 ${dividerTone}`}>
+      <div className="mx-auto min-h-0 flex w-full flex-1 flex-col">
+        <section className={`border-b pb-3 ${dividerTone}`}>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
             <div
               className={`inline-flex max-w-fit items-center gap-3 rounded-2xl border px-3.5 py-3 sm:px-4 ${
@@ -330,9 +324,7 @@ export default function Quiz({ isLightTheme }) {
                   Topic
                 </p>
                 <p
-                  className={`text-lg font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${
-                    isLightTheme ? "text-[#243252]" : "text-white"
-                  }`}
+                  className={`text-lg font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${headingClasses}`}
                 >
                   SOLID Principle
                 </p>
@@ -340,21 +332,13 @@ export default function Quiz({ isLightTheme }) {
             </div>
 
             <div className="w-full sm:max-w-xs sm:text-right">
-              <div className="flex items-end justify-between gap-4 sm:justify-end sm:gap-6">
-                <div>
-                  <p className={`text-[10px] font-semibold uppercase tracking-[0.18em] ${isLightTheme ? "text-slate-500" : "text-slate-400"}`}>
-                    Question
-                  </p>
-                  <p className={`mt-1 text-sm font-semibold ${isLightTheme ? "text-slate-700" : "text-slate-200"}`}>
-                    {activeQuestionNumber} of {totalQuestions}
-                  </p>
-                </div>
-                <p className={`text-xs ${isLightTheme ? "text-slate-500" : "text-slate-400"}`}>
+              <div className="flex items-center justify-between sm:justify-end">
+                <p className={`text-sm ${metaTextClasses}`}>
                   Score: {score} / {totalQuestions}
                 </p>
               </div>
 
-              <div className="mt-3 flex flex-wrap justify-start gap-1.5 sm:justify-end">
+              <div className="mt-2 flex flex-wrap justify-start gap-1.5 sm:justify-end">
                 {Array.from({ length: totalQuestions }).map((_, dotIndex) => {
                   const isDone = dotIndex < currentIndex;
                   const isCurrent = dotIndex === currentIndex;
@@ -376,73 +360,55 @@ export default function Quiz({ isLightTheme }) {
                 })}
               </div>
 
-              <div className="mt-3">
-                <div
-                  className={`mb-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] ${
-                    isLightTheme ? "text-[#5d44d2]" : "text-[#d9d2ff]"
-                  }`}
-                >
-                  <span>{activeQuestionNumber} / {totalQuestions}</span>
-                  <span>{progressPercent}%</span>
-                </div>
-                <div className={`h-2.5 overflow-hidden rounded-full ${isLightTheme ? "bg-[#d6e0f8]" : "bg-[#465474]"}`}>
-                  <div
-                    className="h-full rounded-full bg-linear-to-r from-[#8f46ff] to-[#b260ff] transition-all duration-500"
-                    style={{ width: progressWidth }}
-                  />
-                </div>
-              </div>
+              <p className={`mt-1.5 text-sm font-semibold uppercase tracking-widest ${accentTextClasses}`}>
+                QUESTION {activeQuestionNumber} OF {totalQuestions}
+              </p>
             </div>
           </div>
         </section>
 
-        <section className={`border-b py-5 ${dividerTone}`}>
+        <section key={`question-content-${question.id}`} className={`question-enter border-b py-3 ${dividerTone}`}>
           <p
-            className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${
-              isLightTheme ? "text-[#5d44d2]" : "text-[#d9d2ff]"
-            }`}
+            className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${accentTextClasses}`}
           >
             Question
           </p>
           <h2
-            className={`mt-3 text-[2rem] font-bold leading-[1.12] sm:text-[2.2rem] lg:text-[2.45rem] font-['Space_Grotesk'] ${
-              isLightTheme ? "text-[#243252]" : "text-white"
-            }`}
+            className={`mt-2 text-[1.15rem] font-bold leading-[1.25] sm:text-[1.4rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
           >
             {question.prompt}
           </h2>
-          <p className={`mt-3 text-xs leading-relaxed sm:text-sm ${isLightTheme ? "text-slate-500" : "text-slate-400"}`}>
+          <p className={`mt-3 text-sm leading-relaxed ${metaTextClasses}`}>
             Choose the best answer.
           </p>
-          <p className={`mt-2 text-[11px] ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
-            Keyboard: A-D to select, Enter to submit.
+          <p className={`mt-2 hidden text-sm sm:block ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
+            Keyboard: Press A-D or use arrow keys to choose. Press Enter to submit or continue.
           </p>
         </section>
 
-        <section key={question.id} className="mx-auto w-full max-w-176 space-y-4 pt-5">
+        <section key={question.id} className="mx-auto w-full max-w-176 space-y-3 pt-3">
           {question.options.map((opt, index) => {
             const isSelected = selectedAnswer === opt;
             const isSelectedResult = result && isSelected;
             const isCorrectAnswer = result && opt === result.correct_answer;
+            const emeraldTone = isLightTheme
+              ? "border-emerald-300 bg-emerald-50 text-emerald-800"
+              : "border-emerald-300/70 bg-emerald-400/15 text-emerald-100";
             const optionTone = isSelectedResult
               ? result.correct
-                ? (isLightTheme
-                    ? "border-emerald-300 bg-emerald-50 text-emerald-800"
-                    : "border-emerald-300/70 bg-emerald-400/15 text-emerald-100")
+                ? emeraldTone
                 : (isLightTheme
                     ? "border-rose-300 bg-rose-50 text-rose-800"
                     : "border-rose-300/70 bg-rose-400/15 text-rose-100")
               : isCorrectAnswer
-                ? (isLightTheme
-                    ? "border-emerald-300 bg-emerald-50 text-emerald-800"
-                    : "border-emerald-300/70 bg-emerald-400/15 text-emerald-100")
+                ? emeraldTone
               : isSelected
                 ? (isLightTheme
                     ? "border-[#7c5cff] bg-[rgba(124,92,255,0.12)] text-[#2d1d63] shadow-[0_0_0_2px_rgba(124,92,255,0.35)]"
                     : "border-[#a78bfa] bg-[rgba(124,92,255,0.2)] text-white shadow-[0_0_0_2px_rgba(124,92,255,0.4)]")
                 : (isLightTheme
                     ? "border-[#c2d2ef] bg-[#ecf2ff] text-[#34425f]"
-                    : "border-white/15 bg-white/[0.04] text-slate-100");
+                    : "border-white/10 bg-white/[0.02] text-slate-100");
             const optionBadgeTone = isSelected && !result
               ? (isLightTheme
                   ? "border-[#7c5cff] bg-[#7c5cff] text-white"
@@ -463,23 +429,23 @@ export default function Quiz({ isLightTheme }) {
                 onClick={() => setSelectedAnswer(opt)}
                 aria-keyshortcuts={String.fromCharCode(65 + index)}
                 style={{ animationDelay: `${index * 75}ms` }}
-                className={`option-enter relative flex w-full transform-gpu items-center gap-3 overflow-hidden rounded-2xl border px-4 py-4 text-left text-sm font-medium transition-all duration-150 ease-out sm:gap-4 sm:px-5 ${optionTone} ${
+                className={`option-enter relative flex w-full transform-gpu items-center gap-3 overflow-hidden rounded-2xl border px-4.5 py-3 text-left text-sm font-medium transition-all duration-120 ease-out sm:gap-4 sm:px-5 ${optionTone} ${
                   result
                     ? "cursor-default"
                     : isLightTheme
-                      ? "hover:-translate-y-0.5 hover:border-[#7c5cff]/45 hover:bg-[#f3eeff]"
-                      : "hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/6"
-                } ${isSelected && !result ? "scale-[1.01]" : ""}`}
+                      ? "hover:-translate-y-px hover:border-[#7c5cff]/45 hover:bg-[#f3eeff]"
+                      : "hover:-translate-y-px hover:border-white/15 hover:bg-white/5"
+                } ${isSelected && !result ? "scale-[1.02]" : ""}`}
               >
                 {isSelected && !result && (
                   <span className={`absolute inset-y-3 left-2 w-1 rounded-full ${isLightTheme ? "bg-[#7c5cff]" : "bg-[#a78bfa]"}`} />
                 )}
                 <span
-                  className={`inline-flex h-9 min-w-9 shrink-0 items-center justify-center rounded-full border px-2 text-sm font-bold transition-colors duration-200 ${optionBadgeTone}`}
+                  className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border text-xs font-semibold transition-colors duration-200 ${optionBadgeTone}`}
                 >
                   {String.fromCharCode(65 + index)}
                 </span>
-                <span className="flex-1 text-base leading-snug sm:text-lg sm:leading-relaxed">{opt}</span>
+                <span className="flex-1 text-base leading-snug">{opt}</span>
                 {isSelected && !result && (
                   <span className={`ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${
                     isLightTheme
@@ -487,7 +453,7 @@ export default function Quiz({ isLightTheme }) {
                       : "border-[#c4b5fd] bg-[#7c5cff] text-white"
                   }`}>
                     <svg viewBox="0 0 12 12" fill="none" className="h-3.5 w-3.5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 6l2.5 2.5L10 3" />
+                      <path d="M2 6l3 3 5-5" />
                     </svg>
                   </span>
                 )}

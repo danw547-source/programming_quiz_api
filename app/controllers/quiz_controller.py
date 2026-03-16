@@ -1,11 +1,11 @@
-from fastapi import APIRouter, HTTPException, Depends 
+from fastapi import APIRouter, HTTPException, Depends
 from app.services.quiz_service import QuizService
 from app.dependencies import get_quiz_service
 from app.schemas.answer import AnswerSubmission
 
 # This controller handles quiz-related endpoints, such as fetching quiz questions and submitting answers. It uses the QuizService to perform business logic related to quizzes.
 
-router= APIRouter() # Create an APIRouter instance for quiz-related endpoints
+router = APIRouter() # Create an APIRouter instance for quiz-related endpoints
 
 @router.get("/questions") # Endpoint to get quiz questions
 def get_questions(service: QuizService = Depends(get_quiz_service)):
