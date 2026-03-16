@@ -1,4 +1,14 @@
-﻿import { useEffect, useState } from "react";
+﻿/**
+ * App.jsx — root component and layout shell.
+ *
+ * Owns the two pieces of UI-level state that need to survive category or
+ * question-set changes: theme preference and active category.  Both are
+ * persisted to localStorage so the user's last choices are restored on
+ * the next visit without a full round-trip to the server.
+ *
+ * Everything else (question data, quiz flow state) lives inside Quiz.jsx.
+ */
+import { useEffect, useState } from "react";
 import Quiz from "./components/Quiz";
 
 const QUIZ_CATEGORIES = Object.freeze([

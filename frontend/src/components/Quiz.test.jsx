@@ -1,3 +1,13 @@
+/**
+ * Integration tests for the Quiz component.
+ *
+ * The entire quizService module is mocked so tests control exactly what the
+ * API returns without any real network calls.
+ *
+ * Math.random is spied on and forced to return a high value (0.9999) so the
+ * Fisher-Yates shuffle keeps the original question order — this makes
+ * assertions about which question appears first predictable.
+ */
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";

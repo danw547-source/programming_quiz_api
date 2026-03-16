@@ -1,3 +1,10 @@
+"""
+Pydantic schemas for the answer submission endpoint.
+
+`AnswerSubmission` is the request body; `AnswerResult` is the response.
+`extra="forbid"` on both ensures undocumented fields are rejected at the
+boundary rather than silently ignored.
+"""
 from pydantic import BaseModel, ConfigDict, Field
 
 

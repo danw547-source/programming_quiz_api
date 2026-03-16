@@ -1,3 +1,10 @@
+"""
+Tests for JsonQuestionRepository seed-data validation.
+
+Each test writes a small JSON file to pytest's `tmp_path` fixture directory
+and constructs a repository from it, allowing the full load-and-validate
+pipeline to be exercised without touching the real questions.json file.
+"""
 import json
 
 import pytest

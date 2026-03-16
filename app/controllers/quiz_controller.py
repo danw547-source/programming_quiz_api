@@ -1,3 +1,11 @@
+"""
+HTTP routing layer for the quiz API.
+
+Controllers are thin: they validate HTTP-level inputs (via Query/Path
+constraints), delegate all business logic to QuizService, and translate
+service-layer None returns into appropriate HTTP error responses.  No
+domain rules live here.
+"""
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -9,6 +17,8 @@ from app.schemas.cheat_sheet import QuestionSetCheatSheet
 from app.schemas.question import QuestionSummary
 
 
+# Type alias keeps endpoint signatures concise while still surfacing the full
+# dependency chain (FastAPI resolves Depends(get_quiz_service) per request).
 QuizServiceDependency = Annotated[QuizService, Depends(get_quiz_service)]
 
 router = APIRouter()
@@ -33,6 +43,8 @@ def get_cheat_sheet(
     question_set: Annotated[str, Query(min_length=1, max_length=50)],
 ):
     cheat_sheet = service.get_cheat_sheet(question_set=question_set)
+    # The service returns None when the set name is not found; raise 404 here
+    # rather than in the service so error semantics stay in the HTTP layer.
     if cheat_sheet is None:
         raise HTTPException(status_code=404, detail="Question set not found")
 

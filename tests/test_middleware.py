@@ -1,3 +1,11 @@
+"""
+Unit tests for RequestObservabilityAndRateLimitMiddleware.
+
+Each test builds a minimal FastAPI app with only the middleware under test
+attached, keeping the tests fast and independent of the full application
+wiring.  The rate limit is set to a small number so tests don't need to
+fire hundreds of requests to verify the 429 behaviour.
+"""
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 

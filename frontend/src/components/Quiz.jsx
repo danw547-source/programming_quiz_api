@@ -1,4 +1,18 @@
-﻿import { useCallback, useEffect, useState } from "react";
+﻿/**
+ * Quiz.jsx — main quiz component.
+ *
+ * Manages the full quiz lifecycle in a single component:
+ *   • Fetching question sets and questions from the API.
+ *   • Presenting one question at a time with keyboard and click navigation.
+ *   • Submitting answers and displaying correctness feedback.
+ *   • Tracking incorrect answers so the user can retry missed questions.
+ *   • Showing a cheat sheet entry for the current question on demand.
+ *
+ * State is kept here rather than a global store because this is the only
+ * place that cares about it, and the component unmounts cleanly when the
+ * user navigates away.
+ */
+import { useCallback, useEffect, useState } from "react";
 import {
   CHEAT_SHEET_ENDPOINT,
   getAnswerEndpoint,
@@ -13,6 +27,9 @@ import {
 const OPTION_INDEX_BY_KEY = Object.freeze({ a: 0, b: 1, c: 2, d: 3 });
 
 function shuffleArray(array) {
+  // Fisher-Yates (Durstenfeld) in-place shuffle — O(n), unbiased.
+  // A new array is returned so the original `allQuestions` order is preserved
+  // for retry rounds that need to look up questions by ID.
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -75,6 +92,8 @@ const getQuestionSetDisplay = (questionSet) => {
     return mapped;
   }
 
+  // Fallback for question sets added to the database that don't yet have a
+  // display entry: title-case the set name and derive a badge from initials.
   const fallbackLabel = formatQuestionSetLabel(questionSet);
   return {
     label: fallbackLabel,
@@ -90,6 +109,8 @@ const getQuestionSetDisplay = (questionSet) => {
 
 const getQuestionSetCategory = (questionSet) => {
   const normalized = questionSet?.trim().toLowerCase() ?? "";
+  // Default to "programming" so new sets without metadata are grouped with
+  // the existing programming sets rather than disappearing from the UI.
   return QUESTION_SET_DISPLAY_METADATA[normalized]?.category ?? "programming";
 };
 
@@ -268,6 +289,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     const filteredSets = getQuestionSetsForCategory(questionSets, selectedCategory);
     const nextSet = filteredSets[0] ?? "";
 
+    // If the active category has no sets, clear all quiz state and bail early
+    // so the "no sets" empty state is rendered.
     if (!filteredSets.length) {
       setIsQuestionSetPickerOpen(false);
       setIsCheatSheetOpen(false);
@@ -282,6 +305,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       return;
     }
 
+    // If the currently selected set already belongs to the new category, do
+    // nothing — the user switched categories and then switched back.
     if (filteredSets.includes(selectedQuestionSet)) {
       return;
     }
@@ -352,7 +377,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
 
   const restartQuiz = useCallback(() => {
     if (isRetryRound) {
-      // In retry mode, return to the full set (reshuffled) before restarting.
+      // In retry mode "play again" means going back to the full set so the
+      // user doesn't stay locked in the retry subset indefinitely.
       setQuestions(shuffleArray(allQuestions));
       setIsRetryRound(false);
     } else {
@@ -364,6 +390,10 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   }, [allQuestions, isRetryRound, resetRoundState]);
 
   const startRetryRound = useCallback(() => {
+    // Build the retry question list by looking up full question objects (which
+    // include options) by the IDs stored in incorrectAnswers.  Looking up from
+    // allQuestions preserves the original question data rather than
+    // reconstructing it from the incomplete incorrectAnswers shape.
     const questionById = new Map(allQuestions.map((item) => [item.id, item]));
     const retryQuestions = incorrectAnswers
       .map((item) => questionById.get(item.id))
@@ -398,6 +428,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       return;
     }
 
+    // Capture the set name before any async gaps so a concurrent set change
+    // during the fetch doesn't cause the wrong entries to be displayed.
     const selectedSet = selectedQuestionSet;
     const querySuffix = `?question_set=${encodeURIComponent(selectedSet)}`;
 
@@ -412,6 +444,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       const currentQuestion = questions[currentIndex];
       const currentEntry = currentQuestion ? entryById.get(currentQuestion.id) : undefined;
 
+      // Show only the entry for the current question rather than the whole set,
+      // so the cheat sheet doesn't spoil upcoming questions.
       setCheatSheetQuestionSet(response.question_set);
       setCheatSheetEntries(currentEntry ? [currentEntry] : []);
     } catch (err) {
@@ -477,10 +511,13 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     }
 
     const handleKeyDown = (event) => {
+      // Don't hijack shortcuts while a dialog is open — those have their own
+      // Escape handler registered by the dialog effect above.
       if (isQuestionSetPickerOpen || isCheatSheetOpen) {
         return;
       }
 
+      // Ignore modified keys (browser shortcuts) and events already consumed.
       if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) {
         return;
       }
@@ -488,6 +525,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       const target = event.target;
       if (target instanceof HTMLElement) {
         const tagName = target.tagName;
+        // Don't intercept keystrokes when focus is inside an editable element.
         if (target.isContentEditable || tagName === "INPUT" || tagName === "TEXTAREA" || tagName === "SELECT") {
           return;
         }
@@ -497,12 +535,14 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       const optionIndex = OPTION_INDEX_BY_KEY[pressedKey];
       const isArrowNavigationKey = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key);
 
+      // A–D selects the matching option by index.
       if (!result && optionIndex !== undefined && question.options[optionIndex]) {
         event.preventDefault();
         setSelectedAnswer(question.options[optionIndex]);
         return;
       }
 
+      // Arrow keys cycle through options; wraps around at both ends.
       if (!result && isArrowNavigationKey && question.options.length) {
         event.preventDefault();
 

@@ -1,3 +1,14 @@
+"""
+Integration tests for the Quiz API endpoints.
+
+These tests spin up the full FastAPI application (routing, middleware,
+response validation) but swap out the database via FastAPI's
+`dependency_overrides` mechanism.  An `InMemoryRepository` is injected for
+each test so there is no real I/O and the data is fully under test control.
+
+This gives confidence that the HTTP contract is correct (status codes,
+response shapes, header behaviour) without requiring a running database.
+"""
 from collections.abc import Generator
 
 import pytest
@@ -55,6 +66,8 @@ def client(sample_questions: list[Question]) -> Generator[TestClient, None, None
     def _build_service() -> QuizService:
         return QuizService(InMemoryRepository(sample_questions))
 
+    # Override the dependency for every test using this fixture.
+    # The override is cleared at teardown so it doesn't leak into other tests.
     app.dependency_overrides[get_quiz_service] = _build_service
 
     with TestClient(app) as test_client:

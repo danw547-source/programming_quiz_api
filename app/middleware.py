@@ -1,5 +1,16 @@
 from __future__ import annotations
 
+"""
+Request observability and per-client rate limiting middleware.
+
+Every inbound request is:
+    1. Assigned a request ID (echoed back in X-Request-ID).
+    2. Checked against a sliding-window rate limit keyed by client IP.
+    3. Logged on completion with method, path, status code, and latency.
+
+The rate limiter stores one deque per client IP.  Each entry is a monotonic
+timestamp; entries older than `window_seconds` are evicted before each check.
+"""
 import logging
 import time
 import uuid
@@ -26,17 +37,30 @@ class RequestObservabilityAndRateLimitMiddleware(BaseHTTPMiddleware):
         super().__init__(app)
         self.requests_per_window = requests_per_window
         self.window_seconds = window_seconds
+        # One deque per client IP; each entry is a monotonic arrival timestamp.
         self._buckets: dict[str, deque[float]] = {}
+        # A single lock serialises bucket mutations.  Async request handling
+        # means multiple coroutines may touch the same bucket concurrently.
         self._lock = Lock()
 
     def _check_rate_limit(self, client_key: str, current_time: float) -> tuple[bool, int, int]:
+        """
+        Apply the sliding-window algorithm for `client_key`.
+
+        Returns (is_limited, remaining_requests, retry_after_seconds).
+        Evicts timestamps that have fallen outside the current window before
+        counting, so the window always reflects the last `window_seconds`.
+        """
         with self._lock:
             bucket = self._buckets.setdefault(client_key, deque())
 
+            # Drop timestamps that are no longer inside the rolling window.
             while bucket and current_time - bucket[0] >= self.window_seconds:
                 bucket.popleft()
 
             if len(bucket) >= self.requests_per_window:
+                # Bucket is full; do NOT append the current timestamp so the
+                # client does not need to wait longer than `window_seconds`.
                 return True, 0, self.window_seconds
 
             bucket.append(current_time)
@@ -44,9 +68,16 @@ class RequestObservabilityAndRateLimitMiddleware(BaseHTTPMiddleware):
             return False, remaining, self.window_seconds
 
     async def dispatch(self, request: Request, call_next) -> Response:
+        # Honour a caller-supplied request ID so distributed traces stay
+        # correlated; otherwise generate a new one for this request.
         request_id = request.headers.get("X-Request-ID") or uuid.uuid4().hex
+        # Store the ID in a ContextVar so logger calls deeper in the stack can
+        # attach it without needing an explicit argument.
         request_id_token = request_id_var.set(request_id)
 
+        # time.perf_counter() gives high-resolution wall-clock latency.
+        # time.monotonic() is used for the rate-limit window because it cannot
+        # jump backward on clock adjustments, keeping the window stable.
         start_time = time.perf_counter()
         client_key = request.client.host if request.client else "unknown"
         is_rate_limited, remaining_requests, retry_after = self._check_rate_limit(
@@ -79,6 +110,8 @@ class RequestObservabilityAndRateLimitMiddleware(BaseHTTPMiddleware):
             response = await call_next(request)
             status_code = response.status_code
         finally:
+            # Always reset the ContextVar so stale IDs don't leak between
+            # requests if the ASGI server reuses threads or greenlets.
             duration_ms = round((time.perf_counter() - start_time) * 1000, 2)
             logger.info(
                 "request_completed method=%s path=%s status_code=%s client=%s duration_ms=%s",

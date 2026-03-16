@@ -1,3 +1,14 @@
+"""
+FastAPI dependency providers.
+
+Each function here is a factory that FastAPI calls once per request.
+Returning a fresh `QuizService` (and therefore a fresh `Session`) per request
+keeps database transactions short-lived and prevents session state from
+bleeding between requests.
+
+Tests override `get_quiz_service` via `app.dependency_overrides` to inject an
+in-memory repository, avoiding any real database access during the test run.
+"""
 from typing import Annotated
 
 from fastapi import Depends
@@ -12,6 +23,8 @@ from app.services.quiz_service import QuizService
 def get_question_repository(
     session: Annotated[Session, Depends(get_session)],
 ) -> QuestionRepository:
+    # `get_session` is a generator that yields a Session and closes it after
+    # the request completes, so each request gets its own isolated session.
     return SqlAlchemyQuestionRepository(session)
 
 

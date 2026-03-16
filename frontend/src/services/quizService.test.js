@@ -1,3 +1,11 @@
+/**
+ * Unit tests for the quizService API client.
+ *
+ * axios is mocked at the module level so no real HTTP requests are made.
+ * vi.hoisted() is required because vi.mock() calls are hoisted to the top of
+ * the file by Vitest, so any variables they reference must also be hoisted —
+ * a regular `const` defined before the mock call would not yet be in scope.
+ */
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { mockGet, mockPost } = vi.hoisted(() => ({

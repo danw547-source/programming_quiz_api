@@ -1,3 +1,10 @@
+"""
+Centralized application settings.
+
+All configuration is read from environment variables at startup.
+`get_settings()` is cached so the environment is sampled exactly once per
+process — hot-reloading env vars is not supported by design.
+"""
 import os
 from dataclasses import dataclass
 from functools import lru_cache
@@ -7,6 +14,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
+# `frozen=True` makes Settings immutable after construction, preventing
+# accidental mutation of configuration values at runtime.
+# `slots=True` keeps memory overhead minimal for a singleton object.
 @dataclass(frozen=True, slots=True)
 class Settings:
     database_url: str
@@ -16,6 +26,7 @@ class Settings:
 
 
 def _get_positive_int_env(var_name: str, default: int) -> int:
+    """Read an environment variable as a positive integer, falling back to `default`."""
     raw_value = os.getenv(var_name)
     if raw_value is None:
         return default
@@ -27,6 +38,10 @@ def _get_positive_int_env(var_name: str, default: int) -> int:
     return value
 
 
+# @lru_cache turns this into a lazily-initialised singleton: the first call
+# reads the environment and builds Settings; every subsequent call returns the
+# same cached object.  Call `get_settings.cache_clear()` in tests that need to
+# inject different env values.
 @lru_cache
 def get_settings() -> Settings:
     default_database_url = f"sqlite:///{(PROJECT_ROOT / 'quiz.db').as_posix()}"
