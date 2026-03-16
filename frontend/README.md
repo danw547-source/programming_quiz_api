@@ -1,67 +1,55 @@
-# Frontend (React + Vite)
+﻿# Frontend (React + Vite)
 
-Quiz UI for the Programming Concepts Quiz project.
+UI layer for the Beat the Backlog Quiz application.
 
-This app loads available question sets and questions from the FastAPI backend, lets users switch sets, submits answers, and shows instant correctness + explanation feedback.
+It fetches question sets and questions from the FastAPI backend, supports category switching, handles answer submission, and renders instant correctness + explanation feedback.
 
 ## Scripts
 
-- `npm run dev` - start local dev server
-- `npm run build` - build production assets into `dist/`
-- `npm run preview` - preview production build locally
-- `npm run lint` - run ESLint
+- npm run dev: start local dev server
+- npm run lint: run ESLint
+- npm run test: run Vitest in watch mode
+- npm run test:run: run Vitest once for CI and verification
+- npm run build: produce production assets in dist
+- npm run preview: preview a production build locally
 
 ## Environment Variables
 
-Create env files in this folder (`frontend/`):
+Create env files inside frontend:
 
-- `.env` for local development
-- `.env.production` for production builds
-- `.env.production.example` as reference template
+- .env (local development)
+- .env.production (production build)
+- .env.production.example (template)
 
-Supported variables:
+Variables:
 
-- `VITE_API_URL` (required)
-	- Example local value: `http://127.0.0.1:8000`
-	- Example production value: `https://programming-quiz-api.onrender.com`
-- `VITE_API_TIMEOUT_MS` (optional)
-	- Default is `10000`
-	- Controls how long the UI waits before showing a timeout error
+- VITE_API_URL (required for deployment)
+- VITE_API_TIMEOUT_MS (optional, default 10000)
 
 ## Local Development
-
-From the `frontend/` directory:
 
 ```bash
 npm install
 npm run dev
 ```
 
-The dev server runs on `http://127.0.0.1:5173`.
+Default URL: http://127.0.0.1:5173
 
-## Production Build
+## Frontend Verification
 
 ```bash
+npm run lint
+npm run test:run
 npm run build
 ```
 
-Important: `vite.config.js` is configured to use `/quiz/` as the production base path.
+## Deployment Notes
 
-## Deploying to IONOS `/quiz`
-
-1. Build with `npm run build`
-2. Upload the contents of `dist/` (not the `dist` folder itself) into `/public/quiz/`
-3. Ensure `/public/quiz/.htaccess` exists for SPA rewrites
-4. Hard refresh the browser after upload
-
-Expected deployed structure:
-
-- `/public/quiz/index.html`
-- `/public/quiz/assets/...`
-- `/public/quiz/.htaccess`
+- Build base path is /quiz in vite.config.js
+- Upload dist contents (not the dist folder itself) into /public/quiz
+- Keep an SPA rewrite rule file in /public/quiz for deep-link refresh support
 
 ## Troubleshooting
 
-- If you see an endless loader, confirm `VITE_API_URL` points to a live backend and rebuild/re-upload.
-- Error banners now include the exact endpoint URL and HTTP status to speed up debugging.
-- A browser extension error in DevTools console can be unrelated to this app; verify failed network requests in the Network tab.
+- If the app loads forever, verify VITE_API_URL points to a reachable backend
+- If console errors mention browser extensions, verify network failures in DevTools Network tab before debugging app code

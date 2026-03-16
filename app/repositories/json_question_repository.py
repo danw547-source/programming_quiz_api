@@ -1,7 +1,50 @@
 import json
+from collections import Counter
+
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
 
 from app.models.question import Question
 from app.repositories.question_repository import QuestionRepository
+
+
+class SeedQuestionPayload(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    id: int = Field(gt=0)
+    question_set: str = Field(min_length=1, max_length=50)
+    prompt: str = Field(min_length=1)
+    options: list[str] = Field(min_length=2)
+    answer: str = Field(min_length=1)
+    explanation: str = Field(min_length=1)
+
+    @field_validator("question_set", "prompt", "answer", "explanation")
+    @classmethod
+    def _strip_non_empty_text(cls, value: str) -> str:
+        stripped = value.strip()
+        if not stripped:
+            raise ValueError("Value cannot be blank")
+
+        return stripped
+
+    @field_validator("options")
+    @classmethod
+    def _validate_options(cls, options: list[str]) -> list[str]:
+        normalized_options = [option.strip() for option in options]
+        if any(not option for option in normalized_options):
+            raise ValueError("Options cannot be blank")
+
+        if len({option.casefold() for option in normalized_options}) != len(normalized_options):
+            raise ValueError("Options must be unique")
+
+        return normalized_options
+
+    @model_validator(mode="after")
+    def _validate_answer_in_options(self):
+        normalized_options = {option.casefold() for option in self.options}
+        if self.answer.casefold() not in normalized_options:
+            raise ValueError("Answer must match one of the options")
+
+        return self
 
 
 class JsonQuestionRepository(QuestionRepository):
@@ -19,7 +62,15 @@ class JsonQuestionRepository(QuestionRepository):
         except json.JSONDecodeError as e:
             raise RuntimeError(f"Invalid JSON in questions file: {e}")
 
-        return [self._deserialize_question(question_data) for question_data in data]
+        if not isinstance(data, list):
+            raise RuntimeError("Questions file must contain a JSON array")
+
+        questions = [
+            self._deserialize_question(question_data, index)
+            for index, question_data in enumerate(data, start=1)
+        ]
+        self._ensure_unique_question_ids(questions)
+        return questions
 
     def get_all(self, question_set: str | None = None) -> list[Question]:
         if question_set is None:
@@ -34,12 +85,26 @@ class JsonQuestionRepository(QuestionRepository):
         return sorted({question.question_set for question in self.questions})
 
     @staticmethod
-    def _deserialize_question(question_data: dict) -> Question:
-        return Question(
-            id=question_data["id"],
-            question_set=question_data["question_set"],
-            prompt=question_data["prompt"],
-            options=question_data["options"],
-            answer=question_data["answer"],
-            explanation=question_data["explanation"],
-        )
+    def _ensure_unique_question_ids(questions: list[Question]) -> None:
+        id_counts = Counter(question.id for question in questions)
+        duplicate_ids = sorted(question_id for question_id, count in id_counts.items() if count > 1)
+        if duplicate_ids:
+            raise RuntimeError(f"Duplicate question ids found: {duplicate_ids}")
+
+    @staticmethod
+    def _deserialize_question(question_data: dict, index: int) -> Question:
+        if not isinstance(question_data, dict):
+            raise RuntimeError(f"Invalid question payload at index {index}: expected an object")
+
+        try:
+            payload = SeedQuestionPayload.model_validate(question_data)
+            return Question(
+                id=payload.id,
+                question_set=payload.question_set,
+                prompt=payload.prompt,
+                options=payload.options,
+                answer=payload.answer,
+                explanation=payload.explanation,
+            )
+        except (ValidationError, ValueError) as exc:
+            raise RuntimeError(f"Invalid question payload at index {index}: {exc}") from exc

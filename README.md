@@ -1,69 +1,103 @@
-# Programming Concepts Quiz
+﻿# Beat the Backlog Quiz
 
-Full-stack quiz application with a FastAPI backend and a React + Vite frontend.
+A full-stack quiz platform built to showcase production-style engineering decisions, not just UI polish.
 
-The app serves SOLID-focused quiz questions from a database, validates answers instantly, and returns explanations and score feedback per question.
+This project combines a FastAPI backend, SQLAlchemy + Alembic persistence, and a React + Vite frontend to deliver category-based quiz rounds with immediate feedback, retry flows, and cheat-sheet support.
 
-## Tech Stack
+## Why This Project Exists
 
-- Python 3.14
-- FastAPI + Uvicorn
-- SQLAlchemy + SQLite
-- Alembic
-- Pytest
-- React 19 + Vite
-- Tailwind CSS
-- Axios
+This repository is designed as a portfolio artifact for engineering interviews and technical reviews. It emphasizes:
+
+- Clean architecture and separation of concerns
+- Testable business logic and API contracts
+- Migration discipline and data integrity
+- Observable, production-aware HTTP behavior
+- A responsive, user-friendly frontend experience
+
+## Architecture At A Glance
+
+Backend layers:
+
+- Controllers: HTTP routing and response modeling
+- Services: Core quiz behavior and orchestration
+- Repositories: Data access abstractions
+- Models: Domain rules and answer checking
+- Dependencies: Request-scoped composition
+
+Frontend layers:
+
+- UI components in frontend/src/components
+- API client in frontend/src/services/quizService.js
+- Theme and category state orchestration in frontend/src/App.jsx
+
+## Notable Features
+
+- Question sets across programming and music theory categories
+- Randomized question order per round
+- Retry-missed-questions flow
+- Cheat sheet dialog scoped to the active question context
+- Structured response validation via Pydantic schemas
+- Request observability with request IDs
+- Built-in rate limiting (default: 120 requests per minute per client)
+- CI workflow for backend tests + frontend lint/test/build
+
+## API Endpoints
+
+| Method | Route | Purpose |
+|---|---|---|
+| GET | /question-sets | List available question sets |
+| GET | /questions | Fetch questions, optional question_set filter |
+| GET | /cheat-sheet | Fetch answer + explanation data for a question set |
+| POST | /answer/{question_id} | Submit an answer and receive correctness feedback |
+| GET | /docs | Swagger UI |
+| GET | /redoc | ReDoc |
+
+Common response headers:
+
+- X-Request-ID
+- X-RateLimit-Limit
+- X-RateLimit-Remaining
+- Retry-After (when rate-limited)
+
+## Data Integrity And Validation Guarantees
+
+Validation is enforced at multiple layers:
+
+- Seed JSON payload validation in app/repositories/json_question_repository.py
+- Duplicate question ID detection during seed load
+- Required, non-empty text fields for prompts and explanations
+- Option list validation (minimum length, no blanks, unique values)
+- Answer-must-exist-in-options validation
+- Database constraints for non-blank fields and normalized question sets
+
+## Migration Strategy
+
+Migrations are centralized around a JSON-seed model:
+
+- 20260316_0001: base questions table
+- 20260316_0002: constraints and indexing
+- 20260316_0003: idempotent seed sync from app/data/questions.json
+- 20260316_0004 to 20260316_0007: intentional compatibility no-ops
+
+Why keep no-op migrations:
+
+- Preserves historical revision continuity across existing environments
+- Avoids rebasing already-shared migration history
+- Makes roll-forward paths deterministic for collaborators and CI
 
 ## Project Structure
 
 | Path | Purpose |
 |---|---|
-| `app/` | FastAPI backend (controllers, services, repositories, models) |
-| `app/database.py` | SQLAlchemy engine, session, models, and bootstrap logic |
-| `alembic/` | Database migration scripts |
-| `alembic.ini` | Alembic configuration |
-| `app/data/questions.json` | Seed data used to populate an empty database |
-| `frontend/` | React + Vite quiz UI |
-| `tests/` | Backend unit tests |
+| app | FastAPI backend code |
+| app/data/questions.json | Seed data source |
+| alembic | Migration scripts |
+| tests | Backend unit and integration tests |
+| frontend | React application |
+| scripts | One-command dev and verification helpers |
+| .github/workflows/ci.yml | Continuous integration pipeline |
 
-## Backend Architecture
-
-The backend follows a layered design to keep responsibilities separated:
-
-| Layer | Responsibility |
-|---|---|
-| Controllers | HTTP routes and request/response handling |
-| Services | Core quiz logic |
-| Repositories | Data access abstraction over the database |
-| Models | Domain behavior (for example, answer validation) |
-| Dependencies | Request-scoped dependency wiring |
-
-## API Endpoints
-
-| Method | Route | Description |
-|---|---|---|
-| `GET` | `/question-sets` | Fetch available quiz question sets |
-| `GET` | `/questions` | Fetch quiz questions, optionally filtered by `question_set` |
-| `POST` | `/answer/{question_id}` | Submit selected answer as JSON body |
-| `GET` | `/docs` | Swagger UI |
-| `GET` | `/redoc` | ReDoc |
-
-Example filtered questions request:
-
-```http
-GET /questions?question_set=solid
-```
-
-Example answer request body:
-
-```json
-{
-	"answer": "Single Responsibility Principle"
-}
-```
-
-## Local Development
+## Quick Start
 
 ### 1) Clone
 
@@ -72,84 +106,101 @@ git clone https://github.com/danw547-source/programming_quiz_api.git
 cd programming_quiz_api
 ```
 
-### 2) Backend setup
+### 2) Install dependencies
+
+Backend:
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-python -m uvicorn app.main:app --reload
 ```
 
-Backend runs at `http://127.0.0.1:8000`.
-
-On first startup, the API runs Alembic migrations and seeds `quiz.db` from `app/data/questions.json` if the database is empty.
-
-## Database Migrations
-
-From the repository root:
-
-```bash
-alembic upgrade head
-```
-
-Create a new migration:
-
-```bash
-alembic revision -m "describe change"
-```
-
-Apply one rollback step:
-
-```bash
-alembic downgrade -1
-```
-
-### 3) Frontend setup
+Frontend:
 
 ```bash
 cd frontend
 npm install
-npm run dev
+cd ..
 ```
 
-Frontend runs at `http://127.0.0.1:5173`.
+### 3) Start both apps in one command
+
+Windows PowerShell:
+
+```powershell
+./scripts/dev.ps1
+```
+
+macOS/Linux:
+
+```bash
+bash ./scripts/dev.sh
+```
+
+Default URLs:
+
+- Backend: http://127.0.0.1:8000
+- Frontend: http://127.0.0.1:5173
+
+## Quick Verify (Single Command)
+
+Windows PowerShell:
+
+```powershell
+./scripts/verify.ps1
+```
+
+macOS/Linux:
+
+```bash
+bash ./scripts/verify.sh
+```
+
+These run:
+
+- Backend tests
+- Frontend lint
+- Frontend tests
+- Frontend production build
 
 ## Environment Variables
 
-Frontend API configuration lives under `frontend/`:
+Backend variables:
 
-- `.env` for local development
-- `.env.production` for production builds
-- `.env.production.example` as the tracked template
+- DATABASE_URL (optional)
+- QUESTION_SEED_FILE (optional)
+- LOG_LEVEL (optional, default INFO)
+- RATE_LIMIT_REQUESTS_PER_MINUTE (optional, default 120)
 
-Key variables:
+Frontend variables (frontend/.env*):
 
-- `DATABASE_URL` (optional): SQLAlchemy connection string. Defaults to a local SQLite database.
-- `QUESTION_SEED_FILE` (optional): path to the JSON seed file used when bootstrapping an empty database.
-- `VITE_API_URL` (required): backend base URL
-- `VITE_API_TIMEOUT_MS` (optional): request timeout in milliseconds (defaults to `10000`)
+- VITE_API_URL (required for deployment)
+- VITE_API_TIMEOUT_MS (optional, default 10000)
 
 ## Testing
 
-Run backend tests from the repository root:
+Backend:
 
 ```bash
-pytest tests/ -v
+python -m pytest tests/ -q
+```
+
+Frontend:
+
+```bash
+cd frontend
+npm run lint
+npm run test:run
+npm run build
 ```
 
 ## Deployment Notes
 
-- Frontend production build is configured for `/quiz/` in `frontend/vite.config.js`.
-- Upload the contents of `frontend/dist/` into `/public/quiz/` on your host.
-- Keep `.htaccess` in `/public/quiz/` so SPA routing resolves correctly on refresh/direct URLs.
-- Current production frontend is configured to call Render-hosted backend via `VITE_API_URL`.
+- Frontend production build base path is /quiz (see frontend/vite.config.js)
+- Upload frontend/dist contents into /public/quiz on the host
+- Keep an SPA rewrite rule file in the deployed /quiz directory
 
-## Repository Highlights
+## License
 
-- FastAPI API with clean separation of concerns
-- Database-backed question repository with `question_set` support
-- Alembic-managed schema with constraints and a `question_set,id` composite index
-- Immediate answer validation with explanation feedback
-- Theme-aware, responsive frontend UX
-- Unit tests for core quiz behavior
+This project is licensed under the MIT License. See LICENSE.
