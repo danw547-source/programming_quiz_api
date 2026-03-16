@@ -8474,5 +8474,109 @@
     ],
     "answer": "Lamina inflammation (laminitis) causing hoof separation; foundering is the permanent sinking of the coffin bone; caused by diet, endotoxins, trauma, or metabolic issues",
     "explanation": "Laminitis is an emergency requiring immediate veterinary care to prevent founder, which is often career-ending or fatal."
+  },
+  {
+    "id": 653,
+    "question_set": "finance general",
+    "prompt": "What is the importance of reviewing financial statements and credit reports annually?",
+    "options": [
+      "It is only required for business owners",
+      "To identify errors, fraud, and ensure accuracy of financial and credit data",
+      "To increase your credit limit automatically",
+      "It is not necessary if you have good credit"
+    ],
+    "answer": "To identify errors, fraud, and ensure accuracy of financial and credit data",
+    "explanation": "Regular reviews catch mistakes early and protect you from identity theft or credit reporting errors."
+  },
+  {
+    "id": 654,
+    "question_set": "home cooking general",
+    "prompt": "What is the function of salt in baking bread?",
+    "options": [
+      "To make bread taste salty",
+      "To control fermentation speed, strengthen gluten, and enhance flavor",
+      "Only decorative for the crust",
+      "To replace sugar entirely"
+    ],
+    "answer": "To control fermentation speed, strengthen gluten, and enhance flavor",
+    "explanation": "Salt in bread improves structure and flavor while slowing yeast fermentation for better taste development."
+  },
+  {
+    "id": 655,
+    "question_set": "home cooking general",
+    "prompt": "What are the benefits of using cast iron cookware?",
+    "options": [
+      "It requires frequent seasoning only",
+      "Even heat distribution, durability, improves food's iron content, and develops non-stick surface over time",
+      "It heats up slower than other materials",
+      "It cannot be used for any acidic foods"
+    ],
+    "answer": "Even heat distribution, durability, improves food's iron content, and develops non-stick surface over time",
+    "explanation": "Cast iron is loved by cooks for its heat retention, longevity, and ability to impart iron into meals."
+  },
+  {
+    "id": 656,
+    "question_set": "home cooking general",
+    "prompt": "What is the difference between 'blanching' and 'shocking' vegetables?",
+    "options": [
+      "They are the same process",
+      "Blanching is brief boiling; shocking is rapid ice bath to stop cooking and set color",
+      "Blanching is done cold; shocking is hot",
+      "One is only for frozen vegetables"
+    ],
+    "answer": "Blanching is brief boiling; shocking is rapid ice bath to stop cooking and set color",
+    "explanation": "Together, blanching and shocking preserve vegetable color, texture, and nutrients for freezing or serving."
+  },
+  {
+    "id": 657,
+    "question_set": "home cooking general",
+    "prompt": "What is the significance of 'acid balance' in cooking?",
+    "options": [
+      "Acid should be avoided entirely",
+      "Adding vinegar, lemon, or acidic ingredients brightens flavors and balances richness",
+      "Acid only works in desserts",
+      "It has no culinary importance"
+    ],
+    "answer": "Adding vinegar, lemon, or acidic ingredients brightens flavors and balances richness",
+    "explanation": "A touch of acid cuts through fat and sweetness; it is essential for well-rounded, vibrant dish flavor."
+  },
+  {
+    "id": 658,
+    "question_set": "home cooking general",
+    "prompt": "What is a 'mother' or 'starter' in sourdough bread baking?",
+    "options": [
+      "A commercial yeast product",
+      "A living culture of wild yeast and bacterial microorganism that ferments the dough",
+      "An ancestral bread recipe",
+      "A type of flour"
+    ],
+    "answer": "A living culture of wild yeast and bacterial microorganism that ferments the dough",
+    "explanation": "Sourdough starters are maintained cultures that develop distinct flavors and can last for decades."
+  },
+  {
+    "id": 659,
+    "question_set": "home cooking general",
+    "prompt": "Why is the 'maillard reaction' important in cooking?",
+    "options": [
+      "It is a chemical reaction that occurs only in ovens",
+      "It creates browning and complex flavors when proteins and sugars heat together",
+      "It prevents food from cooking properly",
+      "It only applies to vegetables"
+    ],
+    "answer": "It creates browning and complex flavors when proteins and sugars heat together",
+    "explanation": "The Maillard reaction produces the savory, rich flavors in seared meats, caramelized onions, and crusty bread."
+  },
+  {
+    "id": 660,
+    "question_set": "home cooking general",
+    "prompt": "What is 'tempering' chocolate and why is it necessary?",
+    "options": [
+      "Cooling molten chocolate in water",
+      "Heating and cooling chocolate to stabilize cocoa butter crystals for a smooth, glossy finish and snap",
+      "Adding sugar to chocolate",
+      "It is optional in chocolate work"
+    ],
+    "answer": "Heating and cooling chocolate to stabilize cocoa butter crystals for a smooth, glossy finish and snap",
+    "explanation": "Properly tempered chocolate sets hard quickly, shines beautifully, and has good mouthfeel in truffles or ganache."
   }
 ]

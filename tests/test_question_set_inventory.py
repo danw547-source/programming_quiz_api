@@ -36,6 +36,9 @@ EXPECTED_QUESTION_SETS = {
     "guitar based music theory beginner",
     "guitar based music theory intermediate",
     "guitar based music theory expert",
+    "finance general",
+    "home cooking general",
+    "equinology general",
 }
 
 
