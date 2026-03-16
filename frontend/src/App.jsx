@@ -2,15 +2,13 @@
 import Quiz from "./components/Quiz";
 
 function App() {
-  const [isLightTheme, setIsLightTheme] = useState(false);
-
-  useEffect(() => {
+  // Initialize from localStorage to avoid a flicker on first render.
+  const [isLightTheme, setIsLightTheme] = useState(() => {
     const storedTheme = window.localStorage.getItem("quiz-theme");
-    if (storedTheme) {
-      setIsLightTheme(storedTheme === "light");
-    }
-  }, []);
+    return storedTheme === "light";
+  });
 
+  // Persist theme changes so refreshes keep the same look and feel.
   useEffect(() => {
     window.localStorage.setItem("quiz-theme", isLightTheme ? "light" : "dark");
   }, [isLightTheme]);
@@ -23,15 +21,12 @@ function App() {
     ? "border-[#c9d7f4] bg-white/90 shadow-2xl shadow-[#d3dcf8]/70"
     : "border-[#4e5e7f] bg-[#32405e]/90 shadow-2xl shadow-[#141d2f]/70";
 
-  const badgeClasses = isLightTheme
-    ? "border-[#7b62ec]/35 bg-[#7b62ec]/10 text-[#5d44d2]"
-    : "border-[#8a72ff]/50 bg-[#8a72ff]/15 text-[#ddd5ff]";
-
   const headingClasses = isLightTheme ? "text-[#243252]" : "text-white";
   const subtitleClasses = isLightTheme ? "text-slate-600" : "text-slate-200";
 
   return (
     <main className={`relative h-screen overflow-hidden transition-colors duration-300 ${pageClasses}`}>
+      {/* Decorative background layers that reinforce the active theme. */}
       <div className="pointer-events-none absolute inset-0">
         <div
           className={`absolute -left-24 top-10 h-96 w-96 rounded-full blur-3xl ${
@@ -54,6 +49,7 @@ function App() {
         <div className="mb-3 flex justify-end sm:mb-4">
           <button
             type="button"
+            // Toggle between dark and light mode for readability preference.
             onClick={() => setIsLightTheme((prev) => !prev)}
             aria-pressed={isLightTheme}
             aria-label={`Switch to ${isLightTheme ? "dark" : "light"} theme`}

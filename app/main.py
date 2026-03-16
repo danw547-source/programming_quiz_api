@@ -6,6 +6,7 @@ from app.controllers.quiz_controller import router as quiz_router
 
 app = FastAPI(title="Programming Concepts Quiz API")
 
+# Allow requests from local frontend during development and from the deployed site in production.
 app.add_middleware(
 	CORSMiddleware,
 	allow_origins=[
@@ -19,4 +20,5 @@ app.add_middleware(
 	allow_headers=["*"],
 )
 
+# Register quiz routes so FastAPI exposes /questions and /answer/{question_id}.
 app.include_router(quiz_router)

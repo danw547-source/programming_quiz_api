@@ -11,6 +11,7 @@ class QuizService:
         
         questions = self.repository.get_all()
         
+        # Return only what the UI needs to render each question, keeping answers private.
         return [
             {
                 "id": q.id,
@@ -27,8 +28,10 @@ class QuizService:
         if not question:
             return None
         
+        # Delegate correctness rules to the model so answer matching behavior stays centralized.
         correct = question.check_answer(answer)
         
+        # Include explanation and correct answer to support immediate feedback in the frontend.
         return {
             "correct": correct,
             "correct_answer": question.answer,

@@ -1,16 +1,67 @@
-# React + Vite
+# Frontend (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Quiz UI for the Programming Concepts Quiz project.
 
-Currently, two official plugins are available:
+This app loads questions from the FastAPI backend, submits answers, and shows instant correctness + explanation feedback.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Scripts
 
-## React Compiler
+- `npm run dev` - start local dev server
+- `npm run build` - build production assets into `dist/`
+- `npm run preview` - preview production build locally
+- `npm run lint` - run ESLint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Environment Variables
 
-## Expanding the ESLint configuration
+Create env files in this folder (`frontend/`):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `.env` for local development
+- `.env.production` for production builds
+- `.env.production.example` as reference template
+
+Supported variables:
+
+- `VITE_API_URL` (required)
+	- Example local value: `http://127.0.0.1:8000`
+	- Example production value: `https://programming-quiz-api.onrender.com`
+- `VITE_API_TIMEOUT_MS` (optional)
+	- Default is `10000`
+	- Controls how long the UI waits before showing a timeout error
+
+## Local Development
+
+From the `frontend/` directory:
+
+```bash
+npm install
+npm run dev
+```
+
+The dev server runs on `http://127.0.0.1:5173`.
+
+## Production Build
+
+```bash
+npm run build
+```
+
+Important: `vite.config.js` is configured to use `/quiz/` as the production base path.
+
+## Deploying to IONOS `/quiz`
+
+1. Build with `npm run build`
+2. Upload the contents of `dist/` (not the `dist` folder itself) into `/public/quiz/`
+3. Ensure `/public/quiz/.htaccess` exists for SPA rewrites
+4. Hard refresh the browser after upload
+
+Expected deployed structure:
+
+- `/public/quiz/index.html`
+- `/public/quiz/assets/...`
+- `/public/quiz/.htaccess`
+
+## Troubleshooting
+
+- If you see an endless loader, confirm `VITE_API_URL` points to a live backend and rebuild/re-upload.
+- Error banners now include the exact endpoint URL and HTTP status to speed up debugging.
+- A browser extension error in DevTools console can be unrelated to this app; verify failed network requests in the Network tab.

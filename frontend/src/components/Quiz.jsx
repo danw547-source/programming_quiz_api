@@ -16,6 +16,7 @@ export default function Quiz({ isLightTheme }) {
   const [error, setError] = useState("");
   const [score, setScore] = useState(0);
 
+  // Fetch the full question set once and keep it in component state.
   const loadQuestions = useCallback(async () => {
     setIsLoading(true);
     setError("");
@@ -39,6 +40,7 @@ export default function Quiz({ isLightTheme }) {
   }, [loadQuestions]);
 
   const totalQuestions = questions.length;
+  // Quiz is complete after the user advances past the last question index.
   const isFinished = totalQuestions > 0 && currentIndex >= totalQuestions;
   const question = questions[currentIndex];
   const progressPercent = totalQuestions
@@ -46,6 +48,7 @@ export default function Quiz({ isLightTheme }) {
     : 0;
 
   const handleSubmit = async () => {
+    // Prevent duplicate submissions or empty answer submits.
     if (!question || !selectedAnswer || result) {
       return;
     }
@@ -73,6 +76,7 @@ export default function Quiz({ isLightTheme }) {
   };
 
   const nextQuestion = () => {
+    // Reset per-question state before moving forward.
     setSelectedAnswer("");
     setResult(null);
     setError("");
@@ -80,6 +84,7 @@ export default function Quiz({ isLightTheme }) {
   };
 
   const restartQuiz = () => {
+    // Full reset lets the user replay without reloading the page.
     setCurrentIndex(0);
     setSelectedAnswer("");
     setResult(null);
