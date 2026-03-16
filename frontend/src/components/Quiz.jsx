@@ -1,5 +1,10 @@
 ﻿import { useCallback, useEffect, useState } from "react";
-import { getQuestions, submitAnswer } from "../services/quizService";
+import {
+  getAnswerEndpoint,
+  getQuestions,
+  QUESTIONS_ENDPOINT,
+  submitAnswer,
+} from "../services/quizService";
 
 export default function Quiz({ isLightTheme }) {
   const [questions, setQuestions] = useState([]);
@@ -17,8 +22,13 @@ export default function Quiz({ isLightTheme }) {
     try {
       const data = await getQuestions();
       setQuestions(data);
-    } catch {
-      setError("Unable to load quiz questions. Make sure the API server is running.");
+    } catch (err) {
+      const status = err?.response?.status;
+      const statusLabel = status ? ` (HTTP ${status})` : "";
+      const timeoutLabel = err?.code === "ECONNABORTED" ? " Request timed out." : "";
+      setError(
+        `Unable to load quiz questions from ${QUESTIONS_ENDPOINT}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
+      );
     } finally {
       setIsLoading(false);
     }
@@ -50,8 +60,13 @@ export default function Quiz({ isLightTheme }) {
       if (response.correct) {
         setScore((prev) => prev + 1);
       }
-    } catch {
-      setError("Your answer could not be submitted. Please try again.");
+    } catch (err) {
+      const status = err?.response?.status;
+      const statusLabel = status ? ` (HTTP ${status})` : "";
+      const timeoutLabel = err?.code === "ECONNABORTED" ? " Request timed out." : "";
+      setError(
+        `Your answer could not be submitted to ${getAnswerEndpoint(question.id)}${statusLabel}.${timeoutLabel} Please try again.`,
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -93,11 +108,21 @@ export default function Quiz({ isLightTheme }) {
 
   if (error && !questions.length) {
     return (
-      <div className="rounded-2xl border border-rose-400/40 bg-rose-500/10 p-5 text-rose-100">
+      <div
+        className={`rounded-2xl border p-5 ${
+          isLightTheme
+            ? "border-rose-300 bg-rose-50 text-rose-800"
+            : "border-rose-400/40 bg-rose-500/10 text-rose-100"
+        }`}
+      >
         <p className="text-sm">{error}</p>
         <button
           onClick={() => void loadQuestions()}
-          className="mt-4 rounded-lg border border-rose-200/50 px-4 py-2 text-sm font-semibold transition hover:bg-rose-200/20"
+          className={`mt-4 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
+            isLightTheme
+              ? "border-rose-300 text-rose-800 hover:bg-rose-100"
+              : "border-rose-200/50 hover:bg-rose-200/20"
+          }`}
         >
           Retry
         </button>
