@@ -752,17 +752,17 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       className={`flex min-h-0 w-full flex-col rounded-2xl border p-3 shadow-[0_20px_40px_rgba(2,6,23,0.28),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl sm:p-5 ${surfaceCardClasses}`}
     >
       <div className="mx-auto min-h-0 flex w-full flex-1 flex-col">
-        <section className={`border-b pb-3 ${dividerTone}`}>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <section className={`border-b pb-2 sm:pb-3 ${dividerTone}`}>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
             <div
-              className={`inline-flex w-full max-w-120 items-center gap-3 rounded-2xl border px-3.5 py-3 sm:px-4 ${
+              className={`flex w-full max-w-120 items-center gap-2 rounded-2xl border px-2.5 py-2 sm:gap-3 sm:px-4 sm:py-3 ${
                 isLightTheme
                   ? "border-[#d7e1f9] bg-[#f7faff] text-[#334060]"
                   : "border-[#617192] bg-[#394866] text-slate-100"
               }`}
             >
               <div
-                className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl text-[11px] font-black tracking-[0.08em] ${
+                className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl sm:h-11 sm:w-11 text-[11px] font-black tracking-[0.08em] ${
                   isLightTheme
                     ? "bg-[#dff7e8] text-[#1b6c44]"
                     : "bg-[#c2f4d8] text-[#1b6c44]"
@@ -779,11 +779,11 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
                   Topic
                 </p>
                 <p
-                  className={`mt-0.5 truncate text-lg font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${headingClasses}`}
+                  className={`mt-0.5 truncate text-base font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${headingClasses}`}
                 >
                   {activeQuestionSetLabel}
                 </p>
-                <div className="mt-2">
+                <div className="mt-1 sm:mt-2">
                   <div className="flex flex-wrap items-center gap-2">
                     <button
                       type="button"
@@ -827,9 +827,13 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
                 <p className={`text-sm ${metaTextClasses}`}>
                   Score: {score} / {totalQuestions}
                 </p>
+                {/* Compact Q counter shown only on mobile in place of the dot row */}
+                <p className={`text-xs font-semibold uppercase tracking-widest sm:hidden ${accentTextClasses}`}>
+                  Q {activeQuestionNumber}/{totalQuestions}
+                </p>
               </div>
 
-              <div className="mt-2 flex flex-wrap justify-start gap-1.5 sm:justify-end">
+              <div className="hidden sm:mt-2 sm:flex sm:flex-wrap sm:justify-end sm:gap-1.5">
                 {Array.from({ length: totalQuestions }).map((_, dotIndex) => {
                   const isDone = dotIndex < currentIndex;
                   const isCurrent = dotIndex === currentIndex;
@@ -851,16 +855,16 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
                 })}
               </div>
 
-              <p className={`mt-1.5 text-sm font-semibold uppercase tracking-widest ${accentTextClasses}`}>
+              <p className={`mt-1.5 hidden text-sm font-semibold uppercase tracking-widest sm:block ${accentTextClasses}`}>
                 QUESTION {activeQuestionNumber} OF {totalQuestions}
               </p>
             </div>
           </div>
         </section>
 
-        <section key={`question-content-${question.id}`} className={`question-enter border-b py-3 ${dividerTone}`}>
+        <section key={`question-content-${question.id}`} className={`question-enter border-b py-2 sm:py-3 ${dividerTone}`}>
           <h2
-            className={`mt-2 text-[1.15rem] font-bold leading-tight sm:text-[1.4rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
+            className={`mt-1 text-[1.15rem] font-bold leading-tight sm:mt-2 sm:text-[1.4rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
           >
             {question.prompt}
           </h2>
@@ -869,7 +873,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
           </p>
         </section>
 
-        <section key={question.id} className="mx-auto w-full max-w-176 space-y-3 pt-3">
+        <section key={question.id} className="mx-auto w-full max-w-176 space-y-2 pt-2 sm:space-y-3 sm:pt-3">
           {question.options.map((opt, index) => {
             const isSelected = selectedAnswer === opt;
             const isSelectedResult = result && isSelected;
@@ -963,7 +967,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
               onClick={handleSubmit}
               disabled={!selectedAnswer || isSubmitting}
               aria-keyshortcuts="Enter"
-              className="mt-5 w-full rounded-2xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-5 py-3.5 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 sm:py-4 sm:text-base"
+              className="mt-3 w-full rounded-2xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-5 py-3.5 text-sm font-bold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 sm:mt-5 sm:py-4 sm:text-base"
             >
               {submitButtonLabel}
             </button>

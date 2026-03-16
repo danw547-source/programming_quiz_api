@@ -65,8 +65,8 @@ function App() {
         />
       </div>
 
-      <section className="relative mx-auto flex h-full w-full max-w-300 flex-col px-4 py-3 sm:px-6 sm:py-5">
-        <div className="mx-auto mb-3 flex w-full max-w-180 items-center justify-between gap-4 sm:mb-4">
+      <section className="relative mx-auto flex h-full w-full max-w-300 flex-col px-4 py-2 sm:px-6 sm:py-5">
+        <div className="mx-auto mb-2 flex w-full max-w-180 items-center justify-between gap-4 sm:mb-4">
           <div className="min-w-0">
             <div className="flex items-center gap-3">
               <div
@@ -79,10 +79,10 @@ function App() {
                 BTB
               </div>
               <div className="min-w-0">
-                <h1 className={`truncate text-[1.45rem] font-bold tracking-tight sm:text-[1.75rem] font-['Space_Grotesk'] ${headingClasses}`}>
+                <h1 className={`truncate text-xl font-bold tracking-tight sm:text-[1.75rem] font-['Space_Grotesk'] ${headingClasses}`}>
                   Beat the Backlog Quiz
                 </h1>
-                <p className={`mt-0.5 text-sm leading-relaxed sm:text-base ${subtitleClasses}`}>
+                <p className={`mt-0.5 hidden text-sm leading-relaxed sm:block sm:text-base ${subtitleClasses}`}>
                   Practical programming and music theory quizzes, one focused round at a time.
                 </p>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -125,7 +125,7 @@ function App() {
                 : "border-[#6a7694] bg-[#3a4664]/85 text-slate-200"
             }`}
           >
-            <span className={`${toggleLabelClasses} ${isLightTheme ? "opacity-100" : "opacity-40"}`}>Light</span>
+            <span className={`hidden sm:inline ${toggleLabelClasses} ${isLightTheme ? "opacity-100" : "opacity-40"}`}>Light</span>
             <span
               className="relative h-6 w-12 rounded-full bg-linear-to-r from-[#8f46ff] to-[#b260ff] p-1 transition"
             >
@@ -135,7 +135,7 @@ function App() {
                 }`}
               />
             </span>
-            <span className={`${toggleLabelClasses} ${!isLightTheme ? "opacity-100" : "opacity-40"}`}>Dark</span>
+            <span className={`hidden sm:inline ${toggleLabelClasses} ${!isLightTheme ? "opacity-100" : "opacity-40"}`}>Dark</span>
           </button>
         </div>
 
