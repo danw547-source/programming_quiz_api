@@ -70,6 +70,9 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "guitar based music theory beginner": { label: "Guitar Theory Beginner", badge: "GT", category: "music-theory" },
   "guitar based music theory intermediate": { label: "Guitar Theory Intermediate", badge: "GT", category: "music-theory" },
   "guitar based music theory expert": { label: "Guitar Theory Expert", badge: "GT", category: "music-theory" },
+  "finance general": { label: "Finance", badge: "FIN", category: "charlotte" },
+  "home cooking general": { label: "Home Cooking", badge: "HC", category: "charlotte" },
+  "equinology general": { label: "Equinology", badge: "EQ", category: "charlotte" },
 });
 
 const formatQuestionSetLabel = (questionSet) => {
@@ -123,10 +126,24 @@ const getCategoryLabel = (category) => {
     return "Music Theory";
   }
 
+  if (category === "charlotte") {
+    return "Charlotte";
+  }
+
   return "Programming";
 };
 
-const getAlternateCategory = (selectedCategory) => (selectedCategory === "music-theory" ? "programming" : "music-theory");
+const getAlternateCategory = (selectedCategory) => {
+  if (selectedCategory === "music-theory") {
+    return "charlotte";
+  }
+
+  if (selectedCategory === "charlotte") {
+    return "programming";
+  }
+
+  return "music-theory";
+};
 
 const getPerformanceFeedback = (percentage) => {
   if (percentage === 100) {

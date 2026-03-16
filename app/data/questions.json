@@ -7798,5 +7798,681 @@
     ],
     "answer": "Preserving melodic integrity while altering underlying harmony",
     "explanation": "Reharmonization must respect melody tones and phrase function."
+  },
+  {
+    "id": 601,
+    "question_set": "finance general",
+    "prompt": "What is the primary purpose of diversification in an investment portfolio?",
+    "options": [
+      "To guarantee high returns",
+      "To reduce overall risk by spreading investments across multiple assets",
+      "To avoid paying taxes",
+      "To eliminate the need for research"
+    ],
+    "answer": "To reduce overall risk by spreading investments across multiple assets",
+    "explanation": "Diversification mitigates unsystematic risk; different assets may perform differently under various conditions."
+  },
+  {
+    "id": 602,
+    "question_set": "finance general",
+    "prompt": "In personal finance, what does the term 'net worth' represent?",
+    "options": [
+      "Annual salary minus taxes",
+      "Total assets minus total liabilities",
+      "Cash held in all bank accounts",
+      "Annual spending on necessities"
+    ],
+    "answer": "Total assets minus total liabilities",
+    "explanation": "Net worth is the foundation of personal financial health; it shows what you truly own."
+  },
+  {
+    "id": 603,
+    "question_set": "finance general",
+    "prompt": "What is an emergency fund and why is it important?",
+    "options": [
+      "Money spent only on vacations",
+      "Savings set aside for unexpected financial hardships; provides financial security",
+      "Investment account for stock trading",
+      "Insurance policy replacement"
+    ],
+    "answer": "Savings set aside for unexpected financial hardships; provides financial security",
+    "explanation": "An emergency fund typically covers 3–6 months of expenses and prevents debt when surprises occur."
+  },
+  {
+    "id": 604,
+    "question_set": "finance general",
+    "prompt": "Which interest rate type remains constant throughout the life of a loan?",
+    "options": [
+      "Variable rate",
+      "Adjustable rate",
+      "Fixed rate",
+      "Prime rate"
+    ],
+    "answer": "Fixed rate",
+    "explanation": "Fixed-rate loans offer payment certainty; the rate does not change, making budgeting easier."
+  },
+  {
+    "id": 605,
+    "question_set": "finance general",
+    "prompt": "What does 'compound interest' mean?",
+    "options": [
+      "Simple interest multiplied by time",
+      "Interest earned on interest, as well as principal",
+      "Interest that compounds only once per year",
+      "A penalty fee for early withdrawals"
+    ],
+    "answer": "Interest earned on interest, as well as principal",
+    "explanation": "Compound interest accelerates wealth growth; Einstein famously called it the eighth wonder of the world."
+  },
+  {
+    "id": 606,
+    "question_set": "finance general",
+    "prompt": "What is the primary advantage of a high-yield savings account over a regular savings account?",
+    "options": [
+      "Unlimited withdrawals without fees",
+      "Guaranteed returns of 10% or more",
+      "Higher interest rates on deposits",
+      "No requirement to keep a minimum balance"
+    ],
+    "answer": "Higher interest rates on deposits",
+    "explanation": "High-yield savings accounts offer better interest returns for savers, often at online banks with lower costs."
+  },
+  {
+    "id": 607,
+    "question_set": "finance general",
+    "prompt": "In investing, what does 'dollar-cost averaging' refer to?",
+    "options": [
+      "Converting foreign currency to dollars",
+      "Investing fixed amounts at regular intervals regardless of market price",
+      "Trading stocks at the exact market dollar values",
+      "Paying dividends in dolls instead of cash"
+    ],
+    "answer": "Investing fixed amounts at regular intervals regardless of market price",
+    "explanation": "Dollar-cost averaging reduces timing risk and smooths the impact of market volatility."
+  },
+  {
+    "id": 608,
+    "question_set": "finance general",
+    "prompt": "What is credit utilization and how does it affect credit scores?",
+    "options": [
+      "The amount of credit you have available",
+      "The percentage of available credit you are using; high utilization can lower credit scores",
+      "How often you apply for credit",
+      "The total amount of debt you carry"
+    ],
+    "answer": "The percentage of available credit you are using; high utilization can lower credit scores",
+    "explanation": "Keeping credit utilization below 30% is recommended to maintain healthy credit scores."
+  },
+  {
+    "id": 609,
+    "question_set": "finance general",
+    "prompt": "What is the 50/30/20 budgeting rule?",
+    "options": [
+      "Allocate 50% to savings, 30% to debt, 20% to income",
+      "50% for needs, 30% for wants, 20% for savings and debt repayment",
+      "50% for taxes, 30% for investing, 20% for spending",
+      "50% for housing, 30% for insurance, 20% for entertainment"
+    ],
+    "answer": "50% for needs, 30% for wants, 20% for savings and debt repayment",
+    "explanation": "This simple framework helps prioritize spending and ensure consistent savings and debt management."
+  },
+  {
+    "id": 610,
+    "question_set": "finance general",
+    "prompt": "What is the difference between stocks and bonds as investments?",
+    "options": [
+      "Stocks are safer; bonds are riskier",
+      "Stocks represent ownership; bonds represent debt obligations and typically offer fixed income",
+      "Bonds allow you to own a company; stocks do not",
+      "There is no meaningful difference"
+    ],
+    "answer": "Stocks represent ownership; bonds represent debt obligations and typically offer fixed income",
+    "explanation": "Stocks offer growth potential with higher risk; bonds provide steady income with lower volatility."
+  },
+  {
+    "id": 611,
+    "question_set": "finance general",
+    "prompt": "What is a mortgage and what does it involve?",
+    "options": [
+      "A type of car insurance",
+      "A loan secured by real estate that the borrower repays over time",
+      "A tax deduction for homeowners",
+      "An investment in rental properties"
+    ],
+    "answer": "A loan secured by real estate that the borrower repays over time",
+    "explanation": "Mortgages enable home purchase; the property serves as collateral, and payments include principal and interest."
+  },
+  {
+    "id": 612,
+    "question_set": "finance general",
+    "prompt": "Why is an expense tracker important in personal finance?",
+    "options": [
+      "It is required by law",
+      "Helps identify spending patterns, control costs, and stay within budget",
+      "Eliminates the need to pay bills",
+      "Increases your credit score automatically"
+    ],
+    "answer": "Helps identify spending patterns, control costs, and stay within budget",
+    "explanation": "Tracking expenses reveals where money goes and enables intentional financial decisions and adjustments."
+  },
+  {
+    "id": 613,
+    "question_set": "finance general",
+    "prompt": "What is inflation and how does it affect purchasing power?",
+    "options": [
+      "A measure of how fast prices fall",
+      "Rising prices over time, which reduces what each dollar can buy",
+      "A government program that increases wages",
+      "A type of investment strategy"
+    ],
+    "answer": "Rising prices over time, which reduces what each dollar can buy",
+    "explanation": "Inflation erodes purchasing power; $100 today may buy less than it did a year ago."
+  },
+  {
+    "id": 614,
+    "question_set": "finance general",
+    "prompt": "What is a tax-advantaged retirement account?",
+    "options": [
+      "A regular savings account",
+      "An account offering tax benefits to encourage retirement savings, such as a 401k or IRA",
+      "An account that guarantees high returns",
+      "A government bond fund"
+    ],
+    "answer": "An account offering tax benefits to encourage retirement savings, such as a 401k or IRA",
+    "explanation": "Tax-advantaged accounts reduce current or future taxes and accelerate long-term wealth building for retirement."
+  },
+  {
+    "id": 615,
+    "question_set": "finance general",
+    "prompt": "What does 'paying yourself first' mean in personal finance?",
+    "options": [
+      "Paying all your bills before anyone else",
+      "Prioritizing savings by automating transfers before spending on other items",
+      "Negotiating higher wages at work",
+      "Avoiding debt at all costs"
+    ],
+    "answer": "Prioritizing savings by automating transfers before spending on other items",
+    "explanation": "Paying yourself first ensures savings accumulate consistently before lifestyle inflation consumes the money."
+  },
+  {
+    "id": 616,
+    "question_set": "finance general",
+    "prompt": "What is passive income and how can it be generated?",
+    "options": [
+      "Income earned while you sleep; dividends, rental income, or interest are examples",
+      "Income from a part-time job",
+      "Salary from full-time employment",
+      "Income from selling belongings"
+    ],
+    "answer": "Income earned while you sleep; dividends, rental income, or interest are examples",
+    "explanation": "Passive income streams reduce reliance on active work and accelerate financial independence."
+  },
+  {
+    "id": 617,
+    "question_set": "finance general",
+    "prompt": "What is the purpose of financial goal-setting?",
+    "options": [
+      "To ensure you never spend money",
+      "To provide direction, motivation, and measurable targets for financial decisions",
+      "To guarantee you will become wealthy",
+      "To avoid investing altogether"
+    ],
+    "answer": "To provide direction, motivation, and measurable targets for financial decisions",
+    "explanation": "Clear financial goals guide budgeting, saving, and investing choices."
+  },
+  {
+    "id": 618,
+    "question_set": "finance general",
+    "prompt": "What is an investment portfolio and why is rebalancing important?",
+    "options": [
+      "A collection of investments; rebalancing ensures asset allocation stays aligned with goals and risk tolerance",
+      "Only a stock collection",
+      "A single mutual fund",
+      "Rebalancing guarantees profit"
+    ],
+    "answer": "A collection of investments; rebalancing ensures asset allocation stays aligned with goals and risk tolerance",
+    "explanation": "Rebalancing prevents drift toward unintended risk levels and locks in gains."
+  },
+  {
+    "id": 619,
+    "question_set": "finance general",
+    "prompt": "What is the importance of having financial literacy?",
+    "options": [
+      "It is only for accountants and bankers",
+      "Understanding financial concepts enables better decision-making and protection against fraud",
+      "It guarantees you will never lose money",
+      "It is not important in modern life"
+    ],
+    "answer": "Understanding financial concepts enables better decision-making and protection against fraud",
+    "explanation": "Financial literacy is a cornerstone of economic security, independence, and long-term prosperity."
+  },
+  {
+    "id": 620,
+    "question_set": "home cooking general",
+    "prompt": "What is the difference between sautéing and stir-frying?",
+    "options": [
+      "They are identical cooking methods",
+      "Sautéing uses moderate heat and less oil; stir-frying uses high heat and more oil with constant motion",
+      "Stir-frying is done only in a pot",
+      "Sautéing requires a lid; stir-frying does not"
+    ],
+    "answer": "Sautéing uses moderate heat and less oil; stir-frying uses high heat and more oil with constant motion",
+    "explanation": "Both techniques cook quickly, but stir-frying's higher heat and rapid stirring seal in texture and flavor."
+  },
+  {
+    "id": 621,
+    "question_set": "home cooking general",
+    "prompt": "Why is it important to let meat rest after cooking?",
+    "options": [
+      "It is a waste of time",
+      "To allow juices to redistribute, keeping the meat tender and moist",
+      "To cool it down before serving",
+      "To remove all the flavor"
+    ],
+    "answer": "To allow juices to redistribute, keeping the meat tender and moist",
+    "explanation": "Resting for 5–10 minutes allows carryover cooking to finish gently and juices to settle."
+  },
+  {
+    "id": 622,
+    "question_set": "home cooking general",
+    "prompt": "What does 'seasoning to taste' mean?",
+    "options": [
+      "Adding a specific measured amount of salt",
+      "Adjusting salt, pepper, and other seasonings until flavors are balanced to your preference",
+      "Never adding seasonings",
+      "Following a recipe exactly without adjustment"
+    ],
+    "answer": "Adjusting salt, pepper, and other seasonings until flavors are balanced to your preference",
+    "explanation": "Taste profiles vary; seasoning to taste ensures dishes suit your palate while bringing out natural flavors."
+  },
+  {
+    "id": 623,
+    "question_set": "home cooking general",
+    "prompt": "What is the purpose of 'blooming' spices in hot oil or butter?",
+    "options": [
+      "To make spices prettier",
+      "To release their essential oils and intensify their flavors",
+      "To remove spices from the dish",
+      "To cool them down quickly"
+    ],
+    "answer": "To release their essential oils and intensify their flavors",
+    "explanation": "Blooming physically and chemically activates spices, creating richer, more aromatic base flavors."
+  },
+  {
+    "id": 624,
+    "question_set": "home cooking general",
+    "prompt": "What is the difference between baking and roasting?",
+    "options": [
+      "They are the same cooking method",
+      "Baking is for breads and desserts with dry heat; roasting cooks vegetables and meats at higher heat to brown",
+      "Roasting requires a pan with oil; baking does not",
+      "Baking is done in a microwave; roasting in an oven"
+    ],
+    "answer": "Baking is for breads and desserts with dry heat; roasting cooks vegetables and meats at higher heat to brown",
+    "explanation": "Both use dry oven heat, but roasting emphasizes browning and caramelization through higher temperatures."
+  },
+  {
+    "id": 625,
+    "question_set": "home cooking general",
+    "prompt": "What is the purpose of deglazing a pan?",
+    "options": [
+      "To remove the pan from heat permanently",
+      "To pour liquid into a hot pan to dissolve flavorful browned bits and create a sauce",
+      "To add more heat to the pan",
+      "To prevent the pan from staying hot"
+    ],
+    "answer": "To pour liquid into a hot pan to dissolve flavorful browned bits and create a sauce",
+    "explanation": "Deglazing builds sauce quickly from fond; alcohol, wine, or broth work well for this technique."
+  },
+  {
+    "id": 626,
+    "question_set": "home cooking general",
+    "prompt": "What are the three main macronutrients in food?",
+    "options": [
+      "Vitamins, minerals, and water",
+      "Proteins, carbohydrates, and fats",
+      "Sugar, salt, and oil",
+      "Fiber, cholesterol, and sodium"
+    ],
+    "answer": "Proteins, carbohydrates, and fats",
+    "explanation": "Macronutrients provide energy and essential building blocks for bodily functions."
+  },
+  {
+    "id": 627,
+    "question_set": "home cooking general",
+    "prompt": "What is the difference between a dice and a mince?",
+    "options": [
+      "They are identical cuts",
+      "Dice is a larger, uniform cube; mince is very finely chopped almost to a paste",
+      "Mince is done only with a knife; dice requires a food processor",
+      "Dice must be exactly 1 inch; mince has no size"
+    ],
+    "answer": "Dice is a larger, uniform cube; mince is very finely chopped almost to a paste",
+    "explanation": "Precise cuts affect both texture and how ingredients incorporate into dishes."
+  },
+  {
+    "id": 628,
+    "question_set": "home cooking general",
+    "prompt": "Why is room-temperature butter better for creaming in baking?",
+    "options": [
+      "Cold butter creams faster",
+      "Warm butter incorporates air more efficiently, creating a light, fluffy texture in baked goods",
+      "Room temperature has no effect",
+      "Room-temperature butter separates from sugar"
+    ],
+    "answer": "Warm butter incorporates air more efficiently, creating a light, fluffy texture in baked goods",
+    "explanation": "Proper creaming aerates the batter, which helps cakes and cookies rise and achieve tender crumbs."
+  },
+  {
+    "id": 629,
+    "question_set": "home cooking general",
+    "prompt": "What does 'emulsify' mean in cooking?",
+    "options": [
+      "To heat a sauce until it breaks",
+      "To combine two liquids that normally do not mix, such as oil and vinegar, by adding an emulsifier like egg yolk",
+      "To separate cream from milk",
+      "To make a sauce thicker"
+    ],
+    "answer": "To combine two liquids that normally do not mix, such as oil and vinegar, by adding an emulsifier like egg yolk",
+    "explanation": "Emulsions (vinaigrettes, mayonnaise, hollandaise) rely on emulsifiers to stabilize disparate ingredients."
+  },
+  {
+    "id": 630,
+    "question_set": "home cooking general",
+    "prompt": "What is the purpose of mise en place?",
+    "options": [
+      "A type of sauce",
+      "Preparing and organizing all ingredients before cooking begins, reducing stress and errors",
+      "A French pastry term",
+      "To clean the kitchen before cooking"
+    ],
+    "answer": "Preparing and organizing all ingredients before cooking begins, reducing stress and errors",
+    "explanation": "Mise en place (everything in its place) enables smooth, efficient cooking workflow."
+  },
+  {
+    "id": 631,
+    "question_set": "home cooking general",
+    "prompt": "What is the difference between stock and broth?",
+    "options": [
+      "They are the same",
+      "Stock is made from bones and collagen for body; broth is made from meat and vegetables for flavor",
+      "Stock is instant; broth requires hours",
+      "Broth is thicker than stock"
+    ],
+    "answer": "Stock is made from bones and collagen for body; broth is made from meat and vegetables for flavor",
+    "explanation": "Both are flavorful liquids, but stock's gelatin content makes sauces richer; broth is more accessible for sipping."
+  },
+  {
+    "id": 632,
+    "question_set": "home cooking general",
+    "prompt": "Why should eggs be room temperature before baking?",
+    "options": [
+      "Cold eggs bake faster",
+      "Room-temperature eggs blend more smoothly into batters, creating uniform texture in baked goods",
+      "Temperature has no effect",
+      "Hot eggs improve rise in cakes"
+    ],
+    "answer": "Room-temperature eggs blend more smoothly into batters, creating uniform texture in baked goods",
+    "explanation": "Cold eggs resist blending, creating lumps and uneven texture; warmth promotes incorporation and emulsification."
+  },
+  {
+    "id": 633,
+    "question_set": "equinology general",
+    "prompt": "What are the main gaits of a horse?",
+    "options": [
+      "Trot and gallop only",
+      "Walk, trot, canter, and gallop",
+      "Canter and jump",
+      "Walk and gallop only"
+    ],
+    "answer": "Walk, trot, canter, and gallop",
+    "explanation": "These four gaits progress in speed and intensity; horses naturally transition between them."
+  },
+  {
+    "id": 634,
+    "question_set": "equinology general",
+    "prompt": "What is the purpose of a horse's mane and tail?",
+    "options": [
+      "Purely for aesthetics",
+      "To protect from insects and weather, and to communicate emotions through movement",
+      "To slow down movement",
+      "Only for show purposes"
+    ],
+    "answer": "To protect from insects and weather, and to communicate emotions through movement",
+    "explanation": "Mane and tail serve protective and social functions; they also indicate mood and stress levels."
+  },
+  {
+    "id": 635,
+    "question_set": "equinology general",
+    "prompt": "How often should a horse's hooves be trimmed?",
+    "options": [
+      "Once a year",
+      "Every 6–8 weeks to maintain health and prevent lameness",
+      "Never if the horse is shod",
+      "Only when visible overgrowth occurs"
+    ],
+    "answer": "Every 6–8 weeks to maintain health and prevent lameness",
+    "explanation": "Regular hoof care is essential; neglect leads to imbalance, lameness, and serious structural problems."
+  },
+  {
+    "id": 636,
+    "question_set": "equinology general",
+    "prompt": "What is the normal resting heart rate of a healthy horse?",
+    "options": [
+      "40–60 beats per minute",
+      "100–120 beats per minute",
+      "20–30 beats per minute",
+      "150+ beats per minute"
+    ],
+    "answer": "40–60 beats per minute",
+    "explanation": "A resting HR above 60 or below 40 may indicate stress, illness, or fitness issues requiring attention."
+  },
+  {
+    "id": 637,
+    "question_set": "equinology general",
+    "prompt": "How much water should a horse drink daily?",
+    "options": [
+      "5–10 gallons",
+      "30–50+ gallons, depending on activity and climate",
+      "100 gallons",
+      "Only when thirsty"
+    ],
+    "answer": "30–50+ gallons, depending on activity and climate",
+    "explanation": "Adequate water intake is critical for digestion, temperature regulation, and overall health."
+  },
+  {
+    "id": 638,
+    "question_set": "equinology general",
+    "prompt": "What does 'forward seat' refer to in riding?",
+    "options": [
+      "Sitting far back on the saddle",
+      "A balanced position slightly ahead of vertical, allowing the horse freedom of movement",
+      "A reclining position",
+      "Only used in show jumping"
+    ],
+    "answer": "A balanced position slightly ahead of vertical, allowing the horse freedom of movement",
+    "explanation": "Forward seat reduces stress on the horse's back and enables athletic engagement, especially over jumps."
+  },
+  {
+    "id": 639,
+    "question_set": "equinology general",
+    "prompt": "What is a farrier and why are they important?",
+    "options": [
+      "A horse trainer",
+      "A veterinarian who specializes in hoof care and shoeing horses",
+      "A nutritionist for horses",
+      "A horse groomer"
+    ],
+    "answer": "A veterinarian who specializes in hoof care and shoeing horses",
+    "explanation": "Farriers maintain hoof health and balance; poor farrier work can cause lameness and behavioral issues."
+  },
+  {
+    "id": 640,
+    "question_set": "equinology general",
+    "prompt": "What are the main signs of a healthy horse?",
+    "options": [
+      "High energy at all times",
+      "Clear eyes, smooth coat, normal appetite, alert demeanor, and good hoof condition",
+      "Excessive sweating",
+      "Frequent neighing"
+    ],
+    "answer": "Clear eyes, smooth coat, normal appetite, alert demeanor, and good hoof condition",
+    "explanation": "These visible indicators reflect overall health; changes warrant veterinary attention."
+  },
+  {
+    "id": 641,
+    "question_set": "equinology general",
+    "prompt": "What is colic in horses and why is it serious?",
+    "options": [
+      "A minor digestive upset that resolves on its own",
+      "Abdominal pain caused by digestive issues; it is serious and can be life-threatening",
+      "Inflammation of the leg",
+      "A skin condition"
+    ],
+    "answer": "Abdominal pain caused by digestive issues; it is serious and can be life-threatening",
+    "explanation": "Colic requires prompt veterinary care; delays can lead to permanent disability or death."
+  },
+  {
+    "id": 642,
+    "question_set": "equinology general",
+    "prompt": "What is the importance of desensitization training for horses?",
+    "options": [
+      "It makes horses nervous",
+      "Gradual exposure to stimuli reduces fear and builds confidence, creating safer, calmer horses",
+      "It is unnecessary for well-trained horses",
+      "It should only be done by professionals"
+    ],
+    "answer": "Gradual exposure to stimuli reduces fear and builds confidence, creating safer, calmer horses",
+    "explanation": "Desensitization prevents dangerous reactions to common sounds, sights, and situations."
+  },
+  {
+    "id": 643,
+    "question_set": "equinology general",
+    "prompt": "How long does a horse typically live?",
+    "options": [
+      "10–15 years",
+      "25–30 years or longer with proper care",
+      "5 years",
+      "40+ years for all horses"
+    ],
+    "answer": "25–30 years or longer with proper care",
+    "explanation": "Good nutrition, veterinary care, and shelter significantly extend lifespan and quality of life."
+  },
+  {
+    "id": 644,
+    "question_set": "equinology general",
+    "prompt": "What is the difference between a mare, stallion, and gelding?",
+    "options": [
+      "They are all the same",
+      "Mare is female, stallion is uncastrated male, gelding is castrated male",
+      "Mare is young; stallion is old",
+      "Gelding and mare are the same"
+    ],
+    "answer": "Mare is female, stallion is uncastrated male, gelding is castrated male",
+    "explanation": "These distinctions affect behavior, breeding potential, and general suitability for riding or breeding."
+  },
+  {
+    "id": 645,
+    "question_set": "equinology general",
+    "prompt": "What grooming practices are essential for horse health?",
+    "options": [
+      "Grooming is optional",
+      "Regular brushing, hoof picking, cleaning wounds, and checking for parasites or injuries",
+      "Only shampooing",
+      "Grooming once a month is sufficient"
+    ],
+    "answer": "Regular brushing, hoof picking, cleaning wounds, and checking for parasites or injuries",
+    "explanation": "Grooming promotes circulation, allows early detection of health issues, and strengthens horse-handler bonds."
+  },
+  {
+    "id": 646,
+    "question_set": "equinology general",
+    "prompt": "What should a horse's diet primarily consist of?",
+    "options": [
+      "Grain exclusively",
+      "Forage (hay or pasture grass) supplemented with grain and vitamins as needed",
+      "Only fresh grass year-round",
+      "Commercial pellets only"
+    ],
+    "answer": "Forage (hay or pasture grass) supplemented with grain and vitamins as needed",
+    "explanation": "Horses are herbivores requiring fiber for digestion; supplemental grain supports energy needs for work."
+  },
+  {
+    "id": 647,
+    "question_set": "equinology general",
+    "prompt": "What is 'turnout' and why is it important for horses?",
+    "options": [
+      "Selling a horse",
+      "Time spent outside in pasture allowing movement, grazing, and social interaction; essential for physical and mental health",
+      "A riding discipline",
+      "Removing a horse from training"
+    ],
+    "answer": "Time spent outside in pasture allowing movement, grazing, and social interaction; essential for physical and mental health",
+    "explanation": "Turnout prevents behavioral issues, maintains muscle tone, and supports natural grazing behaviors."
+  },
+  {
+    "id": 648,
+    "question_set": "equinology general",
+    "prompt": "What are the common riding disciplines?",
+    "options": [
+      "Only dressage exists",
+      "Dressage, jumping, western riding, endurance, and many others suited to different skills and interests",
+      "Jumping exclusively",
+      "Racing only"
+    ],
+    "answer": "Dressage, jumping, western riding, endurance, and many others suited to different skills and interests",
+    "explanation": "Different disciplines develop different skills; most riders explore multiple styles throughout their careers."
+  },
+  {
+    "id": 649,
+    "question_set": "equinology general",
+    "prompt": "What is the importance of proper saddle fit for a horse?",
+    "options": [
+      "Saddle fit does not matter",
+      "Poor fit causes pain, behavioral problems, and back injuries; proper fit ensures comfort and performance",
+      "Saddles are one-size-fits-all",
+      "Expensive saddles always fit correctly"
+    ],
+    "answer": "Poor fit causes pain, behavioral problems, and back injuries; proper fit ensures comfort and performance",
+    "explanation": "An ill-fitting saddle is a leading cause of lameness and behavioral resistance; professional fitting is recommended."
+  },
+  {
+    "id": 650,
+    "question_set": "equinology general",
+    "prompt": "What should be included in an emergency preparedness plan for horses?",
+    "options": [
+      "Nothing; emergencies are unpredictable",
+      "Evacuation routes, contact information for veterinarians, halters and leads, medical records, and shelter plans",
+      "Only veterinary insurance",
+      "Hoping for the best"
+    ],
+    "answer": "Evacuation routes, contact information for veterinarians, halters and leads, medical records, and shelter plans",
+    "explanation": "Preparation allows quick action during fires, floods, or other emergencies, potentially saving lives."
+  },
+  {
+    "id": 651,
+    "question_set": "equinology general",
+    "prompt": "What is the role of a horse trainer and when should you hire one?",
+    "options": [
+      "Trainers are unnecessary",
+      "Trainers develop skills, solve behavioral issues, and improve horse and rider partnership; hire for learning or problem-solving",
+      "Trainers only work with untrained horses",
+      "Professional trainers only work with competition-level riders"
+    ],
+    "answer": "Trainers develop skills, solve behavioral issues, and improve horse and rider partnership; hire for learning or problem-solving",
+    "explanation": "Good trainers accelerate progress, prevent bad habits, and foster safe, harmonious partnerships."
+  },
+  {
+    "id": 652,
+    "question_set": "equinology general",
+    "prompt": "What are laminitis and founder, and what causes them?",
+    "options": [
+      "They are two names for the same thing; caused by poor nutrition only",
+      "Lamina inflammation (laminitis) causing hoof separation; foundering is the permanent sinking of the coffin bone; caused by diet, endotoxins, trauma, or metabolic issues",
+      "These are fictional conditions",
+      "Only fat horses get this condition"
+    ],
+    "answer": "Lamina inflammation (laminitis) causing hoof separation; foundering is the permanent sinking of the coffin bone; caused by diet, endotoxins, trauma, or metabolic issues",
+    "explanation": "Laminitis is an emergency requiring immediate veterinary care to prevent founder, which is often career-ending or fatal."
   }
 ]

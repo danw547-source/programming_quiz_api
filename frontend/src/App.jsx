@@ -14,6 +14,7 @@ import Quiz from "./components/Quiz";
 const QUIZ_CATEGORIES = Object.freeze([
   { id: "programming", label: "Programming" },
   { id: "music-theory", label: "Music Theory" },
+  { id: "charlotte", label: "Charlotte" },
 ]);
 
 function App() {
