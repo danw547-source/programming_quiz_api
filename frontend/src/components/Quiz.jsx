@@ -1,12 +1,146 @@
 ﻿import { useCallback, useEffect, useState } from "react";
 import {
+  CHEAT_SHEET_ENDPOINT,
   getAnswerEndpoint,
+  getCheatSheet,
+  getQuestionSets,
   getQuestions,
+  QUESTION_SETS_ENDPOINT,
   QUESTIONS_ENDPOINT,
   submitAnswer,
 } from "../services/quizService";
 
 const OPTION_INDEX_BY_KEY = Object.freeze({ a: 0, b: 1, c: 2, d: 3 });
+
+function shuffleArray(array) {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
+  solid: { label: "SOLID", badge: "S", category: "programming" },
+  "solid principles": { label: "SOLID", badge: "S", category: "programming" },
+  "mvc model view controller beginner": { label: "MVC Beginner", badge: "MVC", category: "programming" },
+  "mvc model view controller intermediate": { label: "MVC Intermediate", badge: "MVC", category: "programming" },
+  "mvc model view controller expert": { label: "MVC Expert", badge: "MVC", category: "programming" },
+  "python beginner": { label: "Python Beginner", badge: "PY", category: "programming" },
+  "python intermediate": { label: "Python Intermediate", badge: "PY", category: "programming" },
+  "python expert": { label: "Python Expert", badge: "PY", category: "programming" },
+  "restful api": { label: "REST API", badge: "API", category: "programming" },
+  "music theory beginner": { label: "Music Theory Beginner", badge: "MT", category: "music-theory" },
+  "music theory intermediate": { label: "Music Theory Intermediate", badge: "MT", category: "music-theory" },
+  "music theory expert": { label: "Music Theory Expert", badge: "MT", category: "music-theory" },
+  "ear training fundamentals beginner": { label: "Ear Training Beginner", badge: "ET", category: "music-theory" },
+  "rhythm and meter mastery beginner": { label: "Rhythm and Meter", badge: "RM", category: "music-theory" },
+  "functional harmony foundations intermediate": { label: "Functional Harmony", badge: "FH", category: "music-theory" },
+  "melody and phrase construction intermediate": { label: "Melody and Phrase", badge: "MP", category: "music-theory" },
+  "sight reading and notation fluency intermediate": { label: "Sight Reading", badge: "SR", category: "music-theory" },
+  "circle of fifths and modulation intermediate": { label: "Circle and Modulation", badge: "CM", category: "music-theory" },
+  "counterpoint and voice leading advanced": { label: "Counterpoint and Voice Leading", badge: "CV", category: "music-theory" },
+  "form and analysis advanced": { label: "Form and Analysis", badge: "FA", category: "music-theory" },
+  "jazz harmony and improvisation language advanced": { label: "Jazz Harmony and Improvisation", badge: "JZ", category: "music-theory" },
+  "guitar comping and rhythm styles advanced": { label: "Guitar Comping and Rhythm", badge: "GC", category: "music-theory" },
+  "scales beginner": { label: "Scales Beginner", badge: "SC", category: "music-theory" },
+  "scales intermediate": { label: "Scales Intermediate", badge: "SC", category: "music-theory" },
+  "scales expert": { label: "Scales Expert", badge: "SC", category: "music-theory" },
+  "keyboard music theory beginner": { label: "Keyboard Theory Beginner", badge: "KB", category: "music-theory" },
+  "keyboard music theory intermediate": { label: "Keyboard Theory Intermediate", badge: "KB", category: "music-theory" },
+  "keyboard music theory expert": { label: "Keyboard Theory Expert", badge: "KB", category: "music-theory" },
+  "guitar based music theory beginner": { label: "Guitar Theory Beginner", badge: "GT", category: "music-theory" },
+  "guitar based music theory intermediate": { label: "Guitar Theory Intermediate", badge: "GT", category: "music-theory" },
+  "guitar based music theory expert": { label: "Guitar Theory Expert", badge: "GT", category: "music-theory" },
+});
+
+const formatQuestionSetLabel = (questionSet) => {
+  if (!questionSet) {
+    return "General";
+  }
+
+  return questionSet
+    .split(/[\s_-]+/)
+    .filter(Boolean)
+    .map((token) => token.charAt(0).toUpperCase() + token.slice(1))
+    .join(" ");
+};
+
+const getQuestionSetDisplay = (questionSet) => {
+  const normalized = questionSet?.trim().toLowerCase() ?? "";
+  const mapped = QUESTION_SET_DISPLAY_METADATA[normalized];
+
+  if (mapped) {
+    return mapped;
+  }
+
+  const fallbackLabel = formatQuestionSetLabel(questionSet);
+  return {
+    label: fallbackLabel,
+    badge: fallbackLabel
+      .split(" ")
+      .filter(Boolean)
+      .map((token) => token[0])
+      .join("")
+      .slice(0, 3)
+      .toUpperCase(),
+  };
+};
+
+const getQuestionSetCategory = (questionSet) => {
+  const normalized = questionSet?.trim().toLowerCase() ?? "";
+  return QUESTION_SET_DISPLAY_METADATA[normalized]?.category ?? "programming";
+};
+
+const getQuestionSetsForCategory = (questionSets, selectedCategory) => questionSets.filter(
+  (questionSet) => getQuestionSetCategory(questionSet) === selectedCategory,
+);
+
+const getCategoryLabel = (category) => {
+  if (category === "music-theory") {
+    return "Music Theory";
+  }
+
+  return "Programming";
+};
+
+const getAlternateCategory = (selectedCategory) => (selectedCategory === "music-theory" ? "programming" : "music-theory");
+
+const getPerformanceFeedback = (percentage) => {
+  if (percentage === 100) {
+    return {
+      label: "Perfect",
+      detail: "Outstanding round. You nailed every question.",
+    };
+  }
+
+  if (percentage >= 85) {
+    return {
+      label: "Excellent",
+      detail: "Strong understanding across this set.",
+    };
+  }
+
+  if (percentage >= 70) {
+    return {
+      label: "Good try",
+      detail: "Solid work. A quick review will sharpen the gaps.",
+    };
+  }
+
+  if (percentage >= 50) {
+    return {
+      label: "Keep practicing",
+      detail: "You are building momentum. Review missed concepts and run it again.",
+    };
+  }
+
+  return {
+    label: "Needs work",
+    detail: "Brush up a little and then take another pass.",
+  };
+};
 
 const getRequestFailureLabels = (err) => {
   const status = err?.response?.status;
@@ -16,15 +150,31 @@ const getRequestFailureLabels = (err) => {
   };
 };
 
-export default function Quiz({ isLightTheme }) {
+export default function Quiz({ isLightTheme, selectedCategory = "programming", onCategoryChange }) {
   const [questions, setQuestions] = useState([]);
+  const [allQuestions, setAllQuestions] = useState([]);
+  const [questionSets, setQuestionSets] = useState([]);
+  const [selectedQuestionSet, setSelectedQuestionSet] = useState("");
+  const [isQuestionSetPickerOpen, setIsQuestionSetPickerOpen] = useState(false);
+  const [isCheatSheetOpen, setIsCheatSheetOpen] = useState(false);
+  const [isCheatSheetLoading, setIsCheatSheetLoading] = useState(false);
+  const [cheatSheetEntries, setCheatSheetEntries] = useState([]);
+  const [cheatSheetQuestionSet, setCheatSheetQuestionSet] = useState("");
+  const [cheatSheetError, setCheatSheetError] = useState("");
+  const [isRetryRound, setIsRetryRound] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [incorrectAnswers, setIncorrectAnswers] = useState([]);
   const [result, setResult] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [score, setScore] = useState(0);
+  const selectedCategoryLabel = getCategoryLabel(selectedCategory);
+  const alternateCategory = getAlternateCategory(selectedCategory);
+  const alternateCategoryLabel = getCategoryLabel(alternateCategory);
+  const categoryQuestionSets = getQuestionSetsForCategory(questionSets, selectedCategory);
+  const alternateCategorySets = getQuestionSetsForCategory(questionSets, alternateCategory);
 
   const surfaceCardClasses = isLightTheme
     ? "border-[#c9d7f4] bg-white/90"
@@ -52,26 +202,99 @@ export default function Quiz({ isLightTheme }) {
     setError("");
   }, []);
 
-  // Fetch the full question set once and keep it in component state.
-  const loadQuestions = useCallback(async () => {
+  const resetRoundState = useCallback(() => {
+    setCurrentIndex(0);
+    clearQuestionState();
+    setScore(0);
+    setIncorrectAnswers([]);
+  }, [clearQuestionState]);
+
+  const loadQuestions = useCallback(async (questionSet) => {
     setIsLoading(true);
     setError("");
+
+    const querySuffix = questionSet ? `?question_set=${encodeURIComponent(questionSet)}` : "";
+
     try {
-      const data = await getQuestions();
-      setQuestions(data);
+      const data = await getQuestions(questionSet);
+      setAllQuestions(data);
+      setQuestions(shuffleArray(data));
+      setIsRetryRound(false);
     } catch (err) {
       const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
       setError(
-        `Unable to load quiz questions from ${QUESTIONS_ENDPOINT}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
+        `Unable to load quiz questions from ${QUESTIONS_ENDPOINT}${querySuffix}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
       );
     } finally {
       setIsLoading(false);
     }
   }, []);
 
+  const loadQuestionSets = useCallback(async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const sets = await getQuestionSets();
+      setQuestionSets(sets);
+
+      const filteredSets = getQuestionSetsForCategory(sets, selectedCategory);
+      const initialSet = filteredSets[0] ?? sets[0] ?? "";
+      setSelectedQuestionSet(initialSet);
+
+      const data = await getQuestions(initialSet || undefined);
+      setAllQuestions(data);
+      setQuestions(shuffleArray(data));
+      setIsRetryRound(false);
+    } catch (err) {
+      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
+      setError(
+        `Unable to load question sets from ${QUESTION_SETS_ENDPOINT}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }, [selectedCategory]);
+
   useEffect(() => {
-    void loadQuestions();
-  }, [loadQuestions]);
+    void loadQuestionSets();
+  }, [loadQuestionSets]);
+
+  useEffect(() => {
+    if (!questionSets.length) {
+      return;
+    }
+
+    const filteredSets = getQuestionSetsForCategory(questionSets, selectedCategory);
+    const nextSet = filteredSets[0] ?? "";
+
+    if (!filteredSets.length) {
+      setIsQuestionSetPickerOpen(false);
+      setIsCheatSheetOpen(false);
+      setCheatSheetEntries([]);
+      setCheatSheetQuestionSet("");
+      setCheatSheetError("");
+      setSelectedQuestionSet("");
+      setAllQuestions([]);
+      setQuestions([]);
+      setIsRetryRound(false);
+      resetRoundState();
+      return;
+    }
+
+    if (filteredSets.includes(selectedQuestionSet)) {
+      return;
+    }
+
+    setIsQuestionSetPickerOpen(false);
+    setIsCheatSheetOpen(false);
+    setCheatSheetEntries([]);
+    setCheatSheetQuestionSet("");
+    setCheatSheetError("");
+    setSelectedQuestionSet(nextSet);
+    resetRoundState();
+    void loadQuestions(nextSet || undefined);
+  }, [loadQuestions, questionSets, resetRoundState, selectedCategory, selectedQuestionSet]);
 
   const totalQuestions = questions.length;
   // Quiz is complete after the user advances past the last question index.
@@ -90,6 +313,23 @@ export default function Quiz({ isLightTheme }) {
     try {
       const response = await submitAnswer(question.id, selectedAnswer);
       setResult(response);
+
+      setIncorrectAnswers((previousAnswers) => {
+        if (response.correct || previousAnswers.some((answer) => answer.id === question.id)) {
+          return previousAnswers;
+        }
+
+        return [
+          ...previousAnswers,
+          {
+            id: question.id,
+            prompt: question.prompt,
+            selectedAnswer,
+            correctAnswer: response.correct_answer,
+            explanation: response.explanation,
+          },
+        ];
+      });
 
       if (response.correct) {
         setScore((prev) => prev + 1);
@@ -111,11 +351,125 @@ export default function Quiz({ isLightTheme }) {
   }, [clearQuestionState]);
 
   const restartQuiz = useCallback(() => {
-    // Full reset lets the user replay without reloading the page.
-    setCurrentIndex(0);
-    clearQuestionState();
-    setScore(0);
-  }, [clearQuestionState]);
+    if (isRetryRound) {
+      // In retry mode, return to the full set (reshuffled) before restarting.
+      setQuestions(shuffleArray(allQuestions));
+      setIsRetryRound(false);
+    } else {
+      // Reshuffle so replaying the same set presents questions in a new order.
+      setQuestions((prev) => shuffleArray(prev));
+    }
+
+    resetRoundState();
+  }, [allQuestions, isRetryRound, resetRoundState]);
+
+  const startRetryRound = useCallback(() => {
+    const questionById = new Map(allQuestions.map((item) => [item.id, item]));
+    const retryQuestions = incorrectAnswers
+      .map((item) => questionById.get(item.id))
+      .filter(Boolean);
+
+    if (!retryQuestions.length) {
+      return;
+    }
+
+    setQuestions(shuffleArray(retryQuestions));
+    setIsRetryRound(true);
+    resetRoundState();
+  }, [allQuestions, incorrectAnswers, resetRoundState]);
+
+  const openQuestionSetPicker = useCallback(() => {
+    setIsCheatSheetOpen(false);
+    setCheatSheetError("");
+    setIsQuestionSetPickerOpen(true);
+  }, []);
+
+  const closeQuestionSetPicker = useCallback(() => {
+    setIsQuestionSetPickerOpen(false);
+  }, []);
+
+  const closeCheatSheet = useCallback(() => {
+    setIsCheatSheetOpen(false);
+    setCheatSheetError("");
+  }, []);
+
+  const openCheatSheet = useCallback(async () => {
+    if (!selectedQuestionSet) {
+      return;
+    }
+
+    const selectedSet = selectedQuestionSet;
+    const querySuffix = `?question_set=${encodeURIComponent(selectedSet)}`;
+
+    setIsQuestionSetPickerOpen(false);
+    setIsCheatSheetOpen(true);
+    setIsCheatSheetLoading(true);
+    setCheatSheetError("");
+
+    try {
+      const response = await getCheatSheet(selectedSet);
+      const entryById = new Map(response.entries.map((entry) => [entry.id, entry]));
+      const currentQuestion = questions[currentIndex];
+      const currentEntry = currentQuestion ? entryById.get(currentQuestion.id) : undefined;
+
+      setCheatSheetQuestionSet(response.question_set);
+      setCheatSheetEntries(currentEntry ? [currentEntry] : []);
+    } catch (err) {
+      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
+      setCheatSheetEntries([]);
+      setCheatSheetError(
+        `Unable to load cheat sheet from ${CHEAT_SHEET_ENDPOINT}${querySuffix}${statusLabel}.${timeoutLabel} Please try again.`,
+      );
+    } finally {
+      setIsCheatSheetLoading(false);
+    }
+  }, [currentIndex, questions, selectedQuestionSet]);
+
+  const handleQuestionSetChange = useCallback(async (nextSet) => {
+    if (nextSet === selectedQuestionSet) {
+      return;
+    }
+
+    setIsCheatSheetOpen(false);
+    setCheatSheetEntries([]);
+    setCheatSheetQuestionSet("");
+    setCheatSheetError("");
+    setSelectedQuestionSet(nextSet);
+    resetRoundState();
+    await loadQuestions(nextSet || undefined);
+  }, [loadQuestions, resetRoundState, selectedQuestionSet]);
+
+  const handleQuestionSetPick = useCallback((nextSet) => {
+    closeQuestionSetPicker();
+    void handleQuestionSetChange(nextSet);
+  }, [closeQuestionSetPicker, handleQuestionSetChange]);
+
+  useEffect(() => {
+    if (!isQuestionSetPickerOpen && !isCheatSheetOpen) {
+      return undefined;
+    }
+
+    const handleEscape = (event) => {
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (isCheatSheetOpen) {
+        closeCheatSheet();
+        return;
+      }
+
+      closeQuestionSetPicker();
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [closeCheatSheet, closeQuestionSetPicker, isCheatSheetOpen, isQuestionSetPickerOpen]);
 
   useEffect(() => {
     if (!question || isFinished) {
@@ -123,6 +477,10 @@ export default function Quiz({ isLightTheme }) {
     }
 
     const handleKeyDown = (event) => {
+      if (isQuestionSetPickerOpen || isCheatSheetOpen) {
+        return;
+      }
+
       if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) {
         return;
       }
@@ -180,7 +538,7 @@ export default function Quiz({ isLightTheme }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleSubmit, isFinished, isSubmitting, nextQuestion, question, result, selectedAnswer]);
+  }, [handleSubmit, isCheatSheetOpen, isFinished, isQuestionSetPickerOpen, isSubmitting, nextQuestion, question, result, selectedAnswer]);
 
   if (isLoading) {
     return (
@@ -208,7 +566,7 @@ export default function Quiz({ isLightTheme }) {
       >
         <p className="text-sm">{error}</p>
         <button
-          onClick={() => void loadQuestions()}
+          onClick={() => void (categoryQuestionSets.length && selectedQuestionSet ? loadQuestions(selectedQuestionSet || undefined) : loadQuestionSets())}
           className={`mt-4 rounded-lg border px-4 py-2 text-sm font-semibold transition ${
             isLightTheme
               ? "border-rose-300 text-rose-800 hover:bg-rose-100"
@@ -222,20 +580,54 @@ export default function Quiz({ isLightTheme }) {
   }
 
   if (!questions.length) {
+    const hasAlternativeCategory = alternateCategorySets.length > 0;
+
     return (
       <div
         className={`rounded-2xl border p-5 ${neutralCardClasses} ${neutralTextClasses}`}
       >
-        No questions are available yet.
+        <p className="text-base font-semibold">No {selectedCategoryLabel} sets are available right now.</p>
+
+        {hasAlternativeCategory && typeof onCategoryChange === "function" ? (
+          <>
+            <p className={`mt-2 text-sm ${metaTextClasses}`}>
+              {alternateCategoryLabel} currently has {alternateCategorySets.length} available set{alternateCategorySets.length === 1 ? "" : "s"}.
+            </p>
+            <button
+              type="button"
+              onClick={() => onCategoryChange(alternateCategory)}
+              className="mt-4 rounded-xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-4 py-2.5 text-sm font-semibold text-white transition hover:brightness-110"
+            >
+              Switch to {alternateCategoryLabel}
+            </button>
+          </>
+        ) : (
+          <p className={`mt-2 text-sm ${metaTextClasses}`}>
+            Check back soon for more question sets in this category.
+          </p>
+        )}
       </div>
     );
   }
 
+  const activeQuestionSetDisplay = getQuestionSetDisplay(selectedQuestionSet);
+  const activeQuestionSetLabel = activeQuestionSetDisplay.label;
+  const activeQuestionSetBadge = activeQuestionSetDisplay.badge;
+  const cheatSheetSetDisplay = getQuestionSetDisplay(cheatSheetQuestionSet || selectedQuestionSet);
+
   if (isFinished) {
     const percentage = Math.round((score / totalQuestions) * 100);
-    const resultTone = percentage >= 70
+    const wrongCount = incorrectAnswers.length;
+    const performance = getPerformanceFeedback(percentage);
+    const restartButtonLabel = isRetryRound ? "Play full set again" : "Play again";
+    const resultTone = percentage >= 85
       ? (isLightTheme ? "text-emerald-700" : "text-emerald-200")
-      : (isLightTheme ? "text-amber-700" : "text-amber-200");
+      : percentage >= 70
+        ? (isLightTheme ? "text-violet-700" : "text-violet-200")
+        : percentage >= 50
+          ? (isLightTheme ? "text-amber-700" : "text-amber-200")
+          : (isLightTheme ? "text-rose-700" : "text-rose-200");
+    const reviewHintClasses = isLightTheme ? "text-slate-600" : "text-slate-200";
 
     return (
       <div
@@ -253,8 +645,14 @@ export default function Quiz({ isLightTheme }) {
             >
               You scored {score} / {totalQuestions}
             </h2>
+            <p className={`mt-2 text-base font-semibold uppercase tracking-[0.14em] ${resultTone}`}>
+              {performance.label}
+            </p>
             <p className={`mt-2 text-sm leading-relaxed ${resultTone}`}>
               Final accuracy: {percentage}% across the full round.
+            </p>
+            <p className={`mt-1 text-sm leading-relaxed ${reviewHintClasses}`}>
+              {performance.detail}
             </p>
           </div>
 
@@ -264,6 +662,8 @@ export default function Quiz({ isLightTheme }) {
           {[
             { label: "Correct Answers", value: score },
             { label: "Questions Played", value: totalQuestions },
+            { label: "Needs Review", value: wrongCount },
+            { label: "Question Set", value: activeQuestionSetLabel },
           ].map((item) => (
             <div key={item.label} className={summaryTileClasses}>
               <p className={`text-[11px] font-semibold uppercase tracking-[0.16em] ${summaryMetaTextClasses}`}>
@@ -274,12 +674,27 @@ export default function Quiz({ isLightTheme }) {
           ))}
         </div>
 
-        <button
-          onClick={restartQuiz}
-          className="mt-6 rounded-xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-5 py-3 text-sm font-bold text-white transition hover:brightness-110"
-        >
-          Play again
-        </button>
+        <div className="mx-auto mt-6 flex w-full max-w-140 flex-wrap items-center justify-center gap-3">
+          {!isRetryRound && wrongCount > 0 && (
+            <button
+              onClick={startRetryRound}
+              className={`w-full rounded-xl border px-5 py-3 text-sm font-semibold transition sm:w-58 ${
+                isLightTheme
+                  ? "border-[#bca8ff] bg-[#efe8ff] text-[#4f3a9e] hover:bg-[#e5dbff]"
+                  : "border-[#8f73df] bg-[#6e53bc]/30 text-[#e5dcff] hover:bg-[#7a5ccf]/35"
+              }`}
+            >
+              Retry missed questions
+            </button>
+          )}
+
+          <button
+            onClick={restartQuiz}
+            className="w-full rounded-xl bg-linear-to-r from-[#8f46ff] to-[#b260ff] px-5 py-3 text-sm font-bold text-white transition hover:brightness-110 sm:w-58"
+          >
+            {restartButtonLabel}
+          </button>
+        </div>
       </div>
     );
   }
@@ -300,22 +715,22 @@ export default function Quiz({ isLightTheme }) {
         <section className={`border-b pb-3 ${dividerTone}`}>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
             <div
-              className={`inline-flex max-w-fit items-center gap-3 rounded-2xl border px-3.5 py-3 sm:px-4 ${
+              className={`inline-flex w-full max-w-120 items-center gap-3 rounded-2xl border px-3.5 py-3 sm:px-4 ${
                 isLightTheme
                   ? "border-[#d7e1f9] bg-[#f7faff] text-[#334060]"
                   : "border-[#617192] bg-[#394866] text-slate-100"
               }`}
             >
               <div
-                className={`grid h-11 w-11 place-items-center rounded-xl text-base font-black ${
+                className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl text-[11px] font-black tracking-[0.08em] ${
                   isLightTheme
                     ? "bg-[#dff7e8] text-[#1b6c44]"
                     : "bg-[#c2f4d8] text-[#1b6c44]"
                 }`}
               >
-                S
+                {activeQuestionSetBadge || "GEN"}
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p
                   className={`text-[10px] font-semibold uppercase tracking-[0.18em] ${
                     isLightTheme ? "text-slate-500" : "text-slate-300"
@@ -324,10 +739,46 @@ export default function Quiz({ isLightTheme }) {
                   Topic
                 </p>
                 <p
-                  className={`text-lg font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${headingClasses}`}
+                  className={`mt-0.5 truncate text-lg font-semibold leading-none font-['Space_Grotesk'] sm:text-xl ${headingClasses}`}
                 >
-                  SOLID Principle
+                  {activeQuestionSetLabel}
                 </p>
+                <div className="mt-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={openQuestionSetPicker}
+                      disabled={!categoryQuestionSets.length || isLoading || isSubmitting}
+                      className={`inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                        isLightTheme
+                          ? "border-[#bfd0f4] bg-white text-[#334060] hover:bg-[#edf3ff]"
+                          : "border-[#7586aa] bg-[#334261] text-slate-100 hover:bg-[#3a4a6d]"
+                      } disabled:cursor-not-allowed disabled:opacity-60`}
+                      aria-haspopup="dialog"
+                      aria-expanded={isQuestionSetPickerOpen}
+                    >
+                      Change Set
+                      <span aria-hidden="true" className="text-[10px]">▾</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        void openCheatSheet();
+                      }}
+                      disabled={!selectedQuestionSet || isLoading || isSubmitting}
+                      className={`inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                        isLightTheme
+                          ? "border-[#d8b8ff] bg-[#f7efff] text-[#5c2f94] hover:bg-[#f0e3ff]"
+                          : "border-[#9e7cde] bg-[#6f53c0]/25 text-[#eadfff] hover:bg-[#7a5dd0]/30"
+                      } disabled:cursor-not-allowed disabled:opacity-60`}
+                      aria-haspopup="dialog"
+                      aria-expanded={isCheatSheetOpen}
+                    >
+                      Cheat Sheet
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -368,19 +819,11 @@ export default function Quiz({ isLightTheme }) {
         </section>
 
         <section key={`question-content-${question.id}`} className={`question-enter border-b py-3 ${dividerTone}`}>
-          <p
-            className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${accentTextClasses}`}
-          >
-            Question
-          </p>
           <h2
-            className={`mt-2 text-[1.15rem] font-bold leading-[1.25] sm:text-[1.4rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
+            className={`mt-2 text-[1.15rem] font-bold leading-tight sm:text-[1.4rem] lg:text-[1.5rem] font-['Space_Grotesk'] ${headingClasses}`}
           >
             {question.prompt}
           </h2>
-          <p className={`mt-3 text-sm leading-relaxed ${metaTextClasses}`}>
-            Choose the best answer.
-          </p>
           <p className={`mt-2 hidden text-sm sm:block ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
             Keyboard: Press A-D or use arrow keys to choose. Press Enter to submit or continue.
           </p>
@@ -524,6 +967,186 @@ export default function Quiz({ isLightTheme }) {
           )}
         </section>
       </div>
+
+      {isQuestionSetPickerOpen && (
+        <div
+          className="fixed inset-0 z-40 grid place-items-center bg-slate-950/45 p-4"
+          onClick={closeQuestionSetPicker}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="question-set-picker-title"
+            className={`w-full max-w-lg rounded-2xl border shadow-[0_20px_50px_rgba(2,6,23,0.35)] ${
+              isLightTheme
+                ? "border-[#c9d7f4] bg-[#f7faff] text-[#334060]"
+                : "border-[#617192] bg-[#2f3b59] text-slate-100"
+            }`}
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          >
+            <div className={`flex items-center justify-between border-b px-4 py-3 ${dividerTone}`}>
+              <p id="question-set-picker-title" className="text-sm font-semibold uppercase tracking-[0.12em]">
+                Choose Question Set
+              </p>
+              <button
+                type="button"
+                onClick={closeQuestionSetPicker}
+                className={`rounded-md border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                  isLightTheme
+                    ? "border-[#bfd0f4] hover:bg-[#edf3ff]"
+                    : "border-[#7586aa] hover:bg-[#3a4a6d]"
+                }`}
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="max-h-96 space-y-2 overflow-y-auto p-4">
+              {categoryQuestionSets.map((setName) => {
+                const setDisplay = getQuestionSetDisplay(setName);
+                const isActiveSet = setName === selectedQuestionSet;
+
+                return (
+                  <button
+                    key={setName}
+                    type="button"
+                    onClick={() => {
+                      handleQuestionSetPick(setName);
+                    }}
+                    className={`flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition ${
+                      isActiveSet
+                        ? (isLightTheme
+                            ? "border-[#8f46ff] bg-[#f2eaff] text-[#3a2a72]"
+                            : "border-[#b260ff] bg-[#7b52cb]/25 text-[#eadfff]")
+                        : (isLightTheme
+                            ? "border-[#c7d6f3] bg-white hover:bg-[#edf3ff]"
+                            : "border-[#607297] bg-[#3a496a] hover:bg-[#44557a]")
+                    }`}
+                  >
+                    <span
+                      className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[10px] font-black tracking-[0.08em] ${
+                        isLightTheme
+                          ? "bg-[#dff7e8] text-[#1b6c44]"
+                          : "bg-[#c2f4d8] text-[#1b6c44]"
+                      }`}
+                    >
+                      {setDisplay.badge || "GEN"}
+                    </span>
+                    <span className="flex-1 text-sm font-semibold">{setDisplay.label}</span>
+                    {isActiveSet && (
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.12em]">Active</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {isCheatSheetOpen && (
+        <div
+          className="fixed inset-0 z-40 grid place-items-center bg-slate-950/45 p-4"
+          onClick={closeCheatSheet}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cheat-sheet-dialog-title"
+            className={`w-full max-w-3xl rounded-2xl border shadow-[0_20px_50px_rgba(2,6,23,0.35)] ${
+              isLightTheme
+                ? "border-[#c9d7f4] bg-[#f7faff] text-[#334060]"
+                : "border-[#617192] bg-[#2f3b59] text-slate-100"
+            }`}
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          >
+            <div className={`flex items-center justify-between border-b px-4 py-3 ${dividerTone}`}>
+              <div>
+                <p id="cheat-sheet-dialog-title" className="text-sm font-semibold uppercase tracking-[0.12em]">
+                  {cheatSheetSetDisplay.label} Cheat Sheet
+                </p>
+                <p className={`mt-1 text-xs ${metaTextClasses}`}>
+                  Answer and explanation for question {currentIndex + 1} of {questions.length}.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={closeCheatSheet}
+                className={`rounded-md border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                  isLightTheme
+                    ? "border-[#bfd0f4] hover:bg-[#edf3ff]"
+                    : "border-[#7586aa] hover:bg-[#3a4a6d]"
+                }`}
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="max-h-[70vh] space-y-3 overflow-y-auto p-4">
+              {isCheatSheetLoading ? (
+                <div className={`rounded-xl border p-4 text-sm ${neutralCardClasses} ${neutralTextClasses}`}>
+                  Loading cheat sheet...
+                </div>
+              ) : cheatSheetError ? (
+                <div
+                  className={`rounded-xl border p-4 text-sm ${
+                    isLightTheme
+                      ? "border-rose-300 bg-rose-50 text-rose-800"
+                      : "border-rose-400/40 bg-rose-500/10 text-rose-100"
+                  }`}
+                >
+                  <p>{cheatSheetError}</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      void openCheatSheet();
+                    }}
+                    className={`mt-3 rounded-lg border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                      isLightTheme
+                        ? "border-rose-300 text-rose-800 hover:bg-rose-100"
+                        : "border-rose-300/50 hover:bg-rose-200/20"
+                    }`}
+                  >
+                    Retry
+                  </button>
+                </div>
+              ) : !cheatSheetEntries.length ? (
+                <div className={`rounded-xl border p-4 text-sm ${neutralCardClasses} ${neutralTextClasses}`}>
+                  No answer was found for the current question.
+                </div>
+              ) : (
+                cheatSheetEntries.map((entry) => (
+                  <article
+                    key={`cheat-sheet-entry-${entry.id}`}
+                    className={`rounded-xl border p-4 ${
+                      isLightTheme
+                        ? "border-[#d3e0fa] bg-white"
+                        : "border-[#5e7094] bg-[#384865]"
+                    }`}
+                  >
+                    <p className={`text-[10px] font-semibold uppercase tracking-[0.14em] ${accentTextClasses}`}>
+                      Question {currentIndex + 1}
+                    </p>
+                    <h3 className={`mt-1 text-sm font-semibold leading-relaxed ${headingClasses}`}>
+                      {entry.prompt}
+                    </h3>
+                    <p className={`mt-2 text-sm font-semibold ${isLightTheme ? "text-emerald-700" : "text-emerald-200"}`}>
+                      Answer: {entry.answer}
+                    </p>
+                    <p className={`mt-2 text-sm leading-relaxed ${isLightTheme ? "text-slate-600" : "text-slate-300"}`}>
+                      {entry.explanation}
+                    </p>
+                  </article>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,26 +1,54 @@
-from fastapi import APIRouter, HTTPException, Depends
+from typing import Annotated
+
+from fastapi import APIRouter, Depends, HTTPException, Query
+
 from app.services.quiz_service import QuizService
 from app.dependencies import get_quiz_service
-from app.schemas.answer import AnswerSubmission
+from app.schemas.answer import AnswerResult, AnswerSubmission
+from app.schemas.cheat_sheet import QuestionSetCheatSheet
+from app.schemas.question import QuestionSummary
 
-# This controller handles quiz-related endpoints, such as fetching quiz questions and submitting answers. It uses the QuizService to perform business logic related to quizzes.
 
-router = APIRouter() # Create an APIRouter instance for quiz-related endpoints
+QuizServiceDependency = Annotated[QuizService, Depends(get_quiz_service)]
 
-@router.get("/questions") # Endpoint to get quiz questions
-def get_questions(service: QuizService = Depends(get_quiz_service)):
-    return service.get_questions()
+router = APIRouter()
 
-@router.post("/answer/{question_id}") # Endpoint to submit an answer for a specific question
+
+@router.get("/question-sets", response_model=list[str])
+def get_question_sets(service: QuizServiceDependency):
+    return service.get_question_sets()
+
+
+@router.get("/questions", response_model=list[QuestionSummary])
+def get_questions(
+    service: QuizServiceDependency,
+    question_set: Annotated[str | None, Query(min_length=1, max_length=50)] = None,
+):
+    return service.get_questions(question_set=question_set)
+
+
+@router.get("/cheat-sheet", response_model=QuestionSetCheatSheet)
+def get_cheat_sheet(
+    service: QuizServiceDependency,
+    question_set: Annotated[str, Query(min_length=1, max_length=50)],
+):
+    cheat_sheet = service.get_cheat_sheet(question_set=question_set)
+    if cheat_sheet is None:
+        raise HTTPException(status_code=404, detail="Question set not found")
+
+    return cheat_sheet
+
+
+@router.post("/answer/{question_id}", response_model=AnswerResult)
 def submit_answer(
     question_id: int,
-    submission: AnswerSubmission, # The answer is received as a JSON request body to avoid it appearing in server logs
-    service: QuizService = Depends(get_quiz_service) # Inject the QuizService dependency using FastAPI's Depends function
+    submission: AnswerSubmission,
+    service: QuizServiceDependency,
 ):
-    
-    result = service.check_answer(question_id, submission.answer) # Check the submitted answer using the QuizService
-    
+
+    result = service.check_answer(question_id, submission.answer)
+
     if result is None:
-        raise HTTPException(status_code=404, detail="Question not found") # If the question is not found, raise a 404 HTTP exception
-    
-    return result # Return the result of checking the answer (e.g., whether it's correct or not)
+        raise HTTPException(status_code=404, detail="Question not found")
+
+    return result

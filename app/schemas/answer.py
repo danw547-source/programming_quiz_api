@@ -1,6 +1,15 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, Field
 
-# This file defines the data shape that the API expects when the user submits an answer.
-# Pydantic automatically validates that the request body contains an "answer" field as a string.
+
 class AnswerSubmission(BaseModel):
-    answer: str
+    model_config = ConfigDict(extra="forbid")
+
+    answer: str = Field(min_length=1)
+
+
+class AnswerResult(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    correct: bool
+    correct_answer: str
+    explanation: str

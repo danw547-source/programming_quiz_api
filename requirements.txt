@@ -1,3 +1,4 @@
+alembic==1.17.1
 annotated-types==0.7.0
 anyio==4.12.1
 click==8.3.1
@@ -12,6 +13,7 @@ pydantic==2.12.5
 pydantic_core==2.41.5
 Pygments==2.19.2
 pytest==9.0.2
+SQLAlchemy==2.0.44
 starlette==0.52.1
 typing-inspection==0.4.2
 typing_extensions==4.15.0

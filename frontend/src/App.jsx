@@ -1,17 +1,30 @@
 ﻿import { useEffect, useState } from "react";
 import Quiz from "./components/Quiz";
 
+const QUIZ_CATEGORIES = Object.freeze([
+  { id: "programming", label: "Programming" },
+  { id: "music-theory", label: "Music Theory" },
+]);
+
 function App() {
   // Initialize from localStorage to avoid a flicker on first render.
   const [isLightTheme, setIsLightTheme] = useState(() => {
     const storedTheme = localStorage.getItem("quiz-theme");
     return storedTheme === "light";
   });
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    const storedCategory = localStorage.getItem("quiz-category");
+    return storedCategory || "programming";
+  });
 
   // Persist theme changes so refreshes keep the same look and feel.
   useEffect(() => {
     localStorage.setItem("quiz-theme", isLightTheme ? "light" : "dark");
   }, [isLightTheme]);
+
+  useEffect(() => {
+    localStorage.setItem("quiz-category", selectedCategory);
+  }, [selectedCategory]);
 
   const pageClasses = isLightTheme
     ? "bg-[#eff3ff] text-slate-900"
@@ -60,8 +73,32 @@ function App() {
                   Beat the Backlog Quiz
                 </h1>
                 <p className={`mt-0.5 text-sm leading-relaxed sm:text-base ${subtitleClasses}`}>
-                  Core engineering fundamentals, one fast round at a time.
+                  Practical programming and music theory quizzes, one focused round at a time.
                 </p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  {QUIZ_CATEGORIES.map((category) => {
+                    const isActiveCategory = selectedCategory === category.id;
+                    const categoryButtonTone = isActiveCategory
+                      ? (isLightTheme
+                          ? "border-[#a98bff] bg-[#ece3ff] text-[#463391]"
+                          : "border-[#aa92f5] bg-[#7358c8]/40 text-[#e8ddff]")
+                      : (isLightTheme
+                          ? "border-[#c7d5f2] bg-white/90 text-[#4c5978] hover:bg-[#eef3ff]"
+                          : "border-[#6e7da0] bg-[#334261]/90 text-slate-200 hover:bg-[#3b4c70]");
+
+                    return (
+                      <button
+                        key={category.id}
+                        type="button"
+                        onClick={() => setSelectedCategory(category.id)}
+                        className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${categoryButtonTone}`}
+                        aria-pressed={isActiveCategory}
+                      >
+                        {category.label}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -94,7 +131,11 @@ function App() {
 
         <div className="app-enter min-h-0 flex-1 overflow-y-auto">
           <div className="mx-auto w-full max-w-180 pb-2">
-            <Quiz isLightTheme={isLightTheme} />
+            <Quiz
+              isLightTheme={isLightTheme}
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            />
           </div>
         </div>
       </section>

@@ -1,35 +1,67 @@
-# This file defines the QuizService class, which contains the business logic for the quiz application. The service interacts with the QuestionRepository to retrieve questions and check answers. It provides methods to get all questions and to check a user's answer for a specific question. The service is designed to be independent of the data source, allowing for flexibility in how questions are stored and retrieved.
-
 from app.repositories.question_repository import QuestionRepository
 
+
+def _normalize_question_set(question_set: str | None) -> str | None:
+    if question_set is None:
+        return None
+
+    normalized_question_set = question_set.strip().casefold()
+    return normalized_question_set or None
+
+
 class QuizService:
-    
     def __init__(self, repository: QuestionRepository):
         self.repository = repository
-        
-    def get_questions(self):
-        questions = self.repository.get_all()
-        
-        # Return only what the UI needs to render each question, keeping answers private.
+
+    def get_questions(self, question_set: str | None = None):
+        questions = self.repository.get_all(_normalize_question_set(question_set))
+
         return [
             {
                 "id": q.id,
+                "question_set": q.question_set,
                 "prompt": q.prompt,
-                "options": q.options
+                "options": q.options,
             }
             for q in questions
         ]
-        
+
+    def get_question_sets(self) -> list[str]:
+        return self.repository.get_question_sets()
+
+    def get_cheat_sheet(self, question_set: str):
+        normalized_question_set = _normalize_question_set(question_set)
+        if normalized_question_set is None:
+            return None
+
+        questions = self.repository.get_all(normalized_question_set)
+        if not questions:
+            return None
+
+        entries = [
+            {
+                "id": question.id,
+                "prompt": question.prompt,
+                "answer": question.answer,
+                "explanation": question.explanation,
+            }
+            for question in questions
+        ]
+
+        return {
+            "question_set": normalized_question_set,
+            "total_questions": len(entries),
+            "entries": entries,
+        }
+
     def check_answer(self, question_id: int, answer: str):
         question = self.repository.get_by_id(question_id)
-        
+
         if not question:
             return None
-        
-        # Delegate correctness rules to the model so answer matching behavior stays centralized.
+
         correct = question.check_answer(answer)
-        
-        # Include explanation and correct answer to support immediate feedback in the frontend.
+
         return {
             "correct": correct,
             "correct_answer": question.answer,

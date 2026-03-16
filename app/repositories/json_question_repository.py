@@ -1,30 +1,45 @@
 import json
-from typing import List
+
 from app.models.question import Question
 from app.repositories.question_repository import QuestionRepository
 
+
 class JsonQuestionRepository(QuestionRepository):
-    # This class implements the QuestionRepository interface and provides a way to load questions from a JSON file. The JSON file should contain an array of question objects, each with the same structure as the Question class.
-    def __init__(self, file_path:str):
+    def __init__(self, file_path: str):
         self.file_path = file_path
         self.questions = self.load_questions()
-        # Store questions in a dictionary keyed by id for fast O(1) lookup instead of scanning the whole list each time.
         self._questions_by_id = {q.id: q for q in self.questions}
 
-    # The load_questions method reads the JSON file, parses it, and creates a list of Question objects from the data. It uses a list comprehension to iterate over the parsed JSON data and unpack each question's attributes into the Question constructor.
-    def load_questions(self) -> List[Question]:
+    def load_questions(self) -> list[Question]:
         try:
-            with open(self.file_path, "r", encoding="utf-8") as file: # Open the JSON file in read mode using a context manager (with statement) to ensure that the file is properly closed after reading.
-                data = json.load(file)# Load the JSON data from the file and store it in the data variable. The json.load function reads the file and parses the JSON content into a Python data structure (in this case, a list of dictionaries).
+            with open(self.file_path, "r", encoding="utf-8") as file:
+                data = json.load(file)
         except FileNotFoundError:
             raise RuntimeError(f"Questions file not found: {self.file_path}")
         except json.JSONDecodeError as e:
             raise RuntimeError(f"Invalid JSON in questions file: {e}")
-            
-        return [Question(**q) for q in data]
-    
-    def get_all(self) -> List[Question]:
-        return self.questions
-    
-    def get_by_id(self, question_id:int) -> Question | None:
+
+        return [self._deserialize_question(question_data) for question_data in data]
+
+    def get_all(self, question_set: str | None = None) -> list[Question]:
+        if question_set is None:
+            return self.questions
+
+        return [question for question in self.questions if question.question_set == question_set]
+
+    def get_by_id(self, question_id: int) -> Question | None:
         return self._questions_by_id.get(question_id)
+
+    def get_question_sets(self) -> list[str]:
+        return sorted({question.question_set for question in self.questions})
+
+    @staticmethod
+    def _deserialize_question(question_data: dict) -> Question:
+        return Question(
+            id=question_data["id"],
+            question_set=question_data["question_set"],
+            prompt=question_data["prompt"],
+            options=question_data["options"],
+            answer=question_data["answer"],
+            explanation=question_data["explanation"],
+        )

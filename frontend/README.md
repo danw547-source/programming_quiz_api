@@ -2,7 +2,7 @@
 
 Quiz UI for the Programming Concepts Quiz project.
 
-This app loads questions from the FastAPI backend, submits answers, and shows instant correctness + explanation feedback.
+This app loads available question sets and questions from the FastAPI backend, lets users switch sets, submits answers, and shows instant correctness + explanation feedback.
 
 ## Scripts
 

@@ -2,12 +2,14 @@
 
 Full-stack quiz application with a FastAPI backend and a React + Vite frontend.
 
-The app serves SOLID-focused quiz questions, validates answers instantly, and returns explanations and score feedback per question.
+The app serves SOLID-focused quiz questions from a database, validates answers instantly, and returns explanations and score feedback per question.
 
 ## Tech Stack
 
 - Python 3.14
 - FastAPI + Uvicorn
+- SQLAlchemy + SQLite
+- Alembic
 - Pytest
 - React 19 + Vite
 - Tailwind CSS
@@ -18,7 +20,10 @@ The app serves SOLID-focused quiz questions, validates answers instantly, and re
 | Path | Purpose |
 |---|---|
 | `app/` | FastAPI backend (controllers, services, repositories, models) |
-| `app/data/questions.json` | Quiz question source data |
+| `app/database.py` | SQLAlchemy engine, session, models, and bootstrap logic |
+| `alembic/` | Database migration scripts |
+| `alembic.ini` | Alembic configuration |
+| `app/data/questions.json` | Seed data used to populate an empty database |
 | `frontend/` | React + Vite quiz UI |
 | `tests/` | Backend unit tests |
 
@@ -30,18 +35,25 @@ The backend follows a layered design to keep responsibilities separated:
 |---|---|
 | Controllers | HTTP routes and request/response handling |
 | Services | Core quiz logic |
-| Repositories | Data access abstraction |
+| Repositories | Data access abstraction over the database |
 | Models | Domain behavior (for example, answer validation) |
-| Dependencies | Dependency wiring and singleton service setup |
+| Dependencies | Request-scoped dependency wiring |
 
 ## API Endpoints
 
 | Method | Route | Description |
 |---|---|---|
-| `GET` | `/questions` | Fetch all quiz questions (without answers) |
+| `GET` | `/question-sets` | Fetch available quiz question sets |
+| `GET` | `/questions` | Fetch quiz questions, optionally filtered by `question_set` |
 | `POST` | `/answer/{question_id}` | Submit selected answer as JSON body |
 | `GET` | `/docs` | Swagger UI |
 | `GET` | `/redoc` | ReDoc |
+
+Example filtered questions request:
+
+```http
+GET /questions?question_set=solid
+```
 
 Example answer request body:
 
@@ -71,6 +83,28 @@ python -m uvicorn app.main:app --reload
 
 Backend runs at `http://127.0.0.1:8000`.
 
+On first startup, the API runs Alembic migrations and seeds `quiz.db` from `app/data/questions.json` if the database is empty.
+
+## Database Migrations
+
+From the repository root:
+
+```bash
+alembic upgrade head
+```
+
+Create a new migration:
+
+```bash
+alembic revision -m "describe change"
+```
+
+Apply one rollback step:
+
+```bash
+alembic downgrade -1
+```
+
 ### 3) Frontend setup
 
 ```bash
@@ -91,6 +125,8 @@ Frontend API configuration lives under `frontend/`:
 
 Key variables:
 
+- `DATABASE_URL` (optional): SQLAlchemy connection string. Defaults to a local SQLite database.
+- `QUESTION_SEED_FILE` (optional): path to the JSON seed file used when bootstrapping an empty database.
 - `VITE_API_URL` (required): backend base URL
 - `VITE_API_TIMEOUT_MS` (optional): request timeout in milliseconds (defaults to `10000`)
 
@@ -112,7 +148,8 @@ pytest tests/ -v
 ## Repository Highlights
 
 - FastAPI API with clean separation of concerns
-- Question repository abstraction and singleton service wiring
+- Database-backed question repository with `question_set` support
+- Alembic-managed schema with constraints and a `question_set,id` composite index
 - Immediate answer validation with explanation feedback
 - Theme-aware, responsive frontend UX
 - Unit tests for core quiz behavior

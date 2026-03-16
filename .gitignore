@@ -29,3 +29,6 @@ build/
 
 # Logs
 *.log
+
+# Local database files
+*.db

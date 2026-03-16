@@ -12,11 +12,27 @@ export const API_BASE_URL = normalizeApiUrl(
 const API_TIMEOUT_MS = Number(import.meta.env.VITE_API_TIMEOUT_MS ?? 10000);
 const apiClient = axios.create({ timeout: API_TIMEOUT_MS });
 
+export const QUESTION_SETS_ENDPOINT = `${API_BASE_URL}/question-sets`;
 export const QUESTIONS_ENDPOINT = `${API_BASE_URL}/questions`;
+export const CHEAT_SHEET_ENDPOINT = `${API_BASE_URL}/cheat-sheet`;
 export const getAnswerEndpoint = (questionId) => `${API_BASE_URL}/answer/${questionId}`;
 
-export const getQuestions = async () => {
-  const res = await apiClient.get(QUESTIONS_ENDPOINT);
+export const getQuestions = async (questionSet) => {
+  const res = await apiClient.get(QUESTIONS_ENDPOINT, {
+    params: questionSet ? { question_set: questionSet } : undefined,
+  });
+  return res.data;
+};
+
+export const getQuestionSets = async () => {
+  const res = await apiClient.get(QUESTION_SETS_ENDPOINT);
+  return res.data;
+};
+
+export const getCheatSheet = async (questionSet) => {
+  const res = await apiClient.get(CHEAT_SHEET_ENDPOINT, {
+    params: { question_set: questionSet },
+  });
   return res.data;
 };
 
