@@ -4179,7 +4179,7 @@
     "options": [
       "I and vi",
       "ii and IV",
-      "V and vii\u00b0",
+      "V and vii°",
       "iii and vi"
     ],
     "answer": "ii and IV",
@@ -4373,12 +4373,12 @@
     "prompt": "What is a common Roman numeral for the leading-tone triad in major?",
     "options": [
       "ii",
-      "vii\u00b0",
+      "vii°",
       "vi",
       "III"
     ],
-    "answer": "vii\u00b0",
-    "explanation": "The leading-tone triad is diminished and labeled vii\u00b0."
+    "answer": "vii°",
+    "explanation": "The leading-tone triad is diminished and labeled vii°."
   },
   {
     "id": 338,
@@ -9618,5 +9618,3385 @@
     ],
     "answer": "Time for DNS changes to update globally",
     "explanation": "DNS propagation is the period, typically up to 48 hours, it takes for updated DNS records to spread across all DNS servers worldwide."
+  },
+  {
+    "id": 741,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Microsoft 365 Admin Center'?",
+    "options": [
+      "The central portal used to manage users, licenses, and tenant-wide settings.",
+      "Per-user cloud storage for work files tied to an organization's Microsoft 365 account.",
+      "A security layer that protects email and collaboration workloads from phishing and malware.",
+      "A compliance rule that keeps or deletes content based on configured time and location criteria."
+    ],
+    "answer": "The central portal used to manage users, licenses, and tenant-wide settings.",
+    "explanation": "The Microsoft 365 Admin Center is the primary control plane for tenant administration."
+  },
+  {
+    "id": 742,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Exchange Online'?",
+    "options": [
+      "The cloud email and calendaring service included in Microsoft 365.",
+      "The collaboration app for chat, meetings, calling, and shared workspace integration.",
+      "A cloud service for endpoint management, app deployment, and device compliance policies.",
+      "A classification tag that can apply encryption, watermarking, or usage restrictions to content."
+    ],
+    "answer": "The cloud email and calendaring service included in Microsoft 365.",
+    "explanation": "Exchange Online hosts mailboxes, calendars, and mail flow in Microsoft's cloud."
+  },
+  {
+    "id": 743,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'SharePoint Online'?",
+    "options": [
+      "The Microsoft 365 service for team sites, intranets, and document collaboration.",
+      "A policy system that allows or blocks sign-in based on conditions like device, location, and risk.",
+      "The Outlook mechanism that automatically finds mailbox connection settings.",
+      "A compliance capability used to search, hold, and export content for legal or audit purposes."
+    ],
+    "answer": "The Microsoft 365 service for team sites, intranets, and document collaboration.",
+    "explanation": "SharePoint Online powers departmental sites and shared document libraries."
+  },
+  {
+    "id": 744,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'OneDrive for Business'?",
+    "options": [
+      "Per-user cloud storage for work files tied to an organization's Microsoft 365 account.",
+      "An authentication method requiring at least two verification factors before access is granted.",
+      "An Exchange transport rule that applies actions to messages matching specific conditions.",
+      "A mailbox multiple people can access without assigning each user a separate mailbox license in common cases."
+    ],
+    "answer": "Per-user cloud storage for work files tied to an organization's Microsoft 365 account.",
+    "explanation": "OneDrive for Business is each user's personal work file space in the cloud."
+  },
+  {
+    "id": 745,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Microsoft Teams'?",
+    "options": [
+      "The collaboration app for chat, meetings, calling, and shared workspace integration.",
+      "A security layer that protects email and collaboration workloads from phishing and malware.",
+      "A compliance rule that keeps or deletes content based on configured time and location criteria.",
+      "An email group that sends a message to multiple recipients through one address."
+    ],
+    "answer": "The collaboration app for chat, meetings, calling, and shared workspace integration.",
+    "explanation": "Teams combines communication and collaboration features in one platform."
+  },
+  {
+    "id": 746,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Conditional Access'?",
+    "options": [
+      "A policy system that allows or blocks sign-in based on conditions like device, location, and risk.",
+      "A cloud service for endpoint management, app deployment, and device compliance policies.",
+      "A classification tag that can apply encryption, watermarking, or usage restrictions to content.",
+      "The admin view that reports incidents, advisories, and service status across Microsoft 365."
+    ],
+    "answer": "A policy system that allows or blocks sign-in based on conditions like device, location, and risk.",
+    "explanation": "Conditional Access helps enforce zero-trust style access controls."
+  },
+  {
+    "id": 747,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Multi-Factor Authentication'?",
+    "options": [
+      "An authentication method requiring at least two verification factors before access is granted.",
+      "The Outlook mechanism that automatically finds mailbox connection settings.",
+      "A compliance capability used to search, hold, and export content for legal or audit purposes.",
+      "A measurement and recommendation system indicating the tenant's security posture."
+    ],
+    "answer": "An authentication method requiring at least two verification factors before access is granted.",
+    "explanation": "MFA reduces account takeover risk by adding a second factor beyond a password."
+  },
+  {
+    "id": 748,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Defender for Office 365'?",
+    "options": [
+      "A security layer that protects email and collaboration workloads from phishing and malware.",
+      "An Exchange transport rule that applies actions to messages matching specific conditions.",
+      "A mailbox multiple people can access without assigning each user a separate mailbox license in common cases.",
+      "The process of granting product entitlements to users so they can access specific Microsoft 365 services."
+    ],
+    "answer": "A security layer that protects email and collaboration workloads from phishing and malware.",
+    "explanation": "Defender for Office 365 adds advanced threat protection to Microsoft 365 communications."
+  },
+  {
+    "id": 749,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Microsoft Intune'?",
+    "options": [
+      "A cloud service for endpoint management, app deployment, and device compliance policies.",
+      "A compliance rule that keeps or deletes content based on configured time and location criteria.",
+      "An email group that sends a message to multiple recipients through one address.",
+      "An identity model that synchronizes or federates on-premises directory accounts with Microsoft Entra ID."
+    ],
+    "answer": "A cloud service for endpoint management, app deployment, and device compliance policies.",
+    "explanation": "Intune is used to manage mobile and desktop endpoints at scale."
+  },
+  {
+    "id": 750,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Autodiscover'?",
+    "options": [
+      "The Outlook mechanism that automatically finds mailbox connection settings.",
+      "A classification tag that can apply encryption, watermarking, or usage restrictions to content.",
+      "The admin view that reports incidents, advisories, and service status across Microsoft 365.",
+      "The central portal used to manage users, licenses, and tenant-wide settings."
+    ],
+    "answer": "The Outlook mechanism that automatically finds mailbox connection settings.",
+    "explanation": "Autodiscover simplifies client configuration by discovering server settings automatically."
+  },
+  {
+    "id": 751,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Mail Flow Rule'?",
+    "options": [
+      "An Exchange transport rule that applies actions to messages matching specific conditions.",
+      "A compliance capability used to search, hold, and export content for legal or audit purposes.",
+      "A measurement and recommendation system indicating the tenant's security posture.",
+      "The cloud email and calendaring service included in Microsoft 365."
+    ],
+    "answer": "An Exchange transport rule that applies actions to messages matching specific conditions.",
+    "explanation": "Mail flow rules can add disclaimers, block patterns, or route messages."
+  },
+  {
+    "id": 752,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Retention Policy'?",
+    "options": [
+      "A compliance rule that keeps or deletes content based on configured time and location criteria.",
+      "A mailbox multiple people can access without assigning each user a separate mailbox license in common cases.",
+      "The process of granting product entitlements to users so they can access specific Microsoft 365 services.",
+      "The Microsoft 365 service for team sites, intranets, and document collaboration."
+    ],
+    "answer": "A compliance rule that keeps or deletes content based on configured time and location criteria.",
+    "explanation": "Retention policies support lifecycle and records management requirements."
+  },
+  {
+    "id": 753,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Sensitivity Label'?",
+    "options": [
+      "A classification tag that can apply encryption, watermarking, or usage restrictions to content.",
+      "An email group that sends a message to multiple recipients through one address.",
+      "An identity model that synchronizes or federates on-premises directory accounts with Microsoft Entra ID.",
+      "Per-user cloud storage for work files tied to an organization's Microsoft 365 account."
+    ],
+    "answer": "A classification tag that can apply encryption, watermarking, or usage restrictions to content.",
+    "explanation": "Sensitivity labels protect data based on business impact and sharing rules."
+  },
+  {
+    "id": 754,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'eDiscovery'?",
+    "options": [
+      "A compliance capability used to search, hold, and export content for legal or audit purposes.",
+      "The admin view that reports incidents, advisories, and service status across Microsoft 365.",
+      "The central portal used to manage users, licenses, and tenant-wide settings.",
+      "The collaboration app for chat, meetings, calling, and shared workspace integration."
+    ],
+    "answer": "A compliance capability used to search, hold, and export content for legal or audit purposes.",
+    "explanation": "eDiscovery helps legal teams collect relevant Microsoft 365 data sets."
+  },
+  {
+    "id": 755,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Shared Mailbox'?",
+    "options": [
+      "A mailbox multiple people can access without assigning each user a separate mailbox license in common cases.",
+      "A measurement and recommendation system indicating the tenant's security posture.",
+      "The cloud email and calendaring service included in Microsoft 365.",
+      "A policy system that allows or blocks sign-in based on conditions like device, location, and risk."
+    ],
+    "answer": "A mailbox multiple people can access without assigning each user a separate mailbox license in common cases.",
+    "explanation": "Shared mailboxes are commonly used for role accounts like support@."
+  },
+  {
+    "id": 756,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Distribution List'?",
+    "options": [
+      "An email group that sends a message to multiple recipients through one address.",
+      "The process of granting product entitlements to users so they can access specific Microsoft 365 services.",
+      "The Microsoft 365 service for team sites, intranets, and document collaboration.",
+      "An authentication method requiring at least two verification factors before access is granted."
+    ],
+    "answer": "An email group that sends a message to multiple recipients through one address.",
+    "explanation": "Distribution lists simplify one-to-many communication."
+  },
+  {
+    "id": 757,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Service Health Dashboard'?",
+    "options": [
+      "The admin view that reports incidents, advisories, and service status across Microsoft 365.",
+      "An identity model that synchronizes or federates on-premises directory accounts with Microsoft Entra ID.",
+      "Per-user cloud storage for work files tied to an organization's Microsoft 365 account.",
+      "A security layer that protects email and collaboration workloads from phishing and malware."
+    ],
+    "answer": "The admin view that reports incidents, advisories, and service status across Microsoft 365.",
+    "explanation": "Service Health helps admins quickly confirm platform-side outages."
+  },
+  {
+    "id": 758,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Secure Score'?",
+    "options": [
+      "A measurement and recommendation system indicating the tenant's security posture.",
+      "The central portal used to manage users, licenses, and tenant-wide settings.",
+      "The collaboration app for chat, meetings, calling, and shared workspace integration.",
+      "A cloud service for endpoint management, app deployment, and device compliance policies."
+    ],
+    "answer": "A measurement and recommendation system indicating the tenant's security posture.",
+    "explanation": "Secure Score highlights actionable steps to improve identity and data protection."
+  },
+  {
+    "id": 759,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'License Assignment'?",
+    "options": [
+      "The process of granting product entitlements to users so they can access specific Microsoft 365 services.",
+      "The cloud email and calendaring service included in Microsoft 365.",
+      "A policy system that allows or blocks sign-in based on conditions like device, location, and risk.",
+      "The Outlook mechanism that automatically finds mailbox connection settings."
+    ],
+    "answer": "The process of granting product entitlements to users so they can access specific Microsoft 365 services.",
+    "explanation": "Without the right license assignment, users cannot use corresponding apps."
+  },
+  {
+    "id": 760,
+    "question_set": "office 365",
+    "prompt": "In Office 365 support, what best describes 'Hybrid Identity'?",
+    "options": [
+      "An identity model that synchronizes or federates on-premises directory accounts with Microsoft Entra ID.",
+      "The Microsoft 365 service for team sites, intranets, and document collaboration.",
+      "An authentication method requiring at least two verification factors before access is granted.",
+      "An Exchange transport rule that applies actions to messages matching specific conditions."
+    ],
+    "answer": "An identity model that synchronizes or federates on-premises directory accounts with Microsoft Entra ID.",
+    "explanation": "Hybrid identity enables a consistent login across local and cloud resources."
+  },
+  {
+    "id": 761,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Admin Console'?",
+    "options": [
+      "The central web interface for managing users, apps, security, and settings in a Workspace domain.",
+      "A team-owned Drive space where files belong to the group rather than an individual user.",
+      "The web-based word processor for collaborative document editing.",
+      "A policy framework that grants access based on user, device, and contextual trust signals."
+    ],
+    "answer": "The central web interface for managing users, apps, security, and settings in a Workspace domain.",
+    "explanation": "The Admin Console is where Workspace administrators configure tenant-wide policy."
+  },
+  {
+    "id": 762,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Gmail'?",
+    "options": [
+      "Google's email service for sending, receiving, and organizing messages.",
+      "The Workspace video conferencing service for calls, meetings, and webinars.",
+      "The web-based spreadsheet tool for calculations, analysis, and tabular collaboration.",
+      "The eDiscovery and retention tool for legal hold, search, and export of Workspace data."
+    ],
+    "answer": "Google's email service for sending, receiving, and organizing messages.",
+    "explanation": "Gmail is the primary mail platform in Google Workspace."
+  },
+  {
+    "id": 763,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Drive'?",
+    "options": [
+      "Cloud storage used for storing, sharing, and collaborating on files.",
+      "The scheduling service used to create events, share calendars, and manage meeting invites.",
+      "The web-based presentation app for creating and sharing slide decks.",
+      "A control that detects and can block sensitive data sharing in supported Google Workspace services."
+    ],
+    "answer": "Cloud storage used for storing, sharing, and collaborating on files.",
+    "explanation": "Google Drive provides centralized cloud storage with sharing controls."
+  },
+  {
+    "id": 764,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Shared Drive'?",
+    "options": [
+      "A team-owned Drive space where files belong to the group rather than an individual user.",
+      "Workspace messaging for direct messages, spaces, and threaded team conversation.",
+      "An identity control requiring a second verification step in addition to a password.",
+      "A logical container for users or devices used to scope policy settings."
+    ],
+    "answer": "A team-owned Drive space where files belong to the group rather than an individual user.",
+    "explanation": "Shared drives retain organizational ownership even if members leave."
+  },
+  {
+    "id": 765,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Meet'?",
+    "options": [
+      "The Workspace video conferencing service for calls, meetings, and webinars.",
+      "The web-based word processor for collaborative document editing.",
+      "A policy framework that grants access based on user, device, and contextual trust signals.",
+      "A mailing list and access control object used for communication and permissions."
+    ],
+    "answer": "The Workspace video conferencing service for calls, meetings, and webinars.",
+    "explanation": "Google Meet supports real-time video collaboration."
+  },
+  {
+    "id": 766,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Calendar'?",
+    "options": [
+      "The scheduling service used to create events, share calendars, and manage meeting invites.",
+      "The web-based spreadsheet tool for calculations, analysis, and tabular collaboration.",
+      "The eDiscovery and retention tool for legal hold, search, and export of Workspace data.",
+      "An authentication approach where users sign in once to access multiple connected applications."
+    ],
+    "answer": "The scheduling service used to create events, share calendars, and manage meeting invites.",
+    "explanation": "Google Calendar coordinates availability and meeting logistics."
+  },
+  {
+    "id": 767,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Chat'?",
+    "options": [
+      "Workspace messaging for direct messages, spaces, and threaded team conversation.",
+      "The web-based presentation app for creating and sharing slide decks.",
+      "A control that detects and can block sensitive data sharing in supported Google Workspace services.",
+      "A special one-time generated password used by older apps that cannot perform modern MFA flows."
+    ],
+    "answer": "Workspace messaging for direct messages, spaces, and threaded team conversation.",
+    "explanation": "Google Chat is used for day-to-day team communication."
+  },
+  {
+    "id": 768,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Docs'?",
+    "options": [
+      "The web-based word processor for collaborative document editing.",
+      "An identity control requiring a second verification step in addition to a password.",
+      "A logical container for users or devices used to scope policy settings.",
+      "Workspace capability for enforcing security requirements on enrolled mobile and desktop devices."
+    ],
+    "answer": "The web-based word processor for collaborative document editing.",
+    "explanation": "Docs enables multiple users to edit text content simultaneously."
+  },
+  {
+    "id": 769,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Sheets'?",
+    "options": [
+      "The web-based spreadsheet tool for calculations, analysis, and tabular collaboration.",
+      "A policy framework that grants access based on user, device, and contextual trust signals.",
+      "A mailing list and access control object used for communication and permissions.",
+      "Google's public page showing service disruptions and operational status updates."
+    ],
+    "answer": "The web-based spreadsheet tool for calculations, analysis, and tabular collaboration.",
+    "explanation": "Sheets supports formulas, charts, and shared data editing."
+  },
+  {
+    "id": 770,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Slides'?",
+    "options": [
+      "The web-based presentation app for creating and sharing slide decks.",
+      "The eDiscovery and retention tool for legal hold, search, and export of Workspace data.",
+      "An authentication approach where users sign in once to access multiple connected applications.",
+      "The central web interface for managing users, apps, security, and settings in a Workspace domain."
+    ],
+    "answer": "The web-based presentation app for creating and sharing slide decks.",
+    "explanation": "Slides allows collaborative development of presentations."
+  },
+  {
+    "id": 771,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes '2-Step Verification'?",
+    "options": [
+      "An identity control requiring a second verification step in addition to a password.",
+      "A control that detects and can block sensitive data sharing in supported Google Workspace services.",
+      "A special one-time generated password used by older apps that cannot perform modern MFA flows.",
+      "Google's email service for sending, receiving, and organizing messages."
+    ],
+    "answer": "An identity control requiring a second verification step in addition to a password.",
+    "explanation": "2-Step Verification lowers account compromise risk."
+  },
+  {
+    "id": 772,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Context-Aware Access'?",
+    "options": [
+      "A policy framework that grants access based on user, device, and contextual trust signals.",
+      "A logical container for users or devices used to scope policy settings.",
+      "Workspace capability for enforcing security requirements on enrolled mobile and desktop devices.",
+      "Cloud storage used for storing, sharing, and collaborating on files."
+    ],
+    "answer": "A policy framework that grants access based on user, device, and contextual trust signals.",
+    "explanation": "Context-Aware Access supports conditional security decisions."
+  },
+  {
+    "id": 773,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Vault'?",
+    "options": [
+      "The eDiscovery and retention tool for legal hold, search, and export of Workspace data.",
+      "A mailing list and access control object used for communication and permissions.",
+      "Google's public page showing service disruptions and operational status updates.",
+      "A team-owned Drive space where files belong to the group rather than an individual user."
+    ],
+    "answer": "The eDiscovery and retention tool for legal hold, search, and export of Workspace data.",
+    "explanation": "Vault is used for compliance investigations and records retention."
+  },
+  {
+    "id": 774,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Data Loss Prevention'?",
+    "options": [
+      "A control that detects and can block sensitive data sharing in supported Google Workspace services.",
+      "An authentication approach where users sign in once to access multiple connected applications.",
+      "The central web interface for managing users, apps, security, and settings in a Workspace domain.",
+      "The Workspace video conferencing service for calls, meetings, and webinars."
+    ],
+    "answer": "A control that detects and can block sensitive data sharing in supported Google Workspace services.",
+    "explanation": "DLP helps prevent accidental or unauthorized exposure of regulated data."
+  },
+  {
+    "id": 775,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Organizational Unit'?",
+    "options": [
+      "A logical container for users or devices used to scope policy settings.",
+      "A special one-time generated password used by older apps that cannot perform modern MFA flows.",
+      "Google's email service for sending, receiving, and organizing messages.",
+      "The scheduling service used to create events, share calendars, and manage meeting invites."
+    ],
+    "answer": "A logical container for users or devices used to scope policy settings.",
+    "explanation": "Organizational units allow different rules for different groups."
+  },
+  {
+    "id": 776,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Google Group'?",
+    "options": [
+      "A mailing list and access control object used for communication and permissions.",
+      "Workspace capability for enforcing security requirements on enrolled mobile and desktop devices.",
+      "Cloud storage used for storing, sharing, and collaborating on files.",
+      "Workspace messaging for direct messages, spaces, and threaded team conversation."
+    ],
+    "answer": "A mailing list and access control object used for communication and permissions.",
+    "explanation": "Groups can serve as both email distribution and authorization targets."
+  },
+  {
+    "id": 777,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Single Sign-On'?",
+    "options": [
+      "An authentication approach where users sign in once to access multiple connected applications.",
+      "Google's public page showing service disruptions and operational status updates.",
+      "A team-owned Drive space where files belong to the group rather than an individual user.",
+      "The web-based word processor for collaborative document editing."
+    ],
+    "answer": "An authentication approach where users sign in once to access multiple connected applications.",
+    "explanation": "SSO streamlines user login while centralizing identity control."
+  },
+  {
+    "id": 778,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'App Password'?",
+    "options": [
+      "A special one-time generated password used by older apps that cannot perform modern MFA flows.",
+      "The central web interface for managing users, apps, security, and settings in a Workspace domain.",
+      "The Workspace video conferencing service for calls, meetings, and webinars.",
+      "The web-based spreadsheet tool for calculations, analysis, and tabular collaboration."
+    ],
+    "answer": "A special one-time generated password used by older apps that cannot perform modern MFA flows.",
+    "explanation": "App passwords are legacy compatibility credentials and should be tightly controlled."
+  },
+  {
+    "id": 779,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Endpoint Management'?",
+    "options": [
+      "Workspace capability for enforcing security requirements on enrolled mobile and desktop devices.",
+      "Google's email service for sending, receiving, and organizing messages.",
+      "The scheduling service used to create events, share calendars, and manage meeting invites.",
+      "The web-based presentation app for creating and sharing slide decks."
+    ],
+    "answer": "Workspace capability for enforcing security requirements on enrolled mobile and desktop devices.",
+    "explanation": "Endpoint management lets admins require passcodes, encryption, and device state checks."
+  },
+  {
+    "id": 780,
+    "question_set": "google workspace",
+    "prompt": "In Google Workspace support, what best describes 'Workspace Status Dashboard'?",
+    "options": [
+      "Google's public page showing service disruptions and operational status updates.",
+      "Cloud storage used for storing, sharing, and collaborating on files.",
+      "Workspace messaging for direct messages, spaces, and threaded team conversation.",
+      "An identity control requiring a second verification step in addition to a password."
+    ],
+    "answer": "Google's public page showing service disruptions and operational status updates.",
+    "explanation": "The status dashboard helps distinguish local problems from platform incidents."
+  },
+  {
+    "id": 781,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'PAR-Q'?",
+    "options": [
+      "A pre-exercise health questionnaire used to identify whether medical clearance is needed before training.",
+      "A gradual reduction in exercise intensity after training to support recovery.",
+      "The range of motion available at a joint or series of joints.",
+      "A condition or sign indicating an exercise should be modified or avoided."
+    ],
+    "answer": "A pre-exercise health questionnaire used to identify whether medical clearance is needed before training.",
+    "explanation": "PAR-Q screening helps instructors identify red flags before exercise starts."
+  },
+  {
+    "id": 782,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'FITT Principle'?",
+    "options": [
+      "A planning framework using frequency, intensity, time, and type to structure exercise.",
+      "A perceived effort scale used to estimate exercise intensity based on how hard the activity feels.",
+      "Maintaining adequate fluid balance before, during, and after activity.",
+      "Providing physical and verbal assistance during lifts to improve safety and confidence."
+    ],
+    "answer": "A planning framework using frequency, intensity, time, and type to structure exercise.",
+    "explanation": "FITT gives beginners a clear way to progress training variables."
+  },
+  {
+    "id": 783,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Warm-Up'?",
+    "options": [
+      "A low-to-moderate preparation phase that raises body temperature and readies joints and muscles for exercise.",
+      "Sustained activity primarily using oxygen-based energy production such as brisk walking or cycling.",
+      "A natural spinal alignment position used to reduce unnecessary stress during movement.",
+      "Active movement-based stretching performed through controlled range of motion before activity."
+    ],
+    "answer": "A low-to-moderate preparation phase that raises body temperature and readies joints and muscles for exercise.",
+    "explanation": "A proper warm-up improves performance and reduces injury risk."
+  },
+  {
+    "id": 784,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Cool-Down'?",
+    "options": [
+      "A gradual reduction in exercise intensity after training to support recovery.",
+      "Exercise using external load or body weight to improve muscular strength and endurance.",
+      "The gradual increase of training demand over time to continue adaptation.",
+      "Holding a muscle in a lengthened position for a period of time, often after exercise."
+    ],
+    "answer": "A gradual reduction in exercise intensity after training to support recovery.",
+    "explanation": "Cool-down periods help normalize breathing and heart rate post-session."
+  },
+  {
+    "id": 785,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'RPE Scale'?",
+    "options": [
+      "A perceived effort scale used to estimate exercise intensity based on how hard the activity feels.",
+      "The range of motion available at a joint or series of joints.",
+      "A condition or sign indicating an exercise should be modified or avoided.",
+      "Delayed onset muscle soreness that appears hours after unfamiliar or high-load exercise."
+    ],
+    "answer": "A perceived effort scale used to estimate exercise intensity based on how hard the activity feels.",
+    "explanation": "RPE helps guide effort without relying only on devices."
+  },
+  {
+    "id": 786,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Aerobic Exercise'?",
+    "options": [
+      "Sustained activity primarily using oxygen-based energy production such as brisk walking or cycling.",
+      "Maintaining adequate fluid balance before, during, and after activity.",
+      "Providing physical and verbal assistance during lifts to improve safety and confidence.",
+      "A planned day with no intense training to allow recovery and adaptation."
+    ],
+    "answer": "Sustained activity primarily using oxygen-based energy production such as brisk walking or cycling.",
+    "explanation": "Aerobic work builds cardiovascular endurance."
+  },
+  {
+    "id": 787,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Resistance Training'?",
+    "options": [
+      "Exercise using external load or body weight to improve muscular strength and endurance.",
+      "A natural spinal alignment position used to reduce unnecessary stress during movement.",
+      "Active movement-based stretching performed through controlled range of motion before activity.",
+      "A body mass index screening value calculated from weight and height."
+    ],
+    "answer": "Exercise using external load or body weight to improve muscular strength and endurance.",
+    "explanation": "Resistance training develops muscle function and bone support."
+  },
+  {
+    "id": 788,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Flexibility'?",
+    "options": [
+      "The range of motion available at a joint or series of joints.",
+      "The gradual increase of training demand over time to continue adaptation.",
+      "Holding a muscle in a lengthened position for a period of time, often after exercise.",
+      "An intended heart-rate range used to guide cardio intensity."
+    ],
+    "answer": "The range of motion available at a joint or series of joints.",
+    "explanation": "Flexibility influences movement quality and comfort."
+  },
+  {
+    "id": 789,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Hydration'?",
+    "options": [
+      "Maintaining adequate fluid balance before, during, and after activity.",
+      "A condition or sign indicating an exercise should be modified or avoided.",
+      "Delayed onset muscle soreness that appears hours after unfamiliar or high-load exercise.",
+      "The ability to consistently follow a training plan over time."
+    ],
+    "answer": "Maintaining adequate fluid balance before, during, and after activity.",
+    "explanation": "Hydration supports temperature regulation and performance."
+  },
+  {
+    "id": 790,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Neutral Spine'?",
+    "options": [
+      "A natural spinal alignment position used to reduce unnecessary stress during movement.",
+      "Providing physical and verbal assistance during lifts to improve safety and confidence.",
+      "A planned day with no intense training to allow recovery and adaptation.",
+      "A pre-exercise health questionnaire used to identify whether medical clearance is needed before training."
+    ],
+    "answer": "A natural spinal alignment position used to reduce unnecessary stress during movement.",
+    "explanation": "Teaching neutral spine helps protect the back during exercise."
+  },
+  {
+    "id": 791,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Progressive Overload'?",
+    "options": [
+      "The gradual increase of training demand over time to continue adaptation.",
+      "Active movement-based stretching performed through controlled range of motion before activity.",
+      "A body mass index screening value calculated from weight and height.",
+      "A planning framework using frequency, intensity, time, and type to structure exercise."
+    ],
+    "answer": "The gradual increase of training demand over time to continue adaptation.",
+    "explanation": "Without progressive overload, fitness improvements plateau."
+  },
+  {
+    "id": 792,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Contraindication'?",
+    "options": [
+      "A condition or sign indicating an exercise should be modified or avoided.",
+      "Holding a muscle in a lengthened position for a period of time, often after exercise.",
+      "An intended heart-rate range used to guide cardio intensity.",
+      "A low-to-moderate preparation phase that raises body temperature and readies joints and muscles for exercise."
+    ],
+    "answer": "A condition or sign indicating an exercise should be modified or avoided.",
+    "explanation": "Recognizing contraindications is essential for safe session delivery."
+  },
+  {
+    "id": 793,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Spotting'?",
+    "options": [
+      "Providing physical and verbal assistance during lifts to improve safety and confidence.",
+      "Delayed onset muscle soreness that appears hours after unfamiliar or high-load exercise.",
+      "The ability to consistently follow a training plan over time.",
+      "A gradual reduction in exercise intensity after training to support recovery."
+    ],
+    "answer": "Providing physical and verbal assistance during lifts to improve safety and confidence.",
+    "explanation": "Spotting is especially important for exercises near failure."
+  },
+  {
+    "id": 794,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Dynamic Stretching'?",
+    "options": [
+      "Active movement-based stretching performed through controlled range of motion before activity.",
+      "A planned day with no intense training to allow recovery and adaptation.",
+      "A pre-exercise health questionnaire used to identify whether medical clearance is needed before training.",
+      "A perceived effort scale used to estimate exercise intensity based on how hard the activity feels."
+    ],
+    "answer": "Active movement-based stretching performed through controlled range of motion before activity.",
+    "explanation": "Dynamic stretching is commonly used in warm-ups."
+  },
+  {
+    "id": 795,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Static Stretching'?",
+    "options": [
+      "Holding a muscle in a lengthened position for a period of time, often after exercise.",
+      "A body mass index screening value calculated from weight and height.",
+      "A planning framework using frequency, intensity, time, and type to structure exercise.",
+      "Sustained activity primarily using oxygen-based energy production such as brisk walking or cycling."
+    ],
+    "answer": "Holding a muscle in a lengthened position for a period of time, often after exercise.",
+    "explanation": "Static stretching is typically used to improve flexibility over time."
+  },
+  {
+    "id": 796,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'DOMS'?",
+    "options": [
+      "Delayed onset muscle soreness that appears hours after unfamiliar or high-load exercise.",
+      "An intended heart-rate range used to guide cardio intensity.",
+      "A low-to-moderate preparation phase that raises body temperature and readies joints and muscles for exercise.",
+      "Exercise using external load or body weight to improve muscular strength and endurance."
+    ],
+    "answer": "Delayed onset muscle soreness that appears hours after unfamiliar or high-load exercise.",
+    "explanation": "DOMS is a common adaptation response, especially after new stimuli."
+  },
+  {
+    "id": 797,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Rest Day'?",
+    "options": [
+      "A planned day with no intense training to allow recovery and adaptation.",
+      "The ability to consistently follow a training plan over time.",
+      "A gradual reduction in exercise intensity after training to support recovery.",
+      "The range of motion available at a joint or series of joints."
+    ],
+    "answer": "A planned day with no intense training to allow recovery and adaptation.",
+    "explanation": "Rest days are part of productive programming, not a setback."
+  },
+  {
+    "id": 798,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'BMI'?",
+    "options": [
+      "A body mass index screening value calculated from weight and height.",
+      "A pre-exercise health questionnaire used to identify whether medical clearance is needed before training.",
+      "A perceived effort scale used to estimate exercise intensity based on how hard the activity feels.",
+      "Maintaining adequate fluid balance before, during, and after activity."
+    ],
+    "answer": "A body mass index screening value calculated from weight and height.",
+    "explanation": "BMI is a broad population-level indicator and should be interpreted with context."
+  },
+  {
+    "id": 799,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Target Heart Rate Zone'?",
+    "options": [
+      "An intended heart-rate range used to guide cardio intensity.",
+      "A planning framework using frequency, intensity, time, and type to structure exercise.",
+      "Sustained activity primarily using oxygen-based energy production such as brisk walking or cycling.",
+      "A natural spinal alignment position used to reduce unnecessary stress during movement."
+    ],
+    "answer": "An intended heart-rate range used to guide cardio intensity.",
+    "explanation": "Target zones help participants train at the right intensity for their goal."
+  },
+  {
+    "id": 800,
+    "question_set": "fitness instructing level 1",
+    "prompt": "In fitness instructing level 1, what best describes 'Exercise Adherence'?",
+    "options": [
+      "The ability to consistently follow a training plan over time.",
+      "A low-to-moderate preparation phase that raises body temperature and readies joints and muscles for exercise.",
+      "Exercise using external load or body weight to improve muscular strength and endurance.",
+      "The gradual increase of training demand over time to continue adaptation."
+    ],
+    "answer": "The ability to consistently follow a training plan over time.",
+    "explanation": "Long-term adherence is a stronger predictor of results than short bursts of effort."
+  },
+  {
+    "id": 801,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Periodization'?",
+    "options": [
+      "A long-term training structure that organizes phases to peak adaptation and manage fatigue.",
+      "A short training cycle, often one week, detailing day-to-day sessions.",
+      "The controlled speed of each repetition phase, often written as four numbers.",
+      "The intensity at which lactate accumulates faster than it can be cleared."
+    ],
+    "answer": "A long-term training structure that organizes phases to peak adaptation and manage fatigue.",
+    "explanation": "Periodization helps avoid stagnation by sequencing training goals."
+  },
+  {
+    "id": 802,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Macrocycle'?",
+    "options": [
+      "The largest training cycle, often covering several months up to a year.",
+      "The concept that adaptation is specific to the exact demands placed on the body.",
+      "Two exercises performed back-to-back with minimal rest.",
+      "The ability to actively control movement through usable joint range."
+    ],
+    "answer": "The largest training cycle, often covering several months up to a year.",
+    "explanation": "Macrocycles provide the high-level roadmap for a training plan."
+  },
+  {
+    "id": 803,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Mesocycle'?",
+    "options": [
+      "A medium training block, typically several weeks, focused on a specific adaptation.",
+      "A multi-joint movement training several muscle groups at once, such as a squat.",
+      "A sequence of multiple exercises completed in rounds with planned transitions.",
+      "A planned reduction in training stress to promote recovery and maintain progress."
+    ],
+    "answer": "A medium training block, typically several weeks, focused on a specific adaptation.",
+    "explanation": "Mesocycles break a macrocycle into manageable targeted phases."
+  },
+  {
+    "id": 804,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Microcycle'?",
+    "options": [
+      "A short training cycle, often one week, detailing day-to-day sessions.",
+      "A movement emphasizing a single joint or primary muscle group.",
+      "The maximal rate at which the body can use oxygen during intense exercise.",
+      "The total amount of work performed, often tracked as sets x reps x load."
+    ],
+    "answer": "A short training cycle, often one week, detailing day-to-day sessions.",
+    "explanation": "Microcycles define practical weekly programming execution."
+  },
+  {
+    "id": 805,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'SAID Principle'?",
+    "options": [
+      "The concept that adaptation is specific to the exact demands placed on the body.",
+      "The controlled speed of each repetition phase, often written as four numbers.",
+      "The intensity at which lactate accumulates faster than it can be cleared.",
+      "How hard the effort is relative to maximum capacity, often load or effort-based."
+    ],
+    "answer": "The concept that adaptation is specific to the exact demands placed on the body.",
+    "explanation": "Specific Adaptation to Imposed Demands means training must match the goal."
+  },
+  {
+    "id": 806,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Compound Exercise'?",
+    "options": [
+      "A multi-joint movement training several muscle groups at once, such as a squat.",
+      "Two exercises performed back-to-back with minimal rest.",
+      "The ability to actively control movement through usable joint range.",
+      "Adjusting session load or volume based on current readiness and performance."
+    ],
+    "answer": "A multi-joint movement training several muscle groups at once, such as a squat.",
+    "explanation": "Compound lifts are efficient for strength and coordination."
+  },
+  {
+    "id": 807,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Isolation Exercise'?",
+    "options": [
+      "A movement emphasizing a single joint or primary muscle group.",
+      "A sequence of multiple exercises completed in rounds with planned transitions.",
+      "A planned reduction in training stress to promote recovery and maintain progress.",
+      "A structured observation process to identify mobility or stability limitations."
+    ],
+    "answer": "A movement emphasizing a single joint or primary muscle group.",
+    "explanation": "Isolation work helps target weak points or specific hypertrophy goals."
+  },
+  {
+    "id": 808,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Training Tempo'?",
+    "options": [
+      "The controlled speed of each repetition phase, often written as four numbers.",
+      "The maximal rate at which the body can use oxygen during intense exercise.",
+      "The total amount of work performed, often tracked as sets x reps x load.",
+      "The ATP-PC, glycolytic, and oxidative pathways used to fuel activity."
+    ],
+    "answer": "The controlled speed of each repetition phase, often written as four numbers.",
+    "explanation": "Tempo influences time under tension and movement control."
+  },
+  {
+    "id": 809,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Superset'?",
+    "options": [
+      "Two exercises performed back-to-back with minimal rest.",
+      "The intensity at which lactate accumulates faster than it can be cleared.",
+      "How hard the effort is relative to maximum capacity, often load or effort-based.",
+      "Strategic timing of protein and carbohydrate intake around training sessions."
+    ],
+    "answer": "Two exercises performed back-to-back with minimal rest.",
+    "explanation": "Supersets increase density and can target complementary patterns."
+  },
+  {
+    "id": 810,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Circuit Training'?",
+    "options": [
+      "A sequence of multiple exercises completed in rounds with planned transitions.",
+      "The ability to actively control movement through usable joint range.",
+      "Adjusting session load or volume based on current readiness and performance.",
+      "A long-term training structure that organizes phases to peak adaptation and manage fatigue."
+    ],
+    "answer": "A sequence of multiple exercises completed in rounds with planned transitions.",
+    "explanation": "Circuit formats blend conditioning and resistance work efficiently."
+  },
+  {
+    "id": 811,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'VO2 Max'?",
+    "options": [
+      "The maximal rate at which the body can use oxygen during intense exercise.",
+      "A planned reduction in training stress to promote recovery and maintain progress.",
+      "A structured observation process to identify mobility or stability limitations.",
+      "The largest training cycle, often covering several months up to a year."
+    ],
+    "answer": "The maximal rate at which the body can use oxygen during intense exercise.",
+    "explanation": "VO2 max is a key marker of aerobic fitness capacity."
+  },
+  {
+    "id": 812,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Lactate Threshold'?",
+    "options": [
+      "The intensity at which lactate accumulates faster than it can be cleared.",
+      "The total amount of work performed, often tracked as sets x reps x load.",
+      "The ATP-PC, glycolytic, and oxidative pathways used to fuel activity.",
+      "A medium training block, typically several weeks, focused on a specific adaptation."
+    ],
+    "answer": "The intensity at which lactate accumulates faster than it can be cleared.",
+    "explanation": "Improving threshold supports sustained higher-intensity endurance performance."
+  },
+  {
+    "id": 813,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Mobility'?",
+    "options": [
+      "The ability to actively control movement through usable joint range.",
+      "How hard the effort is relative to maximum capacity, often load or effort-based.",
+      "Strategic timing of protein and carbohydrate intake around training sessions.",
+      "A short training cycle, often one week, detailing day-to-day sessions."
+    ],
+    "answer": "The ability to actively control movement through usable joint range.",
+    "explanation": "Mobility combines flexibility, strength, and motor control."
+  },
+  {
+    "id": 814,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Deload Week'?",
+    "options": [
+      "A planned reduction in training stress to promote recovery and maintain progress.",
+      "Adjusting session load or volume based on current readiness and performance.",
+      "A long-term training structure that organizes phases to peak adaptation and manage fatigue.",
+      "The concept that adaptation is specific to the exact demands placed on the body."
+    ],
+    "answer": "A planned reduction in training stress to promote recovery and maintain progress.",
+    "explanation": "Deloads reduce fatigue and improve readiness for the next hard block."
+  },
+  {
+    "id": 815,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Training Volume'?",
+    "options": [
+      "The total amount of work performed, often tracked as sets x reps x load.",
+      "A structured observation process to identify mobility or stability limitations.",
+      "The largest training cycle, often covering several months up to a year.",
+      "A multi-joint movement training several muscle groups at once, such as a squat."
+    ],
+    "answer": "The total amount of work performed, often tracked as sets x reps x load.",
+    "explanation": "Volume is a primary driver for many adaptations, especially hypertrophy."
+  },
+  {
+    "id": 816,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Training Intensity'?",
+    "options": [
+      "How hard the effort is relative to maximum capacity, often load or effort-based.",
+      "The ATP-PC, glycolytic, and oxidative pathways used to fuel activity.",
+      "A medium training block, typically several weeks, focused on a specific adaptation.",
+      "A movement emphasizing a single joint or primary muscle group."
+    ],
+    "answer": "How hard the effort is relative to maximum capacity, often load or effort-based.",
+    "explanation": "Intensity and volume must be balanced based on training phase and goal."
+  },
+  {
+    "id": 817,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Autoregulation'?",
+    "options": [
+      "Adjusting session load or volume based on current readiness and performance.",
+      "Strategic timing of protein and carbohydrate intake around training sessions.",
+      "A short training cycle, often one week, detailing day-to-day sessions.",
+      "The controlled speed of each repetition phase, often written as four numbers."
+    ],
+    "answer": "Adjusting session load or volume based on current readiness and performance.",
+    "explanation": "Autoregulation improves day-to-day programming responsiveness."
+  },
+  {
+    "id": 818,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Movement Screening'?",
+    "options": [
+      "A structured observation process to identify mobility or stability limitations.",
+      "A long-term training structure that organizes phases to peak adaptation and manage fatigue.",
+      "The concept that adaptation is specific to the exact demands placed on the body.",
+      "Two exercises performed back-to-back with minimal rest."
+    ],
+    "answer": "A structured observation process to identify mobility or stability limitations.",
+    "explanation": "Screening helps prioritize corrective strategies and coaching cues."
+  },
+  {
+    "id": 819,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Energy Systems'?",
+    "options": [
+      "The ATP-PC, glycolytic, and oxidative pathways used to fuel activity.",
+      "The largest training cycle, often covering several months up to a year.",
+      "A multi-joint movement training several muscle groups at once, such as a squat.",
+      "A sequence of multiple exercises completed in rounds with planned transitions."
+    ],
+    "answer": "The ATP-PC, glycolytic, and oxidative pathways used to fuel activity.",
+    "explanation": "Understanding energy systems helps match training to sport demands."
+  },
+  {
+    "id": 820,
+    "question_set": "fitness instructing level 2",
+    "prompt": "In fitness instructing level 2, what best describes 'Nutrient Timing'?",
+    "options": [
+      "Strategic timing of protein and carbohydrate intake around training sessions.",
+      "A medium training block, typically several weeks, focused on a specific adaptation.",
+      "A movement emphasizing a single joint or primary muscle group.",
+      "The maximal rate at which the body can use oxygen during intense exercise."
+    ],
+    "answer": "Strategic timing of protein and carbohydrate intake around training sessions.",
+    "explanation": "Nutrient timing can support performance, recovery, and adaptation quality."
+  },
+  {
+    "id": 821,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Undulating Periodization'?",
+    "options": [
+      "A model that varies intensity and volume frequently, often within the same week.",
+      "Prescribing effort targets using rating of perceived exertion instead of fixed percentages alone.",
+      "Excessive stress leading to prolonged performance decline without planned benefit.",
+      "Applying greater load during the lowering phase than the lifting phase."
+    ],
+    "answer": "A model that varies intensity and volume frequently, often within the same week.",
+    "explanation": "Undulating approaches manage fatigue while providing varied stimuli."
+  },
+  {
+    "id": 822,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Block Periodization'?",
+    "options": [
+      "A model that concentrates specific qualities in focused blocks such as accumulation or realization.",
+      "The inverse relationship between force production and movement velocity.",
+      "A chronic maladaptation state from prolonged excessive stress and insufficient recovery.",
+      "Low-load training performed with restricted venous return to stimulate hypertrophy responses."
+    ],
+    "answer": "A model that concentrates specific qualities in focused blocks such as accumulation or realization.",
+    "explanation": "Block periodization prioritizes one adaptation focus at a time."
+  },
+  {
+    "id": 823,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Velocity-Based Training'?",
+    "options": [
+      "Using bar-speed data to prescribe and adjust strength training load.",
+      "How limb lengths and joint angles influence force output and exercise mechanics.",
+      "Beat-to-beat variation metric often used as one indicator of autonomic recovery status.",
+      "A set structure that inserts short intra-set rest intervals to preserve performance quality."
+    ],
+    "answer": "Using bar-speed data to prescribe and adjust strength training load.",
+    "explanation": "Velocity metrics provide objective feedback about readiness and intent."
+  },
+  {
+    "id": 824,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'RPE-Based Programming'?",
+    "options": [
+      "Prescribing effort targets using rating of perceived exertion instead of fixed percentages alone.",
+      "A short planned increase in training stress followed by recovery to enhance performance.",
+      "The potential conflict where concurrent endurance and strength training blunt each other's adaptations.",
+      "A planned reduction in training load before competition to maximize freshness and performance."
+    ],
+    "answer": "Prescribing effort targets using rating of perceived exertion instead of fixed percentages alone.",
+    "explanation": "RPE programming adapts loading to daily athlete readiness."
+  },
+  {
+    "id": 825,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Force-Velocity Curve'?",
+    "options": [
+      "The inverse relationship between force production and movement velocity.",
+      "Excessive stress leading to prolonged performance decline without planned benefit.",
+      "Applying greater load during the lowering phase than the lifting phase.",
+      "Adjusting energy and macronutrient intake across training phases and demands."
+    ],
+    "answer": "The inverse relationship between force production and movement velocity.",
+    "explanation": "Understanding this curve guides sport-specific power training."
+  },
+  {
+    "id": 826,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Biomechanical Leverage'?",
+    "options": [
+      "How limb lengths and joint angles influence force output and exercise mechanics.",
+      "A chronic maladaptation state from prolonged excessive stress and insufficient recovery.",
+      "Low-load training performed with restricted venous return to stimulate hypertrophy responses.",
+      "A staged progression process for safely resuming full training after injury."
+    ],
+    "answer": "How limb lengths and joint angles influence force output and exercise mechanics.",
+    "explanation": "Leverage explains why technique and anthropometry affect lift performance."
+  },
+  {
+    "id": 827,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Functional Overreaching'?",
+    "options": [
+      "A short planned increase in training stress followed by recovery to enhance performance.",
+      "Beat-to-beat variation metric often used as one indicator of autonomic recovery status.",
+      "A set structure that inserts short intra-set rest intervals to preserve performance quality.",
+      "Monitoring and adjusting training stress to optimize adaptation while reducing injury risk."
+    ],
+    "answer": "A short planned increase in training stress followed by recovery to enhance performance.",
+    "explanation": "Functional overreaching can be productive when followed by adequate deload."
+  },
+  {
+    "id": 828,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Non-Functional Overreaching'?",
+    "options": [
+      "Excessive stress leading to prolonged performance decline without planned benefit.",
+      "The potential conflict where concurrent endurance and strength training blunt each other's adaptations.",
+      "A planned reduction in training load before competition to maximize freshness and performance.",
+      "Using high-quality research integrated with coaching experience and athlete context."
+    ],
+    "answer": "Excessive stress leading to prolonged performance decline without planned benefit.",
+    "explanation": "Non-functional overreaching signals poor load-recovery balance."
+  },
+  {
+    "id": 829,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Overtraining Syndrome'?",
+    "options": [
+      "A chronic maladaptation state from prolonged excessive stress and insufficient recovery.",
+      "Applying greater load during the lowering phase than the lifting phase.",
+      "Adjusting energy and macronutrient intake across training phases and demands.",
+      "A communication method that helps clients resolve ambivalence and sustain behavior change."
+    ],
+    "answer": "A chronic maladaptation state from prolonged excessive stress and insufficient recovery.",
+    "explanation": "Overtraining syndrome can impact performance, mood, and physiology for months."
+  },
+  {
+    "id": 830,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Heart Rate Variability'?",
+    "options": [
+      "Beat-to-beat variation metric often used as one indicator of autonomic recovery status.",
+      "Low-load training performed with restricted venous return to stimulate hypertrophy responses.",
+      "A staged progression process for safely resuming full training after injury.",
+      "A model that varies intensity and volume frequently, often within the same week."
+    ],
+    "answer": "Beat-to-beat variation metric often used as one indicator of autonomic recovery status.",
+    "explanation": "HRV trends can inform readiness decisions when interpreted with context."
+  },
+  {
+    "id": 831,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Interference Effect'?",
+    "options": [
+      "The potential conflict where concurrent endurance and strength training blunt each other's adaptations.",
+      "A set structure that inserts short intra-set rest intervals to preserve performance quality.",
+      "Monitoring and adjusting training stress to optimize adaptation while reducing injury risk.",
+      "A model that concentrates specific qualities in focused blocks such as accumulation or realization."
+    ],
+    "answer": "The potential conflict where concurrent endurance and strength training blunt each other's adaptations.",
+    "explanation": "Programming order and volume can reduce interference during concurrent training."
+  },
+  {
+    "id": 832,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Eccentric Overload'?",
+    "options": [
+      "Applying greater load during the lowering phase than the lifting phase.",
+      "A planned reduction in training load before competition to maximize freshness and performance.",
+      "Using high-quality research integrated with coaching experience and athlete context.",
+      "Using bar-speed data to prescribe and adjust strength training load."
+    ],
+    "answer": "Applying greater load during the lowering phase than the lifting phase.",
+    "explanation": "Eccentric overload can improve strength and tendon adaptation when dosed carefully."
+  },
+  {
+    "id": 833,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Blood Flow Restriction'?",
+    "options": [
+      "Low-load training performed with restricted venous return to stimulate hypertrophy responses.",
+      "Adjusting energy and macronutrient intake across training phases and demands.",
+      "A communication method that helps clients resolve ambivalence and sustain behavior change.",
+      "Prescribing effort targets using rating of perceived exertion instead of fixed percentages alone."
+    ],
+    "answer": "Low-load training performed with restricted venous return to stimulate hypertrophy responses.",
+    "explanation": "BFR is useful when heavy loading is limited during rehab or deload phases."
+  },
+  {
+    "id": 834,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Cluster Set'?",
+    "options": [
+      "A set structure that inserts short intra-set rest intervals to preserve performance quality.",
+      "A staged progression process for safely resuming full training after injury.",
+      "A model that varies intensity and volume frequently, often within the same week.",
+      "The inverse relationship between force production and movement velocity."
+    ],
+    "answer": "A set structure that inserts short intra-set rest intervals to preserve performance quality.",
+    "explanation": "Cluster sets help maintain power output at higher loads."
+  },
+  {
+    "id": 835,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Tapering'?",
+    "options": [
+      "A planned reduction in training load before competition to maximize freshness and performance.",
+      "Monitoring and adjusting training stress to optimize adaptation while reducing injury risk.",
+      "A model that concentrates specific qualities in focused blocks such as accumulation or realization.",
+      "How limb lengths and joint angles influence force output and exercise mechanics."
+    ],
+    "answer": "A planned reduction in training load before competition to maximize freshness and performance.",
+    "explanation": "Tapering reduces accumulated fatigue while preserving fitness."
+  },
+  {
+    "id": 836,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Periodized Nutrition'?",
+    "options": [
+      "Adjusting energy and macronutrient intake across training phases and demands.",
+      "Using high-quality research integrated with coaching experience and athlete context.",
+      "Using bar-speed data to prescribe and adjust strength training load.",
+      "A short planned increase in training stress followed by recovery to enhance performance."
+    ],
+    "answer": "Adjusting energy and macronutrient intake across training phases and demands.",
+    "explanation": "Nutrition periodization aligns fueling with adaptation and body-composition goals."
+  },
+  {
+    "id": 837,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Return-to-Play Protocol'?",
+    "options": [
+      "A staged progression process for safely resuming full training after injury.",
+      "A communication method that helps clients resolve ambivalence and sustain behavior change.",
+      "Prescribing effort targets using rating of perceived exertion instead of fixed percentages alone.",
+      "Excessive stress leading to prolonged performance decline without planned benefit."
+    ],
+    "answer": "A staged progression process for safely resuming full training after injury.",
+    "explanation": "Return-to-play criteria protect athletes from premature re-injury."
+  },
+  {
+    "id": 838,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Load Management'?",
+    "options": [
+      "Monitoring and adjusting training stress to optimize adaptation while reducing injury risk.",
+      "A model that varies intensity and volume frequently, often within the same week.",
+      "The inverse relationship between force production and movement velocity.",
+      "A chronic maladaptation state from prolonged excessive stress and insufficient recovery."
+    ],
+    "answer": "Monitoring and adjusting training stress to optimize adaptation while reducing injury risk.",
+    "explanation": "Load management balances performance development with recovery capacity."
+  },
+  {
+    "id": 839,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Evidence-Based Coaching'?",
+    "options": [
+      "Using high-quality research integrated with coaching experience and athlete context.",
+      "A model that concentrates specific qualities in focused blocks such as accumulation or realization.",
+      "How limb lengths and joint angles influence force output and exercise mechanics.",
+      "Beat-to-beat variation metric often used as one indicator of autonomic recovery status."
+    ],
+    "answer": "Using high-quality research integrated with coaching experience and athlete context.",
+    "explanation": "Evidence-based practice improves decision quality beyond anecdote alone."
+  },
+  {
+    "id": 840,
+    "question_set": "fitness instructing level 3",
+    "prompt": "In fitness instructing level 3, what best describes 'Motivational Interviewing'?",
+    "options": [
+      "A communication method that helps clients resolve ambivalence and sustain behavior change.",
+      "Using bar-speed data to prescribe and adjust strength training load.",
+      "A short planned increase in training stress followed by recovery to enhance performance.",
+      "The potential conflict where concurrent endurance and strength training blunt each other's adaptations."
+    ],
+    "answer": "A communication method that helps clients resolve ambivalence and sustain behavior change.",
+    "explanation": "Motivational interviewing improves adherence by supporting autonomy and readiness."
+  },
+  {
+    "id": 841,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Staff'?",
+    "options": [
+      "A set of five horizontal lines used to notate pitch.",
+      "A vertical line that separates measures in written music.",
+      "A whole note worth four beats in simple common time.",
+      "The smallest interval in standard Western notation, one adjacent key on a piano."
+    ],
+    "answer": "A set of five horizontal lines used to notate pitch.",
+    "explanation": "The staff is the basic framework for written music notation."
+  },
+  {
+    "id": 842,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Treble Clef'?",
+    "options": [
+      "The clef that places G above middle C on the second line of the staff.",
+      "A symbol indicating how many beats are in each bar and which note value gets one beat.",
+      "An eighth note worth half a beat in simple common time.",
+      "An accidental that raises a pitch by one semitone."
+    ],
+    "answer": "The clef that places G above middle C on the second line of the staff.",
+    "explanation": "Treble clef is commonly used for higher-pitched instruments and voices."
+  },
+  {
+    "id": 843,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Bass Clef'?",
+    "options": [
+      "The clef that places F below middle C on the fourth line of the staff.",
+      "A quarter note worth one beat in simple common time.",
+      "A symbol showing silence for a specific rhythmic duration.",
+      "An accidental that lowers a pitch by one semitone."
+    ],
+    "answer": "The clef that places F below middle C on the fourth line of the staff.",
+    "explanation": "Bass clef is commonly used for lower-pitched instruments."
+  },
+  {
+    "id": 844,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Bar Line'?",
+    "options": [
+      "A vertical line that separates measures in written music.",
+      "A half note worth two beats in simple common time.",
+      "An interval spanning two semitones.",
+      "An accidental that cancels a previous sharp or flat for that note."
+    ],
+    "answer": "A vertical line that separates measures in written music.",
+    "explanation": "Bar lines help organize rhythm into measurable units."
+  },
+  {
+    "id": 845,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Time Signature'?",
+    "options": [
+      "A symbol indicating how many beats are in each bar and which note value gets one beat.",
+      "A whole note worth four beats in simple common time.",
+      "The smallest interval in standard Western notation, one adjacent key on a piano.",
+      "The first scale degree and tonal center of a key."
+    ],
+    "answer": "A symbol indicating how many beats are in each bar and which note value gets one beat.",
+    "explanation": "Time signatures define metrical structure."
+  },
+  {
+    "id": 846,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Crotchet'?",
+    "options": [
+      "A quarter note worth one beat in simple common time.",
+      "An eighth note worth half a beat in simple common time.",
+      "An accidental that raises a pitch by one semitone.",
+      "A set of sharps or flats placed after the clef to show the key's default accidentals."
+    ],
+    "answer": "A quarter note worth one beat in simple common time.",
+    "explanation": "Crotchet is the British term for a quarter note."
+  },
+  {
+    "id": 847,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Minim'?",
+    "options": [
+      "A half note worth two beats in simple common time.",
+      "A symbol showing silence for a specific rhythmic duration.",
+      "An accidental that lowers a pitch by one semitone.",
+      "The distance in pitch between two notes."
+    ],
+    "answer": "A half note worth two beats in simple common time.",
+    "explanation": "Minim is the British term for a half note."
+  },
+  {
+    "id": 848,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Semibreve'?",
+    "options": [
+      "A whole note worth four beats in simple common time.",
+      "An interval spanning two semitones.",
+      "An accidental that cancels a previous sharp or flat for that note.",
+      "A notation symbol indicating a section should be played again."
+    ],
+    "answer": "A whole note worth four beats in simple common time.",
+    "explanation": "Semibreve is the British term for a whole note."
+  },
+  {
+    "id": 849,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Quaver'?",
+    "options": [
+      "An eighth note worth half a beat in simple common time.",
+      "The smallest interval in standard Western notation, one adjacent key on a piano.",
+      "The first scale degree and tonal center of a key.",
+      "Meter where each beat divides naturally into two equal parts."
+    ],
+    "answer": "An eighth note worth half a beat in simple common time.",
+    "explanation": "Quaver is the British term for an eighth note."
+  },
+  {
+    "id": 850,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Rest'?",
+    "options": [
+      "A symbol showing silence for a specific rhythmic duration.",
+      "An accidental that raises a pitch by one semitone.",
+      "A set of sharps or flats placed after the clef to show the key's default accidentals.",
+      "A set of five horizontal lines used to notate pitch."
+    ],
+    "answer": "A symbol showing silence for a specific rhythmic duration.",
+    "explanation": "Rests are as rhythmically important as sounded notes."
+  },
+  {
+    "id": 851,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Tone'?",
+    "options": [
+      "An interval spanning two semitones.",
+      "An accidental that lowers a pitch by one semitone.",
+      "The distance in pitch between two notes.",
+      "The clef that places G above middle C on the second line of the staff."
+    ],
+    "answer": "An interval spanning two semitones.",
+    "explanation": "A tone equals a whole step on the keyboard."
+  },
+  {
+    "id": 852,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Semitone'?",
+    "options": [
+      "The smallest interval in standard Western notation, one adjacent key on a piano.",
+      "An accidental that cancels a previous sharp or flat for that note.",
+      "A notation symbol indicating a section should be played again.",
+      "The clef that places F below middle C on the fourth line of the staff."
+    ],
+    "answer": "The smallest interval in standard Western notation, one adjacent key on a piano.",
+    "explanation": "A semitone equals a half step."
+  },
+  {
+    "id": 853,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Sharp'?",
+    "options": [
+      "An accidental that raises a pitch by one semitone.",
+      "The first scale degree and tonal center of a key.",
+      "Meter where each beat divides naturally into two equal parts.",
+      "A vertical line that separates measures in written music."
+    ],
+    "answer": "An accidental that raises a pitch by one semitone.",
+    "explanation": "A sharp modifies the pitch upward by a half step."
+  },
+  {
+    "id": 854,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Flat'?",
+    "options": [
+      "An accidental that lowers a pitch by one semitone.",
+      "A set of sharps or flats placed after the clef to show the key's default accidentals.",
+      "A set of five horizontal lines used to notate pitch.",
+      "A symbol indicating how many beats are in each bar and which note value gets one beat."
+    ],
+    "answer": "An accidental that lowers a pitch by one semitone.",
+    "explanation": "A flat modifies the pitch downward by a half step."
+  },
+  {
+    "id": 855,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Natural'?",
+    "options": [
+      "An accidental that cancels a previous sharp or flat for that note.",
+      "The distance in pitch between two notes.",
+      "The clef that places G above middle C on the second line of the staff.",
+      "A quarter note worth one beat in simple common time."
+    ],
+    "answer": "An accidental that cancels a previous sharp or flat for that note.",
+    "explanation": "A natural restores the unaltered pitch name."
+  },
+  {
+    "id": 856,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Tonic'?",
+    "options": [
+      "The first scale degree and tonal center of a key.",
+      "A notation symbol indicating a section should be played again.",
+      "The clef that places F below middle C on the fourth line of the staff.",
+      "A half note worth two beats in simple common time."
+    ],
+    "answer": "The first scale degree and tonal center of a key.",
+    "explanation": "The tonic functions as the home note in tonal music."
+  },
+  {
+    "id": 857,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Key Signature'?",
+    "options": [
+      "A set of sharps or flats placed after the clef to show the key's default accidentals.",
+      "Meter where each beat divides naturally into two equal parts.",
+      "A vertical line that separates measures in written music.",
+      "A whole note worth four beats in simple common time."
+    ],
+    "answer": "A set of sharps or flats placed after the clef to show the key's default accidentals.",
+    "explanation": "Key signatures reduce repeated accidentals in notation."
+  },
+  {
+    "id": 858,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Interval'?",
+    "options": [
+      "The distance in pitch between two notes.",
+      "A set of five horizontal lines used to notate pitch.",
+      "A symbol indicating how many beats are in each bar and which note value gets one beat.",
+      "An eighth note worth half a beat in simple common time."
+    ],
+    "answer": "The distance in pitch between two notes.",
+    "explanation": "Intervals are named by number and quality."
+  },
+  {
+    "id": 859,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Repeat Sign'?",
+    "options": [
+      "A notation symbol indicating a section should be played again.",
+      "The clef that places G above middle C on the second line of the staff.",
+      "A quarter note worth one beat in simple common time.",
+      "A symbol showing silence for a specific rhythmic duration."
+    ],
+    "answer": "A notation symbol indicating a section should be played again.",
+    "explanation": "Repeat signs help structure forms without rewriting measures."
+  },
+  {
+    "id": 860,
+    "question_set": "music theory grade 1",
+    "prompt": "In music theory grade 1, what best describes 'Simple Time'?",
+    "options": [
+      "Meter where each beat divides naturally into two equal parts.",
+      "The clef that places F below middle C on the fourth line of the staff.",
+      "A half note worth two beats in simple common time.",
+      "An interval spanning two semitones."
+    ],
+    "answer": "Meter where each beat divides naturally into two equal parts.",
+    "explanation": "Simple time includes signatures like 2/4, 3/4, and 4/4."
+  },
+  {
+    "id": 861,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Dotted Note'?",
+    "options": [
+      "A note value increased by half of its original duration.",
+      "A curved line indicating notes should be played smoothly in one phrase.",
+      "The three-note chord built on the first degree of the scale.",
+      "A major key with one flat in its key signature: B-flat."
+    ],
+    "answer": "A note value increased by half of its original duration.",
+    "explanation": "A dot extends rhythmic duration by 50 percent."
+  },
+  {
+    "id": 862,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Anacrusis'?",
+    "options": [
+      "An upbeat note or group of notes that occurs before the first full bar.",
+      "A smooth connected style of performance with minimal separation between notes.",
+      "The fifth scale degree and its harmonic function in tonal music.",
+      "An interval spanning four letter names with perfect quality."
+    ],
+    "answer": "An upbeat note or group of notes that occurs before the first full bar.",
+    "explanation": "Anacrusis is also called a pickup."
+  },
+  {
+    "id": 863,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Tie'?",
+    "options": [
+      "A curved line joining two notes of the same pitch to combine their durations.",
+      "A short detached style of articulation.",
+      "The minor key sharing the same key signature as a major key.",
+      "An interval spanning five letter names with perfect quality."
+    ],
+    "answer": "A curved line joining two notes of the same pitch to combine their durations.",
+    "explanation": "Ties sustain a single pitch across note values."
+  },
+  {
+    "id": 864,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Slur'?",
+    "options": [
+      "A curved line indicating notes should be played smoothly in one phrase.",
+      "A compound duple meter with six quavers per bar grouped in two beats.",
+      "A major key with one sharp in its key signature: F-sharp.",
+      "The I, IV, and V chords used as core harmonies in many tonal pieces."
+    ],
+    "answer": "A curved line indicating notes should be played smoothly in one phrase.",
+    "explanation": "A slur marks articulation, not duration addition."
+  },
+  {
+    "id": 865,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Legato'?",
+    "options": [
+      "A smooth connected style of performance with minimal separation between notes.",
+      "The three-note chord built on the first degree of the scale.",
+      "A major key with one flat in its key signature: B-flat.",
+      "A dynamic marking meaning moderately loud."
+    ],
+    "answer": "A smooth connected style of performance with minimal separation between notes.",
+    "explanation": "Legato articulation creates flowing melodic lines."
+  },
+  {
+    "id": 866,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Staccato'?",
+    "options": [
+      "A short detached style of articulation.",
+      "The fifth scale degree and its harmonic function in tonal music.",
+      "An interval spanning four letter names with perfect quality.",
+      "A gradual increase in loudness."
+    ],
+    "answer": "A short detached style of articulation.",
+    "explanation": "Staccato notes are played shorter than their full written value."
+  },
+  {
+    "id": 867,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes '6/8 Time'?",
+    "options": [
+      "A compound duple meter with six quavers per bar grouped in two beats.",
+      "The minor key sharing the same key signature as a major key.",
+      "An interval spanning five letter names with perfect quality.",
+      "A gradual decrease in loudness."
+    ],
+    "answer": "A compound duple meter with six quavers per bar grouped in two beats.",
+    "explanation": "6/8 is counted in two dotted-crotchet beats."
+  },
+  {
+    "id": 868,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Tonic Triad'?",
+    "options": [
+      "The three-note chord built on the first degree of the scale.",
+      "A major key with one sharp in its key signature: F-sharp.",
+      "The I, IV, and V chords used as core harmonies in many tonal pieces.",
+      "An instruction to return to the beginning of the piece."
+    ],
+    "answer": "The three-note chord built on the first degree of the scale.",
+    "explanation": "The tonic triad outlines the home harmony of a key."
+  },
+  {
+    "id": 869,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Dominant'?",
+    "options": [
+      "The fifth scale degree and its harmonic function in tonal music.",
+      "A major key with one flat in its key signature: B-flat.",
+      "A dynamic marking meaning moderately loud.",
+      "A symbol that temporarily alters a written pitch outside the key signature."
+    ],
+    "answer": "The fifth scale degree and its harmonic function in tonal music.",
+    "explanation": "The dominant often creates tension leading back to tonic."
+  },
+  {
+    "id": 870,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Relative Minor'?",
+    "options": [
+      "The minor key sharing the same key signature as a major key.",
+      "An interval spanning four letter names with perfect quality.",
+      "A gradual increase in loudness.",
+      "A note value increased by half of its original duration."
+    ],
+    "answer": "The minor key sharing the same key signature as a major key.",
+    "explanation": "Relative major/minor pairs contain the same set of notes."
+  },
+  {
+    "id": 871,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Key of G Major'?",
+    "options": [
+      "A major key with one sharp in its key signature: F-sharp.",
+      "An interval spanning five letter names with perfect quality.",
+      "A gradual decrease in loudness.",
+      "An upbeat note or group of notes that occurs before the first full bar."
+    ],
+    "answer": "A major key with one sharp in its key signature: F-sharp.",
+    "explanation": "G major's key signature includes only F-sharp."
+  },
+  {
+    "id": 872,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Key of F Major'?",
+    "options": [
+      "A major key with one flat in its key signature: B-flat.",
+      "The I, IV, and V chords used as core harmonies in many tonal pieces.",
+      "An instruction to return to the beginning of the piece.",
+      "A curved line joining two notes of the same pitch to combine their durations."
+    ],
+    "answer": "A major key with one flat in its key signature: B-flat.",
+    "explanation": "F major's key signature includes only B-flat."
+  },
+  {
+    "id": 873,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Perfect 4th'?",
+    "options": [
+      "An interval spanning four letter names with perfect quality.",
+      "A dynamic marking meaning moderately loud.",
+      "A symbol that temporarily alters a written pitch outside the key signature.",
+      "A curved line indicating notes should be played smoothly in one phrase."
+    ],
+    "answer": "An interval spanning four letter names with perfect quality.",
+    "explanation": "C to F is a common example of a perfect fourth."
+  },
+  {
+    "id": 874,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Perfect 5th'?",
+    "options": [
+      "An interval spanning five letter names with perfect quality.",
+      "A gradual increase in loudness.",
+      "A note value increased by half of its original duration.",
+      "A smooth connected style of performance with minimal separation between notes."
+    ],
+    "answer": "An interval spanning five letter names with perfect quality.",
+    "explanation": "C to G is a common example of a perfect fifth."
+  },
+  {
+    "id": 875,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Primary Chords'?",
+    "options": [
+      "The I, IV, and V chords used as core harmonies in many tonal pieces.",
+      "A gradual decrease in loudness.",
+      "An upbeat note or group of notes that occurs before the first full bar.",
+      "A short detached style of articulation."
+    ],
+    "answer": "The I, IV, and V chords used as core harmonies in many tonal pieces.",
+    "explanation": "Primary triads establish and reinforce key center."
+  },
+  {
+    "id": 876,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Mezzo Forte'?",
+    "options": [
+      "A dynamic marking meaning moderately loud.",
+      "An instruction to return to the beginning of the piece.",
+      "A curved line joining two notes of the same pitch to combine their durations.",
+      "A compound duple meter with six quavers per bar grouped in two beats."
+    ],
+    "answer": "A dynamic marking meaning moderately loud.",
+    "explanation": "mf indicates a medium-strong volume level."
+  },
+  {
+    "id": 877,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Crescendo'?",
+    "options": [
+      "A gradual increase in loudness.",
+      "A symbol that temporarily alters a written pitch outside the key signature.",
+      "A curved line indicating notes should be played smoothly in one phrase.",
+      "The three-note chord built on the first degree of the scale."
+    ],
+    "answer": "A gradual increase in loudness.",
+    "explanation": "Crescendo markings indicate growing dynamic intensity."
+  },
+  {
+    "id": 878,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Diminuendo'?",
+    "options": [
+      "A gradual decrease in loudness.",
+      "A note value increased by half of its original duration.",
+      "A smooth connected style of performance with minimal separation between notes.",
+      "The fifth scale degree and its harmonic function in tonal music."
+    ],
+    "answer": "A gradual decrease in loudness.",
+    "explanation": "Diminuendo is often abbreviated as dim."
+  },
+  {
+    "id": 879,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Da Capo'?",
+    "options": [
+      "An instruction to return to the beginning of the piece.",
+      "An upbeat note or group of notes that occurs before the first full bar.",
+      "A short detached style of articulation.",
+      "The minor key sharing the same key signature as a major key."
+    ],
+    "answer": "An instruction to return to the beginning of the piece.",
+    "explanation": "D.C. literally means 'from the head' in Italian."
+  },
+  {
+    "id": 880,
+    "question_set": "music theory grade 2",
+    "prompt": "In music theory grade 2, what best describes 'Accidental'?",
+    "options": [
+      "A symbol that temporarily alters a written pitch outside the key signature.",
+      "A curved line joining two notes of the same pitch to combine their durations.",
+      "A compound duple meter with six quavers per bar grouped in two beats.",
+      "A major key with one sharp in its key signature: F-sharp."
+    ],
+    "answer": "A symbol that temporarily alters a written pitch outside the key signature.",
+    "explanation": "Accidentals apply to their bar unless canceled by notation rules."
+  },
+  {
+    "id": 881,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Harmonic Minor'?",
+    "options": [
+      "A minor scale with a raised seventh degree relative to natural minor.",
+      "A chord whose notes are sounded separately in a repeated pattern.",
+      "A pattern repeated at different pitch levels.",
+      "Rhythmic emphasis on weak beats or off-beats."
+    ],
+    "answer": "A minor scale with a raised seventh degree relative to natural minor.",
+    "explanation": "The raised seventh creates a strong dominant-to-tonic pull."
+  },
+  {
+    "id": 882,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Melodic Minor'?",
+    "options": [
+      "A minor scale form that raises sixth and seventh ascending and usually lowers them descending.",
+      "A cadence moving from dominant to tonic harmony.",
+      "Rewriting or performing music at a different pitch level while preserving interval relationships.",
+      "A four-note chord built on the dominant containing a minor seventh above the root."
+    ],
+    "answer": "A minor scale form that raises sixth and seventh ascending and usually lowers them descending.",
+    "explanation": "Melodic minor smooths the awkward augmented second of harmonic minor."
+  },
+  {
+    "id": 883,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Arpeggio'?",
+    "options": [
+      "A chord played as successive notes rather than simultaneously.",
+      "A cadence ending on dominant harmony.",
+      "Two differently named notes that sound the same in equal temperament.",
+      "A triad built from a root, minor third, and diminished fifth."
+    ],
+    "answer": "A chord played as successive notes rather than simultaneously.",
+    "explanation": "Arpeggiation outlines harmony melodically."
+  },
+  {
+    "id": 884,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Broken Chord'?",
+    "options": [
+      "A chord whose notes are sounded separately in a repeated pattern.",
+      "A cadence moving from subdominant to tonic harmony.",
+      "A rhythmic grouping that fits three equal notes into the time normally occupied by two.",
+      "A chord position with the third in the bass."
+    ],
+    "answer": "A chord whose notes are sounded separately in a repeated pattern.",
+    "explanation": "Broken-chord accompaniments are common in keyboard writing."
+  },
+  {
+    "id": 885,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Perfect Cadence'?",
+    "options": [
+      "A cadence moving from dominant to tonic harmony.",
+      "A pattern repeated at different pitch levels.",
+      "Rhythmic emphasis on weak beats or off-beats.",
+      "A chord position with the fifth in the bass."
+    ],
+    "answer": "A cadence moving from dominant to tonic harmony.",
+    "explanation": "V to I or V7 to I creates a strong sense of closure."
+  },
+  {
+    "id": 886,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Imperfect Cadence'?",
+    "options": [
+      "A cadence ending on dominant harmony.",
+      "Rewriting or performing music at a different pitch level while preserving interval relationships.",
+      "A four-note chord built on the dominant containing a minor seventh above the root.",
+      "A sustained or repeated note, usually in the bass, over changing harmonies."
+    ],
+    "answer": "A cadence ending on dominant harmony.",
+    "explanation": "Cadences ending on V sound open and unresolved."
+  },
+  {
+    "id": 887,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Plagal Cadence'?",
+    "options": [
+      "A cadence moving from subdominant to tonic harmony.",
+      "Two differently named notes that sound the same in equal temperament.",
+      "A triad built from a root, minor third, and diminished fifth.",
+      "Melodic movement by step between adjacent notes."
+    ],
+    "answer": "A cadence moving from subdominant to tonic harmony.",
+    "explanation": "IV to I is often called the 'amen' cadence."
+  },
+  {
+    "id": 888,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Sequence'?",
+    "options": [
+      "A pattern repeated at different pitch levels.",
+      "A rhythmic grouping that fits three equal notes into the time normally occupied by two.",
+      "A chord position with the third in the bass.",
+      "Melodic movement by leap rather than step."
+    ],
+    "answer": "A pattern repeated at different pitch levels.",
+    "explanation": "Sequences create continuity and directional motion."
+  },
+  {
+    "id": 889,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Transposition'?",
+    "options": [
+      "Rewriting or performing music at a different pitch level while preserving interval relationships.",
+      "Rhythmic emphasis on weak beats or off-beats.",
+      "A chord position with the fifth in the bass.",
+      "A two-part form often labeled A and B, each section typically repeated."
+    ],
+    "answer": "Rewriting or performing music at a different pitch level while preserving interval relationships.",
+    "explanation": "Transposition keeps structure but shifts absolute pitches."
+  },
+  {
+    "id": 890,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Enharmonic Equivalent'?",
+    "options": [
+      "Two differently named notes that sound the same in equal temperament.",
+      "A four-note chord built on the dominant containing a minor seventh above the root.",
+      "A sustained or repeated note, usually in the bass, over changing harmonies.",
+      "A minor scale with a raised seventh degree relative to natural minor."
+    ],
+    "answer": "Two differently named notes that sound the same in equal temperament.",
+    "explanation": "F-sharp and G-flat are a standard enharmonic pair."
+  },
+  {
+    "id": 891,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Triplet'?",
+    "options": [
+      "A rhythmic grouping that fits three equal notes into the time normally occupied by two.",
+      "A triad built from a root, minor third, and diminished fifth.",
+      "Melodic movement by step between adjacent notes.",
+      "A minor scale form that raises sixth and seventh ascending and usually lowers them descending."
+    ],
+    "answer": "A rhythmic grouping that fits three equal notes into the time normally occupied by two.",
+    "explanation": "Triplets create temporary three-way subdivisions in simple meter."
+  },
+  {
+    "id": 892,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Syncopation'?",
+    "options": [
+      "Rhythmic emphasis on weak beats or off-beats.",
+      "A chord position with the third in the bass.",
+      "Melodic movement by leap rather than step.",
+      "A chord played as successive notes rather than simultaneously."
+    ],
+    "answer": "Rhythmic emphasis on weak beats or off-beats.",
+    "explanation": "Syncopation disrupts expected metric accents."
+  },
+  {
+    "id": 893,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Dominant Seventh'?",
+    "options": [
+      "A four-note chord built on the dominant containing a minor seventh above the root.",
+      "A chord position with the fifth in the bass.",
+      "A two-part form often labeled A and B, each section typically repeated.",
+      "A chord whose notes are sounded separately in a repeated pattern."
+    ],
+    "answer": "A four-note chord built on the dominant containing a minor seventh above the root.",
+    "explanation": "The dominant seventh intensifies resolution toward tonic."
+  },
+  {
+    "id": 894,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Diminished Triad'?",
+    "options": [
+      "A triad built from a root, minor third, and diminished fifth.",
+      "A sustained or repeated note, usually in the bass, over changing harmonies.",
+      "A minor scale with a raised seventh degree relative to natural minor.",
+      "A cadence moving from dominant to tonic harmony."
+    ],
+    "answer": "A triad built from a root, minor third, and diminished fifth.",
+    "explanation": "Diminished triads have a tense unstable quality."
+  },
+  {
+    "id": 895,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'First Inversion'?",
+    "options": [
+      "A chord position with the third in the bass.",
+      "Melodic movement by step between adjacent notes.",
+      "A minor scale form that raises sixth and seventh ascending and usually lowers them descending.",
+      "A cadence ending on dominant harmony."
+    ],
+    "answer": "A chord position with the third in the bass.",
+    "explanation": "Inversion changes bass note and voice-leading behavior."
+  },
+  {
+    "id": 896,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Second Inversion'?",
+    "options": [
+      "A chord position with the fifth in the bass.",
+      "Melodic movement by leap rather than step.",
+      "A chord played as successive notes rather than simultaneously.",
+      "A cadence moving from subdominant to tonic harmony."
+    ],
+    "answer": "A chord position with the fifth in the bass.",
+    "explanation": "Second inversion often appears in cadential or passing contexts."
+  },
+  {
+    "id": 897,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Pedal Note'?",
+    "options": [
+      "A sustained or repeated note, usually in the bass, over changing harmonies.",
+      "A two-part form often labeled A and B, each section typically repeated.",
+      "A chord whose notes are sounded separately in a repeated pattern.",
+      "A pattern repeated at different pitch levels."
+    ],
+    "answer": "A sustained or repeated note, usually in the bass, over changing harmonies.",
+    "explanation": "Pedal tones create harmonic tension and release."
+  },
+  {
+    "id": 898,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Conjunct Motion'?",
+    "options": [
+      "Melodic movement by step between adjacent notes.",
+      "A minor scale with a raised seventh degree relative to natural minor.",
+      "A cadence moving from dominant to tonic harmony.",
+      "Rewriting or performing music at a different pitch level while preserving interval relationships."
+    ],
+    "answer": "Melodic movement by step between adjacent notes.",
+    "explanation": "Conjunct lines are generally smoother and singable."
+  },
+  {
+    "id": 899,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Disjunct Motion'?",
+    "options": [
+      "Melodic movement by leap rather than step.",
+      "A minor scale form that raises sixth and seventh ascending and usually lowers them descending.",
+      "A cadence ending on dominant harmony.",
+      "Two differently named notes that sound the same in equal temperament."
+    ],
+    "answer": "Melodic movement by leap rather than step.",
+    "explanation": "Disjunct writing can increase contrast and expressive range."
+  },
+  {
+    "id": 900,
+    "question_set": "music theory grade 3",
+    "prompt": "In music theory grade 3, what best describes 'Simple Binary Form'?",
+    "options": [
+      "A two-part form often labeled A and B, each section typically repeated.",
+      "A chord played as successive notes rather than simultaneously.",
+      "A cadence moving from subdominant to tonic harmony.",
+      "A rhythmic grouping that fits three equal notes into the time normally occupied by two."
+    ],
+    "answer": "A two-part form often labeled A and B, each section typically repeated.",
+    "explanation": "Binary form is common in dance movements and short keyboard works."
+  },
+  {
+    "id": 901,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Circle of Fifths'?",
+    "options": [
+      "An ordered arrangement of keys where each step moves by a perfect fifth.",
+      "A C clef that places middle C on the fourth staff line.",
+      "A prepared note held over into a new harmony to create dissonance before resolving.",
+      "A two-section form where both parts may be repeated."
+    ],
+    "answer": "An ordered arrangement of keys where each step moves by a perfect fifth.",
+    "explanation": "The circle of fifths helps with key signatures and harmonic relationships."
+  },
+  {
+    "id": 902,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Chromatic Scale'?",
+    "options": [
+      "A scale made entirely of semitone steps.",
+      "An interval larger than an octave.",
+      "A leaning non-chord tone approached by leap and resolved by step.",
+      "A three-part form with an A-B-A layout."
+    ],
+    "answer": "A scale made entirely of semitone steps.",
+    "explanation": "Chromatic collections include all twelve pitch classes."
+  },
+  {
+    "id": 903,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Alto Clef'?",
+    "options": [
+      "A C clef that places middle C on the third staff line.",
+      "A non-chord tone that connects two chord tones by step.",
+      "A compound triple meter with nine quavers grouped as three beats.",
+      "A form with recurring main theme sections alternating with contrasting episodes."
+    ],
+    "answer": "A C clef that places middle C on the third staff line.",
+    "explanation": "Alto clef is used by instruments such as viola."
+  },
+  {
+    "id": 904,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Tenor Clef'?",
+    "options": [
+      "A C clef that places middle C on the fourth staff line.",
+      "A non-chord tone that moves away by step and returns to the same note.",
+      "A compound quadruple meter with twelve quavers grouped as four beats.",
+      "A change from one key center to another within a piece."
+    ],
+    "answer": "A C clef that places middle C on the fourth staff line.",
+    "explanation": "Tenor clef appears in upper register writing for low instruments."
+  },
+  {
+    "id": 905,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Compound Interval'?",
+    "options": [
+      "An interval larger than an octave.",
+      "A prepared note held over into a new harmony to create dissonance before resolving.",
+      "A two-section form where both parts may be repeated.",
+      "A chord shared by two keys used to smooth a modulation."
+    ],
+    "answer": "An interval larger than an octave.",
+    "explanation": "Compound intervals are reduced to simple intervals by octave equivalence."
+  },
+  {
+    "id": 906,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Passing Note'?",
+    "options": [
+      "A non-chord tone that connects two chord tones by step.",
+      "A leaning non-chord tone approached by leap and resolved by step.",
+      "A three-part form with an A-B-A layout.",
+      "A second inversion tonic sonority functioning over dominant before cadence."
+    ],
+    "answer": "A non-chord tone that connects two chord tones by step.",
+    "explanation": "Passing notes add melodic motion between stable tones."
+  },
+  {
+    "id": 907,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Auxiliary Note'?",
+    "options": [
+      "A non-chord tone that moves away by step and returns to the same note.",
+      "A compound triple meter with nine quavers grouped as three beats.",
+      "A form with recurring main theme sections alternating with contrasting episodes.",
+      "A sequential pattern where roots move in fifth relationships."
+    ],
+    "answer": "A non-chord tone that moves away by step and returns to the same note.",
+    "explanation": "Auxiliary notes are also called neighbor tones."
+  },
+  {
+    "id": 908,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Suspension'?",
+    "options": [
+      "A prepared note held over into a new harmony to create dissonance before resolving.",
+      "A compound quadruple meter with twelve quavers grouped as four beats.",
+      "A change from one key center to another within a piece.",
+      "A motif repeated at different pitch levels in succession."
+    ],
+    "answer": "A prepared note held over into a new harmony to create dissonance before resolving.",
+    "explanation": "Suspensions create controlled tension by delayed resolution."
+  },
+  {
+    "id": 909,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Appoggiatura'?",
+    "options": [
+      "A leaning non-chord tone approached by leap and resolved by step.",
+      "A two-section form where both parts may be repeated.",
+      "A chord shared by two keys used to smooth a modulation.",
+      "Two lines moving in opposite pitch directions."
+    ],
+    "answer": "A leaning non-chord tone approached by leap and resolved by step.",
+    "explanation": "Appoggiaturas often take expressive stress in melody."
+  },
+  {
+    "id": 910,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes '9/8 Time'?",
+    "options": [
+      "A compound triple meter with nine quavers grouped as three beats.",
+      "A three-part form with an A-B-A layout.",
+      "A second inversion tonic sonority functioning over dominant before cadence.",
+      "An ordered arrangement of keys where each step moves by a perfect fifth."
+    ],
+    "answer": "A compound triple meter with nine quavers grouped as three beats.",
+    "explanation": "9/8 usually feels like three dotted-crotchet beats per bar."
+  },
+  {
+    "id": 911,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes '12/8 Time'?",
+    "options": [
+      "A compound quadruple meter with twelve quavers grouped as four beats.",
+      "A form with recurring main theme sections alternating with contrasting episodes.",
+      "A sequential pattern where roots move in fifth relationships.",
+      "A scale made entirely of semitone steps."
+    ],
+    "answer": "A compound quadruple meter with twelve quavers grouped as four beats.",
+    "explanation": "12/8 is common in blues and rolling compound rhythms."
+  },
+  {
+    "id": 912,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Binary Form'?",
+    "options": [
+      "A two-section form where both parts may be repeated.",
+      "A change from one key center to another within a piece.",
+      "A motif repeated at different pitch levels in succession.",
+      "A C clef that places middle C on the third staff line."
+    ],
+    "answer": "A two-section form where both parts may be repeated.",
+    "explanation": "Binary structures often outline tonic to dominant and back."
+  },
+  {
+    "id": 913,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Ternary Form'?",
+    "options": [
+      "A three-part form with an A-B-A layout.",
+      "A chord shared by two keys used to smooth a modulation.",
+      "Two lines moving in opposite pitch directions.",
+      "A C clef that places middle C on the fourth staff line."
+    ],
+    "answer": "A three-part form with an A-B-A layout.",
+    "explanation": "Ternary form returns to opening material after contrast."
+  },
+  {
+    "id": 914,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Rondo Form'?",
+    "options": [
+      "A form with recurring main theme sections alternating with contrasting episodes.",
+      "A second inversion tonic sonority functioning over dominant before cadence.",
+      "An ordered arrangement of keys where each step moves by a perfect fifth.",
+      "An interval larger than an octave."
+    ],
+    "answer": "A form with recurring main theme sections alternating with contrasting episodes.",
+    "explanation": "Rondo layouts often follow patterns such as ABACA."
+  },
+  {
+    "id": 915,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Modulation'?",
+    "options": [
+      "A change from one key center to another within a piece.",
+      "A sequential pattern where roots move in fifth relationships.",
+      "A scale made entirely of semitone steps.",
+      "A non-chord tone that connects two chord tones by step."
+    ],
+    "answer": "A change from one key center to another within a piece.",
+    "explanation": "Modulation introduces contrast and large-scale harmonic direction."
+  },
+  {
+    "id": 916,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Pivot Chord'?",
+    "options": [
+      "A chord shared by two keys used to smooth a modulation.",
+      "A motif repeated at different pitch levels in succession.",
+      "A C clef that places middle C on the third staff line.",
+      "A non-chord tone that moves away by step and returns to the same note."
+    ],
+    "answer": "A chord shared by two keys used to smooth a modulation.",
+    "explanation": "Pivot-chord modulation uses common harmony to avoid abrupt key change."
+  },
+  {
+    "id": 917,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Cadential 6-4'?",
+    "options": [
+      "A second inversion tonic sonority functioning over dominant before cadence.",
+      "Two lines moving in opposite pitch directions.",
+      "A C clef that places middle C on the fourth staff line.",
+      "A prepared note held over into a new harmony to create dissonance before resolving."
+    ],
+    "answer": "A second inversion tonic sonority functioning over dominant before cadence.",
+    "explanation": "Cadential 6-4 intensifies dominant function before resolution."
+  },
+  {
+    "id": 918,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Sequence by Fifth'?",
+    "options": [
+      "A sequential pattern where roots move in fifth relationships.",
+      "An ordered arrangement of keys where each step moves by a perfect fifth.",
+      "An interval larger than an octave.",
+      "A leaning non-chord tone approached by leap and resolved by step."
+    ],
+    "answer": "A sequential pattern where roots move in fifth relationships.",
+    "explanation": "Root motion by fifths strongly reinforces tonal direction."
+  },
+  {
+    "id": 919,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Melodic Sequence'?",
+    "options": [
+      "A motif repeated at different pitch levels in succession.",
+      "A scale made entirely of semitone steps.",
+      "A non-chord tone that connects two chord tones by step.",
+      "A compound triple meter with nine quavers grouped as three beats."
+    ],
+    "answer": "A motif repeated at different pitch levels in succession.",
+    "explanation": "Melodic sequencing can drive momentum across phrases."
+  },
+  {
+    "id": 920,
+    "question_set": "music theory grade 4",
+    "prompt": "In music theory grade 4, what best describes 'Contrary Motion'?",
+    "options": [
+      "Two lines moving in opposite pitch directions.",
+      "A C clef that places middle C on the third staff line.",
+      "A non-chord tone that moves away by step and returns to the same note.",
+      "A compound quadruple meter with twelve quavers grouped as four beats."
+    ],
+    "answer": "Two lines moving in opposite pitch directions.",
+    "explanation": "Contrary motion improves independence and voice-leading clarity."
+  },
+  {
+    "id": 921,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Figured Bass'?",
+    "options": [
+      "A shorthand notation using numbers to indicate intervals above a written bass note.",
+      "A dominant-to-tonic cadence lacking one or more PAC conditions.",
+      "A triad with a raised fifth interval above the root.",
+      "An ornament rapidly alternating between a principal note and adjacent note."
+    ],
+    "answer": "A shorthand notation using numbers to indicate intervals above a written bass note.",
+    "explanation": "Figured bass guides chord realization in continuo practice."
+  },
+  {
+    "id": 922,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Roman Numeral Analysis'?",
+    "options": [
+      "A system labeling chords by scale-degree function within a key.",
+      "A cadence where dominant resolves unexpectedly to a non-tonic harmony, commonly vi.",
+      "A suspension where a fourth above the bass resolves downward to a third.",
+      "A rapid alternation between a principal note and the note above."
+    ],
+    "answer": "A system labeling chords by scale-degree function within a key.",
+    "explanation": "Roman numerals describe harmonic function independent of absolute pitch."
+  },
+  {
+    "id": 923,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Perfect Authentic Cadence'?",
+    "options": [
+      "A V to I cadence with both chords in root position and tonic in the upper voice at closure.",
+      "A dominant-function chord temporarily tonicizing a chord other than the global tonic.",
+      "A very short crushed grace note played quickly before the main note.",
+      "The opening sonata section introducing primary themes and tonal contrast."
+    ],
+    "answer": "A V to I cadence with both chords in root position and tonic in the upper voice at closure.",
+    "explanation": "PAC provides the strongest tonal finality in common-practice harmony."
+  },
+  {
+    "id": 924,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Imperfect Authentic Cadence'?",
+    "options": [
+      "A dominant-to-tonic cadence lacking one or more PAC conditions.",
+      "A fully diminished seventh built from stacked minor thirds.",
+      "An ornament moving above and below a principal note in a set pattern.",
+      "Lengthening a phrase through repetition, sequence, or prolongation beyond expected cadence point."
+    ],
+    "answer": "A dominant-to-tonic cadence lacking one or more PAC conditions.",
+    "explanation": "IAC still resolves but with less conclusive closure than PAC."
+  },
+  {
+    "id": 925,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Interrupted Cadence'?",
+    "options": [
+      "A cadence where dominant resolves unexpectedly to a non-tonic harmony, commonly vi.",
+      "A triad with a raised fifth interval above the root.",
+      "An ornament rapidly alternating between a principal note and adjacent note.",
+      "The opening phrase that often ends with weaker cadence and implies continuation."
+    ],
+    "answer": "A cadence where dominant resolves unexpectedly to a non-tonic harmony, commonly vi.",
+    "explanation": "Interrupted cadences delay expected resolution for contrast."
+  },
+  {
+    "id": 926,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Secondary Dominant'?",
+    "options": [
+      "A dominant-function chord temporarily tonicizing a chord other than the global tonic.",
+      "A suspension where a fourth above the bass resolves downward to a third.",
+      "A rapid alternation between a principal note and the note above.",
+      "The responding phrase that often provides stronger cadential resolution."
+    ],
+    "answer": "A dominant-function chord temporarily tonicizing a chord other than the global tonic.",
+    "explanation": "Secondary dominants add local brightness and directed tension."
+  },
+  {
+    "id": 927,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Diminished Seventh Chord'?",
+    "options": [
+      "A fully diminished seventh built from stacked minor thirds.",
+      "A very short crushed grace note played quickly before the main note.",
+      "The opening sonata section introducing primary themes and tonal contrast.",
+      "A texture with one primary melody supported by chordal accompaniment."
+    ],
+    "answer": "A fully diminished seventh built from stacked minor thirds.",
+    "explanation": "Its symmetry enables strong leading-tone function and modulation options."
+  },
+  {
+    "id": 928,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Augmented Triad'?",
+    "options": [
+      "A triad with a raised fifth interval above the root.",
+      "An ornament moving above and below a principal note in a set pattern.",
+      "Lengthening a phrase through repetition, sequence, or prolongation beyond expected cadence point.",
+      "A texture with multiple independent melodic lines sounding together."
+    ],
+    "answer": "A triad with a raised fifth interval above the root.",
+    "explanation": "Augmented triads produce an unstable, bright chromatic sonority."
+  },
+  {
+    "id": 929,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes '4-3 Suspension'?",
+    "options": [
+      "A suspension where a fourth above the bass resolves downward to a third.",
+      "An ornament rapidly alternating between a principal note and adjacent note.",
+      "The opening phrase that often ends with weaker cadence and implies continuation.",
+      "A progression pattern featuring repeated seventh-chord sonorities in ordered root motion."
+    ],
+    "answer": "A suspension where a fourth above the bass resolves downward to a third.",
+    "explanation": "4-3 is one of the most common suspension patterns in tonal writing."
+  },
+  {
+    "id": 930,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Acciaccatura'?",
+    "options": [
+      "A very short crushed grace note played quickly before the main note.",
+      "A rapid alternation between a principal note and the note above.",
+      "The responding phrase that often provides stronger cadential resolution.",
+      "A shorthand notation using numbers to indicate intervals above a written bass note."
+    ],
+    "answer": "A very short crushed grace note played quickly before the main note.",
+    "explanation": "Acciaccaturas add ornamental emphasis with minimal metrical weight."
+  },
+  {
+    "id": 931,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Turn'?",
+    "options": [
+      "An ornament moving above and below a principal note in a set pattern.",
+      "The opening sonata section introducing primary themes and tonal contrast.",
+      "A texture with one primary melody supported by chordal accompaniment.",
+      "A system labeling chords by scale-degree function within a key."
+    ],
+    "answer": "An ornament moving above and below a principal note in a set pattern.",
+    "explanation": "Turns decorate melodic lines with compact pitch motion."
+  },
+  {
+    "id": 932,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Mordent'?",
+    "options": [
+      "An ornament rapidly alternating between a principal note and adjacent note.",
+      "Lengthening a phrase through repetition, sequence, or prolongation beyond expected cadence point.",
+      "A texture with multiple independent melodic lines sounding together.",
+      "A V to I cadence with both chords in root position and tonic in the upper voice at closure."
+    ],
+    "answer": "An ornament rapidly alternating between a principal note and adjacent note.",
+    "explanation": "Mordents are brief decorative figures in melodic writing."
+  },
+  {
+    "id": 933,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Trill'?",
+    "options": [
+      "A rapid alternation between a principal note and the note above.",
+      "The opening phrase that often ends with weaker cadence and implies continuation.",
+      "A progression pattern featuring repeated seventh-chord sonorities in ordered root motion.",
+      "A dominant-to-tonic cadence lacking one or more PAC conditions."
+    ],
+    "answer": "A rapid alternation between a principal note and the note above.",
+    "explanation": "Trills sustain ornamented tension over a note value."
+  },
+  {
+    "id": 934,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Sonata Form Exposition'?",
+    "options": [
+      "The opening sonata section introducing primary themes and tonal contrast.",
+      "The responding phrase that often provides stronger cadential resolution.",
+      "A shorthand notation using numbers to indicate intervals above a written bass note.",
+      "A cadence where dominant resolves unexpectedly to a non-tonic harmony, commonly vi."
+    ],
+    "answer": "The opening sonata section introducing primary themes and tonal contrast.",
+    "explanation": "Expositions commonly move from tonic toward a secondary key area."
+  },
+  {
+    "id": 935,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Phrase Extension'?",
+    "options": [
+      "Lengthening a phrase through repetition, sequence, or prolongation beyond expected cadence point.",
+      "A texture with one primary melody supported by chordal accompaniment.",
+      "A system labeling chords by scale-degree function within a key.",
+      "A dominant-function chord temporarily tonicizing a chord other than the global tonic."
+    ],
+    "answer": "Lengthening a phrase through repetition, sequence, or prolongation beyond expected cadence point.",
+    "explanation": "Phrase extension delays closure to shape larger structure."
+  },
+  {
+    "id": 936,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Antecedent Phrase'?",
+    "options": [
+      "The opening phrase that often ends with weaker cadence and implies continuation.",
+      "A texture with multiple independent melodic lines sounding together.",
+      "A V to I cadence with both chords in root position and tonic in the upper voice at closure.",
+      "A fully diminished seventh built from stacked minor thirds."
+    ],
+    "answer": "The opening phrase that often ends with weaker cadence and implies continuation.",
+    "explanation": "Antecedent phrases are answered by consequents in parallel periods."
+  },
+  {
+    "id": 937,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Consequent Phrase'?",
+    "options": [
+      "The responding phrase that often provides stronger cadential resolution.",
+      "A progression pattern featuring repeated seventh-chord sonorities in ordered root motion.",
+      "A dominant-to-tonic cadence lacking one or more PAC conditions.",
+      "A triad with a raised fifth interval above the root."
+    ],
+    "answer": "The responding phrase that often provides stronger cadential resolution.",
+    "explanation": "Consequent phrases complete paired period structures."
+  },
+  {
+    "id": 938,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Homophonic Texture'?",
+    "options": [
+      "A texture with one primary melody supported by chordal accompaniment.",
+      "A shorthand notation using numbers to indicate intervals above a written bass note.",
+      "A cadence where dominant resolves unexpectedly to a non-tonic harmony, commonly vi.",
+      "A suspension where a fourth above the bass resolves downward to a third."
+    ],
+    "answer": "A texture with one primary melody supported by chordal accompaniment.",
+    "explanation": "Homophony emphasizes vertical harmony beneath a lead line."
+  },
+  {
+    "id": 939,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Polyphonic Texture'?",
+    "options": [
+      "A texture with multiple independent melodic lines sounding together.",
+      "A system labeling chords by scale-degree function within a key.",
+      "A dominant-function chord temporarily tonicizing a chord other than the global tonic.",
+      "A very short crushed grace note played quickly before the main note."
+    ],
+    "answer": "A texture with multiple independent melodic lines sounding together.",
+    "explanation": "Polyphony highlights line independence and contrapuntal interaction."
+  },
+  {
+    "id": 940,
+    "question_set": "music theory grade 5",
+    "prompt": "In music theory grade 5, what best describes 'Sequence of Sevenths'?",
+    "options": [
+      "A progression pattern featuring repeated seventh-chord sonorities in ordered root motion.",
+      "A V to I cadence with both chords in root position and tonic in the upper voice at closure.",
+      "A fully diminished seventh built from stacked minor thirds.",
+      "An ornament moving above and below a principal note in a set pattern."
+    ],
+    "answer": "A progression pattern featuring repeated seventh-chord sonorities in ordered root motion.",
+    "explanation": "Sequential seventh chords create forward-driving harmonic momentum."
+  },
+  {
+    "id": 941,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Modal Mixture'?",
+    "options": [
+      "Borrowing chords from the parallel major or minor key.",
+      "An augmented-sixth chord containing scale degrees 6, raised 4, and 1 in minor-derived usage.",
+      "A key change achieved by respelling a chord to reinterpret its harmonic function.",
+      "The principal melodic idea introduced at the start of a fugue."
+    ],
+    "answer": "Borrowing chords from the parallel major or minor key.",
+    "explanation": "Modal mixture enriches tonal color without full modulation."
+  },
+  {
+    "id": 942,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Secondary Leading-Tone Chord'?",
+    "options": [
+      "A leading-tone-function chord that tonicizes a scale degree other than tonic.",
+      "An augmented-sixth sonority adding scale degree 2 to the Italian collection.",
+      "Counterpoint designed so voices can switch vertical positions and remain valid.",
+      "The subject's imitative entry, usually at the dominant or tonic transposition."
+    ],
+    "answer": "A leading-tone-function chord that tonicizes a scale degree other than tonic.",
+    "explanation": "These chords intensify directed motion to temporary goals."
+  },
+  {
+    "id": 943,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Tonicization'?",
+    "options": [
+      "Brief emphasis of a chord as if it were a temporary tonic.",
+      "An augmented-sixth sonority adding lowered 3 to the Italian collection.",
+      "A note-against-note contrapuntal style with one note in each voice per beat.",
+      "A developmental section in fugue using fragments rather than complete subject statements."
+    ],
+    "answer": "Brief emphasis of a chord as if it were a temporary tonic.",
+    "explanation": "Tonicization creates local key focus without full formal modulation."
+  },
+  {
+    "id": 944,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Italian Sixth'?",
+    "options": [
+      "An augmented-sixth chord containing scale degrees 6, raised 4, and 1 in minor-derived usage.",
+      "A mediant relationship between chords or keys sharing one common tone but different quality/accidentals.",
+      "A contrapuntal technique where one voice imitates another at a fixed delay and interval.",
+      "Overlapping subject entries in fugue before prior entries finish."
+    ],
+    "answer": "An augmented-sixth chord containing scale degrees 6, raised 4, and 1 in minor-derived usage.",
+    "explanation": "The Italian sixth resolves to dominant through outward semitone motion."
+  },
+  {
+    "id": 945,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'French Sixth'?",
+    "options": [
+      "An augmented-sixth sonority adding scale degree 2 to the Italian collection.",
+      "A key change achieved by respelling a chord to reinterpret its harmonic function.",
+      "The principal melodic idea introduced at the start of a fugue.",
+      "A rhythmic effect temporarily grouping beats in twos against threes or vice versa."
+    ],
+    "answer": "An augmented-sixth sonority adding scale degree 2 to the Italian collection.",
+    "explanation": "French sixth chords often move to dominant with characteristic voice leading."
+  },
+  {
+    "id": 946,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'German Sixth'?",
+    "options": [
+      "An augmented-sixth sonority adding lowered 3 to the Italian collection.",
+      "Counterpoint designed so voices can switch vertical positions and remain valid.",
+      "The subject's imitative entry, usually at the dominant or tonic transposition.",
+      "Alternation of different time signatures within a passage."
+    ],
+    "answer": "An augmented-sixth sonority adding lowered 3 to the Italian collection.",
+    "explanation": "German sixth often resolves through cadential dominant preparation."
+  },
+  {
+    "id": 947,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Chromatic Mediant'?",
+    "options": [
+      "A mediant relationship between chords or keys sharing one common tone but different quality/accidentals.",
+      "A note-against-note contrapuntal style with one note in each voice per beat.",
+      "A developmental section in fugue using fragments rather than complete subject statements.",
+      "A repeated bass pattern supporting varied upper voices."
+    ],
+    "answer": "A mediant relationship between chords or keys sharing one common tone but different quality/accidentals.",
+    "explanation": "Chromatic mediants provide dramatic color shifts."
+  },
+  {
+    "id": 948,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Enharmonic Modulation'?",
+    "options": [
+      "A key change achieved by respelling a chord to reinterpret its harmonic function.",
+      "A contrapuntal technique where one voice imitates another at a fixed delay and interval.",
+      "Overlapping subject entries in fugue before prior entries finish.",
+      "A contrapuntal move where two voices swap pitches or pitch classes."
+    ],
+    "answer": "A key change achieved by respelling a chord to reinterpret its harmonic function.",
+    "explanation": "Enharmonic reinterpretation enables smooth remote modulation."
+  },
+  {
+    "id": 949,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Invertible Counterpoint'?",
+    "options": [
+      "Counterpoint designed so voices can switch vertical positions and remain valid.",
+      "The principal melodic idea introduced at the start of a fugue.",
+      "A rhythmic effect temporarily grouping beats in twos against threes or vice versa.",
+      "A diminished seventh chord connected by shared pitch to surrounding harmony."
+    ],
+    "answer": "Counterpoint designed so voices can switch vertical positions and remain valid.",
+    "explanation": "Invertible writing preserves consonance and function after voice exchange."
+  },
+  {
+    "id": 950,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'First Species Counterpoint'?",
+    "options": [
+      "A note-against-note contrapuntal style with one note in each voice per beat.",
+      "The subject's imitative entry, usually at the dominant or tonic transposition.",
+      "Alternation of different time signatures within a passage.",
+      "Borrowing chords from the parallel major or minor key."
+    ],
+    "answer": "A note-against-note contrapuntal style with one note in each voice per beat.",
+    "explanation": "First species teaches core consonance control."
+  },
+  {
+    "id": 951,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Canon'?",
+    "options": [
+      "A contrapuntal technique where one voice imitates another at a fixed delay and interval.",
+      "A developmental section in fugue using fragments rather than complete subject statements.",
+      "A repeated bass pattern supporting varied upper voices.",
+      "A leading-tone-function chord that tonicizes a scale degree other than tonic."
+    ],
+    "answer": "A contrapuntal technique where one voice imitates another at a fixed delay and interval.",
+    "explanation": "Canons require strict structural imitation."
+  },
+  {
+    "id": 952,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Fugue Subject'?",
+    "options": [
+      "The principal melodic idea introduced at the start of a fugue.",
+      "Overlapping subject entries in fugue before prior entries finish.",
+      "A contrapuntal move where two voices swap pitches or pitch classes.",
+      "Brief emphasis of a chord as if it were a temporary tonic."
+    ],
+    "answer": "The principal melodic idea introduced at the start of a fugue.",
+    "explanation": "The subject anchors the fugue's thematic identity."
+  },
+  {
+    "id": 953,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Fugue Answer'?",
+    "options": [
+      "The subject's imitative entry, usually at the dominant or tonic transposition.",
+      "A rhythmic effect temporarily grouping beats in twos against threes or vice versa.",
+      "A diminished seventh chord connected by shared pitch to surrounding harmony.",
+      "An augmented-sixth chord containing scale degrees 6, raised 4, and 1 in minor-derived usage."
+    ],
+    "answer": "The subject's imitative entry, usually at the dominant or tonic transposition.",
+    "explanation": "Answers establish tonal balance in fugue exposition."
+  },
+  {
+    "id": 954,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Episode'?",
+    "options": [
+      "A developmental section in fugue using fragments rather than complete subject statements.",
+      "Alternation of different time signatures within a passage.",
+      "Borrowing chords from the parallel major or minor key.",
+      "An augmented-sixth sonority adding scale degree 2 to the Italian collection."
+    ],
+    "answer": "A developmental section in fugue using fragments rather than complete subject statements.",
+    "explanation": "Episodes provide contrast and modulatory movement."
+  },
+  {
+    "id": 955,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Stretto'?",
+    "options": [
+      "Overlapping subject entries in fugue before prior entries finish.",
+      "A repeated bass pattern supporting varied upper voices.",
+      "A leading-tone-function chord that tonicizes a scale degree other than tonic.",
+      "An augmented-sixth sonority adding lowered 3 to the Italian collection."
+    ],
+    "answer": "Overlapping subject entries in fugue before prior entries finish.",
+    "explanation": "Stretto increases intensity near climactic passages."
+  },
+  {
+    "id": 956,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Hemiola'?",
+    "options": [
+      "A rhythmic effect temporarily grouping beats in twos against threes or vice versa.",
+      "A contrapuntal move where two voices swap pitches or pitch classes.",
+      "Brief emphasis of a chord as if it were a temporary tonic.",
+      "A mediant relationship between chords or keys sharing one common tone but different quality/accidentals."
+    ],
+    "answer": "A rhythmic effect temporarily grouping beats in twos against threes or vice versa.",
+    "explanation": "Hemiola creates metric tension, often near cadences."
+  },
+  {
+    "id": 957,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Mixed Meter'?",
+    "options": [
+      "Alternation of different time signatures within a passage.",
+      "A diminished seventh chord connected by shared pitch to surrounding harmony.",
+      "An augmented-sixth chord containing scale degrees 6, raised 4, and 1 in minor-derived usage.",
+      "A key change achieved by respelling a chord to reinterpret its harmonic function."
+    ],
+    "answer": "Alternation of different time signatures within a passage.",
+    "explanation": "Mixed meter changes beat grouping across bars."
+  },
+  {
+    "id": 958,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Ground Bass'?",
+    "options": [
+      "A repeated bass pattern supporting varied upper voices.",
+      "Borrowing chords from the parallel major or minor key.",
+      "An augmented-sixth sonority adding scale degree 2 to the Italian collection.",
+      "Counterpoint designed so voices can switch vertical positions and remain valid."
+    ],
+    "answer": "A repeated bass pattern supporting varied upper voices.",
+    "explanation": "Ground bass underpins forms like passacaglia and chaconne."
+  },
+  {
+    "id": 959,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Voice Exchange'?",
+    "options": [
+      "A contrapuntal move where two voices swap pitches or pitch classes.",
+      "A leading-tone-function chord that tonicizes a scale degree other than tonic.",
+      "An augmented-sixth sonority adding lowered 3 to the Italian collection.",
+      "A note-against-note contrapuntal style with one note in each voice per beat."
+    ],
+    "answer": "A contrapuntal move where two voices swap pitches or pitch classes.",
+    "explanation": "Voice exchange supports smooth line continuity and prolongation."
+  },
+  {
+    "id": 960,
+    "question_set": "music theory grade 6",
+    "prompt": "In music theory grade 6, what best describes 'Common-Tone Diminished Seventh'?",
+    "options": [
+      "A diminished seventh chord connected by shared pitch to surrounding harmony.",
+      "Brief emphasis of a chord as if it were a temporary tonic.",
+      "A mediant relationship between chords or keys sharing one common tone but different quality/accidentals.",
+      "A contrapuntal technique where one voice imitates another at a fixed delay and interval."
+    ],
+    "answer": "A diminished seventh chord connected by shared pitch to surrounding harmony.",
+    "explanation": "This sonority can act as a chromatic embellishing chord."
+  },
+  {
+    "id": 961,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Extended Tertian Harmony'?",
+    "options": [
+      "Chords built by stacking thirds beyond the seventh, such as ninths, elevenths, and thirteenths.",
+      "Borrowing chords from parallel modes to color a tonal progression.",
+      "Parallel movement of chord shapes maintaining intervallic structure.",
+      "Rhythmic organization built from unequal groupings added together."
+    ],
+    "answer": "Chords built by stacking thirds beyond the seventh, such as ninths, elevenths, and thirteenths.",
+    "explanation": "Extended tertian structures broaden tonal color and tension."
+  },
+  {
+    "id": 962,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Altered Dominant'?",
+    "options": [
+      "A dominant-function chord containing one or more altered fifths or ninths.",
+      "A dominant seventh sonority associated with a raised fourth scale degree.",
+      "Simultaneous use of two distinct key centers.",
+      "A persistently repeated rhythmic or melodic figure."
+    ],
+    "answer": "A dominant-function chord containing one or more altered fifths or ninths.",
+    "explanation": "Altered dominants intensify resolution targets in jazz and late tonal styles."
+  },
+  {
+    "id": 963,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Tritone Substitution'?",
+    "options": [
+      "Replacing a dominant chord with another dominant whose root is a tritone away.",
+      "A triad placed above a bass or dominant sonority to imply altered extensions.",
+      "Simultaneous use of multiple key centers beyond two.",
+      "A variation form built over a repeated bass or harmonic progression."
+    ],
+    "answer": "Replacing a dominant chord with another dominant whose root is a tritone away.",
+    "explanation": "Tritone substitution preserves guide tones while changing bass motion."
+  },
+  {
+    "id": 964,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Modal Interchange'?",
+    "options": [
+      "Borrowing chords from parallel modes to color a tonal progression.",
+      "Chordal construction based primarily on fourths rather than thirds.",
+      "A tempo shift where a note value in one tempo is reinterpreted as a different value in the new tempo.",
+      "A variation form based on repeating harmonic progression, historically related to passacaglia."
+    ],
+    "answer": "Borrowing chords from parallel modes to color a tonal progression.",
+    "explanation": "Modal interchange introduces contrasting modal sonorities."
+  },
+  {
+    "id": 965,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Lydian Dominant'?",
+    "options": [
+      "A dominant seventh sonority associated with a raised fourth scale degree.",
+      "Parallel movement of chord shapes maintaining intervallic structure.",
+      "Rhythmic organization built from unequal groupings added together.",
+      "A chord made of adjacent pitches, often producing dense dissonance."
+    ],
+    "answer": "A dominant seventh sonority associated with a raised fourth scale degree.",
+    "explanation": "Lydian dominant colors appear in jazz harmony and modal contexts."
+  },
+  {
+    "id": 966,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Upper-Structure Triad'?",
+    "options": [
+      "A triad placed above a bass or dominant sonority to imply altered extensions.",
+      "Simultaneous use of two distinct key centers.",
+      "A persistently repeated rhythmic or melodic figure.",
+      "A grouping of pitch-class sets considered equivalent under transposition and inversion."
+    ],
+    "answer": "A triad placed above a bass or dominant sonority to imply altered extensions.",
+    "explanation": "Upper-structure thinking simplifies complex altered voicings."
+  },
+  {
+    "id": 967,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Quartal Harmony'?",
+    "options": [
+      "Chordal construction based primarily on fourths rather than thirds.",
+      "Simultaneous use of multiple key centers beyond two.",
+      "A variation form built over a repeated bass or harmonic progression.",
+      "The most compact normalized representation of a pitch-class set."
+    ],
+    "answer": "Chordal construction based primarily on fourths rather than thirds.",
+    "explanation": "Quartal sonorities are common in modern and modal writing."
+  },
+  {
+    "id": 968,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Planing'?",
+    "options": [
+      "Parallel movement of chord shapes maintaining intervallic structure.",
+      "A tempo shift where a note value in one tempo is reinterpreted as a different value in the new tempo.",
+      "A variation form based on repeating harmonic progression, historically related to passacaglia.",
+      "A compositional method organizing elements according to ordered series, often twelve-tone rows."
+    ],
+    "answer": "Parallel movement of chord shapes maintaining intervallic structure.",
+    "explanation": "Planing creates coloristic harmonic motion outside strict functional norms."
+  },
+  {
+    "id": 969,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Bitonality'?",
+    "options": [
+      "Simultaneous use of two distinct key centers.",
+      "Rhythmic organization built from unequal groupings added together.",
+      "A chord made of adjacent pitches, often producing dense dissonance.",
+      "A transformation of a tone row played in reverse order."
+    ],
+    "answer": "Simultaneous use of two distinct key centers.",
+    "explanation": "Bitonality produces layered tonal tension."
+  },
+  {
+    "id": 970,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Polytonality'?",
+    "options": [
+      "Simultaneous use of multiple key centers beyond two.",
+      "A persistently repeated rhythmic or melodic figure.",
+      "A grouping of pitch-class sets considered equivalent under transposition and inversion.",
+      "Chords built by stacking thirds beyond the seventh, such as ninths, elevenths, and thirteenths."
+    ],
+    "answer": "Simultaneous use of multiple key centers beyond two.",
+    "explanation": "Polytonality expands harmonic complexity through stacked tonal planes."
+  },
+  {
+    "id": 971,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Metric Modulation'?",
+    "options": [
+      "A tempo shift where a note value in one tempo is reinterpreted as a different value in the new tempo.",
+      "A variation form built over a repeated bass or harmonic progression.",
+      "The most compact normalized representation of a pitch-class set.",
+      "A dominant-function chord containing one or more altered fifths or ninths."
+    ],
+    "answer": "A tempo shift where a note value in one tempo is reinterpreted as a different value in the new tempo.",
+    "explanation": "Metric modulation creates precise proportional tempo changes."
+  },
+  {
+    "id": 972,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Additive Rhythm'?",
+    "options": [
+      "Rhythmic organization built from unequal groupings added together.",
+      "A variation form based on repeating harmonic progression, historically related to passacaglia.",
+      "A compositional method organizing elements according to ordered series, often twelve-tone rows.",
+      "Replacing a dominant chord with another dominant whose root is a tritone away."
+    ],
+    "answer": "Rhythmic organization built from unequal groupings added together.",
+    "explanation": "Additive rhythm contrasts with regular divisive meter patterns."
+  },
+  {
+    "id": 973,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Ostinato'?",
+    "options": [
+      "A persistently repeated rhythmic or melodic figure.",
+      "A chord made of adjacent pitches, often producing dense dissonance.",
+      "A transformation of a tone row played in reverse order.",
+      "Borrowing chords from parallel modes to color a tonal progression."
+    ],
+    "answer": "A persistently repeated rhythmic or melodic figure.",
+    "explanation": "Ostinati provide continuity and drive across sections."
+  },
+  {
+    "id": 974,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Passacaglia'?",
+    "options": [
+      "A variation form built over a repeated bass or harmonic progression.",
+      "A grouping of pitch-class sets considered equivalent under transposition and inversion.",
+      "Chords built by stacking thirds beyond the seventh, such as ninths, elevenths, and thirteenths.",
+      "A dominant seventh sonority associated with a raised fourth scale degree."
+    ],
+    "answer": "A variation form built over a repeated bass or harmonic progression.",
+    "explanation": "Passacaglia emphasizes evolving texture over recurring foundation."
+  },
+  {
+    "id": 975,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Chaconne'?",
+    "options": [
+      "A variation form based on repeating harmonic progression, historically related to passacaglia.",
+      "The most compact normalized representation of a pitch-class set.",
+      "A dominant-function chord containing one or more altered fifths or ninths.",
+      "A triad placed above a bass or dominant sonority to imply altered extensions."
+    ],
+    "answer": "A variation form based on repeating harmonic progression, historically related to passacaglia.",
+    "explanation": "Chaconne structures balance repetition and transformation."
+  },
+  {
+    "id": 976,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Tone Cluster'?",
+    "options": [
+      "A chord made of adjacent pitches, often producing dense dissonance.",
+      "A compositional method organizing elements according to ordered series, often twelve-tone rows.",
+      "Replacing a dominant chord with another dominant whose root is a tritone away.",
+      "Chordal construction based primarily on fourths rather than thirds."
+    ],
+    "answer": "A chord made of adjacent pitches, often producing dense dissonance.",
+    "explanation": "Tone clusters are common in twentieth-century sonorities."
+  },
+  {
+    "id": 977,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Set Class'?",
+    "options": [
+      "A grouping of pitch-class sets considered equivalent under transposition and inversion.",
+      "A transformation of a tone row played in reverse order.",
+      "Borrowing chords from parallel modes to color a tonal progression.",
+      "Parallel movement of chord shapes maintaining intervallic structure."
+    ],
+    "answer": "A grouping of pitch-class sets considered equivalent under transposition and inversion.",
+    "explanation": "Set-class labels support post-tonal analytical comparison."
+  },
+  {
+    "id": 978,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Prime Form'?",
+    "options": [
+      "The most compact normalized representation of a pitch-class set.",
+      "Chords built by stacking thirds beyond the seventh, such as ninths, elevenths, and thirteenths.",
+      "A dominant seventh sonority associated with a raised fourth scale degree.",
+      "Simultaneous use of two distinct key centers."
+    ],
+    "answer": "The most compact normalized representation of a pitch-class set.",
+    "explanation": "Prime form allows consistent cataloging of set relationships."
+  },
+  {
+    "id": 979,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Serialism'?",
+    "options": [
+      "A compositional method organizing elements according to ordered series, often twelve-tone rows.",
+      "A dominant-function chord containing one or more altered fifths or ninths.",
+      "A triad placed above a bass or dominant sonority to imply altered extensions.",
+      "Simultaneous use of multiple key centers beyond two."
+    ],
+    "answer": "A compositional method organizing elements according to ordered series, often twelve-tone rows.",
+    "explanation": "Serial techniques systematize pitch and sometimes rhythm or dynamics."
+  },
+  {
+    "id": 980,
+    "question_set": "music theory grade 7",
+    "prompt": "In music theory grade 7, what best describes 'Row Retrograde'?",
+    "options": [
+      "A transformation of a tone row played in reverse order.",
+      "Replacing a dominant chord with another dominant whose root is a tritone away.",
+      "Chordal construction based primarily on fourths rather than thirds.",
+      "A tempo shift where a note value in one tempo is reinterpreted as a different value in the new tempo."
+    ],
+    "answer": "A transformation of a tone row played in reverse order.",
+    "explanation": "Retrograde is one of the standard row operations in twelve-tone practice."
+  },
+  {
+    "id": 981,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Schenkerian Analysis'?",
+    "options": [
+      "A hierarchical analytical approach reducing surface detail to reveal deep tonal structure.",
+      "The process of extending a harmony's structural function across time through embellishment.",
+      "The rate at which chord changes occur.",
+      "A deliberate deviation from normative sonata procedures for expressive/formal effect."
+    ],
+    "answer": "A hierarchical analytical approach reducing surface detail to reveal deep tonal structure.",
+    "explanation": "Schenkerian analysis traces large-scale prolongation and structural tones."
+  },
+  {
+    "id": 982,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Urlinie'?",
+    "options": [
+      "The fundamental descending melodic line in Schenkerian theory.",
+      "The detailed notated musical surface level in Schenkerian reduction.",
+      "An analysis model classifying sections by formal functions such as presentation, continuation, and cadence.",
+      "A system describing triadic moves using operations such as P, L, and R."
+    ],
+    "answer": "The fundamental descending melodic line in Schenkerian theory.",
+    "explanation": "Urlinie represents deep-level melodic motion toward tonic."
+  },
+  {
+    "id": 983,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Bassbrechung'?",
+    "options": [
+      "The fundamental bass arpeggiation supporting the Urlinie in Schenkerian structure.",
+      "An intermediate structural layer between foreground detail and deep background framework.",
+      "A thematic structure with presentation, repetition, and continuation leading to cadence.",
+      "Voice leading that moves pitches by minimal intervals between sonorities."
+    ],
+    "answer": "The fundamental bass arpeggiation supporting the Urlinie in Schenkerian structure.",
+    "explanation": "Bassbrechung outlines tonic-dominant-tonic support at deep level."
+  },
+  {
+    "id": 984,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Prolongation'?",
+    "options": [
+      "The process of extending a harmony's structural function across time through embellishment.",
+      "The deepest structural level showing fundamental tonal motion.",
+      "A phrase structure pairing antecedent and consequent units with contrasting cadence strength.",
+      "An eight-note symmetric scale alternating semitones and tones."
+    ],
+    "answer": "The process of extending a harmony's structural function across time through embellishment.",
+    "explanation": "Prolongation explains how surface events elaborate deeper harmonies."
+  },
+  {
+    "id": 985,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Foreground'?",
+    "options": [
+      "The detailed notated musical surface level in Schenkerian reduction.",
+      "The rate at which chord changes occur.",
+      "A deliberate deviation from normative sonata procedures for expressive/formal effect.",
+      "A six-note symmetric scale built entirely from whole steps."
+    ],
+    "answer": "The detailed notated musical surface level in Schenkerian reduction.",
+    "explanation": "Foreground includes full rhythmic and ornamental detail."
+  },
+  {
+    "id": 986,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Middleground'?",
+    "options": [
+      "An intermediate structural layer between foreground detail and deep background framework.",
+      "An analysis model classifying sections by formal functions such as presentation, continuation, and cadence.",
+      "A system describing triadic moves using operations such as P, L, and R.",
+      "A distant triadic relation within hexatonic systems often linked by smooth transformations."
+    ],
+    "answer": "An intermediate structural layer between foreground detail and deep background framework.",
+    "explanation": "Middleground reductions reveal phrase-level harmonic design."
+  },
+  {
+    "id": 987,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Background'?",
+    "options": [
+      "The deepest structural level showing fundamental tonal motion.",
+      "A thematic structure with presentation, repetition, and continuation leading to cadence.",
+      "Voice leading that moves pitches by minimal intervals between sonorities.",
+      "The process of presenting all twelve pitch classes within a defined span."
+    ],
+    "answer": "The deepest structural level showing fundamental tonal motion.",
+    "explanation": "Background captures global tonal architecture."
+  },
+  {
+    "id": 988,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Harmonic Rhythm'?",
+    "options": [
+      "The rate at which chord changes occur.",
+      "A phrase structure pairing antecedent and consequent units with contrasting cadence strength.",
+      "An eight-note symmetric scale alternating semitones and tones.",
+      "A six-number summary showing interval-class content of a pitch-class set."
+    ],
+    "answer": "The rate at which chord changes occur.",
+    "explanation": "Harmonic rhythm influences momentum and phrase pacing."
+  },
+  {
+    "id": 989,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Form-Functional Theory'?",
+    "options": [
+      "An analysis model classifying sections by formal functions such as presentation, continuation, and cadence.",
+      "A deliberate deviation from normative sonata procedures for expressive/formal effect.",
+      "A six-note symmetric scale built entirely from whole steps.",
+      "A graph showing relations between sonorities via defined transformational operations."
+    ],
+    "answer": "An analysis model classifying sections by formal functions such as presentation, continuation, and cadence.",
+    "explanation": "Form-functional labels clarify phrase behavior in Classical style."
+  },
+  {
+    "id": 990,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Sentence Form'?",
+    "options": [
+      "A thematic structure with presentation, repetition, and continuation leading to cadence.",
+      "A system describing triadic moves using operations such as P, L, and R.",
+      "A distant triadic relation within hexatonic systems often linked by smooth transformations.",
+      "A hierarchical analytical approach reducing surface detail to reveal deep tonal structure."
+    ],
+    "answer": "A thematic structure with presentation, repetition, and continuation leading to cadence.",
+    "explanation": "Sentence form is a common Classical phrase archetype."
+  },
+  {
+    "id": 991,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Period Form'?",
+    "options": [
+      "A phrase structure pairing antecedent and consequent units with contrasting cadence strength.",
+      "Voice leading that moves pitches by minimal intervals between sonorities.",
+      "The process of presenting all twelve pitch classes within a defined span.",
+      "The fundamental descending melodic line in Schenkerian theory."
+    ],
+    "answer": "A phrase structure pairing antecedent and consequent units with contrasting cadence strength.",
+    "explanation": "Period design depends on question-and-answer phrase relation."
+  },
+  {
+    "id": 992,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Sonata Deformation'?",
+    "options": [
+      "A deliberate deviation from normative sonata procedures for expressive/formal effect.",
+      "An eight-note symmetric scale alternating semitones and tones.",
+      "A six-number summary showing interval-class content of a pitch-class set.",
+      "The fundamental bass arpeggiation supporting the Urlinie in Schenkerian structure."
+    ],
+    "answer": "A deliberate deviation from normative sonata procedures for expressive/formal effect.",
+    "explanation": "Deformation analysis interprets purposeful structural departures."
+  },
+  {
+    "id": 993,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Neo-Riemannian Transformation'?",
+    "options": [
+      "A system describing triadic moves using operations such as P, L, and R.",
+      "A six-note symmetric scale built entirely from whole steps.",
+      "A graph showing relations between sonorities via defined transformational operations.",
+      "The process of extending a harmony's structural function across time through embellishment."
+    ],
+    "answer": "A system describing triadic moves using operations such as P, L, and R.",
+    "explanation": "Neo-Riemannian tools model smooth triadic relations beyond function."
+  },
+  {
+    "id": 994,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Parsimonious Voice Leading'?",
+    "options": [
+      "Voice leading that moves pitches by minimal intervals between sonorities.",
+      "A distant triadic relation within hexatonic systems often linked by smooth transformations.",
+      "A hierarchical analytical approach reducing surface detail to reveal deep tonal structure.",
+      "The detailed notated musical surface level in Schenkerian reduction."
+    ],
+    "answer": "Voice leading that moves pitches by minimal intervals between sonorities.",
+    "explanation": "Parsimonious motion supports efficient harmonic connectivity."
+  },
+  {
+    "id": 995,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Octatonic Collection'?",
+    "options": [
+      "An eight-note symmetric scale alternating semitones and tones.",
+      "The process of presenting all twelve pitch classes within a defined span.",
+      "The fundamental descending melodic line in Schenkerian theory.",
+      "An intermediate structural layer between foreground detail and deep background framework."
+    ],
+    "answer": "An eight-note symmetric scale alternating semitones and tones.",
+    "explanation": "Octatonic collections underpin many late-Romantic and modern passages."
+  },
+  {
+    "id": 996,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Whole-Tone Collection'?",
+    "options": [
+      "A six-note symmetric scale built entirely from whole steps.",
+      "A six-number summary showing interval-class content of a pitch-class set.",
+      "The fundamental bass arpeggiation supporting the Urlinie in Schenkerian structure.",
+      "The deepest structural level showing fundamental tonal motion."
+    ],
+    "answer": "A six-note symmetric scale built entirely from whole steps.",
+    "explanation": "Whole-tone collections create ambiguous, non-functional harmonic color."
+  },
+  {
+    "id": 997,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Hexatonic Pole'?",
+    "options": [
+      "A distant triadic relation within hexatonic systems often linked by smooth transformations.",
+      "A graph showing relations between sonorities via defined transformational operations.",
+      "The process of extending a harmony's structural function across time through embellishment.",
+      "The rate at which chord changes occur."
+    ],
+    "answer": "A distant triadic relation within hexatonic systems often linked by smooth transformations.",
+    "explanation": "Hexatonic poles model non-diatonic tonal movement in chromatic music."
+  },
+  {
+    "id": 998,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Aggregate Completion'?",
+    "options": [
+      "The process of presenting all twelve pitch classes within a defined span.",
+      "A hierarchical analytical approach reducing surface detail to reveal deep tonal structure.",
+      "The detailed notated musical surface level in Schenkerian reduction.",
+      "An analysis model classifying sections by formal functions such as presentation, continuation, and cadence."
+    ],
+    "answer": "The process of presenting all twelve pitch classes within a defined span.",
+    "explanation": "Aggregate completion is central in many post-tonal compositional strategies."
+  },
+  {
+    "id": 999,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Interval Vector'?",
+    "options": [
+      "A six-number summary showing interval-class content of a pitch-class set.",
+      "The fundamental descending melodic line in Schenkerian theory.",
+      "An intermediate structural layer between foreground detail and deep background framework.",
+      "A thematic structure with presentation, repetition, and continuation leading to cadence."
+    ],
+    "answer": "A six-number summary showing interval-class content of a pitch-class set.",
+    "explanation": "Interval vectors provide compact set-theoretic description."
+  },
+  {
+    "id": 1000,
+    "question_set": "music theory grade 8",
+    "prompt": "In music theory grade 8, what best describes 'Transformational Network'?",
+    "options": [
+      "A graph showing relations between sonorities via defined transformational operations.",
+      "The fundamental bass arpeggiation supporting the Urlinie in Schenkerian structure.",
+      "The deepest structural level showing fundamental tonal motion.",
+      "A phrase structure pairing antecedent and consequent units with contrasting cadence strength."
+    ],
+    "answer": "A graph showing relations between sonorities via defined transformational operations.",
+    "explanation": "Transformational networks visualize harmonic motion as operation chains."
   }
 ]

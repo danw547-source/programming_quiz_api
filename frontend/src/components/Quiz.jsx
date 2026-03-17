@@ -73,6 +73,19 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "software and productivity": { label: "Software & Productivity", badge: "M365", category: "tech-support" },
   "hardware": { label: "Hardware", badge: "HW", category: "tech-support" },
   "networking": { label: "Networking", badge: "NET", category: "tech-support" },
+  "office 365": { label: "Office 365", badge: "O365", category: "tech-support" },
+  "google workspace": { label: "Google Workspace", badge: "GWS", category: "tech-support" },
+  "fitness instructing level 1": { label: "Fitness Level 1", badge: "F1", category: "fitness" },
+  "fitness instructing level 2": { label: "Fitness Level 2", badge: "F2", category: "fitness" },
+  "fitness instructing level 3": { label: "Fitness Level 3", badge: "F3", category: "fitness" },
+  "music theory grade 1": { label: "Music Theory Grade 1", badge: "G1", category: "music-theory" },
+  "music theory grade 2": { label: "Music Theory Grade 2", badge: "G2", category: "music-theory" },
+  "music theory grade 3": { label: "Music Theory Grade 3", badge: "G3", category: "music-theory" },
+  "music theory grade 4": { label: "Music Theory Grade 4", badge: "G4", category: "music-theory" },
+  "music theory grade 5": { label: "Music Theory Grade 5", badge: "G5", category: "music-theory" },
+  "music theory grade 6": { label: "Music Theory Grade 6", badge: "G6", category: "music-theory" },
+  "music theory grade 7": { label: "Music Theory Grade 7", badge: "G7", category: "music-theory" },
+  "music theory grade 8": { label: "Music Theory Grade 8", badge: "G8", category: "music-theory" },
 });
 
 const formatQuestionSetLabel = (questionSet) => {
@@ -134,6 +147,10 @@ const getCategoryLabel = (category) => {
     return "Tech Support";
   }
 
+  if (category === "fitness") {
+    return "Fitness";
+  }
+
   return "Programming";
 };
 
@@ -147,6 +164,10 @@ const getAlternateCategory = (selectedCategory) => {
   }
 
   if (selectedCategory === "tech-support") {
+    return "fitness";
+  }
+
+  if (selectedCategory === "fitness") {
     return "programming";
   }
 

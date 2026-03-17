@@ -43,6 +43,19 @@ EXPECTED_QUESTION_SETS = {
     "software and productivity",
     "hardware",
     "networking",
+    "office 365",
+    "google workspace",
+    "fitness instructing level 1",
+    "fitness instructing level 2",
+    "fitness instructing level 3",
+    "music theory grade 1",
+    "music theory grade 2",
+    "music theory grade 3",
+    "music theory grade 4",
+    "music theory grade 5",
+    "music theory grade 6",
+    "music theory grade 7",
+    "music theory grade 8",
 }
 
 
