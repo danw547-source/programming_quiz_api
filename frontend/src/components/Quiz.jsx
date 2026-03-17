@@ -14,13 +14,9 @@
  */
 import { useCallback, useEffect, useState } from "react";
 import {
-  CHEAT_SHEET_ENDPOINT,
-  getAnswerEndpoint,
   getCheatSheet,
   getQuestionSets,
   getQuestions,
-  QUESTION_SETS_ENDPOINT,
-  QUESTIONS_ENDPOINT,
   submitAnswer,
 } from "../services/quizService";
 
@@ -180,13 +176,7 @@ const getPerformanceFeedback = (percentage) => {
   };
 };
 
-const getRequestFailureLabels = (err) => {
-  const status = err?.response?.status;
-  return {
-    statusLabel: status ? ` (HTTP ${status})` : "",
-    timeoutLabel: err?.code === "ECONNABORTED" ? " Request timed out." : "",
-  };
-};
+
 
 export default function Quiz({ isLightTheme, selectedCategory = "programming", onCategoryChange }) {
   const [questions, setQuestions] = useState([]);
@@ -251,18 +241,13 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setIsLoading(true);
     setError("");
 
-    const querySuffix = questionSet ? `?question_set=${encodeURIComponent(questionSet)}` : "";
-
     try {
       const data = await getQuestions(questionSet);
       setAllQuestions(data);
       setQuestions(shuffleArray(data));
       setIsRetryRound(false);
     } catch (err) {
-      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
-      setError(
-        `Unable to load quiz questions from ${QUESTIONS_ENDPOINT}${querySuffix}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
-      );
+      setError(`Unable to load questions. ${err?.message ?? "Please try again."}`);
     } finally {
       setIsLoading(false);
     }
@@ -285,10 +270,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       setQuestions(shuffleArray(data));
       setIsRetryRound(false);
     } catch (err) {
-      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
-      setError(
-        `Unable to load question sets from ${QUESTION_SETS_ENDPOINT}${statusLabel}.${timeoutLabel} Make sure the API server is running.`,
-      );
+      setError(`Unable to load question sets. ${err?.message ?? "Please try again."}`);
     } finally {
       setIsLoading(false);
     }
@@ -377,10 +359,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
         setScore((prev) => prev + 1);
       }
     } catch (err) {
-      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
-      setError(
-        `Your answer could not be submitted to ${getAnswerEndpoint(question.id)}${statusLabel}.${timeoutLabel} Please try again.`,
-      );
+      setError(`Unable to submit answer. ${err?.message ?? "Please try again."}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -448,7 +427,6 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     // Capture the set name before any async gaps so a concurrent set change
     // during the fetch doesn't cause the wrong entries to be displayed.
     const selectedSet = selectedQuestionSet;
-    const querySuffix = `?question_set=${encodeURIComponent(selectedSet)}`;
 
     setIsQuestionSetPickerOpen(false);
     setIsCheatSheetOpen(true);
@@ -466,11 +444,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       setCheatSheetQuestionSet(response.question_set);
       setCheatSheetEntries(currentEntry ? [currentEntry] : []);
     } catch (err) {
-      const { statusLabel, timeoutLabel } = getRequestFailureLabels(err);
       setCheatSheetEntries([]);
-      setCheatSheetError(
-        `Unable to load cheat sheet from ${CHEAT_SHEET_ENDPOINT}${querySuffix}${statusLabel}.${timeoutLabel} Please try again.`,
-      );
+      setCheatSheetError(`Unable to load cheat sheet. ${err?.message ?? "Please try again."}`);
     } finally {
       setIsCheatSheetLoading(false);
     }
