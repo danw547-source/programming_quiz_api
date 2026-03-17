@@ -15,6 +15,7 @@ const QUIZ_CATEGORIES = Object.freeze([
   { id: "programming", label: "Programming" },
   { id: "music-theory", label: "Music Theory" },
   { id: "charlotte", label: "Charlotte" },
+  { id: "tech-support", label: "Tech Support" },
 ]);
 
 function App() {

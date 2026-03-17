@@ -8578,5 +8578,1045 @@
     ],
     "answer": "Heating and cooling chocolate to stabilize cocoa butter crystals for a smooth, glossy finish and snap",
     "explanation": "Properly tempered chocolate sets hard quickly, shines beautifully, and has good mouthfeel in truffles or ganache."
+  },
+  {
+    "id": 661,
+    "question_set": "windows os",
+    "prompt": "What is the purpose of the Windows operating system?",
+    "options": [
+      "Run a single app",
+      "Manage hardware and software resources",
+      "Only handle files",
+      "Provide internet"
+    ],
+    "answer": "Manage hardware and software resources",
+    "explanation": "Windows acts as an intermediary between applications and hardware, managing memory, processes, storage, and devices."
+  },
+  {
+    "id": 662,
+    "question_set": "windows os",
+    "prompt": "What keyboard shortcut opens Task Manager?",
+    "options": [
+      "Ctrl + P",
+      "Ctrl + Shift + Esc",
+      "Alt + F4",
+      "Ctrl + C"
+    ],
+    "answer": "Ctrl + Shift + Esc",
+    "explanation": "Ctrl + Shift + Esc opens Task Manager directly. Ctrl + Alt + Delete also works but shows additional options first."
+  },
+  {
+    "id": 663,
+    "question_set": "windows os",
+    "prompt": "What does restarting a PC often fix?",
+    "options": [
+      "Hardware damage",
+      "Temporary software issues",
+      "Broken screens",
+      "BIOS corruption"
+    ],
+    "answer": "Temporary software issues",
+    "explanation": "Restarting clears temporary files, resets application state, and flushes memory, resolving many common software glitches."
+  },
+  {
+    "id": 664,
+    "question_set": "windows os",
+    "prompt": "Where can you uninstall programs in Windows 10/11?",
+    "options": [
+      "File Explorer",
+      "Settings → Apps",
+      "Task Manager",
+      "Control Panel only"
+    ],
+    "answer": "Settings → Apps",
+    "explanation": "Settings → Apps provides a unified place to view and uninstall installed software in both Windows 10 and Windows 11."
+  },
+  {
+    "id": 665,
+    "question_set": "windows os",
+    "prompt": "What does File Explorer do?",
+    "options": [
+      "Runs programs",
+      "Manages files and folders",
+      "Controls internet",
+      "Installs drivers"
+    ],
+    "answer": "Manages files and folders",
+    "explanation": "File Explorer is the built-in file manager in Windows, allowing you to navigate, copy, move, rename, and delete files and folders."
+  },
+  {
+    "id": 666,
+    "question_set": "windows os",
+    "prompt": "What is the Recycle Bin used for?",
+    "options": [
+      "Permanent deletion",
+      "Temporary storage for deleted files",
+      "Backup system",
+      "Virus scanning"
+    ],
+    "answer": "Temporary storage for deleted files",
+    "explanation": "The Recycle Bin holds deleted files until permanently removed or restored, protecting against accidental deletion."
+  },
+  {
+    "id": 667,
+    "question_set": "windows os",
+    "prompt": "What does Windows Update do?",
+    "options": [
+      "Deletes files",
+      "Installs updates and security patches",
+      "Speeds up CPU",
+      "Formats drives"
+    ],
+    "answer": "Installs updates and security patches",
+    "explanation": "Windows Update delivers operating system updates, security patches, and driver updates to keep the system protected and current."
+  },
+  {
+    "id": 668,
+    "question_set": "windows os",
+    "prompt": "What tool shows CPU and memory usage?",
+    "options": [
+      "File Explorer",
+      "Task Manager",
+      "Control Panel",
+      "Notepad"
+    ],
+    "answer": "Task Manager",
+    "explanation": "Task Manager's Performance tab shows real-time CPU, memory, disk, and network usage, helping diagnose resource issues."
+  },
+  {
+    "id": 669,
+    "question_set": "windows os",
+    "prompt": "What does Safe Mode do?",
+    "options": [
+      "Speeds up the PC",
+      "Loads Windows with minimal drivers",
+      "Installs updates",
+      "Deletes malware automatically"
+    ],
+    "answer": "Loads Windows with minimal drivers",
+    "explanation": "Safe Mode loads only essential drivers and services, making it easier to troubleshoot driver conflicts or remove persistent malware."
+  },
+  {
+    "id": 670,
+    "question_set": "windows os",
+    "prompt": "What is Device Manager used for?",
+    "options": [
+      "Managing files",
+      "Managing hardware and drivers",
+      "Installing apps",
+      "Monitoring internet"
+    ],
+    "answer": "Managing hardware and drivers",
+    "explanation": "Device Manager lists all hardware connected to the PC and allows you to update, roll back, or uninstall device drivers."
+  },
+  {
+    "id": 671,
+    "question_set": "windows os",
+    "prompt": "What command opens the Run dialog?",
+    "options": [
+      "Ctrl + R",
+      "Windows Key + R",
+      "Alt + R",
+      "Shift + R"
+    ],
+    "answer": "Windows Key + R",
+    "explanation": "Win + R opens the Run dialog, letting you quickly launch programs or run commands such as msconfig or devmgmt.msc."
+  },
+  {
+    "id": 672,
+    "question_set": "windows os",
+    "prompt": "What is a common sign of a driver issue?",
+    "options": [
+      "Slow internet",
+      "Hardware not working properly",
+      "Low disk space",
+      "High CPU usage only"
+    ],
+    "answer": "Hardware not working properly",
+    "explanation": "Driver issues often cause hardware to malfunction or show warning icons in Device Manager with error codes such as Code 43."
+  },
+  {
+    "id": 673,
+    "question_set": "windows os",
+    "prompt": "What does 'End Task' do in Task Manager?",
+    "options": [
+      "Restarts PC",
+      "Closes a running application",
+      "Deletes a program",
+      "Clears memory permanently"
+    ],
+    "answer": "Closes a running application",
+    "explanation": "End Task forcibly terminates a selected process, which is useful when an application becomes unresponsive or frozen."
+  },
+  {
+    "id": 674,
+    "question_set": "windows os",
+    "prompt": "What is System Restore used for?",
+    "options": [
+      "Delete files",
+      "Restore system to a previous state",
+      "Upgrade Windows",
+      "Install drivers"
+    ],
+    "answer": "Restore system to a previous state",
+    "explanation": "System Restore rolls back system files and registry settings to a saved restore point, useful after a failed update or driver install."
+  },
+  {
+    "id": 675,
+    "question_set": "windows os",
+    "prompt": "What is the purpose of Event Viewer?",
+    "options": [
+      "Monitor internet",
+      "View system logs and errors",
+      "Manage files",
+      "Update drivers"
+    ],
+    "answer": "View system logs and errors",
+    "explanation": "Event Viewer collects Windows logs including system events, application errors, and security audits, helping diagnose recurring issues."
+  },
+  {
+    "id": 676,
+    "question_set": "windows os",
+    "prompt": "What does SFC /scannow do?",
+    "options": [
+      "Deletes files",
+      "Scans and repairs system files",
+      "Formats disk",
+      "Updates drivers"
+    ],
+    "answer": "Scans and repairs system files",
+    "explanation": "System File Checker scans protected system files and replaces corrupted or missing ones from the Windows component cache."
+  },
+  {
+    "id": 677,
+    "question_set": "windows os",
+    "prompt": "What is DISM used for?",
+    "options": [
+      "Disk cleanup",
+      "Repair Windows image issues",
+      "Install apps",
+      "Manage users"
+    ],
+    "answer": "Repair Windows image issues",
+    "explanation": "DISM repairs the Windows component store and OS image, and is typically run before SFC when system files are severely corrupted."
+  },
+  {
+    "id": 678,
+    "question_set": "windows os",
+    "prompt": "What is Group Policy used for?",
+    "options": [
+      "File storage",
+      "Managing system/user settings in enterprise environments",
+      "Installing software",
+      "Monitoring CPU"
+    ],
+    "answer": "Managing system/user settings in enterprise environments",
+    "explanation": "Group Policy lets administrators enforce configuration settings across all domain-joined machines, such as password policies and software restrictions."
+  },
+  {
+    "id": 679,
+    "question_set": "windows os",
+    "prompt": "What does msconfig allow you to do?",
+    "options": [
+      "Edit files",
+      "Manage startup and boot options",
+      "Install drivers",
+      "Format disk"
+    ],
+    "answer": "Manage startup and boot options",
+    "explanation": "msconfig (System Configuration) controls startup programs, boot options, and services, making it useful for diagnosing startup issues."
+  },
+  {
+    "id": 680,
+    "question_set": "windows os",
+    "prompt": "What is a BSOD typically caused by?",
+    "options": [
+      "User error",
+      "Critical system or driver failure",
+      "Low battery",
+      "Browser issue"
+    ],
+    "answer": "Critical system or driver failure",
+    "explanation": "A Blue Screen of Death occurs when Windows encounters a fatal error it cannot recover from, commonly due to faulty drivers or hardware."
+  },
+  {
+    "id": 681,
+    "question_set": "software and productivity",
+    "prompt": "What is Microsoft Word used for?",
+    "options": [
+      "Spreadsheets",
+      "Documents and text editing",
+      "Email",
+      "Video calls"
+    ],
+    "answer": "Documents and text editing",
+    "explanation": "Microsoft Word is a word processor for creating, formatting, and editing text-based documents, reports, and letters."
+  },
+  {
+    "id": 682,
+    "question_set": "software and productivity",
+    "prompt": "What is Microsoft Excel used for?",
+    "options": [
+      "Presentations",
+      "Spreadsheets and data analysis",
+      "Email",
+      "Browsing"
+    ],
+    "answer": "Spreadsheets and data analysis",
+    "explanation": "Excel is used for creating spreadsheets, performing calculations, analysing data, and building charts and pivot tables."
+  },
+  {
+    "id": 683,
+    "question_set": "software and productivity",
+    "prompt": "What is Microsoft Teams primarily used for?",
+    "options": [
+      "File storage",
+      "Communication and collaboration",
+      "Antivirus",
+      "Printing"
+    ],
+    "answer": "Communication and collaboration",
+    "explanation": "Teams combines chat, video meetings, file sharing, and app integrations to support team collaboration in both remote and office environments."
+  },
+  {
+    "id": 684,
+    "question_set": "software and productivity",
+    "prompt": "What is OneDrive?",
+    "options": [
+      "Antivirus",
+      "Cloud storage service",
+      "Operating system",
+      "Browser"
+    ],
+    "answer": "Cloud storage service",
+    "explanation": "OneDrive is Microsoft's cloud storage platform, allowing files to be stored, accessed, and synced across multiple devices."
+  },
+  {
+    "id": 685,
+    "question_set": "software and productivity",
+    "prompt": "What does refreshing a browser do?",
+    "options": [
+      "Deletes cache",
+      "Reloads the webpage",
+      "Installs updates",
+      "Clears cookies"
+    ],
+    "answer": "Reloads the webpage",
+    "explanation": "Refreshing sends a new request to the server and reloads the page content, picking up any changes since the last load."
+  },
+  {
+    "id": 686,
+    "question_set": "software and productivity",
+    "prompt": "What is a browser cache?",
+    "options": [
+      "Virus storage",
+      "Stored website data for faster loading",
+      "Password manager",
+      "Firewall"
+    ],
+    "answer": "Stored website data for faster loading",
+    "explanation": "The browser cache stores copies of web resources such as images and scripts locally so pages load faster on repeat visits."
+  },
+  {
+    "id": 687,
+    "question_set": "software and productivity",
+    "prompt": "What is the first step if a webpage won't load?",
+    "options": [
+      "Replace PC",
+      "Refresh the page",
+      "Format drive",
+      "Reset BIOS"
+    ],
+    "answer": "Refresh the page",
+    "explanation": "Refreshing is the quickest first step to rule out a temporary connection hiccup before investigating further."
+  },
+  {
+    "id": 688,
+    "question_set": "software and productivity",
+    "prompt": "What does clearing browser cache fix?",
+    "options": [
+      "Hardware issues",
+      "Website loading/display issues",
+      "CPU overheating",
+      "Driver errors"
+    ],
+    "answer": "Website loading/display issues",
+    "explanation": "Stale cached data can cause pages to display outdated content or fail to load; clearing it forces a fresh download from the server."
+  },
+  {
+    "id": 689,
+    "question_set": "software and productivity",
+    "prompt": "What is the purpose of cookies?",
+    "options": [
+      "Speed CPU",
+      "Store user session data",
+      "Block ads",
+      "Encrypt files"
+    ],
+    "answer": "Store user session data",
+    "explanation": "Cookies are small text files stored by websites to remember login state, preferences, and session information between visits."
+  },
+  {
+    "id": 690,
+    "question_set": "software and productivity",
+    "prompt": "What is a common fix for Microsoft Teams not opening?",
+    "options": [
+      "Replace RAM",
+      "Restart the app or clear cache",
+      "Reinstall Windows",
+      "Format drive"
+    ],
+    "answer": "Restart the app or clear cache",
+    "explanation": "Restarting Teams or clearing its local cache resolves most launch and performance issues without a full reinstall."
+  },
+  {
+    "id": 691,
+    "question_set": "software and productivity",
+    "prompt": "What does 'Sync' mean in OneDrive?",
+    "options": [
+      "Delete files",
+      "Keep files updated between local and cloud",
+      "Compress files",
+      "Encrypt files"
+    ],
+    "answer": "Keep files updated between local and cloud",
+    "explanation": "Sync ensures that changes made to files on your PC are automatically reflected in the cloud and vice versa."
+  },
+  {
+    "id": 692,
+    "question_set": "software and productivity",
+    "prompt": "What is Incognito/Private browsing used for?",
+    "options": [
+      "Faster internet",
+      "Prevent storing history/cookies locally",
+      "Block all ads",
+      "Increase security completely"
+    ],
+    "answer": "Prevent storing history/cookies locally",
+    "explanation": "Private mode prevents the browser from saving history, cookies, and form data locally, though network traffic is still visible to the ISP and sites."
+  },
+  {
+    "id": 693,
+    "question_set": "software and productivity",
+    "prompt": "What could cause Outlook not sending emails?",
+    "options": [
+      "Monitor issue",
+      "Network or server issue",
+      "GPU failure",
+      "RAM fault"
+    ],
+    "answer": "Network or server issue",
+    "explanation": "Outlook requires a stable connection to the mail server; network outages, firewall blocks, or server downtime can all prevent email delivery."
+  },
+  {
+    "id": 694,
+    "question_set": "software and productivity",
+    "prompt": "What is an add-on/extension in a browser?",
+    "options": [
+      "Hardware tool",
+      "Extra feature installed into browser",
+      "Antivirus",
+      "OS update"
+    ],
+    "answer": "Extra feature installed into browser",
+    "explanation": "Extensions are small programs that add functionality to a browser, such as ad blockers, password managers, or productivity tools."
+  },
+  {
+    "id": 695,
+    "question_set": "software and productivity",
+    "prompt": "What is a common cause of Teams sync issues?",
+    "options": [
+      "GPU",
+      "Corrupted cache or network issues",
+      "CPU overheating",
+      "BIOS error"
+    ],
+    "answer": "Corrupted cache or network issues",
+    "explanation": "Teams sync problems are frequently caused by a corrupted local cache or an unstable network connection; clearing the cache usually resolves them."
+  },
+  {
+    "id": 696,
+    "question_set": "software and productivity",
+    "prompt": "What does resetting a browser do?",
+    "options": [
+      "Deletes OS",
+      "Restores default settings",
+      "Removes hardware",
+      "Clears RAM"
+    ],
+    "answer": "Restores default settings",
+    "explanation": "A browser reset removes extensions, clears cached data, and restores all settings to factory defaults, often fixing persistent issues."
+  },
+  {
+    "id": 697,
+    "question_set": "software and productivity",
+    "prompt": "What is MFA (Multi-Factor Authentication)?",
+    "options": [
+      "Backup system",
+      "Extra security layer requiring multiple verification methods",
+      "Cloud storage",
+      "Encryption only"
+    ],
+    "answer": "Extra security layer requiring multiple verification methods",
+    "explanation": "MFA requires users to verify identity using two or more factors such as a password plus a one-time code, reducing the risk of unauthorised access."
+  },
+  {
+    "id": 698,
+    "question_set": "software and productivity",
+    "prompt": "What is a common issue with OneDrive syncing?",
+    "options": [
+      "Screen resolution",
+      "File conflicts or connectivity issues",
+      "CPU overheating",
+      "BIOS settings"
+    ],
+    "answer": "File conflicts or connectivity issues",
+    "explanation": "Sync errors in OneDrive typically arise from conflicting file versions edited in two places simultaneously or an interrupted internet connection."
+  },
+  {
+    "id": 699,
+    "question_set": "software and productivity",
+    "prompt": "What does 'Work Offline' mode in Outlook do?",
+    "options": [
+      "Deletes emails",
+      "Disconnects from mail server temporarily",
+      "Encrypts emails",
+      "Archives emails"
+    ],
+    "answer": "Disconnects from mail server temporarily",
+    "explanation": "Work Offline lets you read and compose emails without an active connection; queued emails send automatically when you reconnect."
+  },
+  {
+    "id": 700,
+    "question_set": "software and productivity",
+    "prompt": "What is a browser DNS cache issue?",
+    "options": [
+      "Hardware failure",
+      "Incorrect cached domain resolution",
+      "File corruption",
+      "GPU issue"
+    ],
+    "answer": "Incorrect cached domain resolution",
+    "explanation": "The browser caches DNS lookups for speed, but stale entries can point a domain to a wrong IP; running ipconfig /flushdns clears them."
+  },
+  {
+    "id": 701,
+    "question_set": "hardware",
+    "prompt": "What does RAM do?",
+    "options": [
+      "Store files permanently",
+      "Temporary memory for running programs",
+      "Power supply",
+      "Graphics rendering"
+    ],
+    "answer": "Temporary memory for running programs",
+    "explanation": "RAM holds data the CPU is actively using, providing fast access compared to storage drives, and is cleared when the PC powers off."
+  },
+  {
+    "id": 702,
+    "question_set": "hardware",
+    "prompt": "What component powers the computer?",
+    "options": [
+      "CPU",
+      "PSU (Power Supply Unit)",
+      "RAM",
+      "SSD"
+    ],
+    "answer": "PSU (Power Supply Unit)",
+    "explanation": "The PSU converts AC power from the mains into the DC voltages required by the motherboard, CPU, drives, and other components."
+  },
+  {
+    "id": 703,
+    "question_set": "hardware",
+    "prompt": "What does a hard drive/SSD store?",
+    "options": [
+      "Power",
+      "Permanent data",
+      "Network traffic",
+      "Display output"
+    ],
+    "answer": "Permanent data",
+    "explanation": "HDDs and SSDs provide persistent storage for the OS, applications, and files that survives when the computer is powered off."
+  },
+  {
+    "id": 704,
+    "question_set": "hardware",
+    "prompt": "What does the CPU do?",
+    "options": [
+      "Store files",
+      "Process instructions",
+      "Display graphics",
+      "Connect internet"
+    ],
+    "answer": "Process instructions",
+    "explanation": "The CPU executes program instructions, performing arithmetic, logic, and control operations that drive all software on the computer."
+  },
+  {
+    "id": 705,
+    "question_set": "hardware",
+    "prompt": "What is a common sign of overheating?",
+    "options": [
+      "Faster performance",
+      "Random shutdowns",
+      "Clear display",
+      "Loud typing"
+    ],
+    "answer": "Random shutdowns",
+    "explanation": "PCs automatically shut down when components exceed safe temperatures to prevent permanent damage, often appearing as unexpected power-offs."
+  },
+  {
+    "id": 706,
+    "question_set": "hardware",
+    "prompt": "What does a monitor display?",
+    "options": [
+      "Data storage",
+      "Visual output",
+      "Power usage",
+      "Network traffic"
+    ],
+    "answer": "Visual output",
+    "explanation": "A monitor is an output device that renders the video signal from the GPU as the graphical user interface and on-screen content."
+  },
+  {
+    "id": 707,
+    "question_set": "hardware",
+    "prompt": "What is a peripheral device?",
+    "options": [
+      "Internal component",
+      "External device like keyboard/mouse",
+      "Software",
+      "Network"
+    ],
+    "answer": "External device like keyboard/mouse",
+    "explanation": "Peripherals are external devices connected to the PC to provide input such as a keyboard or mouse, or output such as a printer."
+  },
+  {
+    "id": 708,
+    "question_set": "hardware",
+    "prompt": "What is a POST error?",
+    "options": [
+      "Software bug",
+      "Hardware check failure during startup",
+      "Network issue",
+      "File error"
+    ],
+    "answer": "Hardware check failure during startup",
+    "explanation": "POST (Power-On Self-Test) runs at boot; if hardware is missing or faulty it halts with beep codes or an error message before the OS loads."
+  },
+  {
+    "id": 709,
+    "question_set": "hardware",
+    "prompt": "What does BIOS/UEFI do?",
+    "options": [
+      "Run apps",
+      "Initialize hardware at startup",
+      "Store files",
+      "Provide internet"
+    ],
+    "answer": "Initialize hardware at startup",
+    "explanation": "BIOS/UEFI firmware runs before the OS, detecting and initialising hardware components, then handing control to the bootloader."
+  },
+  {
+    "id": 710,
+    "question_set": "hardware",
+    "prompt": "What is a common cause of no display?",
+    "options": [
+      "Browser issue",
+      "Loose cable or GPU issue",
+      "Software update",
+      "Cache"
+    ],
+    "answer": "Loose cable or GPU issue",
+    "explanation": "A black screen is often caused by a disconnected display cable, a faulty GPU, or the monitor being set to the wrong input source."
+  },
+  {
+    "id": 711,
+    "question_set": "hardware",
+    "prompt": "What is thermal paste used for?",
+    "options": [
+      "Clean CPU",
+      "Improve heat transfer between CPU and cooler",
+      "Store data",
+      "Power supply"
+    ],
+    "answer": "Improve heat transfer between CPU and cooler",
+    "explanation": "Thermal paste fills microscopic surface gaps between the CPU and its cooler to maximise heat conduction and keep temperatures low."
+  },
+  {
+    "id": 712,
+    "question_set": "hardware",
+    "prompt": "What does upgrading RAM improve?",
+    "options": [
+      "Storage",
+      "Multitasking performance",
+      "Internet speed",
+      "Display quality"
+    ],
+    "answer": "Multitasking performance",
+    "explanation": "More RAM allows the system to run more processes simultaneously without swapping to slower virtual memory, improving responsiveness."
+  },
+  {
+    "id": 713,
+    "question_set": "hardware",
+    "prompt": "What is a failing hard drive symptom?",
+    "options": [
+      "Faster load times",
+      "Clicking noises and data errors",
+      "Better graphics",
+      "Stable system"
+    ],
+    "answer": "Clicking noises and data errors",
+    "explanation": "A clicking or grinding noise from an HDD indicates mechanical failure of the read/write heads, often accompanied by slow access or data loss."
+  },
+  {
+    "id": 714,
+    "question_set": "hardware",
+    "prompt": "What does a GPU handle?",
+    "options": [
+      "Storage",
+      "Graphics processing",
+      "Power",
+      "Networking"
+    ],
+    "answer": "Graphics processing",
+    "explanation": "The GPU renders images, video, and animations, offloading this intensive work from the CPU for smooth visual performance."
+  },
+  {
+    "id": 715,
+    "question_set": "hardware",
+    "prompt": "What is RAID used for?",
+    "options": [
+      "Gaming",
+      "Data redundancy/performance",
+      "Cooling",
+      "Networking"
+    ],
+    "answer": "Data redundancy/performance",
+    "explanation": "RAID combines multiple drives for redundancy (protecting against drive failure) or improved read/write performance, depending on the RAID level."
+  },
+  {
+    "id": 716,
+    "question_set": "hardware",
+    "prompt": "What does SMART data monitor?",
+    "options": [
+      "CPU",
+      "Disk health",
+      "RAM",
+      "GPU"
+    ],
+    "answer": "Disk health",
+    "explanation": "S.M.A.R.T. tracks drive health metrics such as reallocated sectors and spin retry counts to give early warning of impending drive failure."
+  },
+  {
+    "id": 717,
+    "question_set": "hardware",
+    "prompt": "What is a bottleneck in hardware?",
+    "options": [
+      "Broken part",
+      "Component limiting overall performance",
+      "Overheating",
+      "Virus"
+    ],
+    "answer": "Component limiting overall performance",
+    "explanation": "A bottleneck occurs when one component cannot keep up with others, such as a slow CPU paired with a fast GPU, limiting overall system performance."
+  },
+  {
+    "id": 718,
+    "question_set": "hardware",
+    "prompt": "What is ECC RAM?",
+    "options": [
+      "Faster RAM",
+      "Error-correcting memory",
+      "Gaming RAM",
+      "Storage RAM"
+    ],
+    "answer": "Error-correcting memory",
+    "explanation": "ECC RAM detects and corrects single-bit memory errors, providing greater reliability in servers and workstations where data integrity is critical."
+  },
+  {
+    "id": 719,
+    "question_set": "hardware",
+    "prompt": "What causes random system freezes?",
+    "options": [
+      "Only software",
+      "Could be RAM, CPU, or overheating issues",
+      "Monitor",
+      "Keyboard"
+    ],
+    "answer": "Could be RAM, CPU, or overheating issues",
+    "explanation": "Random freezes can stem from faulty RAM, CPU instability, thermal throttling, or driver conflicts, requiring systematic diagnosis to isolate the cause."
+  },
+  {
+    "id": 720,
+    "question_set": "hardware",
+    "prompt": "What is firmware?",
+    "options": [
+      "App",
+      "Low-level software controlling hardware",
+      "File system",
+      "Driver only"
+    ],
+    "answer": "Low-level software controlling hardware",
+    "explanation": "Firmware is embedded software stored on hardware chips such as BIOS or an SSD controller that controls the device's fundamental operations."
+  },
+  {
+    "id": 721,
+    "question_set": "networking",
+    "prompt": "What is the internet?",
+    "options": [
+      "A device",
+      "A global network of computers",
+      "Software",
+      "Cable"
+    ],
+    "answer": "A global network of computers",
+    "explanation": "The internet is a worldwide network of interconnected computers and servers that communicate using standardised protocols such as TCP/IP."
+  },
+  {
+    "id": 722,
+    "question_set": "networking",
+    "prompt": "What does Wi-Fi do?",
+    "options": [
+      "Store data",
+      "Connect devices wirelessly to network",
+      "Power devices",
+      "Encrypt files"
+    ],
+    "answer": "Connect devices wirelessly to network",
+    "explanation": "Wi-Fi uses radio waves to connect devices to a local network and the internet without physical cables via a wireless access point."
+  },
+  {
+    "id": 723,
+    "question_set": "networking",
+    "prompt": "What is an IP address?",
+    "options": [
+      "File",
+      "Unique identifier for a device on a network",
+      "Password",
+      "Program"
+    ],
+    "answer": "Unique identifier for a device on a network",
+    "explanation": "An IP address is a numerical label assigned to each network interface, used by routers to deliver traffic to the correct device."
+  },
+  {
+    "id": 724,
+    "question_set": "networking",
+    "prompt": "What is a router?",
+    "options": [
+      "Storage device",
+      "Directs network traffic between devices and internet",
+      "Monitor",
+      "CPU"
+    ],
+    "answer": "Directs network traffic between devices and internet",
+    "explanation": "A router connects the local network to the internet, forwarding data packets between devices and managing traffic using IP addresses."
+  },
+  {
+    "id": 725,
+    "question_set": "networking",
+    "prompt": "What is Ethernet?",
+    "options": [
+      "Wireless signal",
+      "Wired network connection",
+      "Storage",
+      "OS"
+    ],
+    "answer": "Wired network connection",
+    "explanation": "Ethernet is a standard for wired LAN connections, transmitting data over cables such as Cat5e or Cat6 for reliable, high-speed networking."
+  },
+  {
+    "id": 726,
+    "question_set": "networking",
+    "prompt": "What is a modem?",
+    "options": [
+      "Converts signal for internet connection",
+      "Stores files",
+      "Displays output",
+      "Controls CPU"
+    ],
+    "answer": "Converts signal for internet connection",
+    "explanation": "A modem modulates and demodulates signals between your ISP's network such as DSL, cable, or fibre and your home network."
+  },
+  {
+    "id": 727,
+    "question_set": "networking",
+    "prompt": "What is a network?",
+    "options": [
+      "Single PC",
+      "Connected devices sharing resources",
+      "Software",
+      "Power system"
+    ],
+    "answer": "Connected devices sharing resources",
+    "explanation": "A network is a group of computers and devices linked together to share resources such as files, printers, and internet access."
+  },
+  {
+    "id": 728,
+    "question_set": "networking",
+    "prompt": "What does DNS do?",
+    "options": [
+      "Store files",
+      "Translate domain names to IP addresses",
+      "Encrypt data",
+      "Boost speed"
+    ],
+    "answer": "Translate domain names to IP addresses",
+    "explanation": "DNS acts as the internet's address book, translating human-readable domain names such as example.com into their corresponding IP addresses."
+  },
+  {
+    "id": 729,
+    "question_set": "networking",
+    "prompt": "What is ping used for?",
+    "options": [
+      "File transfer",
+      "Test connectivity between devices",
+      "Install drivers",
+      "Encrypt data"
+    ],
+    "answer": "Test connectivity between devices",
+    "explanation": "Ping sends ICMP echo requests to a host and measures round-trip response time, confirming whether a device is reachable on the network."
+  },
+  {
+    "id": 730,
+    "question_set": "networking",
+    "prompt": "What is latency?",
+    "options": [
+      "Speed",
+      "Delay in data transmission",
+      "Storage",
+      "Power"
+    ],
+    "answer": "Delay in data transmission",
+    "explanation": "Latency is the time taken for a data packet to travel from source to destination, measured in milliseconds and critical for real-time applications."
+  },
+  {
+    "id": 731,
+    "question_set": "networking",
+    "prompt": "What is packet loss?",
+    "options": [
+      "Storage issue",
+      "Data packets failing to reach destination",
+      "GPU issue",
+      "RAM issue"
+    ],
+    "answer": "Data packets failing to reach destination",
+    "explanation": "Packet loss occurs when data packets are dropped during transmission due to network congestion, faulty hardware, or poor wireless signal."
+  },
+  {
+    "id": 732,
+    "question_set": "networking",
+    "prompt": "What is a firewall?",
+    "options": [
+      "Hardware only",
+      "Security system controlling network traffic",
+      "Storage",
+      "OS"
+    ],
+    "answer": "Security system controlling network traffic",
+    "explanation": "A firewall monitors and filters incoming and outgoing network traffic based on configured security rules, protecting against unauthorised access."
+  },
+  {
+    "id": 733,
+    "question_set": "networking",
+    "prompt": "What is DHCP?",
+    "options": [
+      "Static IP tool",
+      "Automatically assigns IP addresses",
+      "Encryption",
+      "Firewall"
+    ],
+    "answer": "Automatically assigns IP addresses",
+    "explanation": "DHCP automatically allocates IP addresses and network configuration to devices joining the network, eliminating the need for manual setup."
+  },
+  {
+    "id": 734,
+    "question_set": "networking",
+    "prompt": "What causes slow internet?",
+    "options": [
+      "Only ISP",
+      "Could be congestion, interference, or hardware",
+      "CPU only",
+      "RAM only"
+    ],
+    "answer": "Could be congestion, interference, or hardware",
+    "explanation": "Slow internet can result from ISP congestion, Wi-Fi interference, faulty cables, router issues, or too many devices sharing bandwidth."
+  },
+  {
+    "id": 735,
+    "question_set": "networking",
+    "prompt": "What is NAT?",
+    "options": [
+      "Encryption",
+      "Translates private IPs to public IP",
+      "Storage",
+      "Firewall"
+    ],
+    "answer": "Translates private IPs to public IP",
+    "explanation": "NAT (Network Address Translation) allows multiple devices on a private network to share a single public IP address when accessing the internet."
+  },
+  {
+    "id": 736,
+    "question_set": "networking",
+    "prompt": "What is a subnet?",
+    "options": [
+      "Cable",
+      "Division of a network",
+      "Device",
+      "Protocol"
+    ],
+    "answer": "Division of a network",
+    "explanation": "A subnet is a logical partition of a larger network, defined by a subnet mask, used to organise devices and contain broadcast traffic."
+  },
+  {
+    "id": 737,
+    "question_set": "networking",
+    "prompt": "What is VLAN used for?",
+    "options": [
+      "Speed",
+      "Network segmentation",
+      "Storage",
+      "Encryption"
+    ],
+    "answer": "Network segmentation",
+    "explanation": "A VLAN logically separates devices on the same physical network into isolated groups, improving security, management, and traffic control."
+  },
+  {
+    "id": 738,
+    "question_set": "networking",
+    "prompt": "What is a MAC address?",
+    "options": [
+      "Software ID",
+      "Unique hardware identifier for network interface",
+      "IP address",
+      "Password"
+    ],
+    "answer": "Unique hardware identifier for network interface",
+    "explanation": "A MAC address is a permanent identifier assigned to a network interface card by the manufacturer, used for communication on the local network."
+  },
+  {
+    "id": 739,
+    "question_set": "networking",
+    "prompt": "What is port forwarding?",
+    "options": [
+      "Blocking ports",
+      "Directing traffic to a specific device",
+      "Encrypting data",
+      "Speeding internet"
+    ],
+    "answer": "Directing traffic to a specific device",
+    "explanation": "Port forwarding configures a router to direct incoming traffic on a specified port to a designated device, used for hosting servers or gaming."
+  },
+  {
+    "id": 740,
+    "question_set": "networking",
+    "prompt": "What is DNS propagation?",
+    "options": [
+      "Virus spread",
+      "Time for DNS changes to update globally",
+      "Data transfer",
+      "Packet loss"
+    ],
+    "answer": "Time for DNS changes to update globally",
+    "explanation": "DNS propagation is the period, typically up to 48 hours, it takes for updated DNS records to spread across all DNS servers worldwide."
   }
 ]

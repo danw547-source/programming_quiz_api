@@ -69,6 +69,10 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "finance general": { label: "Finance", badge: "FIN", category: "charlotte" },
   "home cooking general": { label: "Home Cooking", badge: "HC", category: "charlotte" },
   "equinology general": { label: "Equinology", badge: "EQ", category: "charlotte" },
+  "windows os": { label: "Windows OS", badge: "WIN", category: "tech-support" },
+  "software and productivity": { label: "Software & Productivity", badge: "M365", category: "tech-support" },
+  "hardware": { label: "Hardware", badge: "HW", category: "tech-support" },
+  "networking": { label: "Networking", badge: "NET", category: "tech-support" },
 });
 
 const formatQuestionSetLabel = (questionSet) => {
@@ -126,6 +130,10 @@ const getCategoryLabel = (category) => {
     return "Charlotte";
   }
 
+  if (category === "tech-support") {
+    return "Tech Support";
+  }
+
   return "Programming";
 };
 
@@ -135,6 +143,10 @@ const getAlternateCategory = (selectedCategory) => {
   }
 
   if (selectedCategory === "charlotte") {
+    return "tech-support";
+  }
+
+  if (selectedCategory === "tech-support") {
     return "programming";
   }
 

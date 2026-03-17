@@ -39,6 +39,10 @@ EXPECTED_QUESTION_SETS = {
     "finance general",
     "home cooking general",
     "equinology general",
+    "windows os",
+    "software and productivity",
+    "hardware",
+    "networking",
 }
 
 
