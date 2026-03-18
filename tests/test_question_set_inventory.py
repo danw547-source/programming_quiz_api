@@ -56,6 +56,22 @@ EXPECTED_QUESTION_SETS = {
     "music theory grade 6",
     "music theory grade 7",
     "music theory grade 8",
+    "vue.js beginner",
+    "vue.js intermediate",
+    "vue.js expert",
+    "react beginner",
+    "react intermediate",
+    "react expert",
+    "laravel beginner",
+    "laravel intermediate",
+    "laravel expert",
+    "php beginner",
+    "php intermediate",
+    "php expert",
+    "javascript beginner",
+    "javascript intermediate",
+    "javascript expert",
+    "object oriented programming",
 }
 
 

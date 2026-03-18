@@ -12998,5 +12998,4165 @@
     ],
     "answer": "A graph showing relations between sonorities via defined transformational operations.",
     "explanation": "Transformational networks visualize harmonic motion as operation chains."
+  },
+  {
+    "id": 1001,
+    "question_set": "object oriented programming",
+    "prompt": "What does OOP stand for?",
+    "options": [
+      "Object Oriented Programming",
+      "Ordered Operational Procedure",
+      "Open Object Processing",
+      "Optimised Operational Paradigm"
+    ],
+    "answer": "Object Oriented Programming",
+    "explanation": "OOP stands for Object Oriented Programming, a paradigm that organises code around objects and classes rather than functions and logic alone."
+  },
+  {
+    "id": 1002,
+    "question_set": "object oriented programming",
+    "prompt": "In OOP, what term describes the blueprint used to create objects?",
+    "options": [
+      "Function",
+      "Module",
+      "Class",
+      "Interface"
+    ],
+    "answer": "Class",
+    "explanation": "A class is the blueprint or template that defines the properties and behaviours shared by every object created from it."
+  },
+  {
+    "id": 1003,
+    "question_set": "object oriented programming",
+    "prompt": "Which OOP pillar restricts direct access to an object's internal state?",
+    "options": [
+      "Polymorphism",
+      "Inheritance",
+      "Encapsulation",
+      "Abstraction"
+    ],
+    "answer": "Encapsulation",
+    "explanation": "Encapsulation bundles data and the methods that operate on it inside a class, hiding internal details from the outside world."
+  },
+  {
+    "id": 1004,
+    "question_set": "object oriented programming",
+    "prompt": "What does inheritance allow a child class to do?",
+    "options": [
+      "Run faster than the parent class",
+      "Reuse and extend the properties and behaviour of a parent class",
+      "Replace the parent class at compile time",
+      "Prevent the parent class from being instantiated"
+    ],
+    "answer": "Reuse and extend the properties and behaviour of a parent class",
+    "explanation": "Inheritance lets a subclass acquire the fields and methods of a superclass, promoting code reuse and the modelling of 'is-a' relationships."
+  },
+  {
+    "id": 1005,
+    "question_set": "object oriented programming",
+    "prompt": "What is a concrete instance of a class called?",
+    "options": [
+      "Variable",
+      "Prototype",
+      "Object",
+      "Record"
+    ],
+    "answer": "Object",
+    "explanation": "An object is a concrete instance of a class, allocated in memory and holding actual data values for the class's attributes."
+  },
+  {
+    "id": 1006,
+    "question_set": "object oriented programming",
+    "prompt": "What special method is automatically called when an object is created?",
+    "options": [
+      "Destructor",
+      "Constructor",
+      "Initialiser",
+      "Allocator"
+    ],
+    "answer": "Constructor",
+    "explanation": "A constructor is a special method invoked when an object is instantiated; it sets up the initial state of the object."
+  },
+  {
+    "id": 1007,
+    "question_set": "object oriented programming",
+    "prompt": "What does polymorphism allow in OOP?",
+    "options": [
+      "A class to inherit from multiple parents simultaneously",
+      "Different objects to respond to the same method call in their own way",
+      "An object to change its class at runtime",
+      "Methods to run in parallel threads automatically"
+    ],
+    "answer": "Different objects to respond to the same method call in their own way",
+    "explanation": "Polymorphism lets a common interface drive different behaviours; the correct implementation is selected based on the actual runtime type."
+  },
+  {
+    "id": 1008,
+    "question_set": "object oriented programming",
+    "prompt": "What is the difference between method overloading and method overriding?",
+    "options": [
+      "Overloading is a runtime feature; overriding is a compile-time feature",
+      "Overloading defines the same method name with different parameters; overriding redefines a parent method in a child class",
+      "They are the same concept with different names",
+      "Overloading only works with constructors; overriding works with all methods"
+    ],
+    "answer": "Overloading defines the same method name with different parameters; overriding redefines a parent method in a child class",
+    "explanation": "Overloading is resolved at compile time by matching signatures; overriding is resolved at runtime through dynamic dispatch."
+  },
+  {
+    "id": 1009,
+    "question_set": "object oriented programming",
+    "prompt": "What is an abstract class?",
+    "options": [
+      "A class with no attributes",
+      "A class that can only hold static methods",
+      "A class that cannot be instantiated and may declare abstract methods for subclasses to implement",
+      "A class that is only used as a return type"
+    ],
+    "answer": "A class that cannot be instantiated and may declare abstract methods for subclasses to implement",
+    "explanation": "Abstract classes provide a partial or skeletal implementation and force concrete subclasses to fill in the abstract method bodies."
+  },
+  {
+    "id": 1010,
+    "question_set": "object oriented programming",
+    "prompt": "What does the principle 'composition over inheritance' recommend?",
+    "options": [
+      "Always use abstract classes instead of interfaces",
+      "Build complex behaviour by combining smaller objects rather than deep inheritance chains",
+      "Avoid using classes altogether in favour of functions",
+      "Inherit from as many base classes as possible"
+    ],
+    "answer": "Build complex behaviour by combining smaller objects rather than deep inheritance chains",
+    "explanation": "Composition produces more flexible, maintainable code because you assemble capabilities at runtime rather than committing to a rigid class hierarchy."
+  },
+  {
+    "id": 1011,
+    "question_set": "object oriented programming",
+    "prompt": "What is the primary purpose of an interface in OOP?",
+    "options": [
+      "To provide a default implementation that subclasses inherit",
+      "To define a contract of methods that implementing classes must provide",
+      "To store shared state accessible by all classes",
+      "To prevent a class from being extended"
+    ],
+    "answer": "To define a contract of methods that implementing classes must provide",
+    "explanation": "An interface declares method signatures without bodies, guaranteeing that any class claiming to implement it exposes the specified API."
+  },
+  {
+    "id": 1012,
+    "question_set": "object oriented programming",
+    "prompt": "What does the `super()` call typically do in a subclass constructor?",
+    "options": [
+      "Creates a new instance of the parent class",
+      "Calls the parent class's constructor to initialise inherited state",
+      "Overrides all parent methods at once",
+      "Deletes the parent class from memory"
+    ],
+    "answer": "Calls the parent class's constructor to initialise inherited state",
+    "explanation": "super() passes control to the parent constructor, ensuring that inherited attributes are properly set up before the subclass adds its own initialisation."
+  },
+  {
+    "id": 1013,
+    "question_set": "object oriented programming",
+    "prompt": "What is a static method in the context of OOP?",
+    "options": [
+      "A method that cannot be called more than once",
+      "A method that belongs to the class itself rather than to any instance",
+      "A method that returns a static type only",
+      "A method that is automatically inherited by all subclasses"
+    ],
+    "answer": "A method that belongs to the class itself rather than to any instance",
+    "explanation": "Static methods are called on the class directly and have no access to instance-specific data (no `this` or `self`), making them useful for utility functions."
+  },
+  {
+    "id": 1014,
+    "question_set": "object oriented programming",
+    "prompt": "Which access modifier makes a class member visible only within the class that defines it?",
+    "options": [
+      "public",
+      "protected",
+      "private",
+      "internal"
+    ],
+    "answer": "private",
+    "explanation": "The private modifier restricts access to the declaring class only, a cornerstone of encapsulation that prevents external code from depending on implementation details."
+  },
+  {
+    "id": 1015,
+    "question_set": "object oriented programming",
+    "prompt": "What is the diamond problem in multiple inheritance?",
+    "options": [
+      "A performance issue caused by four-level inheritance chains",
+      "Ambiguity that arises when a class inherits from two classes that share a common ancestor",
+      "A memory leak caused by circular references between objects",
+      "A naming conflict when two methods share the same signature in the same class"
+    ],
+    "answer": "Ambiguity that arises when a class inherits from two classes that share a common ancestor",
+    "explanation": "If B and C both inherit from A, and D inherits from both B and C, it is unclear which copy of A's method D should use, forming a diamond-shaped inheritance graph."
+  },
+  {
+    "id": 1016,
+    "question_set": "object oriented programming",
+    "prompt": "What is late binding (dynamic dispatch) in OOP?",
+    "options": [
+      "Linking external libraries at application startup",
+      "Resolving which overridden method to call at runtime based on the actual object type",
+      "Compiling methods only when they are first invoked",
+      "Delaying object creation until the method is actually needed"
+    ],
+    "answer": "Resolving which overridden method to call at runtime based on the actual object type",
+    "explanation": "Dynamic dispatch examines the concrete type of the object at runtime to select the correct overridden implementation, enabling polymorphism."
+  },
+  {
+    "id": 1017,
+    "question_set": "object oriented programming",
+    "prompt": "What is a mixin in OOP?",
+    "options": [
+      "A class that can only be used as a return type",
+      "A design pattern that prevents subclassing",
+      "A class that supplies reusable methods to other classes without being their primary parent",
+      "An alternative term for an abstract factory"
+    ],
+    "answer": "A class that supplies reusable methods to other classes without being their primary parent",
+    "explanation": "Mixins package a set of behaviours that can be selectively added to classes, offering horizontal code reuse without committing to a vertical inheritance hierarchy."
+  },
+  {
+    "id": 1018,
+    "question_set": "object oriented programming",
+    "prompt": "What is covariance in the context of OOP type systems?",
+    "options": [
+      "Two methods having the same name but different parameters",
+      "A subtype can be used wherever a supertype is expected, preserving the subtyping direction",
+      "A method that changes return type based on input",
+      "The ability to assign any value to a variable without type checking"
+    ],
+    "answer": "A subtype can be used wherever a supertype is expected, preserving the subtyping direction",
+    "explanation": "Covariance allows a more specific type (e.g. Cat) to be substituted where a more general type (e.g. Animal) is expected, consistent with the Liskov Substitution Principle."
+  },
+  {
+    "id": 1019,
+    "question_set": "object oriented programming",
+    "prompt": "What is the key difference between a shallow copy and a deep copy of an object?",
+    "options": [
+      "A shallow copy is faster; a deep copy is more secure",
+      "A shallow copy duplicates only the top-level object; a deep copy recursively duplicates all nested objects",
+      "A shallow copy works only with primitive types; a deep copy works with reference types",
+      "There is no practical difference in most languages"
+    ],
+    "answer": "A shallow copy duplicates only the top-level object; a deep copy recursively duplicates all nested objects",
+    "explanation": "With a shallow copy, nested objects are still shared by reference, so mutations to them affect both the original and the copy; a deep copy eliminates this sharing."
+  },
+  {
+    "id": 1020,
+    "question_set": "object oriented programming",
+    "prompt": "What does 'duck typing' mean in dynamically typed OOP languages?",
+    "options": [
+      "If an object has the required methods and properties, it is treated as compatibleregardless of its declared type",
+      "Objects are cast to a duck base class before method calls",
+      "Only objects that inherit from a common base class can be used interchangeably",
+      "Methods are dispatched alphabetically rather than by inheritance order"
+    ],
+    "answer": "If an object has the required methods and properties, it is treated as compatibleregardless of its declared type",
+    "explanation": "The name comes from the phrase 'if it walks like a duck and quacks like a duck, it is a duck'; type compatibility is determined by capability, not declared class hierarchy."
+  },
+  {
+    "id": 1021,
+    "question_set": "vue.js beginner",
+    "prompt": "Which Vue directive binds an HTML attribute to a JavaScript expression?",
+    "options": [
+      "v-bind",
+      "v-on",
+      "v-model",
+      "v-for"
+    ],
+    "answer": "v-bind",
+    "explanation": "v-bind evaluates the expression and uses its result for the target attribute."
+  },
+  {
+    "id": 1022,
+    "question_set": "vue.js beginner",
+    "prompt": "Which directive conditionally renders an element only when its expression is truthy?",
+    "options": [
+      "v-if",
+      "v-show",
+      "v-for",
+      "v-slot"
+    ],
+    "answer": "v-if",
+    "explanation": "v-if adds or removes the element from the DOM based on the condition."
+  },
+  {
+    "id": 1023,
+    "question_set": "vue.js beginner",
+    "prompt": "Which directive is used to render a list from an array?",
+    "options": [
+      "v-for",
+      "v-bind",
+      "v-pre",
+      "v-cloak"
+    ],
+    "answer": "v-for",
+    "explanation": "v-for repeats a block for each item in an iterable source."
+  },
+  {
+    "id": 1024,
+    "question_set": "vue.js beginner",
+    "prompt": "Which directive is used to listen for DOM events such as click or input?",
+    "options": [
+      "v-on",
+      "v-html",
+      "v-model",
+      "v-text"
+    ],
+    "answer": "v-on",
+    "explanation": "v-on attaches event listeners to elements or components."
+  },
+  {
+    "id": 1025,
+    "question_set": "vue.js beginner",
+    "prompt": "What syntax does Vue use for text interpolation in templates?",
+    "options": [
+      "{{ message }}",
+      "[[ message ]]",
+      "(message)",
+      "${message}"
+    ],
+    "answer": "{{ message }}",
+    "explanation": "Double curly braces render the evaluated expression as plain text."
+  },
+  {
+    "id": 1026,
+    "question_set": "vue.js beginner",
+    "prompt": "How does a parent component pass data into a child component?",
+    "options": [
+      "Props",
+      "Provide",
+      "Slots",
+      "Custom directives"
+    ],
+    "answer": "Props",
+    "explanation": "Props are the standard one-way input mechanism from parent to child."
+  },
+  {
+    "id": 1027,
+    "question_set": "vue.js beginner",
+    "prompt": "How should a child component notify its parent about something that happened?",
+    "options": [
+      "Emit an event",
+      "Mutate the parent's state directly",
+      "Import the parent component",
+      "Use a global variable"
+    ],
+    "answer": "Emit an event",
+    "explanation": "Child components communicate upward by emitting events that parents can listen to."
+  },
+  {
+    "id": 1028,
+    "question_set": "vue.js beginner",
+    "prompt": "Which function creates reactive state for a primitive value in the Composition API?",
+    "options": [
+      "ref()",
+      "reactive()",
+      "computed()",
+      "watch()"
+    ],
+    "answer": "ref()",
+    "explanation": "ref() wraps a value in a reactive object with a .value property."
+  },
+  {
+    "id": 1029,
+    "question_set": "vue.js beginner",
+    "prompt": "What is the main benefit of a computed property?",
+    "options": [
+      "It caches derived results until dependencies change",
+      "It always runs asynchronously",
+      "It bypasses reactivity",
+      "It can only be used in templates"
+    ],
+    "answer": "It caches derived results until dependencies change",
+    "explanation": "Computed values are recalculated only when one of their reactive dependencies changes."
+  },
+  {
+    "id": 1030,
+    "question_set": "vue.js beginner",
+    "prompt": "What does v-model do on a text input?",
+    "options": [
+      "Creates two-way binding between the input and state",
+      "Adds a click listener",
+      "Escapes HTML",
+      "Registers a component"
+    ],
+    "answer": "Creates two-way binding between the input and state",
+    "explanation": "v-model keeps the form control value and reactive state in sync."
+  },
+  {
+    "id": 1031,
+    "question_set": "vue.js beginner",
+    "prompt": "Why should a stable :key be used with v-for?",
+    "options": [
+      "To help Vue track each item's identity",
+      "To make the loop run faster in JavaScript",
+      "To prevent all re-renders everywhere",
+      "To sort the array automatically"
+    ],
+    "answer": "To help Vue track each item's identity",
+    "explanation": "A stable key lets Vue reuse and reorder DOM and component instances correctly."
+  },
+  {
+    "id": 1032,
+    "question_set": "vue.js beginner",
+    "prompt": "Which directive toggles an element's visibility by changing CSS display instead of mounting or unmounting it?",
+    "options": [
+      "v-show",
+      "v-if",
+      "v-once",
+      "v-memo"
+    ],
+    "answer": "v-show",
+    "explanation": "v-show keeps the element in the DOM and toggles its display style."
+  },
+  {
+    "id": 1033,
+    "question_set": "vue.js beginner",
+    "prompt": "In the Options API, where are methods like click handlers usually defined?",
+    "options": [
+      "methods",
+      "computed",
+      "inject",
+      "emits"
+    ],
+    "answer": "methods",
+    "explanation": "The methods option holds instance methods used by templates and component logic."
+  },
+  {
+    "id": 1034,
+    "question_set": "vue.js beginner",
+    "prompt": "Which file extension is standard for a Vue single-file component?",
+    "options": [
+      ".vue",
+      ".jsx",
+      ".ts",
+      ".html"
+    ],
+    "answer": ".vue",
+    "explanation": "Vue single-file components are conventionally stored in files ending with .vue."
+  },
+  {
+    "id": 1035,
+    "question_set": "vue.js beginner",
+    "prompt": "What is the default insertion point for content passed from a parent into a child component?",
+    "options": [
+      "<slot />",
+      "<Teleport />",
+      "<KeepAlive />",
+      "<Suspense />"
+    ],
+    "answer": "<slot />",
+    "explanation": "The slot outlet renders whatever content the parent places between the component tags."
+  },
+  {
+    "id": 1036,
+    "question_set": "vue.js beginner",
+    "prompt": "Which event modifier prevents a form submission from reloading the page?",
+    "options": [
+      ".prevent",
+      ".stop",
+      ".once",
+      ".passive"
+    ],
+    "answer": ".prevent",
+    "explanation": "The .prevent modifier calls event.preventDefault() for the bound event."
+  },
+  {
+    "id": 1037,
+    "question_set": "vue.js beginner",
+    "prompt": "What does :class allow you to do in a template?",
+    "options": [
+      "Bind CSS classes dynamically",
+      "Create a custom directive",
+      "Register a route",
+      "Emit a component event"
+    ],
+    "answer": "Bind CSS classes dynamically",
+    "explanation": "The :class binding lets class names depend on reactive expressions."
+  },
+  {
+    "id": 1038,
+    "question_set": "vue.js beginner",
+    "prompt": "Which Composition API lifecycle hook runs after the component is mounted to the DOM?",
+    "options": [
+      "onMounted",
+      "onBeforeMount",
+      "onUpdated",
+      "onUnmounted"
+    ],
+    "answer": "onMounted",
+    "explanation": "onMounted runs after the component's initial DOM has been inserted."
+  },
+  {
+    "id": 1039,
+    "question_set": "vue.js beginner",
+    "prompt": "Which statement about Vue 3 component templates is correct?",
+    "options": [
+      "A template can have multiple root elements",
+      "A template must always have exactly one root element",
+      "A template cannot contain components",
+      "A template can only use plain HTML"
+    ],
+    "answer": "A template can have multiple root elements",
+    "explanation": "Vue 3 supports fragments, so a component template can return multiple root nodes."
+  },
+  {
+    "id": 1040,
+    "question_set": "vue.js beginner",
+    "prompt": "Which directive renders HTML from a string expression?",
+    "options": [
+      "v-html",
+      "v-text",
+      "v-on",
+      "v-model"
+    ],
+    "answer": "v-html",
+    "explanation": "v-html inserts raw HTML into the element, so untrusted content is unsafe."
+  },
+  {
+    "id": 1041,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which statement correctly compares ref() and reactive() in Vue 3?",
+    "options": [
+      "ref() can hold primitives directly, while reactive() is intended for objects",
+      "reactive() can hold primitives directly, while ref() only works with arrays",
+      "ref() disables reactivity, while reactive() enables it",
+      "They are identical in behavior and API"
+    ],
+    "answer": "ref() can hold primitives directly, while reactive() is intended for objects",
+    "explanation": "ref() wraps any value, but reactive() is designed for object-like values and returns a proxy."
+  },
+  {
+    "id": 1042,
+    "question_set": "vue.js intermediate",
+    "prompt": "What is the main purpose of watch()?",
+    "options": [
+      "Run side effects when reactive data changes",
+      "Create cached derived state",
+      "Render lists",
+      "Register global plugins"
+    ],
+    "answer": "Run side effects when reactive data changes",
+    "explanation": "watch() is used for reacting to changes with imperative logic such as fetching or logging."
+  },
+  {
+    "id": 1043,
+    "question_set": "vue.js intermediate",
+    "prompt": "How does watchEffect() differ from watch()?",
+    "options": [
+      "It tracks reactive dependencies automatically during execution",
+      "It only works with props",
+      "It skips cleanup support",
+      "It cannot react to refs"
+    ],
+    "answer": "It tracks reactive dependencies automatically during execution",
+    "explanation": "watchEffect() collects dependencies from whatever reactive values are accessed while it runs."
+  },
+  {
+    "id": 1044,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which Composition API hook runs right before the component updates its DOM after reactive state changes?",
+    "options": [
+      "onBeforeUpdate",
+      "onUpdated",
+      "onMounted",
+      "onActivated"
+    ],
+    "answer": "onBeforeUpdate",
+    "explanation": "onBeforeUpdate runs after state changes but before Vue patches the DOM."
+  },
+  {
+    "id": 1045,
+    "question_set": "vue.js intermediate",
+    "prompt": "What kind of slot lets the child component expose data back to the parent-provided slot content?",
+    "options": [
+      "Scoped slot",
+      "Default slot",
+      "Fallback slot",
+      "Dynamic component"
+    ],
+    "answer": "Scoped slot",
+    "explanation": "A scoped slot passes data from the child to the slot content rendered by the parent."
+  },
+  {
+    "id": 1046,
+    "question_set": "vue.js intermediate",
+    "prompt": "What problem do provide() and inject() primarily solve?",
+    "options": [
+      "Passing dependencies through deep component trees without prop drilling",
+      "Replacing all component props",
+      "Making state non-reactive",
+      "Registering routes automatically"
+    ],
+    "answer": "Passing dependencies through deep component trees without prop drilling",
+    "explanation": "provide() and inject() let descendants access shared values without every intermediate component forwarding props."
+  },
+  {
+    "id": 1047,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which syntax renders a component chosen at runtime?",
+    "options": [
+      "<component :is=\"currentView\" />",
+      "<slot :name=\"currentView\" />",
+      "<template v-model=\"currentView\" />",
+      "<Teleport to=\"currentView\" />"
+    ],
+    "answer": "<component :is=\"currentView\" />",
+    "explanation": "The special component element uses the value of :is to decide what component to render."
+  },
+  {
+    "id": 1048,
+    "question_set": "vue.js intermediate",
+    "prompt": "When is toRefs() useful with a reactive object?",
+    "options": [
+      "When returning its properties without losing reactivity",
+      "When converting methods into lifecycle hooks",
+      "When creating a read-only proxy",
+      "When forcing synchronous DOM updates"
+    ],
+    "answer": "When returning its properties without losing reactivity",
+    "explanation": "toRefs() turns each property into a linked ref so destructuring does not break reactivity."
+  },
+  {
+    "id": 1049,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which compile-time macro declares props inside <script setup>?",
+    "options": [
+      "defineProps()",
+      "defineEmits()",
+      "defineExpose()",
+      "defineSlots()"
+    ],
+    "answer": "defineProps()",
+    "explanation": "defineProps() declares the props contract for a component using script setup."
+  },
+  {
+    "id": 1050,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which compile-time macro declares emitted events inside <script setup>?",
+    "options": [
+      "defineEmits()",
+      "defineProps()",
+      "defineOptions()",
+      "defineModel()"
+    ],
+    "answer": "defineEmits()",
+    "explanation": "defineEmits() declares which events a component may emit from script setup."
+  },
+  {
+    "id": 1051,
+    "question_set": "vue.js intermediate",
+    "prompt": "How do you pass content to a named slot from a parent template?",
+    "options": [
+      "Use v-slot:name",
+      "Use v-bind:name",
+      "Use v-if:name",
+      "Use ref:name"
+    ],
+    "answer": "Use v-slot:name",
+    "explanation": "Named slot content is provided with the v-slot directive using the slot's name."
+  },
+  {
+    "id": 1052,
+    "question_set": "vue.js intermediate",
+    "prompt": "What is nextTick() used for?",
+    "options": [
+      "Waiting for Vue to finish the next DOM update cycle",
+      "Creating a delayed watcher",
+      "Caching a computed property",
+      "Loading an async component"
+    ],
+    "answer": "Waiting for Vue to finish the next DOM update cycle",
+    "explanation": "nextTick() resolves after Vue has applied pending DOM updates from reactive changes."
+  },
+  {
+    "id": 1053,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which built-in component can render part of a component's template somewhere else in the DOM?",
+    "options": [
+      "Teleport",
+      "TransitionGroup",
+      "KeepAlive",
+      "Suspense"
+    ],
+    "answer": "Teleport",
+    "explanation": "Teleport moves its rendered content to a different target in the document."
+  },
+  {
+    "id": 1054,
+    "question_set": "vue.js intermediate",
+    "prompt": "What does KeepAlive do with dynamic components?",
+    "options": [
+      "Caches inactive component instances instead of destroying them",
+      "Moves components to a new DOM target",
+      "Disables props validation",
+      "Converts sync setup to async"
+    ],
+    "answer": "Caches inactive component instances instead of destroying them",
+    "explanation": "KeepAlive preserves component state when switching away from and back to cached views."
+  },
+  {
+    "id": 1055,
+    "question_set": "vue.js intermediate",
+    "prompt": "What is a composable in Vue 3?",
+    "options": [
+      "A function that encapsulates reusable stateful Composition API logic",
+      "A class that replaces components",
+      "A special file used only for CSS",
+      "A plugin that must be registered globally"
+    ],
+    "answer": "A function that encapsulates reusable stateful Composition API logic",
+    "explanation": "Composables package reactive state and behavior so multiple components can reuse them."
+  },
+  {
+    "id": 1056,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which helper is used to define an async component that loads on demand?",
+    "options": [
+      "defineAsyncComponent()",
+      "createAsyncSetup()",
+      "defineLazyComponent()",
+      "loadComponent()"
+    ],
+    "answer": "defineAsyncComponent()",
+    "explanation": "defineAsyncComponent() wraps a loader function and returns a component that resolves asynchronously."
+  },
+  {
+    "id": 1057,
+    "question_set": "vue.js intermediate",
+    "prompt": "By default, what prop and event pair powers v-model on a custom component in Vue 3?",
+    "options": [
+      "modelValue and update:modelValue",
+      "value and input",
+      "checked and change",
+      "state and setState"
+    ],
+    "answer": "modelValue and update:modelValue",
+    "explanation": "Vue 3 maps v-model to the modelValue prop and the update:modelValue event by default."
+  },
+  {
+    "id": 1058,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which Composition API hook is typically used to clean up timers or listeners when a component is removed?",
+    "options": [
+      "onUnmounted",
+      "onDeactivated",
+      "onErrorCaptured",
+      "onRenderTriggered"
+    ],
+    "answer": "onUnmounted",
+    "explanation": "onUnmounted runs when a component is being removed and is the usual place for teardown logic."
+  },
+  {
+    "id": 1059,
+    "question_set": "vue.js intermediate",
+    "prompt": "What does readonly() return when given reactive state?",
+    "options": [
+      "A read-only proxy that prevents direct mutation",
+      "A deep-cloned plain object",
+      "A frozen DOM node",
+      "A watcher stop handle"
+    ],
+    "answer": "A read-only proxy that prevents direct mutation",
+    "explanation": "readonly() creates a proxy that exposes the same data but disallows writes through that proxy."
+  },
+  {
+    "id": 1060,
+    "question_set": "vue.js intermediate",
+    "prompt": "Which watch() option makes the callback run immediately when the watcher is created?",
+    "options": [
+      "immediate: true",
+      "deep: true",
+      "flush: 'post'",
+      "once: true"
+    ],
+    "answer": "immediate: true",
+    "explanation": "The immediate option invokes the watcher callback once right after the watcher is set up."
+  },
+  {
+    "id": 1061,
+    "question_set": "vue.js expert",
+    "prompt": "What does shallowRef() track?",
+    "options": [
+      "Changes to the .value reference, not deep mutations inside it",
+      "Every nested property recursively",
+      "Only computed properties",
+      "Only DOM events"
+    ],
+    "answer": "Changes to the .value reference, not deep mutations inside it",
+    "explanation": "shallowRef() reacts when the stored reference changes but does not make nested properties deeply reactive."
+  },
+  {
+    "id": 1062,
+    "question_set": "vue.js expert",
+    "prompt": "When is markRaw() most useful?",
+    "options": [
+      "When an object should be excluded from Vue's reactivity system",
+      "When a ref should become deeply reactive",
+      "When a watcher should run only once",
+      "When a slot needs fallback content"
+    ],
+    "answer": "When an object should be excluded from Vue's reactivity system",
+    "explanation": "markRaw() prevents Vue from converting the object into a reactive proxy."
+  },
+  {
+    "id": 1063,
+    "question_set": "vue.js expert",
+    "prompt": "What does flush: 'post' do for a watcher?",
+    "options": [
+      "Schedules the callback after the component's DOM has updated",
+      "Runs the callback before any reactive changes",
+      "Disables batching for the watcher",
+      "Makes the watcher synchronous on the server"
+    ],
+    "answer": "Schedules the callback after the component's DOM has updated",
+    "explanation": "A post-flush watcher runs after Vue has completed the component's render update."
+  },
+  {
+    "id": 1064,
+    "question_set": "vue.js expert",
+    "prompt": "Why would you create an effectScope() in advanced Vue code?",
+    "options": [
+      "To group reactive effects so they can be stopped together",
+      "To render multiple root nodes",
+      "To memoize a slot",
+      "To register a global component"
+    ],
+    "answer": "To group reactive effects so they can be stopped together",
+    "explanation": "effectScope() lets related computed values and watchers share a single disposal boundary."
+  },
+  {
+    "id": 1065,
+    "question_set": "vue.js expert",
+    "prompt": "What problem does customRef() let you solve?",
+    "options": [
+      "Customizing when dependency tracking and triggering happen",
+      "Declaring component props at runtime",
+      "Creating deep-readonly state",
+      "Teleporting reactive data"
+    ],
+    "answer": "Customizing when dependency tracking and triggering happen",
+    "explanation": "customRef() gives you control over how and when a ref notifies its dependents."
+  },
+  {
+    "id": 1066,
+    "question_set": "vue.js expert",
+    "prompt": "When using a shallowRef() that holds an object, what does triggerRef() do?",
+    "options": [
+      "Forces dependents to re-run after deep mutation inside the stored object",
+      "Converts the shallow ref into a normal ref",
+      "Prevents the ref from updating again",
+      "Serializes the object for SSR"
+    ],
+    "answer": "Forces dependents to re-run after deep mutation inside the stored object",
+    "explanation": "triggerRef() manually notifies subscribers when internal changes would otherwise be ignored by shallowRef()."
+  },
+  {
+    "id": 1067,
+    "question_set": "vue.js expert",
+    "prompt": "Why would you use toRef(state, 'count') instead of ref(state.count)?",
+    "options": [
+      "toRef keeps the ref synchronized with the original reactive property",
+      "toRef makes the property read-only",
+      "ref(state.count) is invalid syntax in Vue",
+      "toRef automatically debounces updates"
+    ],
+    "answer": "toRef keeps the ref synchronized with the original reactive property",
+    "explanation": "toRef() creates a linked ref that stays in sync with the source object's property."
+  },
+  {
+    "id": 1068,
+    "question_set": "vue.js expert",
+    "prompt": "What is the main pitfall of directly destructuring properties from a reactive() object?",
+    "options": [
+      "The destructured variables lose reactivity",
+      "The object becomes read-only",
+      "Vue stops rendering the component",
+      "The properties become computed automatically"
+    ],
+    "answer": "The destructured variables lose reactivity",
+    "explanation": "Direct destructuring breaks the proxy connection unless you convert properties to refs first."
+  },
+  {
+    "id": 1069,
+    "question_set": "vue.js expert",
+    "prompt": "When is shallowReactive() a better fit than reactive()?",
+    "options": [
+      "When only top-level properties need reactive tracking",
+      "When you need to track primitive values",
+      "When you want automatic memoization",
+      "When the object must be immutable"
+    ],
+    "answer": "When only top-level properties need reactive tracking",
+    "explanation": "shallowReactive() proxies only the root level, which can reduce overhead for large nested structures."
+  },
+  {
+    "id": 1070,
+    "question_set": "vue.js expert",
+    "prompt": "What does defineExpose() do inside <script setup>?",
+    "options": [
+      "It selectively exposes component internals to a parent via a template ref",
+      "It declares emitted events",
+      "It disables attribute inheritance",
+      "It injects provided dependencies"
+    ],
+    "answer": "It selectively exposes component internals to a parent via a template ref",
+    "explanation": "defineExpose() controls which bindings are visible when a parent accesses the component instance."
+  },
+  {
+    "id": 1071,
+    "question_set": "vue.js expert",
+    "prompt": "What is the purpose of the Suspense component in Vue 3?",
+    "options": [
+      "To coordinate async dependencies and show fallback content while waiting",
+      "To cache inactive component trees",
+      "To move content outside the root DOM tree",
+      "To avoid using promises in setup()"
+    ],
+    "answer": "To coordinate async dependencies and show fallback content while waiting",
+    "explanation": "Suspense delays the resolved content until async dependencies are ready and can display a fallback meanwhile."
+  },
+  {
+    "id": 1072,
+    "question_set": "vue.js expert",
+    "prompt": "Why can using Math.random() directly in server-rendered template output cause hydration issues?",
+    "options": [
+      "The client may render different markup than the server",
+      "It disables reactivity for the component",
+      "It makes computed properties synchronous",
+      "It prevents props from being validated"
+    ],
+    "answer": "The client may render different markup than the server",
+    "explanation": "Hydration expects the client render to match the server HTML exactly, which random output can break."
+  },
+  {
+    "id": 1073,
+    "question_set": "vue.js expert",
+    "prompt": "What does the v-memo directive do?",
+    "options": [
+      "Skips updating a sub-tree when its dependency array has not changed",
+      "Caches API responses globally",
+      "Marks a component as async",
+      "Prevents a watcher from collecting dependencies"
+    ],
+    "answer": "Skips updating a sub-tree when its dependency array has not changed",
+    "explanation": "v-memo lets Vue reuse a rendered sub-tree until one of the specified values changes."
+  },
+  {
+    "id": 1074,
+    "question_set": "vue.js expert",
+    "prompt": "In Vue render functions, what does h() create?",
+    "options": [
+      "A virtual node",
+      "A reactive proxy",
+      "A watcher cleanup function",
+      "A component instance"
+    ],
+    "answer": "A virtual node",
+    "explanation": "The h() helper returns a VNode that describes what Vue should render."
+  },
+  {
+    "id": 1075,
+    "question_set": "vue.js expert",
+    "prompt": "What is onScopeDispose() used for inside a composable or effect scope?",
+    "options": [
+      "Registering cleanup tied to the current effect scope",
+      "Declaring props for the current component",
+      "Forcing a component re-render",
+      "Creating a shallow readonly proxy"
+    ],
+    "answer": "Registering cleanup tied to the current effect scope",
+    "explanation": "onScopeDispose() schedules teardown logic to run when the active effect scope is stopped."
+  },
+  {
+    "id": 1076,
+    "question_set": "vue.js expert",
+    "prompt": "What does defineOptions() allow in <script setup>?",
+    "options": [
+      "Declaring component options such as name or inheritAttrs",
+      "Creating a watcher with typed sources",
+      "Providing global app configuration",
+      "Replacing defineProps() for runtime props"
+    ],
+    "answer": "Declaring component options such as name or inheritAttrs",
+    "explanation": "defineOptions() is a compile-time macro for setting component options directly in script setup."
+  },
+  {
+    "id": 1077,
+    "question_set": "vue.js expert",
+    "prompt": "How do you prevent undeclared attributes from automatically falling through to a component's root element?",
+    "options": [
+      "Set inheritAttrs to false",
+      "Wrap the template in Suspense",
+      "Use shallowReactive()",
+      "Call markRaw() on $attrs"
+    ],
+    "answer": "Set inheritAttrs to false",
+    "explanation": "Disabling inheritAttrs stops automatic attribute fallthrough so you can place attrs manually."
+  },
+  {
+    "id": 1078,
+    "question_set": "vue.js expert",
+    "prompt": "What is app.config.compilerOptions.isCustomElement commonly used for?",
+    "options": [
+      "Treating certain tags as native custom elements during template compilation",
+      "Registering asynchronous route components",
+      "Making all unknown tags render as comments",
+      "Turning off template compilation entirely"
+    ],
+    "answer": "Treating certain tags as native custom elements during template compilation",
+    "explanation": "This compiler option tells Vue not to resolve matching tags as Vue components."
+  },
+  {
+    "id": 1079,
+    "question_set": "vue.js expert",
+    "prompt": "What does onErrorCaptured() let a component do?",
+    "options": [
+      "Intercept errors from descendant components and react to them",
+      "Stop all watchers in the app",
+      "Skip hydration for a sub-tree",
+      "Disable warnings in production"
+    ],
+    "answer": "Intercept errors from descendant components and react to them",
+    "explanation": "onErrorCaptured() receives errors from child components so the ancestor can log or handle them."
+  },
+  {
+    "id": 1080,
+    "question_set": "vue.js expert",
+    "prompt": "Why is using stable, deterministic keys especially important in SSR and hydration?",
+    "options": [
+      "They help Vue match server-rendered nodes to the correct client-side instances",
+      "They make props automatically serializable",
+      "They eliminate the need for refs",
+      "They allow multiple apps to share one root container"
+    ],
+    "answer": "They help Vue match server-rendered nodes to the correct client-side instances",
+    "explanation": "Deterministic keys reduce the chance of mismatches when Vue hydrates server-rendered output on the client."
+  },
+  {
+    "id": 1081,
+    "question_set": "react beginner",
+    "prompt": "What is JSX in a React component?",
+    "options": [
+      "A syntax extension that lets you describe UI in JavaScript",
+      "A state management library",
+      "A browser API for templates",
+      "A CSS preprocessor"
+    ],
+    "answer": "A syntax extension that lets you describe UI in JavaScript",
+    "explanation": "JSX lets React components express UI structure with JavaScript-powered markup."
+  },
+  {
+    "id": 1082,
+    "question_set": "react beginner",
+    "prompt": "How does a child component usually receive data from its parent?",
+    "options": [
+      "Through props",
+      "Through CSS classes",
+      "Through state setters automatically",
+      "Through the DOM only"
+    ],
+    "answer": "Through props",
+    "explanation": "Props are the standard way to pass data from a parent to a child."
+  },
+  {
+    "id": 1083,
+    "question_set": "react beginner",
+    "prompt": "What does useState return?",
+    "options": [
+      "The current state value and a setter function",
+      "A prop object and a reducer",
+      "A ref and an effect cleanup",
+      "A promise and a callback"
+    ],
+    "answer": "The current state value and a setter function",
+    "explanation": "useState gives you the current value and a function to request an update."
+  },
+  {
+    "id": 1084,
+    "question_set": "react beginner",
+    "prompt": "Why should list items usually have a key prop?",
+    "options": [
+      "To help React track item identity across renders",
+      "To make the list sortable by default",
+      "To prevent all re-renders in the list",
+      "To share state between unrelated components"
+    ],
+    "answer": "To help React track item identity across renders",
+    "explanation": "Keys let React match list items correctly when the list changes."
+  },
+  {
+    "id": 1085,
+    "question_set": "react beginner",
+    "prompt": "In a controlled input, where does the displayed value come from?",
+    "options": [
+      "React state passed to the value prop",
+      "The browser only, with no React involvement",
+      "A CSS variable",
+      "The input placeholder"
+    ],
+    "answer": "React state passed to the value prop",
+    "explanation": "A controlled input shows the value that React provides through props."
+  },
+  {
+    "id": 1086,
+    "question_set": "react beginner",
+    "prompt": "What is the purpose of React.Fragment?",
+    "options": [
+      "To group elements without adding an extra DOM node",
+      "To memoize child components",
+      "To fetch data before rendering",
+      "To attach refs to multiple nodes automatically"
+    ],
+    "answer": "To group elements without adding an extra DOM node",
+    "explanation": "Fragments let a component return multiple elements without extra wrapper markup."
+  },
+  {
+    "id": 1087,
+    "question_set": "react beginner",
+    "prompt": "Which pattern correctly passes a click handler to a button?",
+    "options": [
+      "onClick={handleClick}",
+      "onClick={handleClick()}",
+      "onClick=\"handleClick\"",
+      "onClick={handleClick + 1}"
+    ],
+    "answer": "onClick={handleClick}",
+    "explanation": "Passing the function reference lets React call it when the click happens."
+  },
+  {
+    "id": 1088,
+    "question_set": "react beginner",
+    "prompt": "How do you usually show different UI based on a condition in React?",
+    "options": [
+      "Use normal JavaScript such as if statements or the ternary operator",
+      "Use a special React condition tag",
+      "Use only CSS media queries",
+      "Use the key prop"
+    ],
+    "answer": "Use normal JavaScript such as if statements or the ternary operator",
+    "explanation": "React relies on regular JavaScript control flow for conditional rendering."
+  },
+  {
+    "id": 1089,
+    "question_set": "react beginner",
+    "prompt": "Where does content placed between a component's opening and closing tags appear in the child?",
+    "options": [
+      "In the children prop",
+      "In the ref prop",
+      "In the key prop",
+      "In the effect dependency array"
+    ],
+    "answer": "In the children prop",
+    "explanation": "Nested content is passed into the child component as children."
+  },
+  {
+    "id": 1090,
+    "question_set": "react beginner",
+    "prompt": "What is the recommended way to update an array stored in state?",
+    "options": [
+      "Create a new array and set state with it",
+      "Mutate the existing array in place",
+      "Sort the DOM nodes directly",
+      "Store the array in a global variable instead"
+    ],
+    "answer": "Create a new array and set state with it",
+    "explanation": "React state should be updated immutably so changes are easy to detect."
+  },
+  {
+    "id": 1091,
+    "question_set": "react beginner",
+    "prompt": "Which change commonly causes a React component to render again?",
+    "options": [
+      "A change to its state, props, or consumed context",
+      "Only a full page reload",
+      "Only a CSS change",
+      "Only a manual DOM update"
+    ],
+    "answer": "A change to its state, props, or consumed context",
+    "explanation": "React re-runs rendering when reactive inputs used by the component change."
+  },
+  {
+    "id": 1092,
+    "question_set": "react beginner",
+    "prompt": "What attribute name is used for CSS classes in JSX?",
+    "options": [
+      "className",
+      "class",
+      "styleName",
+      "cssClass"
+    ],
+    "answer": "className",
+    "explanation": "JSX uses className instead of class for CSS class attributes."
+  },
+  {
+    "id": 1093,
+    "question_set": "react beginner",
+    "prompt": "What is a common use for useEffect?",
+    "options": [
+      "Synchronizing with something outside React after rendering",
+      "Returning JSX from a component",
+      "Declaring routes only",
+      "Creating keys for list items"
+    ],
+    "answer": "Synchronizing with something outside React after rendering",
+    "explanation": "useEffect is for syncing with external systems like timers, subscriptions, or browser APIs."
+  },
+  {
+    "id": 1094,
+    "question_set": "react beginner",
+    "prompt": "What does lifting state up mean?",
+    "options": [
+      "Moving shared state to the nearest common parent",
+      "Converting local state into CSS",
+      "Saving state only in localStorage",
+      "Putting all state into one giant component"
+    ],
+    "answer": "Moving shared state to the nearest common parent",
+    "explanation": "Shared data is usually kept in the closest parent that needs to coordinate it."
+  },
+  {
+    "id": 1095,
+    "question_set": "react beginner",
+    "prompt": "If the next state depends on the previous state, what setter form is safest?",
+    "options": [
+      "Pass an updater function",
+      "Change the variable directly",
+      "Call the component again manually",
+      "Use document.querySelector"
+    ],
+    "answer": "Pass an updater function",
+    "explanation": "An updater function calculates the next state from the latest available value."
+  },
+  {
+    "id": 1096,
+    "question_set": "react beginner",
+    "prompt": "Why is directly mutating state a problem in React?",
+    "options": [
+      "React may not detect the change correctly",
+      "It always throws a syntax error",
+      "It prevents event handlers from running",
+      "It converts the value into a ref"
+    ],
+    "answer": "React may not detect the change correctly",
+    "explanation": "Mutating existing state can break React's assumptions about change detection."
+  },
+  {
+    "id": 1097,
+    "question_set": "react beginner",
+    "prompt": "What does Array.map commonly do in React rendering?",
+    "options": [
+      "Turns data into arrays of elements",
+      "Mutates state in place",
+      "Registers event listeners globally",
+      "Skips the need for keys"
+    ],
+    "answer": "Turns data into arrays of elements",
+    "explanation": "map is commonly used to transform data items into rendered React elements."
+  },
+  {
+    "id": 1098,
+    "question_set": "react beginner",
+    "prompt": "Why should component names start with a capital letter?",
+    "options": [
+      "React uses capitalization to distinguish components from built-in HTML tags",
+      "Capital letters make components render faster",
+      "Lowercase names cannot accept props",
+      "It is required only in TypeScript"
+    ],
+    "answer": "React uses capitalization to distinguish components from built-in HTML tags",
+    "explanation": "Capitalized names tell JSX to treat the tag as a component instead of a native element."
+  },
+  {
+    "id": 1099,
+    "question_set": "react beginner",
+    "prompt": "How do you usually stop a form submit from reloading the page in React?",
+    "options": [
+      "Call event.preventDefault() in the submit handler",
+      "Set the form key prop",
+      "Use a fragment around the form",
+      "Store the form in a ref only"
+    ],
+    "answer": "Call event.preventDefault() in the submit handler",
+    "explanation": "preventDefault stops the browser's normal form submission behavior."
+  },
+  {
+    "id": 1100,
+    "question_set": "react beginner",
+    "prompt": "How should a component treat its props?",
+    "options": [
+      "As read-only inputs",
+      "As values it should mutate freely",
+      "As values stored outside React",
+      "As replacements for state setters"
+    ],
+    "answer": "As read-only inputs",
+    "explanation": "Props are inputs from the parent and should not be mutated by the child."
+  },
+  {
+    "id": 1101,
+    "question_set": "react intermediate",
+    "prompt": "What does the dependency array in useEffect control?",
+    "options": [
+      "When the effect runs again",
+      "Which component exports are visible",
+      "How React creates DOM nodes",
+      "Whether props are read-only"
+    ],
+    "answer": "When the effect runs again",
+    "explanation": "Dependencies tell React when the effect needs to re-synchronize."
+  },
+  {
+    "id": 1102,
+    "question_set": "react intermediate",
+    "prompt": "When does a useEffect cleanup function run?",
+    "options": [
+      "Before the effect runs again and when the component unmounts",
+      "Only after a full page refresh",
+      "Before every render begins",
+      "Only when state never changes"
+    ],
+    "answer": "Before the effect runs again and when the component unmounts",
+    "explanation": "Cleanup runs to tear down the previous effect before replacing or removing it."
+  },
+  {
+    "id": 1103,
+    "question_set": "react intermediate",
+    "prompt": "What problem does React context primarily solve?",
+    "options": [
+      "Passing data through many layers without manual prop drilling",
+      "Making components render only once",
+      "Replacing all local state",
+      "Automatically memoizing values"
+    ],
+    "answer": "Passing data through many layers without manual prop drilling",
+    "explanation": "Context lets distant components read shared values without threading props through every level."
+  },
+  {
+    "id": 1104,
+    "question_set": "react intermediate",
+    "prompt": "What happens when you change ref.current from useRef?",
+    "options": [
+      "The value changes without causing a re-render",
+      "The component always remounts",
+      "React reruns all effects immediately",
+      "All children lose their state"
+    ],
+    "answer": "The value changes without causing a re-render",
+    "explanation": "Refs hold mutable values that persist across renders without triggering another render."
+  },
+  {
+    "id": 1105,
+    "question_set": "react intermediate",
+    "prompt": "When is useReducer often a better fit than useState?",
+    "options": [
+      "When state transitions are complex or related",
+      "When you need to fetch data once",
+      "When you want to avoid all re-renders",
+      "When you need a DOM ref"
+    ],
+    "answer": "When state transitions are complex or related",
+    "explanation": "Reducers centralize update logic when many actions affect the same state."
+  },
+  {
+    "id": 1106,
+    "question_set": "react intermediate",
+    "prompt": "What is often better than storing a value in state when it can be computed from current props and state?",
+    "options": [
+      "Calculate it during rendering",
+      "Put it in a ref and mutate it",
+      "Store it in context by default",
+      "Read it from the DOM"
+    ],
+    "answer": "Calculate it during rendering",
+    "explanation": "Derived values are often simplest and safest when computed directly during render."
+  },
+  {
+    "id": 1107,
+    "question_set": "react intermediate",
+    "prompt": "What does React.memo do by default?",
+    "options": [
+      "Skips re-rendering when props are shallowly equal",
+      "Memoizes every hook value inside the component",
+      "Preloads data for Suspense",
+      "Makes state updates synchronous"
+    ],
+    "answer": "Skips re-rendering when props are shallowly equal",
+    "explanation": "React.memo can avoid extra renders when the incoming props have not meaningfully changed."
+  },
+  {
+    "id": 1108,
+    "question_set": "react intermediate",
+    "prompt": "What does useDeferredValue help with?",
+    "options": [
+      "Letting a non-urgent part of the UI lag behind a fast-changing value",
+      "Running effects before rendering",
+      "Preventing all child renders",
+      "Sharing state between tabs"
+    ],
+    "answer": "Letting a non-urgent part of the UI lag behind a fast-changing value",
+    "explanation": "useDeferredValue can keep urgent interactions responsive while slower UI catches up."
+  },
+  {
+    "id": 1109,
+    "question_set": "react intermediate",
+    "prompt": "What is startTransition used for?",
+    "options": [
+      "Marking state updates as non-urgent",
+      "Creating a new context provider",
+      "Attaching refs to function components automatically",
+      "Running cleanup logic on unmount"
+    ],
+    "answer": "Marking state updates as non-urgent",
+    "explanation": "Transitions tell React that an update can yield to more urgent work like typing."
+  },
+  {
+    "id": 1110,
+    "question_set": "react intermediate",
+    "prompt": "What do custom hooks actually share?",
+    "options": [
+      "Reusable stateful logic, not a single shared state instance",
+      "A global state object for every component",
+      "Only CSS class names",
+      "The DOM nodes returned by JSX"
+    ],
+    "answer": "Reusable stateful logic, not a single shared state instance",
+    "explanation": "Each call to a custom hook gets its own state while reusing the same logic."
+  },
+  {
+    "id": 1111,
+    "question_set": "react intermediate",
+    "prompt": "Why does React Strict Mode sometimes run components and effects more than once in development?",
+    "options": [
+      "To help surface accidental side effects",
+      "To improve production performance",
+      "To minify bundles during runtime",
+      "To make context values immutable"
+    ],
+    "answer": "To help surface accidental side effects",
+    "explanation": "Strict Mode intentionally stresses code paths in development to reveal unsafe behavior."
+  },
+  {
+    "id": 1112,
+    "question_set": "react intermediate",
+    "prompt": "Why are stable keys important when rendering a list that can reorder?",
+    "options": [
+      "They help React preserve the right item state and DOM mapping",
+      "They stop the parent from re-rendering",
+      "They automatically sort the list",
+      "They replace the need for state"
+    ],
+    "answer": "They help React preserve the right item state and DOM mapping",
+    "explanation": "Stable keys keep React from confusing one item with another during reordering."
+  },
+  {
+    "id": 1113,
+    "question_set": "react intermediate",
+    "prompt": "What is a good way to avoid using stale async results from an older fetch in an effect?",
+    "options": [
+      "Ignore or cancel the outdated request in the cleanup logic",
+      "Call setState in a loop until the latest result wins",
+      "Remove the dependency array entirely",
+      "Store the promise in JSX"
+    ],
+    "answer": "Ignore or cancel the outdated request in the cleanup logic",
+    "explanation": "Cleaning up old requests helps prevent older responses from overwriting newer data."
+  },
+  {
+    "id": 1114,
+    "question_set": "react intermediate",
+    "prompt": "Which statement is true about uncontrolled form inputs in React?",
+    "options": [
+      "Their current value can be read from the DOM, often via a ref",
+      "They must always use the value prop and onChange",
+      "They re-render on every keystroke by React rule",
+      "They cannot be used inside forms"
+    ],
+    "answer": "Their current value can be read from the DOM, often via a ref",
+    "explanation": "Uncontrolled inputs keep their own current value in the DOM instead of React state."
+  },
+  {
+    "id": 1115,
+    "question_set": "react intermediate",
+    "prompt": "When is useCallback most useful?",
+    "options": [
+      "When a stable function reference matters for memoized consumers",
+      "Whenever you define any function in a component",
+      "Only when working with context",
+      "To replace useEffect cleanup"
+    ],
+    "answer": "When a stable function reference matters for memoized consumers",
+    "explanation": "useCallback is most helpful when reference stability affects rendering behavior."
+  },
+  {
+    "id": 1116,
+    "question_set": "react intermediate",
+    "prompt": "Why would you choose useLayoutEffect instead of useEffect?",
+    "options": [
+      "When you need to read or write layout before the browser paints",
+      "When you want the effect to run on the server",
+      "When you need to skip cleanup entirely",
+      "When you want a lower-priority update"
+    ],
+    "answer": "When you need to read or write layout before the browser paints",
+    "explanation": "useLayoutEffect runs earlier so layout work can happen before the screen updates."
+  },
+  {
+    "id": 1117,
+    "question_set": "react intermediate",
+    "prompt": "What does Suspense display while a child is waiting for something like lazy code or a Suspense-enabled data source?",
+    "options": [
+      "Its fallback UI",
+      "The previous route automatically",
+      "Nothing, because React blocks all rendering",
+      "A browser alert"
+    ],
+    "answer": "Its fallback UI",
+    "explanation": "A Suspense boundary shows its fallback while the suspended content is not ready."
+  },
+  {
+    "id": 1118,
+    "question_set": "react intermediate",
+    "prompt": "How are multiple state updates in the same event usually handled in modern React?",
+    "options": [
+      "They are batched into a single render pass when possible",
+      "They always trigger a full remount",
+      "They are ignored until the next page load",
+      "They can only be used with reducers"
+    ],
+    "answer": "They are batched into a single render pass when possible",
+    "explanation": "Modern React batches many updates together to reduce unnecessary rendering work."
+  },
+  {
+    "id": 1119,
+    "question_set": "react intermediate",
+    "prompt": "What should usually be included in a useEffect dependency array?",
+    "options": [
+      "Every reactive value read inside the effect",
+      "Only props, never state",
+      "Only state setters",
+      "Nothing, because dependencies are optional noise"
+    ],
+    "answer": "Every reactive value read inside the effect",
+    "explanation": "Effects should declare the reactive values they use so React can keep them in sync."
+  },
+  {
+    "id": 1120,
+    "question_set": "react intermediate",
+    "prompt": "Why can the updater form setCount(c => c + 1) be safer than setCount(count + 1) for repeated updates?",
+    "options": [
+      "It uses the latest queued state value",
+      "It skips rendering entirely",
+      "It turns the state into a ref",
+      "It makes the update synchronous"
+    ],
+    "answer": "It uses the latest queued state value",
+    "explanation": "Updater functions avoid stale reads when several updates are queued together."
+  },
+  {
+    "id": 1121,
+    "question_set": "react expert",
+    "prompt": "What rule should always hold during a component's render phase?",
+    "options": [
+      "Rendering should stay pure and avoid side effects",
+      "Rendering should start network requests directly in the JSX return",
+      "Rendering should mutate refs only",
+      "Rendering should always call setState at least once"
+    ],
+    "answer": "Rendering should stay pure and avoid side effects",
+    "explanation": "Render logic should only calculate UI from inputs and avoid changing external state."
+  },
+  {
+    "id": 1122,
+    "question_set": "react expert",
+    "prompt": "When is useEffect usually unnecessary?",
+    "options": [
+      "When you can derive the value during render from existing props and state",
+      "When you need to subscribe to an external store",
+      "When you need to start a timer",
+      "When you need to update the document title"
+    ],
+    "answer": "When you can derive the value during render from existing props and state",
+    "explanation": "Derived values often do not need an effect because render can compute them directly."
+  },
+  {
+    "id": 1123,
+    "question_set": "react expert",
+    "prompt": "What is the purpose of useEffectEvent?",
+    "options": [
+      "To read the latest props and state inside effect-triggered callbacks without making them effect dependencies",
+      "To replace event handlers in JSX everywhere",
+      "To create transitions automatically",
+      "To memoize context values"
+    ],
+    "answer": "To read the latest props and state inside effect-triggered callbacks without making them effect dependencies",
+    "explanation": "useEffectEvent lets effect-related callbacks see current values without forcing unnecessary re-subscription."
+  },
+  {
+    "id": 1124,
+    "question_set": "react expert",
+    "prompt": "How do transition updates behave when more urgent updates arrive?",
+    "options": [
+      "They can be interrupted and restarted with newer work",
+      "They block urgent updates until completion",
+      "They always commit synchronously",
+      "They bypass Suspense boundaries"
+    ],
+    "answer": "They can be interrupted and restarted with newer work",
+    "explanation": "Transitions are designed to yield to urgent interactions like typing or clicks."
+  },
+  {
+    "id": 1125,
+    "question_set": "react expert",
+    "prompt": "What does useDeferredValue NOT do by itself?",
+    "options": [
+      "Debounce or cancel side effects such as network requests",
+      "Let some UI stay responsive during urgent updates",
+      "Return a lagging version of a value",
+      "Work with normal rendering logic"
+    ],
+    "answer": "Debounce or cancel side effects such as network requests",
+    "explanation": "useDeferredValue changes rendering priority, but side-effect timing still needs separate control."
+  },
+  {
+    "id": 1126,
+    "question_set": "react expert",
+    "prompt": "Why does useSyncExternalStore exist?",
+    "options": [
+      "To read external store snapshots consistently with concurrent rendering",
+      "To replace all context usage",
+      "To make every store update low priority",
+      "To avoid writing cleanup code"
+    ],
+    "answer": "To read external store snapshots consistently with concurrent rendering",
+    "explanation": "useSyncExternalStore gives React a reliable subscription model for external data sources."
+  },
+  {
+    "id": 1127,
+    "question_set": "react expert",
+    "prompt": "What is the effect of changing a component's key between renders?",
+    "options": [
+      "React treats it as a different component and resets its state",
+      "React preserves the same instance and only skips effects",
+      "React merges the old and new state objects",
+      "React ignores the key after the first render"
+    ],
+    "answer": "React treats it as a different component and resets its state",
+    "explanation": "A changed key tells React to discard the old instance and mount a new one."
+  },
+  {
+    "id": 1128,
+    "question_set": "react expert",
+    "prompt": "Where is a component's state actually associated in React?",
+    "options": [
+      "With its position in the rendered tree",
+      "With its function name only",
+      "With the file path on disk",
+      "With the current URL by default"
+    ],
+    "answer": "With its position in the rendered tree",
+    "explanation": "React tracks state by where a component appears in the UI tree, not just by its name."
+  },
+  {
+    "id": 1129,
+    "question_set": "react expert",
+    "prompt": "How are old and new effect executions ordered when a dependency changes?",
+    "options": [
+      "React runs the previous cleanup before running the new effect",
+      "React runs both effects at the same time",
+      "React skips cleanup when dependencies change",
+      "React cleans up only after page navigation"
+    ],
+    "answer": "React runs the previous cleanup before running the new effect",
+    "explanation": "Cleanup happens first so the next effect starts from a clean state."
+  },
+  {
+    "id": 1130,
+    "question_set": "react expert",
+    "prompt": "When is useInsertionEffect appropriate?",
+    "options": [
+      "For CSS-in-JS libraries that must inject styles before layout effects run",
+      "For fetching data on mount",
+      "For reading localStorage after paint",
+      "For replacing useState in form fields"
+    ],
+    "answer": "For CSS-in-JS libraries that must inject styles before layout effects run",
+    "explanation": "useInsertionEffect exists for specialized style injection work, not general application logic."
+  },
+  {
+    "id": 1131,
+    "question_set": "react expert",
+    "prompt": "What is the main purpose of flushSync?",
+    "options": [
+      "Force React to flush pending updates synchronously in rare integration cases",
+      "Schedule low-priority background rendering",
+      "Delay effects until the browser is idle",
+      "Share state across Suspense boundaries"
+    ],
+    "answer": "Force React to flush pending updates synchronously in rare integration cases",
+    "explanation": "flushSync is a low-level escape hatch for code that must observe DOM updates immediately."
+  },
+  {
+    "id": 1132,
+    "question_set": "react expert",
+    "prompt": "Why can passing a new object literal as a context value on every render be a performance problem?",
+    "options": [
+      "Consumers see a changed value identity and may re-render unnecessarily",
+      "Context only accepts primitive values",
+      "React throws if provider values are objects",
+      "It causes all effects to stop running"
+    ],
+    "answer": "Consumers see a changed value identity and may re-render unnecessarily",
+    "explanation": "Context consumers react to the provider value's identity, so new objects can trigger extra work."
+  },
+  {
+    "id": 1133,
+    "question_set": "react expert",
+    "prompt": "How do Suspense and error boundaries differ?",
+    "options": [
+      "Suspense handles waiting states, while error boundaries handle rendering errors",
+      "Suspense handles all thrown errors automatically",
+      "Error boundaries are only for server rendering",
+      "They are identical APIs with different names"
+    ],
+    "answer": "Suspense handles waiting states, while error boundaries handle rendering errors",
+    "explanation": "Suspense is for loading fallbacks, while error boundaries are for recovery from render errors."
+  },
+  {
+    "id": 1134,
+    "question_set": "react expert",
+    "prompt": "What is true about startTransition and async code?",
+    "options": [
+      "State updates after an await need another startTransition call to stay non-urgent",
+      "One startTransition marks all future updates in the function forever",
+      "startTransition can wrap only reducer dispatches",
+      "Await is not allowed inside a transition flow"
+    ],
+    "answer": "State updates after an await need another startTransition call to stay non-urgent",
+    "explanation": "Only updates inside the current transition scope are marked as non-urgent."
+  },
+  {
+    "id": 1135,
+    "question_set": "react expert",
+    "prompt": "What problem does useId primarily solve?",
+    "options": [
+      "Generating stable unique IDs that work across client rendering and hydration",
+      "Creating database primary keys",
+      "Preventing re-renders in lists",
+      "Replacing the key prop"
+    ],
+    "answer": "Generating stable unique IDs that work across client rendering and hydration",
+    "explanation": "useId helps produce consistent IDs for accessibility attributes across environments."
+  },
+  {
+    "id": 1136,
+    "question_set": "react expert",
+    "prompt": "Why is copying props into state often an anti-pattern?",
+    "options": [
+      "It can create duplicated sources of truth that drift out of sync",
+      "It is required for React.memo to work",
+      "It makes Suspense boundaries fail",
+      "It is the only way to use effects"
+    ],
+    "answer": "It can create duplicated sources of truth that drift out of sync",
+    "explanation": "Mirroring props into state often makes updates harder to reason about correctly."
+  },
+  {
+    "id": 1137,
+    "question_set": "react expert",
+    "prompt": "Why can reading layout in useEffect cause visible flicker?",
+    "options": [
+      "Because it runs after paint, so the user can briefly see the wrong layout",
+      "Because it blocks rendering entirely",
+      "Because it runs on the server first",
+      "Because it prevents cleanup functions from running"
+    ],
+    "answer": "Because it runs after paint, so the user can briefly see the wrong layout",
+    "explanation": "Visual measurements or corrections done after paint can appear as a flash to the user."
+  },
+  {
+    "id": 1138,
+    "question_set": "react expert",
+    "prompt": "What is a key benefit of functional state updates in concurrent rendering?",
+    "options": [
+      "They apply changes from the latest committed state instead of a captured stale value",
+      "They guarantee synchronous commits",
+      "They skip reconciliation",
+      "They make refs reactive"
+    ],
+    "answer": "They apply changes from the latest committed state instead of a captured stale value",
+    "explanation": "Functional updates compose safely even when render timing is interrupted or delayed."
+  },
+  {
+    "id": 1139,
+    "question_set": "react expert",
+    "prompt": "If a slow list is filtered from text input, which combo best keeps typing responsive?",
+    "options": [
+      "Update the input urgently and defer the expensive list value or transition the list update",
+      "Wrap the input element in React.memo only",
+      "Move the input value into a ref so it never renders",
+      "Call flushSync on every keystroke"
+    ],
+    "answer": "Update the input urgently and defer the expensive list value or transition the list update",
+    "explanation": "Urgent input updates can stay snappy while slower list rendering is deprioritized."
+  },
+  {
+    "id": 1140,
+    "question_set": "react expert",
+    "prompt": "Why is subscribing to an external store with useEffect alone less ideal than useSyncExternalStore for modern React?",
+    "options": [
+      "useSyncExternalStore guarantees a consistent snapshot during render and updates",
+      "useEffect subscriptions automatically batch less",
+      "useEffect cannot unsubscribe from stores",
+      "useEffect subscriptions work only in class components"
+    ],
+    "answer": "useSyncExternalStore guarantees a consistent snapshot during render and updates",
+    "explanation": "useSyncExternalStore is designed to keep external data reads consistent with React's rendering model."
+  },
+  {
+    "id": 1141,
+    "question_set": "laravel beginner",
+    "prompt": "Which method defines a route that responds only to an HTTP GET request in Laravel?",
+    "options": [
+      "Route::get()",
+      "Route::post()",
+      "Route::put()",
+      "Route::match()"
+    ],
+    "answer": "Route::get()",
+    "explanation": "Route::get() registers a route for GET requests only."
+  },
+  {
+    "id": 1142,
+    "question_set": "laravel beginner",
+    "prompt": "Which Artisan command creates a controller named PostController?",
+    "options": [
+      "php artisan make:controller PostController",
+      "php artisan create:controller PostController",
+      "php artisan make:model PostController",
+      "php artisan generate:controller PostController"
+    ],
+    "answer": "php artisan make:controller PostController",
+    "explanation": "The make:controller command generates a controller class."
+  },
+  {
+    "id": 1143,
+    "question_set": "laravel beginner",
+    "prompt": "Which Blade syntax escapes HTML before rendering a variable?",
+    "options": [
+      "{{ $name }}",
+      "{!! $name !!}",
+      "@php echo $name; @endphp",
+      "@json($name)"
+    ],
+    "answer": "{{ $name }}",
+    "explanation": "Double curly braces escape HTML entities by default."
+  },
+  {
+    "id": 1144,
+    "question_set": "laravel beginner",
+    "prompt": "Which Artisan command applies outstanding database migrations?",
+    "options": [
+      "php artisan migrate",
+      "php artisan db:seed",
+      "php artisan migrate:fresh",
+      "php artisan schema:dump"
+    ],
+    "answer": "php artisan migrate",
+    "explanation": "The migrate command runs pending migrations against the database."
+  },
+  {
+    "id": 1145,
+    "question_set": "laravel beginner",
+    "prompt": "For an Eloquent model named Product, what table name does Laravel assume by default?",
+    "options": [
+      "products",
+      "product",
+      "tbl_products",
+      "product_items"
+    ],
+    "answer": "products",
+    "explanation": "Laravel pluralizes the model name to infer the default table name."
+  },
+  {
+    "id": 1146,
+    "question_set": "laravel beginner",
+    "prompt": "Which Blade directive adds a CSRF token hidden field to a form?",
+    "options": [
+      "@csrf",
+      "@token",
+      "@method",
+      "@auth"
+    ],
+    "answer": "@csrf",
+    "explanation": "The @csrf directive inserts the hidden token field required for CSRF protection."
+  },
+  {
+    "id": 1147,
+    "question_set": "laravel beginner",
+    "prompt": "Inside regular application code, which approach is usually preferred for reading the application timezone?",
+    "options": [
+      "config('app.timezone')",
+      "env('APP_TIMEZONE') everywhere",
+      "$_ENV['APP_TIMEZONE']",
+      "A hard-coded 'UTC' string"
+    ],
+    "answer": "config('app.timezone')",
+    "explanation": "Application code should typically read configuration values rather than calling env() directly."
+  },
+  {
+    "id": 1148,
+    "question_set": "laravel beginner",
+    "prompt": "Which Eloquent model property defines attributes that may be mass assigned?",
+    "options": [
+      "$fillable",
+      "$visible",
+      "$hidden",
+      "$casts"
+    ],
+    "answer": "$fillable",
+    "explanation": "The $fillable array whitelists attributes for mass assignment."
+  },
+  {
+    "id": 1149,
+    "question_set": "laravel beginner",
+    "prompt": "If a route is defined as /posts/{id}, how can a controller action receive the value?",
+    "options": [
+      "As a method argument like $id",
+      "Only through request()->input('id')",
+      "Only through $_GET['id']",
+      "By reading session('id')"
+    ],
+    "answer": "As a method argument like $id",
+    "explanation": "Route parameters can be injected directly into the controller method signature."
+  },
+  {
+    "id": 1150,
+    "question_set": "laravel beginner",
+    "prompt": "Which command starts Laravel's local development server?",
+    "options": [
+      "php artisan serve",
+      "php artisan up",
+      "php artisan run",
+      "php artisan dev"
+    ],
+    "answer": "php artisan serve",
+    "explanation": "The serve command starts the built-in local development server."
+  },
+  {
+    "id": 1151,
+    "question_set": "laravel beginner",
+    "prompt": "Which method validates incoming request data and throws an exception on failure in a controller?",
+    "options": [
+      "$request->validate()",
+      "$request->check()",
+      "$request->sanitize()",
+      "$request->rules()"
+    ],
+    "answer": "$request->validate()",
+    "explanation": "The validate() method checks input against rules and redirects or throws on failure."
+  },
+  {
+    "id": 1152,
+    "question_set": "laravel beginner",
+    "prompt": "Which Eloquent relationship method is typically used on a Post model that owns many comments?",
+    "options": [
+      "hasMany()",
+      "belongsTo()",
+      "belongsToMany()",
+      "morphTo()"
+    ],
+    "answer": "hasMany()",
+    "explanation": "A post that has multiple comments is modeled with a hasMany relationship."
+  },
+  {
+    "id": 1153,
+    "question_set": "laravel beginner",
+    "prompt": "What helper generates a URL to a named route?",
+    "options": [
+      "route()",
+      "url()->current()",
+      "asset()",
+      "public_path()"
+    ],
+    "answer": "route()",
+    "explanation": "The route() helper builds a URL from a registered route name."
+  },
+  {
+    "id": 1154,
+    "question_set": "laravel beginner",
+    "prompt": "Which file usually stores environment-specific values such as DB_HOST and APP_KEY?",
+    "options": [
+      ".env",
+      "composer.json",
+      "routes/web.php",
+      "config/app.php"
+    ],
+    "answer": ".env",
+    "explanation": "Laravel loads environment-specific variables from the .env file."
+  },
+  {
+    "id": 1155,
+    "question_set": "laravel beginner",
+    "prompt": "Which Blade directive defines content for a section named content?",
+    "options": [
+      "@section('content')",
+      "@yield('content')",
+      "@extends('content')",
+      "@include('content')"
+    ],
+    "answer": "@section('content')",
+    "explanation": "The @section directive starts a named section that can be filled with content."
+  },
+  {
+    "id": 1156,
+    "question_set": "laravel beginner",
+    "prompt": "What is middleware commonly used for in Laravel?",
+    "options": [
+      "Filtering HTTP requests before they reach application logic",
+      "Compiling Blade templates into static HTML manually",
+      "Creating database tables automatically on every request",
+      "Installing Composer dependencies"
+    ],
+    "answer": "Filtering HTTP requests before they reach application logic",
+    "explanation": "Middleware handles cross-cutting request concerns such as authentication and throttling."
+  },
+  {
+    "id": 1157,
+    "question_set": "laravel beginner",
+    "prompt": "Which Artisan command runs the database seeders?",
+    "options": [
+      "php artisan db:seed",
+      "php artisan seed:run",
+      "php artisan migrate:seed",
+      "php artisan make:seeder"
+    ],
+    "answer": "php artisan db:seed",
+    "explanation": "The db:seed command executes the configured seeder classes."
+  },
+  {
+    "id": 1158,
+    "question_set": "laravel beginner",
+    "prompt": "Which helper chain returns a JSON HTTP response?",
+    "options": [
+      "response()->json()",
+      "view()->json()",
+      "redirect()->json()",
+      "route()->json()"
+    ],
+    "answer": "response()->json()",
+    "explanation": "response()->json() creates a JSON response with the proper headers."
+  },
+  {
+    "id": 1159,
+    "question_set": "laravel beginner",
+    "prompt": "Which helper chain returns the currently authenticated user when using Laravel's auth system?",
+    "options": [
+      "auth()->user()",
+      "user()",
+      "session()->user()",
+      "request()->guard()"
+    ],
+    "answer": "auth()->user()",
+    "explanation": "auth()->user() returns the user for the current authenticated guard context."
+  },
+  {
+    "id": 1160,
+    "question_set": "laravel beginner",
+    "prompt": "Which file commonly contains routes intended for browser-based web requests?",
+    "options": [
+      "routes/web.php",
+      "routes/api.php",
+      "app/Http/Kernel.php",
+      "config/routes.php"
+    ],
+    "answer": "routes/web.php",
+    "explanation": "Web routes are typically defined in routes/web.php."
+  },
+  {
+    "id": 1161,
+    "question_set": "laravel intermediate",
+    "prompt": "What Laravel feature automatically resolves a Post model for a route parameter like /posts/{post} when the controller type-hints Post $post?",
+    "options": [
+      "Implicit route model binding",
+      "Attribute casting",
+      "View composition",
+      "Mass assignment"
+    ],
+    "answer": "Implicit route model binding",
+    "explanation": "Implicit route model binding resolves the model instance from the route parameter automatically."
+  },
+  {
+    "id": 1162,
+    "question_set": "laravel intermediate",
+    "prompt": "What is a primary benefit of using a Form Request class instead of putting all validation rules directly in a controller?",
+    "options": [
+      "It encapsulates validation and authorization in a dedicated class",
+      "It automatically creates database indexes",
+      "It replaces middleware execution",
+      "It disables CSRF protection for the request"
+    ],
+    "answer": "It encapsulates validation and authorization in a dedicated class",
+    "explanation": "Form Request classes keep validation and authorization logic organized outside controllers."
+  },
+  {
+    "id": 1163,
+    "question_set": "laravel intermediate",
+    "prompt": "Which method is commonly used to eager load a relation when querying Eloquent models?",
+    "options": [
+      "with()",
+      "loadMissing()",
+      "pluck()",
+      "append()"
+    ],
+    "answer": "with()",
+    "explanation": "The with() method eager loads relationships as part of the initial query."
+  },
+  {
+    "id": 1164,
+    "question_set": "laravel intermediate",
+    "prompt": "What happens when an exception is thrown inside DB::transaction()?",
+    "options": [
+      "The transaction is rolled back automatically",
+      "The transaction is committed partially",
+      "Only the last query is undone",
+      "Laravel ignores the exception"
+    ],
+    "answer": "The transaction is rolled back automatically",
+    "explanation": "Laravel rolls back the active transaction if an exception escapes the transaction callback."
+  },
+  {
+    "id": 1165,
+    "question_set": "laravel intermediate",
+    "prompt": "Which Laravel feature is designed to transform models into structured JSON responses for APIs?",
+    "options": [
+      "API Resource classes",
+      "Blade layouts",
+      "Middleware aliases",
+      "Seeder classes"
+    ],
+    "answer": "API Resource classes",
+    "explanation": "API Resource classes provide a clean way to shape JSON output for API responses."
+  },
+  {
+    "id": 1166,
+    "question_set": "laravel intermediate",
+    "prompt": "What is the usual purpose of a policy class in Laravel?",
+    "options": [
+      "Authorizing actions on a specific model or resource",
+      "Registering broadcast channels",
+      "Generating database migrations",
+      "Scheduling console commands"
+    ],
+    "answer": "Authorizing actions on a specific model or resource",
+    "explanation": "Policies centralize authorization rules for working with models and resources."
+  },
+  {
+    "id": 1167,
+    "question_set": "laravel intermediate",
+    "prompt": "Which expression is commonly used to dispatch a job through Laravel's queue system?",
+    "options": [
+      "ProcessPodcast::dispatch()",
+      "ProcessPodcast::handle()",
+      "ProcessPodcast::queue()",
+      "ProcessPodcast::run()"
+    ],
+    "answer": "ProcessPodcast::dispatch()",
+    "explanation": "dispatch() sends the job through Laravel's configured queue system."
+  },
+  {
+    "id": 1168,
+    "question_set": "laravel intermediate",
+    "prompt": "What does Cache::remember('users', 600, fn () => $value) do if the key is missing?",
+    "options": [
+      "It stores the callback result and returns it",
+      "It permanently disables caching for the key",
+      "It deletes the key after reading it",
+      "It throws an exception for a missing cache entry"
+    ],
+    "answer": "It stores the callback result and returns it",
+    "explanation": "remember() computes, stores, and returns the value when the cache key does not already exist."
+  },
+  {
+    "id": 1169,
+    "question_set": "laravel intermediate",
+    "prompt": "Which method is commonly used to replace the attached IDs in a many-to-many relationship?",
+    "options": [
+      "sync()",
+      "attach()",
+      "save()",
+      "associate()"
+    ],
+    "answer": "sync()",
+    "explanation": "sync() updates the pivot table so it matches the provided related IDs."
+  },
+  {
+    "id": 1170,
+    "question_set": "laravel intermediate",
+    "prompt": "What is the effect of using the SoftDeletes trait on an Eloquent model?",
+    "options": [
+      "Deleted rows get a deleted_at timestamp instead of being removed immediately",
+      "The model becomes read-only",
+      "All queries bypass global scopes",
+      "Database transactions become automatic"
+    ],
+    "answer": "Deleted rows get a deleted_at timestamp instead of being removed immediately",
+    "explanation": "SoftDeletes marks records as deleted by setting deleted_at rather than deleting the row."
+  },
+  {
+    "id": 1171,
+    "question_set": "laravel intermediate",
+    "prompt": "If a model defines a method named scopePublished, how is that scope typically called in a query?",
+    "options": [
+      "Model::published()",
+      "Model::scopePublished()",
+      "Model::withPublished()",
+      "Model::callScope('published')"
+    ],
+    "answer": "Model::published()",
+    "explanation": "Local scopes are called without the scope prefix when building queries."
+  },
+  {
+    "id": 1172,
+    "question_set": "laravel intermediate",
+    "prompt": "Which trait lets an Eloquent model receive notifications through Laravel's notification system?",
+    "options": [
+      "Notifiable",
+      "Authorizable",
+      "Dispatchable",
+      "Macroable"
+    ],
+    "answer": "Notifiable",
+    "explanation": "The Notifiable trait gives a model the ability to receive notifications."
+  },
+  {
+    "id": 1173,
+    "question_set": "laravel intermediate",
+    "prompt": "Which method returns a paginator object for a query result set?",
+    "options": [
+      "paginate()",
+      "chunk()",
+      "cursor()",
+      "value()"
+    ],
+    "answer": "paginate()",
+    "explanation": "paginate() returns paginated results along with metadata for building pages."
+  },
+  {
+    "id": 1174,
+    "question_set": "laravel intermediate",
+    "prompt": "When you type-hint a service in a controller constructor, what typically provides the instance?",
+    "options": [
+      "The service container",
+      "The route cache",
+      "The Blade compiler",
+      "The session manager"
+    ],
+    "answer": "The service container",
+    "explanation": "Laravel resolves constructor dependencies through the service container."
+  },
+  {
+    "id": 1175,
+    "question_set": "laravel intermediate",
+    "prompt": "What is a typical benefit of using events and listeners in Laravel?",
+    "options": [
+      "They decouple side effects from core application logic",
+      "They make every database query faster",
+      "They replace validation rules",
+      "They remove the need for service providers"
+    ],
+    "answer": "They decouple side effects from core application logic",
+    "explanation": "Events and listeners help separate follow-up behavior from the main action flow."
+  },
+  {
+    "id": 1176,
+    "question_set": "laravel intermediate",
+    "prompt": "After a Form Request passes validation, which method returns only the validated input data?",
+    "options": [
+      "validated()",
+      "all()",
+      "onlyRules()",
+      "safeInput()"
+    ],
+    "answer": "validated()",
+    "explanation": "validated() returns the data that satisfied the declared validation rules."
+  },
+  {
+    "id": 1177,
+    "question_set": "laravel intermediate",
+    "prompt": "Which method eager loads relationships on models that have already been retrieved?",
+    "options": [
+      "load()",
+      "with()",
+      "mapInto()",
+      "fresh()"
+    ],
+    "answer": "load()",
+    "explanation": "load() eager loads relations onto existing model instances."
+  },
+  {
+    "id": 1178,
+    "question_set": "laravel intermediate",
+    "prompt": "What does firstOrCreate() do when no matching record exists for the lookup attributes?",
+    "options": [
+      "It creates and returns a new record",
+      "It throws a ModelNotFoundException",
+      "It returns null without saving",
+      "It soft deletes the closest match"
+    ],
+    "answer": "It creates and returns a new record",
+    "explanation": "firstOrCreate() inserts a new record when no matching row is found."
+  },
+  {
+    "id": 1179,
+    "question_set": "laravel intermediate",
+    "prompt": "Which HTTP test helper sends a JSON POST request in a Laravel feature test?",
+    "options": [
+      "postJson()",
+      "sendJson()",
+      "jsonPost()",
+      "postApi()"
+    ],
+    "answer": "postJson()",
+    "explanation": "postJson() sends a POST request with a JSON payload and JSON headers."
+  },
+  {
+    "id": 1180,
+    "question_set": "laravel intermediate",
+    "prompt": "Which query method filters models based on whether a related model matches given constraints?",
+    "options": [
+      "whereHas()",
+      "withCount()",
+      "makeHidden()",
+      "belongsTo()"
+    ],
+    "answer": "whereHas()",
+    "explanation": "whereHas() restricts the parent query to records whose relation satisfies the callback constraints."
+  },
+  {
+    "id": 1181,
+    "question_set": "laravel expert",
+    "prompt": "In the service container, what does app()->scoped() provide compared with singleton()?",
+    "options": [
+      "A single instance per request or job lifecycle",
+      "A new instance every time the service is resolved",
+      "A value stored only in config cache",
+      "A binding that can be used only in tests"
+    ],
+    "answer": "A single instance per request or job lifecycle",
+    "explanation": "scoped() creates one shared instance for the current application lifecycle rather than the entire process."
+  },
+  {
+    "id": 1182,
+    "question_set": "laravel expert",
+    "prompt": "Which container API lets you provide different implementations depending on the consuming class?",
+    "options": [
+      "when()->needs()->give()",
+      "singletonIf()->bind()",
+      "extend()->macro()",
+      "tagged()->flush()"
+    ],
+    "answer": "when()->needs()->give()",
+    "explanation": "Contextual binding uses when()->needs()->give() to resolve dependencies differently per consumer."
+  },
+  {
+    "id": 1183,
+    "question_set": "laravel expert",
+    "prompt": "When should lockForUpdate() be used most safely in Laravel?",
+    "options": [
+      "Inside a database transaction that needs row-level locking",
+      "On cached collections after the query has finished",
+      "Only on SQLite in memory databases",
+      "Instead of validation rules for concurrent writes"
+    ],
+    "answer": "Inside a database transaction that needs row-level locking",
+    "explanation": "lockForUpdate() is intended for transactional queries that must prevent concurrent modifications."
+  },
+  {
+    "id": 1184,
+    "question_set": "laravel expert",
+    "prompt": "What does the query builder's upsert() method do?",
+    "options": [
+      "Insert records or update matching records in one operation",
+      "Only update existing records and skip inserts",
+      "Create a migration and seed data together",
+      "Delete duplicates before inserting everything"
+    ],
+    "answer": "Insert records or update matching records in one operation",
+    "explanation": "upsert() performs insert-or-update behavior in a single bulk database operation."
+  },
+  {
+    "id": 1185,
+    "question_set": "laravel expert",
+    "prompt": "What interface is commonly implemented for a custom Eloquent attribute cast class?",
+    "options": [
+      "CastsAttributes",
+      "Arrayable",
+      "Responsable",
+      "DeferrableProvider"
+    ],
+    "answer": "CastsAttributes",
+    "explanation": "Custom attribute cast classes typically implement the CastsAttributes interface."
+  },
+  {
+    "id": 1186,
+    "question_set": "laravel expert",
+    "prompt": "What is the effect of implementing ShouldBeUnique on a queued job?",
+    "options": [
+      "Laravel prevents duplicate copies of the job from being queued at the same time for the uniqueness window",
+      "The job always runs synchronously",
+      "The job is automatically retried forever",
+      "The job bypasses queue workers"
+    ],
+    "answer": "Laravel prevents duplicate copies of the job from being queued at the same time for the uniqueness window",
+    "explanation": "ShouldBeUnique uses a lock so equivalent jobs are not enqueued repeatedly within the uniqueness period."
+  },
+  {
+    "id": 1187,
+    "question_set": "laravel expert",
+    "prompt": "Why might you dispatch a queued job with afterCommit() when working inside a database transaction?",
+    "options": [
+      "To ensure the job is dispatched only after the transaction commits",
+      "To make the job ignore database changes",
+      "To bypass queue serialization",
+      "To run the job before validation"
+    ],
+    "answer": "To ensure the job is dispatched only after the transaction commits",
+    "explanation": "afterCommit() avoids jobs seeing uncommitted or rolled-back database state."
+  },
+  {
+    "id": 1188,
+    "question_set": "laravel expert",
+    "prompt": "Why is chunkById() often safer than chunk() when updating large tables during iteration?",
+    "options": [
+      "It reduces the chance of skipping or repeating rows when records change during processing",
+      "It automatically eager loads all relations",
+      "It disables model events for better speed",
+      "It always uses a single SQL query"
+    ],
+    "answer": "It reduces the chance of skipping or repeating rows when records change during processing",
+    "explanation": "chunkById() paginates by primary key so record movement affects iteration less than offset-based chunking."
+  },
+  {
+    "id": 1189,
+    "question_set": "laravel expert",
+    "prompt": "Which method is most appropriate when you want to iterate through a very large result set with low memory usage, one model at a time?",
+    "options": [
+      "cursor()",
+      "get()",
+      "all()",
+      "implode()"
+    ],
+    "answer": "cursor()",
+    "explanation": "cursor() streams results lazily so the full dataset is not loaded into memory at once."
+  },
+  {
+    "id": 1190,
+    "question_set": "laravel expert",
+    "prompt": "What is the purpose of Model::preventLazyLoading()?",
+    "options": [
+      "To surface accidental lazy-loaded relationships during development or testing",
+      "To disable all relationship methods permanently",
+      "To force every query to use cursor pagination",
+      "To remove global scopes from models"
+    ],
+    "answer": "To surface accidental lazy-loaded relationships during development or testing",
+    "explanation": "preventLazyLoading() helps catch hidden N+1 query problems by warning or throwing on lazy loads."
+  },
+  {
+    "id": 1191,
+    "question_set": "laravel expert",
+    "prompt": "Which method can be used when eager loading a morphTo relation to specify nested relations per morph type?",
+    "options": [
+      "morphWith()",
+      "withPivot()",
+      "through()",
+      "latestOfMany()"
+    ],
+    "answer": "morphWith()",
+    "explanation": "morphWith() lets a morphTo relation eager load different nested relations for each concrete type."
+  },
+  {
+    "id": 1192,
+    "question_set": "laravel expert",
+    "prompt": "What does withCount('comments') add to each model in an Eloquent result set?",
+    "options": [
+      "A comments_count attribute from a subquery",
+      "A loaded comments collection",
+      "A cached relationship forever",
+      "A new pivot table"
+    ],
+    "answer": "A comments_count attribute from a subquery",
+    "explanation": "withCount() appends an aggregate count attribute without loading the related models themselves."
+  },
+  {
+    "id": 1193,
+    "question_set": "laravel expert",
+    "prompt": "Which caching feature can coordinate exclusive work across processes, such as preventing the same task from running twice at once?",
+    "options": [
+      "Cache::lock()",
+      "Cache::tags()",
+      "Cache::rememberForever()",
+      "Cache::flush()"
+    ],
+    "answer": "Cache::lock()",
+    "explanation": "Cache::lock() provides a distributed lock for exclusive execution across workers or servers."
+  },
+  {
+    "id": 1194,
+    "question_set": "laravel expert",
+    "prompt": "Where is a custom named rate limiter typically defined for Laravel requests or actions?",
+    "options": [
+      "Using RateLimiter::for(...) in application bootstrapping",
+      "Inside a Blade component render method",
+      "Inside a migration file",
+      "Using DB::transaction(...) around the route"
+    ],
+    "answer": "Using RateLimiter::for(...) in application bootstrapping",
+    "explanation": "Custom rate limiters are usually registered during app bootstrapping with RateLimiter::for(...)."
+  },
+  {
+    "id": 1195,
+    "question_set": "laravel expert",
+    "prompt": "What is the purpose of Model::withoutEvents(fn () => ...)?",
+    "options": [
+      "It runs model operations without firing model events",
+      "It queues model events for later replay",
+      "It disables validation rules globally",
+      "It bypasses mass-assignment protection permanently"
+    ],
+    "answer": "It runs model operations without firing model events",
+    "explanation": "withoutEvents() temporarily suppresses model event dispatch for the enclosed operations."
+  },
+  {
+    "id": 1196,
+    "question_set": "laravel expert",
+    "prompt": "In a many-to-many relationship, what does withPivot('role') allow you to do?",
+    "options": [
+      "Access the extra role column from the pivot record",
+      "Convert the relation into a polymorphic relation",
+      "Automatically cast the related model to a DTO",
+      "Force sync() to detach missing records"
+    ],
+    "answer": "Access the extra role column from the pivot record",
+    "explanation": "withPivot() exposes extra pivot-table columns on the relationship's pivot attribute."
+  },
+  {
+    "id": 1197,
+    "question_set": "laravel expert",
+    "prompt": "Which queue job middleware helps prevent two workers from processing overlapping instances of the same logical job at the same time?",
+    "options": [
+      "WithoutOverlapping",
+      "TrimStrings",
+      "SubstituteBindings",
+      "AuthenticateSession"
+    ],
+    "answer": "WithoutOverlapping",
+    "explanation": "WithoutOverlapping uses a lock to avoid concurrent handling of jobs that should not overlap."
+  },
+  {
+    "id": 1198,
+    "question_set": "laravel expert",
+    "prompt": "What is the difference between ShouldBroadcastNow and ShouldBroadcast for an event?",
+    "options": [
+      "ShouldBroadcastNow broadcasts synchronously instead of going through the queue",
+      "ShouldBroadcastNow only works on public channels",
+      "ShouldBroadcastNow disables channel authorization",
+      "ShouldBroadcastNow stores events only in the database"
+    ],
+    "answer": "ShouldBroadcastNow broadcasts synchronously instead of going through the queue",
+    "explanation": "ShouldBroadcastNow sends the broadcast immediately, while ShouldBroadcast is normally queued."
+  },
+  {
+    "id": 1199,
+    "question_set": "laravel expert",
+    "prompt": "Which model method can you override to customize how implicit route model binding resolves a route parameter?",
+    "options": [
+      "resolveRouteBinding()",
+      "resolveConnection()",
+      "booted()",
+      "newCollection()"
+    ],
+    "answer": "resolveRouteBinding()",
+    "explanation": "Overriding resolveRouteBinding() lets you change how a route parameter is matched to a model."
+  },
+  {
+    "id": 1200,
+    "question_set": "laravel expert",
+    "prompt": "Which Eloquent method both filters parent models by a relation constraint and eager loads that constrained relation?",
+    "options": [
+      "withWhereHas()",
+      "orWhereBelongsTo()",
+      "preventLazyLoading()",
+      "loadAggregate()"
+    ],
+    "answer": "withWhereHas()",
+    "explanation": "withWhereHas() applies the same relation constraint for filtering and eager loading in one call."
+  },
+  {
+    "id": 1201,
+    "question_set": "php beginner",
+    "prompt": "Which character prefix is required for a normal variable name in PHP?",
+    "options": [
+      "$",
+      "#",
+      "@",
+      "%"
+    ],
+    "answer": "$",
+    "explanation": "PHP variable names begin with a dollar sign."
+  },
+  {
+    "id": 1202,
+    "question_set": "php beginner",
+    "prompt": "Which operator concatenates two strings in PHP?",
+    "options": [
+      ".",
+      "+",
+      "::",
+      "=>"
+    ],
+    "answer": ".",
+    "explanation": "PHP uses the dot operator for string concatenation."
+  },
+  {
+    "id": 1203,
+    "question_set": "php beginner",
+    "prompt": "Which token starts a common single-line comment in PHP?",
+    "options": [
+      "//",
+      "<!-- -->",
+      "##",
+      "**"
+    ],
+    "answer": "//",
+    "explanation": "Double slashes start a single-line comment in PHP."
+  },
+  {
+    "id": 1204,
+    "question_set": "php beginner",
+    "prompt": "Given $user = ['name' => 'Ada']; which expression reads the name value?",
+    "options": [
+      "$user['name']",
+      "$user->name",
+      "$user(name)",
+      "$user::name"
+    ],
+    "answer": "$user['name']",
+    "explanation": "Associative array values are accessed by key inside square brackets."
+  },
+  {
+    "id": 1205,
+    "question_set": "php beginner",
+    "prompt": "Which statement stops script execution if the target file cannot be loaded?",
+    "options": [
+      "require",
+      "include",
+      "echo",
+      "print_r"
+    ],
+    "answer": "require",
+    "explanation": "Require causes a fatal error if the file cannot be loaded."
+  },
+  {
+    "id": 1206,
+    "question_set": "php beginner",
+    "prompt": "Which superglobal usually contains query string parameters from the URL?",
+    "options": [
+      "$_GET",
+      "$_POST",
+      "$_SESSION",
+      "$_COOKIE"
+    ],
+    "answer": "$_GET",
+    "explanation": "URL query parameters are exposed through $_GET."
+  },
+  {
+    "id": 1207,
+    "question_set": "php beginner",
+    "prompt": "Which keyword is used to declare a function in PHP?",
+    "options": [
+      "function",
+      "def",
+      "fnc",
+      "method"
+    ],
+    "answer": "function",
+    "explanation": "The function keyword declares named and anonymous functions."
+  },
+  {
+    "id": 1208,
+    "question_set": "php beginner",
+    "prompt": "Which language construct outputs text directly to the response?",
+    "options": [
+      "echo",
+      "return",
+      "yield",
+      "throw"
+    ],
+    "answer": "echo",
+    "explanation": "Echo sends output directly to the response stream."
+  },
+  {
+    "id": 1209,
+    "question_set": "php beginner",
+    "prompt": "Which function returns the number of elements in an array?",
+    "options": [
+      "count()",
+      "size()",
+      "length()",
+      "items()"
+    ],
+    "answer": "count()",
+    "explanation": "Count returns the number of elements in an array or Countable object."
+  },
+  {
+    "id": 1210,
+    "question_set": "php beginner",
+    "prompt": "Which loop is commonly used to iterate over every element of an array?",
+    "options": [
+      "foreach",
+      "forin",
+      "loop",
+      "iterate"
+    ],
+    "answer": "foreach",
+    "explanation": "Foreach is designed for iterating arrays and traversable objects."
+  },
+  {
+    "id": 1211,
+    "question_set": "php beginner",
+    "prompt": "Which operator checks both value and type for equality?",
+    "options": [
+      "===",
+      "==",
+      "=",
+      "<>"
+    ],
+    "answer": "===",
+    "explanation": "The identical operator compares both the value and the type."
+  },
+  {
+    "id": 1212,
+    "question_set": "php beginner",
+    "prompt": "Which kind of string literal expands variables by default?",
+    "options": [
+      "Double-quoted strings",
+      "Single-quoted strings",
+      "Comments",
+      "Nowdoc blocks"
+    ],
+    "answer": "Double-quoted strings",
+    "explanation": "Variables are interpolated inside double-quoted strings."
+  },
+  {
+    "id": 1213,
+    "question_set": "php beginner",
+    "prompt": "Which operator returns a fallback value when the left side is null or not set?",
+    "options": [
+      "??",
+      "?:",
+      "=>",
+      ".."
+    ],
+    "answer": "??",
+    "explanation": "The null coalescing operator returns the right side when the left side is null or undefined."
+  },
+  {
+    "id": 1214,
+    "question_set": "php beginner",
+    "prompt": "Which function checks that a variable is defined and not null?",
+    "options": [
+      "isset()",
+      "empty()",
+      "defined()",
+      "is_null()"
+    ],
+    "answer": "isset()",
+    "explanation": "Isset returns true only when the variable exists and is not null."
+  },
+  {
+    "id": 1215,
+    "question_set": "php beginner",
+    "prompt": "Which function splits a string into an array using a delimiter?",
+    "options": [
+      "explode()",
+      "implode()",
+      "substr()",
+      "trim()"
+    ],
+    "answer": "explode()",
+    "explanation": "Explode separates a string into pieces based on a delimiter."
+  },
+  {
+    "id": 1216,
+    "question_set": "php beginner",
+    "prompt": "Which function joins array elements into a single string?",
+    "options": [
+      "implode()",
+      "explode()",
+      "array_merge()",
+      "array_map()"
+    ],
+    "answer": "implode()",
+    "explanation": "Implode joins array elements using an optional separator."
+  },
+  {
+    "id": 1217,
+    "question_set": "php beginner",
+    "prompt": "Which function is commonly used to test whether a variable has an empty value?",
+    "options": [
+      "empty()",
+      "isset()",
+      "count()",
+      "unset()"
+    ],
+    "answer": "empty()",
+    "explanation": "Empty returns true for values PHP treats as empty, such as an empty string or zero."
+  },
+  {
+    "id": 1218,
+    "question_set": "php beginner",
+    "prompt": "Which keyword sends a value back from a function?",
+    "options": [
+      "return",
+      "yield",
+      "break",
+      "continue"
+    ],
+    "answer": "return",
+    "explanation": "Return ends the function and provides a result to the caller."
+  },
+  {
+    "id": 1219,
+    "question_set": "php beginner",
+    "prompt": "Which superglobal usually contains form fields submitted with the HTTP POST method?",
+    "options": [
+      "$_POST",
+      "$_GET",
+      "$_FILES",
+      "$_SERVER"
+    ],
+    "answer": "$_POST",
+    "explanation": "Form fields submitted with POST are typically available in $_POST."
+  },
+  {
+    "id": 1220,
+    "question_set": "php beginner",
+    "prompt": "Which operator accesses an object property or method?",
+    "options": [
+      "->",
+      "::",
+      ".",
+      ":"
+    ],
+    "answer": "->",
+    "explanation": "The object operator accesses instance properties and methods."
+  },
+  {
+    "id": 1221,
+    "question_set": "php intermediate",
+    "prompt": "Which keyword declares the namespace for code in a PHP file?",
+    "options": [
+      "namespace",
+      "package",
+      "module",
+      "scope"
+    ],
+    "answer": "namespace",
+    "explanation": "The namespace keyword defines the current namespace."
+  },
+  {
+    "id": 1222,
+    "question_set": "php intermediate",
+    "prompt": "Which keyword imports a class or namespace into the current file?",
+    "options": [
+      "use",
+      "import",
+      "include",
+      "with"
+    ],
+    "answer": "use",
+    "explanation": "Use imports namespaces, classes, functions, or constants into the current scope."
+  },
+  {
+    "id": 1223,
+    "question_set": "php intermediate",
+    "prompt": "Which keyword starts a traditional anonymous function in PHP?",
+    "options": [
+      "function",
+      "lambda",
+      "fnc",
+      "closure"
+    ],
+    "answer": "function",
+    "explanation": "Traditional anonymous functions are declared with the function keyword."
+  },
+  {
+    "id": 1224,
+    "question_set": "php intermediate",
+    "prompt": "How does a closure import an outer variable named $name by value?",
+    "options": [
+      "use ($name)",
+      "with ($name)",
+      "import $name",
+      "global $name"
+    ],
+    "answer": "use ($name)",
+    "explanation": "Closures capture variables from the outer scope with a use clause."
+  },
+  {
+    "id": 1225,
+    "question_set": "php intermediate",
+    "prompt": "What is the main security benefit of prepared statements with bound parameters?",
+    "options": [
+      "They reduce SQL injection risk",
+      "They encrypt the database",
+      "They automatically open transactions",
+      "They bypass permissions"
+    ],
+    "answer": "They reduce SQL injection risk",
+    "explanation": "Prepared statements separate SQL structure from user data."
+  },
+  {
+    "id": 1226,
+    "question_set": "php intermediate",
+    "prompt": "Which base interface can be caught to handle both Exception and Error?",
+    "options": [
+      "Throwable",
+      "Catchable",
+      "Errorable",
+      "ThrowableError"
+    ],
+    "answer": "Throwable",
+    "explanation": "Both Exception and Error implement the Throwable interface."
+  },
+  {
+    "id": 1227,
+    "question_set": "php intermediate",
+    "prompt": "Which language feature lets multiple classes reuse the same method implementations without inheritance?",
+    "options": [
+      "trait",
+      "interface",
+      "abstract class",
+      "namespace"
+    ],
+    "answer": "trait",
+    "explanation": "Traits allow horizontal code reuse across classes."
+  },
+  {
+    "id": 1228,
+    "question_set": "php intermediate",
+    "prompt": "What must a class do when it implements an interface?",
+    "options": [
+      "Implement all required methods",
+      "Extend the interface constructor",
+      "Use public properties only",
+      "Declare all methods as static"
+    ],
+    "answer": "Implement all required methods",
+    "explanation": "A concrete class must provide implementations for the interface methods it promises."
+  },
+  {
+    "id": 1229,
+    "question_set": "php intermediate",
+    "prompt": "Where must declare(strict_types=1); appear to affect a file?",
+    "options": [
+      "At the top of the file before other executable code",
+      "Inside each function",
+      "At the end of the file",
+      "Only in a namespace block"
+    ],
+    "answer": "At the top of the file before other executable code",
+    "explanation": "Strict types are enabled per file by a declare statement near the top of that file."
+  },
+  {
+    "id": 1230,
+    "question_set": "php intermediate",
+    "prompt": "Which operator assigns a default only when the target is null or undefined?",
+    "options": [
+      "??=",
+      "?:=",
+      "=>",
+      ".="
+    ],
+    "answer": "??=",
+    "explanation": "The null coalescing assignment operator sets a value only if the left side is null or not set."
+  },
+  {
+    "id": 1231,
+    "question_set": "php intermediate",
+    "prompt": "Which keyword turns a function into a generator that can produce values lazily?",
+    "options": [
+      "yield",
+      "return",
+      "await",
+      "emit"
+    ],
+    "answer": "yield",
+    "explanation": "Using yield makes the function return a Generator that produces values on demand."
+  },
+  {
+    "id": 1232,
+    "question_set": "php intermediate",
+    "prompt": "What does json_decode($json, true) return for JSON objects?",
+    "options": [
+      "Associative arrays",
+      "StdClass objects",
+      "XML nodes",
+      "Binary strings"
+    ],
+    "answer": "Associative arrays",
+    "explanation": "Passing true tells json_decode to convert JSON objects into associative arrays."
+  },
+  {
+    "id": 1233,
+    "question_set": "php intermediate",
+    "prompt": "Which function applies a callback to each array element and returns the transformed array?",
+    "options": [
+      "array_map()",
+      "array_walk()",
+      "array_filter()",
+      "usort()"
+    ],
+    "answer": "array_map()",
+    "explanation": "Array_map builds a new array from the callback results."
+  },
+  {
+    "id": 1234,
+    "question_set": "php intermediate",
+    "prompt": "Which function keeps only array elements that pass a callback test?",
+    "options": [
+      "array_filter()",
+      "array_reduce()",
+      "array_merge()",
+      "array_reverse()"
+    ],
+    "answer": "array_filter()",
+    "explanation": "Array_filter removes elements for which the callback returns false."
+  },
+  {
+    "id": 1235,
+    "question_set": "php intermediate",
+    "prompt": "How does a match expression compare its subject to each arm?",
+    "options": [
+      "It uses strict comparison",
+      "It uses loose comparison",
+      "It uses regular expressions",
+      "It sorts the arms first"
+    ],
+    "answer": "It uses strict comparison",
+    "explanation": "Match uses strict comparison, so both type and value must match."
+  },
+  {
+    "id": 1236,
+    "question_set": "php intermediate",
+    "prompt": "Which block is intended for cleanup code after try and catch?",
+    "options": [
+      "finally",
+      "cleanup",
+      "defer",
+      "after"
+    ],
+    "answer": "finally",
+    "explanation": "The finally block is meant for cleanup that should run when control leaves the try or catch blocks."
+  },
+  {
+    "id": 1237,
+    "question_set": "php intermediate",
+    "prompt": "In Composer PSR-4 autoloading, what is mapped to a directory path?",
+    "options": [
+      "A namespace prefix",
+      "A function name",
+      "A database DSN",
+      "A trait alias"
+    ],
+    "answer": "A namespace prefix",
+    "explanation": "PSR-4 maps namespace prefixes to base directories for autoloading."
+  },
+  {
+    "id": 1238,
+    "question_set": "php intermediate",
+    "prompt": "After session_start(), which superglobal stores session data?",
+    "options": [
+      "$_SESSION",
+      "$_SERVER",
+      "$_REQUEST",
+      "$_ENV"
+    ],
+    "answer": "$_SESSION",
+    "explanation": "Session variables are read from and written to $_SESSION."
+  },
+  {
+    "id": 1239,
+    "question_set": "php intermediate",
+    "prompt": "Which visibility allows access from the class itself and its subclasses, but not from unrelated code?",
+    "options": [
+      "protected",
+      "public",
+      "private",
+      "internal"
+    ],
+    "answer": "protected",
+    "explanation": "Protected members are accessible within the class hierarchy but not from outside it."
+  },
+  {
+    "id": 1240,
+    "question_set": "php intermediate",
+    "prompt": "How do you read the scalar backing value from a backed enum case stored in $status?",
+    "options": [
+      "$status->value",
+      "$status::value",
+      "value($status)",
+      "$status->name"
+    ],
+    "answer": "$status->value",
+    "explanation": "Backed enum cases expose their scalar value through the value property."
+  },
+  {
+    "id": 1241,
+    "question_set": "php expert",
+    "prompt": "What does readonly mean for a property in PHP?",
+    "options": [
+      "It can be written only once after initialization",
+      "It is automatically private",
+      "It is stored in OPcache",
+      "It cannot hold objects"
+    ],
+    "answer": "It can be written only once after initialization",
+    "explanation": "A readonly property cannot be reassigned after its allowed initialization write."
+  },
+  {
+    "id": 1242,
+    "question_set": "php expert",
+    "prompt": "Which syntax declares a PHP attribute on the next declaration?",
+    "options": [
+      "#[Route('/users')]",
+      "@Route('/users')",
+      "[Route('/users')]",
+      "<Route('/users')>"
+    ],
+    "answer": "#[Route('/users')]",
+    "explanation": "PHP attributes use the #[...] syntax."
+  },
+  {
+    "id": 1243,
+    "question_set": "php expert",
+    "prompt": "Which symbol combines types in a union type declaration?",
+    "options": [
+      "|",
+      "&",
+      ":",
+      "||"
+    ],
+    "answer": "|",
+    "explanation": "Union types are written by joining allowed types with a vertical bar."
+  },
+  {
+    "id": 1244,
+    "question_set": "php expert",
+    "prompt": "Which symbol combines object types in an intersection type declaration?",
+    "options": [
+      "&",
+      "|",
+      "::",
+      "=>"
+    ],
+    "answer": "&",
+    "explanation": "Intersection types require values to satisfy all listed object types joined by an ampersand."
+  },
+  {
+    "id": 1245,
+    "question_set": "php expert",
+    "prompt": "When overriding a method, which return type change is allowed by covariance?",
+    "options": [
+      "Returning a more specific type",
+      "Returning an unrelated type",
+      "Removing the return type from a typed parent method",
+      "Changing the return type to mixed without compatibility"
+    ],
+    "answer": "Returning a more specific type",
+    "explanation": "Covariance allows child methods to narrow the declared return type."
+  },
+  {
+    "id": 1246,
+    "question_set": "php expert",
+    "prompt": "What does yield from do inside a generator?",
+    "options": [
+      "It delegates yielding to another iterable",
+      "It closes the generator immediately",
+      "It converts a generator to an array",
+      "It starts a new process"
+    ],
+    "answer": "It delegates yielding to another iterable",
+    "explanation": "Yield from passes through values from another iterable or generator."
+  },
+  {
+    "id": 1247,
+    "question_set": "php expert",
+    "prompt": "What is a key characteristic of WeakMap?",
+    "options": [
+      "Keys are objects and do not keep them alive",
+      "Keys must be strings",
+      "It serializes keys to JSON",
+      "It preserves keys forever"
+    ],
+    "answer": "Keys are objects and do not keep them alive",
+    "explanation": "WeakMap entries disappear when their object keys are no longer strongly referenced elsewhere."
+  },
+  {
+    "id": 1248,
+    "question_set": "php expert",
+    "prompt": "What does Closure::fromCallable($callable) return?",
+    "options": [
+      "A Closure wrapping the callable",
+      "An array of reflected parameters",
+      "A string function name",
+      "A Generator instance"
+    ],
+    "answer": "A Closure wrapping the callable",
+    "explanation": "Closure::fromCallable converts any valid callable into a Closure object."
+  },
+  {
+    "id": 1249,
+    "question_set": "php expert",
+    "prompt": "What problem does OPcache primarily solve in production PHP?",
+    "options": [
+      "Caching compiled bytecode to reduce repeated compilation",
+      "Encrypting source files at rest",
+      "Managing database connection pools",
+      "Compressing HTTP responses"
+    ],
+    "answer": "Caching compiled bytecode to reduce repeated compilation",
+    "explanation": "OPcache speeds execution by reusing compiled script bytecode."
+  },
+  {
+    "id": 1250,
+    "question_set": "php expert",
+    "prompt": "What do Fibers provide in PHP?",
+    "options": [
+      "Cooperative suspension and resumption of execution",
+      "Automatic parallel threads for every function",
+      "Kernel-level process isolation",
+      "Compile-time dependency injection"
+    ],
+    "answer": "Cooperative suspension and resumption of execution",
+    "explanation": "Fibers let userland code suspend and later resume execution explicitly."
+  },
+  {
+    "id": 1251,
+    "question_set": "php expert",
+    "prompt": "Which magic methods provide the modern custom serialization API for objects?",
+    "options": [
+      "__serialize() and __unserialize()",
+      "__sleep() and __wakeup() only",
+      "__get() and __set()",
+      "__invoke() and __call()"
+    ],
+    "answer": "__serialize() and __unserialize()",
+    "explanation": "These methods define exactly how object state is serialized and restored in modern PHP."
+  },
+  {
+    "id": 1252,
+    "question_set": "php expert",
+    "prompt": "What does spl_object_id($obj) return?",
+    "options": [
+      "An integer identifier unique for the object's lifetime",
+      "A persistent UUID stored in the object",
+      "The object's memory size in bytes",
+      "The class name hash"
+    ],
+    "answer": "An integer identifier unique for the object's lifetime",
+    "explanation": "Spl_object_id returns an integer that uniquely identifies that object while it exists."
+  },
+  {
+    "id": 1253,
+    "question_set": "php expert",
+    "prompt": "What does static:: refer to in a method using late static binding?",
+    "options": [
+      "The called class at runtime",
+      "The file where the class was declared",
+      "The nearest trait only",
+      "The parent class only"
+    ],
+    "answer": "The called class at runtime",
+    "explanation": "Late static binding resolves static:: to the class used for the call."
+  },
+  {
+    "id": 1254,
+    "question_set": "php expert",
+    "prompt": "When does array_is_list($value) return true?",
+    "options": [
+      "When the array keys are 0 through n-1 in order",
+      "When every value is a string",
+      "When the array is multidimensional",
+      "When all keys are unique"
+    ],
+    "answer": "When the array keys are 0 through n-1 in order",
+    "explanation": "A list in PHP has consecutive integer keys starting at zero."
+  },
+  {
+    "id": 1255,
+    "question_set": "php expert",
+    "prompt": "What does the never return type indicate?",
+    "options": [
+      "The function does not return normally",
+      "The function always returns null",
+      "The function can return any type",
+      "The function is deprecated"
+    ],
+    "answer": "The function does not return normally",
+    "explanation": "A never function must terminate by throwing, exiting, or otherwise not returning control."
+  },
+  {
+    "id": 1256,
+    "question_set": "php expert",
+    "prompt": "What does the expression strlen(...) produce?",
+    "options": [
+      "A Closure representing the function",
+      "The length of the string literal '...'",
+      "A variadic placeholder value",
+      "A reflected function object"
+    ],
+    "answer": "A Closure representing the function",
+    "explanation": "First-class callable syntax returns a Closure for the referenced callable."
+  },
+  {
+    "id": 1257,
+    "question_set": "php expert",
+    "prompt": "What must an object implement to be directly iterable with foreach?",
+    "options": [
+      "Traversable",
+      "ArrayAccess",
+      "Stringable",
+      "JsonSerializable"
+    ],
+    "answer": "Traversable",
+    "explanation": "Objects used directly in foreach must implement Traversable, typically via Iterator or IteratorAggregate."
+  },
+  {
+    "id": 1258,
+    "question_set": "php expert",
+    "prompt": "In a method signature, what does a static return type mean?",
+    "options": [
+      "The method returns an instance of the called class",
+      "The method may return only the parent class",
+      "The method always returns the same cached object",
+      "The method returns only static properties"
+    ],
+    "answer": "The method returns an instance of the called class",
+    "explanation": "The static return type preserves late static binding in fluent and factory-style APIs."
+  },
+  {
+    "id": 1259,
+    "question_set": "php expert",
+    "prompt": "What does __debugInfo() control?",
+    "options": [
+      "The data shown by var_dump()",
+      "The object's JSON encoding",
+      "The stack trace format",
+      "The order of constructor arguments"
+    ],
+    "answer": "The data shown by var_dump()",
+    "explanation": "If defined, __debugInfo customizes the data that var_dump displays for the object."
+  },
+  {
+    "id": 1260,
+    "question_set": "php expert",
+    "prompt": "How would you type a parameter that must be both Countable and Iterator?",
+    "options": [
+      "Countable&Iterator",
+      "Countable|Iterator",
+      "array|Iterator",
+      "iterable&array"
+    ],
+    "answer": "Countable&Iterator",
+    "explanation": "An intersection type requires the argument to satisfy both interfaces at the same time."
+  },
+  {
+    "id": 1261,
+    "question_set": "javascript beginner",
+    "prompt": "Which keyword declares a block-scoped variable that can be reassigned?",
+    "options": [
+      "var",
+      "let",
+      "const",
+      "class"
+    ],
+    "answer": "let",
+    "explanation": "let creates a block-scoped binding whose value may be reassigned."
+  },
+  {
+    "id": 1262,
+    "question_set": "javascript beginner",
+    "prompt": "Which operator compares both value and type without coercion?",
+    "options": [
+      "==",
+      "===",
+      "=",
+      "!="
+    ],
+    "answer": "===",
+    "explanation": "Strict equality checks type and value without converting operands."
+  },
+  {
+    "id": 1263,
+    "question_set": "javascript beginner",
+    "prompt": "Which array method adds an element to the end of an array?",
+    "options": [
+      "shift",
+      "unshift",
+      "push",
+      "pop"
+    ],
+    "answer": "push",
+    "explanation": "push appends one or more elements to the end of an array."
+  },
+  {
+    "id": 1264,
+    "question_set": "javascript beginner",
+    "prompt": "What value is returned by a function that has no explicit return statement?",
+    "options": [
+      "null",
+      "false",
+      "0",
+      "undefined"
+    ],
+    "answer": "undefined",
+    "explanation": "Functions without an explicit return produce undefined."
+  },
+  {
+    "id": 1265,
+    "question_set": "javascript beginner",
+    "prompt": "Which syntax allows embedded expressions inside a string?",
+    "options": [
+      "Single-quoted strings",
+      "Double-quoted strings",
+      "Template literals",
+      "Block comments"
+    ],
+    "answer": "Template literals",
+    "explanation": "Template literals use backticks and ${...} placeholders for interpolation."
+  },
+  {
+    "id": 1266,
+    "question_set": "javascript beginner",
+    "prompt": "Which built-in method converts a JSON string into a JavaScript value?",
+    "options": [
+      "JSON.stringify",
+      "JSON.parse",
+      "String.json",
+      "Object.parse"
+    ],
+    "answer": "JSON.parse",
+    "explanation": "JSON.parse reads JSON text and returns the corresponding JavaScript value."
+  },
+  {
+    "id": 1267,
+    "question_set": "javascript beginner",
+    "prompt": "Which loop iterates directly over the values of an array?",
+    "options": [
+      "for...in",
+      "for...of",
+      "while",
+      "do...while"
+    ],
+    "answer": "for...of",
+    "explanation": "for...of steps through iterable values rather than property names."
+  },
+  {
+    "id": 1268,
+    "question_set": "javascript beginner",
+    "prompt": "Which expression reliably checks whether a value is an array?",
+    "options": [
+      "value instanceof Object",
+      "typeof value === 'array'",
+      "Array.isArray(value)",
+      "value.isArray()"
+    ],
+    "answer": "Array.isArray(value)",
+    "explanation": "Array.isArray is the standard way to detect arrays."
+  },
+  {
+    "id": 1269,
+    "question_set": "javascript beginner",
+    "prompt": "What does typeof 'hello' evaluate to?",
+    "options": [
+      "string",
+      "text",
+      "object",
+      "char"
+    ],
+    "answer": "string",
+    "explanation": "The typeof operator returns string for string values."
+  },
+  {
+    "id": 1270,
+    "question_set": "javascript beginner",
+    "prompt": "What does typeof null evaluate to in JavaScript?",
+    "options": [
+      "null",
+      "undefined",
+      "object",
+      "empty"
+    ],
+    "answer": "object",
+    "explanation": "typeof null is historically object even though null is a primitive."
+  },
+  {
+    "id": 1271,
+    "question_set": "javascript beginner",
+    "prompt": "Which operator can expand an array into individual elements?",
+    "options": [
+      "...",
+      "??",
+      "&&",
+      "=>"
+    ],
+    "answer": "...",
+    "explanation": "The spread syntax expands iterable elements where individual values are expected."
+  },
+  {
+    "id": 1272,
+    "question_set": "javascript beginner",
+    "prompt": "Which array method removes the last element from an array?",
+    "options": [
+      "shift",
+      "slice",
+      "pop",
+      "concat"
+    ],
+    "answer": "pop",
+    "explanation": "pop removes and returns the last element."
+  },
+  {
+    "id": 1273,
+    "question_set": "javascript beginner",
+    "prompt": "Which array method creates a new array by transforming every element?",
+    "options": [
+      "find",
+      "map",
+      "some",
+      "sort"
+    ],
+    "answer": "map",
+    "explanation": "map applies a function to each element and returns a new array of results."
+  },
+  {
+    "id": 1274,
+    "question_set": "javascript beginner",
+    "prompt": "What is the result of Boolean('')?",
+    "options": [
+      "true",
+      "false",
+      "undefined",
+      "NaN"
+    ],
+    "answer": "false",
+    "explanation": "An empty string is a falsy value."
+  },
+  {
+    "id": 1275,
+    "question_set": "javascript beginner",
+    "prompt": "Which operator represents logical AND?",
+    "options": [
+      "||",
+      "&&",
+      "??",
+      "!"
+    ],
+    "answer": "&&",
+    "explanation": "&& returns the first falsy operand or the last truthy one."
+  },
+  {
+    "id": 1276,
+    "question_set": "javascript beginner",
+    "prompt": "Which property gives the number of elements in an array?",
+    "options": [
+      "size",
+      "count",
+      "length",
+      "items"
+    ],
+    "answer": "length",
+    "explanation": "Arrays expose their element count through the length property."
+  },
+  {
+    "id": 1277,
+    "question_set": "javascript beginner",
+    "prompt": "Which statement about a const object is true?",
+    "options": [
+      "Its properties cannot ever change",
+      "It cannot contain nested objects",
+      "Its binding cannot be reassigned, but its properties can change",
+      "It is automatically deeply frozen"
+    ],
+    "answer": "Its binding cannot be reassigned, but its properties can change",
+    "explanation": "const prevents rebinding the variable name, not mutating the referenced object."
+  },
+  {
+    "id": 1278,
+    "question_set": "javascript beginner",
+    "prompt": "What is the result of '5' + 1?",
+    "options": [
+      "6",
+      "51",
+      "NaN",
+      "TypeError"
+    ],
+    "answer": "51",
+    "explanation": "When one operand is a string, + performs string concatenation."
+  },
+  {
+    "id": 1279,
+    "question_set": "javascript beginner",
+    "prompt": "Which array method joins elements into a single string?",
+    "options": [
+      "join",
+      "split",
+      "merge",
+      "combine"
+    ],
+    "answer": "join",
+    "explanation": "join concatenates array elements using an optional separator."
+  },
+  {
+    "id": 1280,
+    "question_set": "javascript beginner",
+    "prompt": "Which array method checks whether an array contains a specific value?",
+    "options": [
+      "includes",
+      "contains",
+      "has",
+      "exists"
+    ],
+    "answer": "includes",
+    "explanation": "includes returns true when the array contains the given value."
+  },
+  {
+    "id": 1281,
+    "question_set": "javascript intermediate",
+    "prompt": "What is a closure in JavaScript?",
+    "options": [
+      "A function paired with access to its outer scope",
+      "A function that can only run once",
+      "An object created with new",
+      "A loop that never ends"
+    ],
+    "answer": "A function paired with access to its outer scope",
+    "explanation": "A closure lets a function retain access to variables from its defining scope."
+  },
+  {
+    "id": 1282,
+    "question_set": "javascript intermediate",
+    "prompt": "In JavaScript, what does for...in iterate over on a plain object?",
+    "options": [
+      "Property values",
+      "Enumerable property keys",
+      "Array indices and values together",
+      "Only symbol keys"
+    ],
+    "answer": "Enumerable property keys",
+    "explanation": "for...in enumerates an object's enumerable property names."
+  },
+  {
+    "id": 1283,
+    "question_set": "javascript intermediate",
+    "prompt": "How is this determined inside an arrow function?",
+    "options": [
+      "It is lexically inherited from the surrounding scope",
+      "It depends on how the function is called",
+      "It always refers to the global object",
+      "It always refers to the function itself"
+    ],
+    "answer": "It is lexically inherited from the surrounding scope",
+    "explanation": "Arrow functions do not bind their own this value."
+  },
+  {
+    "id": 1284,
+    "question_set": "javascript intermediate",
+    "prompt": "What does an async function always return?",
+    "options": [
+      "A Promise",
+      "A generator",
+      "A plain object",
+      "undefined"
+    ],
+    "answer": "A Promise",
+    "explanation": "An async function always returns a Promise, even if it returns a plain value."
+  },
+  {
+    "id": 1285,
+    "question_set": "javascript intermediate",
+    "prompt": "How does Promise.all behave if one input promise rejects?",
+    "options": [
+      "It ignores the rejection and waits for the rest",
+      "It resolves with the fulfilled values only",
+      "It rejects immediately with that reason",
+      "It converts the rejection into null"
+    ],
+    "answer": "It rejects immediately with that reason",
+    "explanation": "Promise.all settles as rejected as soon as any input promise rejects."
+  },
+  {
+    "id": 1286,
+    "question_set": "javascript intermediate",
+    "prompt": "When is a default value used in object destructuring, as in const {x = 3} = obj?",
+    "options": [
+      "When x is missing or undefined",
+      "When x is null",
+      "When x is any falsy value",
+      "Only when obj is empty"
+    ],
+    "answer": "When x is missing or undefined",
+    "explanation": "Destructuring defaults apply only when the extracted value is undefined."
+  },
+  {
+    "id": 1287,
+    "question_set": "javascript intermediate",
+    "prompt": "What does obj?.user return if obj is null or undefined?",
+    "options": [
+      "false",
+      "Throws a TypeError",
+      "undefined",
+      "null"
+    ],
+    "answer": "undefined",
+    "explanation": "Optional chaining short-circuits to undefined on a nullish base value."
+  },
+  {
+    "id": 1288,
+    "question_set": "javascript intermediate",
+    "prompt": "What is the result of 0 ?? 10?",
+    "options": [
+      "10",
+      "0",
+      "undefined",
+      "null"
+    ],
+    "answer": "0",
+    "explanation": "The nullish coalescing operator only falls back for null or undefined."
+  },
+  {
+    "id": 1289,
+    "question_set": "javascript intermediate",
+    "prompt": "What is a key property of Set?",
+    "options": [
+      "It stores duplicate values in order",
+      "It stores only unique values",
+      "Its keys must be strings",
+      "It sorts values automatically"
+    ],
+    "answer": "It stores only unique values",
+    "explanation": "Set automatically keeps at most one instance of each value."
+  },
+  {
+    "id": 1290,
+    "question_set": "javascript intermediate",
+    "prompt": "Why might you use Map instead of a plain object for keyed storage?",
+    "options": [
+      "Map only accepts string keys",
+      "Map can use values like objects as keys",
+      "Map is always JSON serializable",
+      "Map automatically deep clones entries"
+    ],
+    "answer": "Map can use values like objects as keys",
+    "explanation": "Map supports keys of any type without coercing them to strings."
+  },
+  {
+    "id": 1291,
+    "question_set": "javascript intermediate",
+    "prompt": "What does the rest parameter syntax ...args do in function parameters?",
+    "options": [
+      "Spreads an array into separate calls",
+      "Collects remaining arguments into an array",
+      "Clones every argument deeply",
+      "Makes arguments optional"
+    ],
+    "answer": "Collects remaining arguments into an array",
+    "explanation": "A rest parameter gathers leftover arguments into a real array."
+  },
+  {
+    "id": 1292,
+    "question_set": "javascript intermediate",
+    "prompt": "What kind of copy does [...arr] create for an array?",
+    "options": [
+      "A deep copy of all nested values",
+      "A shallow copy",
+      "A frozen copy",
+      "A reference to the same array"
+    ],
+    "answer": "A shallow copy",
+    "explanation": "Spread copies the top-level elements but preserves references to nested objects."
+  },
+  {
+    "id": 1293,
+    "question_set": "javascript intermediate",
+    "prompt": "What does Array.prototype.filter return?",
+    "options": [
+      "The first matching element",
+      "A boolean",
+      "A new array of matching elements",
+      "The number of matches"
+    ],
+    "answer": "A new array of matching elements",
+    "explanation": "filter creates a new array containing elements whose callback returned truthy."
+  },
+  {
+    "id": 1294,
+    "question_set": "javascript intermediate",
+    "prompt": "What does Object.keys(obj) return?",
+    "options": [
+      "An array of own enumerable property names",
+      "An array of property values",
+      "An iterator of all keys including inherited ones",
+      "A Map of key-value pairs"
+    ],
+    "answer": "An array of own enumerable property names",
+    "explanation": "Object.keys lists an object's own enumerable string-keyed property names."
+  },
+  {
+    "id": 1295,
+    "question_set": "javascript intermediate",
+    "prompt": "Which syntax imports a default export from './math.js'?",
+    "options": [
+      "import { math } from './math.js';",
+      "import * as math from './math.js';",
+      "import math from './math.js';",
+      "require('./math.js').default"
+    ],
+    "answer": "import math from './math.js';",
+    "explanation": "Default exports are imported without braces."
+  },
+  {
+    "id": 1296,
+    "question_set": "javascript intermediate",
+    "prompt": "What does import('./module.js') return?",
+    "options": [
+      "The module namespace object immediately",
+      "A Promise",
+      "A callback function",
+      "A class instance"
+    ],
+    "answer": "A Promise",
+    "explanation": "Dynamic import is asynchronous and resolves to the module namespace object."
+  },
+  {
+    "id": 1297,
+    "question_set": "javascript intermediate",
+    "prompt": "What is guaranteed about a finally block in try/catch/finally?",
+    "options": [
+      "It runs only when no error occurs",
+      "It runs only when an error is caught",
+      "It runs whether an error occurs or not",
+      "It runs before the catch block"
+    ],
+    "answer": "It runs whether an error occurs or not",
+    "explanation": "finally executes after try or catch regardless of whether an exception occurred."
+  },
+  {
+    "id": 1298,
+    "question_set": "javascript intermediate",
+    "prompt": "After the current call stack is empty, which callback runs first?",
+    "options": [
+      "A setTimeout(..., 0) callback",
+      "A Promise.then callback",
+      "A DOM event listener",
+      "A fetch network response"
+    ],
+    "answer": "A Promise.then callback",
+    "explanation": "Promise reactions run in the microtask queue before timer tasks."
+  },
+  {
+    "id": 1299,
+    "question_set": "javascript intermediate",
+    "prompt": "What is Array.prototype.reduce commonly used for?",
+    "options": [
+      "Stopping a loop early",
+      "Accumulating array values into a single result",
+      "Sorting numbers ascending",
+      "Removing duplicate object keys"
+    ],
+    "answer": "Accumulating array values into a single result",
+    "explanation": "reduce combines elements step by step into one accumulated value."
+  },
+  {
+    "id": 1300,
+    "question_set": "javascript intermediate",
+    "prompt": "What does Object.entries(obj) return?",
+    "options": [
+      "An array of [key, value] pairs",
+      "An object of nested arrays",
+      "A Set of keys",
+      "A JSON string"
+    ],
+    "answer": "An array of [key, value] pairs",
+    "explanation": "Object.entries produces an array where each item contains a property name and its value."
+  },
+  {
+    "id": 1301,
+    "question_set": "javascript expert",
+    "prompt": "What is special about Object.create(null)?",
+    "options": [
+      "It creates an object with no prototype",
+      "It creates a frozen object",
+      "It creates an array-like object",
+      "It creates an object with private fields"
+    ],
+    "answer": "It creates an object with no prototype",
+    "explanation": "Objects created this way do not inherit from Object.prototype."
+  },
+  {
+    "id": 1302,
+    "question_set": "javascript expert",
+    "prompt": "If a property is not found directly on an object, where does JavaScript look next?",
+    "options": [
+      "The constructor source code",
+      "The object's prototype",
+      "The global scope",
+      "The nearest closure"
+    ],
+    "answer": "The object's prototype",
+    "explanation": "Property lookup follows the prototype chain until a match is found or the chain ends."
+  },
+  {
+    "id": 1303,
+    "question_set": "javascript expert",
+    "prompt": "Which statement about Object.freeze is accurate?",
+    "options": [
+      "It deeply freezes every nested object",
+      "It makes the object immutable only at the top level",
+      "It converts every property into a getter",
+      "It prevents the object from being read"
+    ],
+    "answer": "It makes the object immutable only at the top level",
+    "explanation": "Object.freeze is shallow, so nested objects can still be mutated unless frozen separately."
+  },
+  {
+    "id": 1304,
+    "question_set": "javascript expert",
+    "prompt": "What does calling a generator function return?",
+    "options": [
+      "A Promise",
+      "An iterator object",
+      "A plain array",
+      "The generator's final value"
+    ],
+    "answer": "An iterator object",
+    "explanation": "A generator function call returns an iterator that can produce values lazily."
+  },
+  {
+    "id": 1305,
+    "question_set": "javascript expert",
+    "prompt": "What is a Symbol commonly used for?",
+    "options": [
+      "Creating guaranteed-unique property keys",
+      "Declaring private local variables",
+      "Serializing objects to JSON",
+      "Converting strings to numbers"
+    ],
+    "answer": "Creating guaranteed-unique property keys",
+    "explanation": "Each Symbol value is unique and is often used to avoid property name collisions."
+  },
+  {
+    "id": 1306,
+    "question_set": "javascript expert",
+    "prompt": "What restriction applies to WeakMap keys?",
+    "options": [
+      "They must be strings",
+      "They must be numbers",
+      "They must be objects",
+      "They must be symbols"
+    ],
+    "answer": "They must be objects",
+    "explanation": "WeakMap keys must be objects so the garbage collector can manage them weakly."
+  },
+  {
+    "id": 1307,
+    "question_set": "javascript expert",
+    "prompt": "What can a Proxy do?",
+    "options": [
+      "Intercept fundamental operations on an object",
+      "Compile JavaScript to machine code",
+      "Encrypt object properties automatically",
+      "Clone objects deeply on access"
+    ],
+    "answer": "Intercept fundamental operations on an object",
+    "explanation": "Proxy lets you define custom behavior for operations like property access and assignment."
+  },
+  {
+    "id": 1308,
+    "question_set": "javascript expert",
+    "prompt": "What kind of binding does an ES module import create?",
+    "options": [
+      "A copied mutable value",
+      "A live read-only binding to the export",
+      "A deep-frozen snapshot",
+      "A getter that runs only once"
+    ],
+    "answer": "A live read-only binding to the export",
+    "explanation": "Imported bindings stay linked to the exporter and cannot be reassigned by the importer."
+  },
+  {
+    "id": 1309,
+    "question_set": "javascript expert",
+    "prompt": "What does #count declare inside a class body?",
+    "options": [
+      "A static method",
+      "A private field",
+      "A public property",
+      "A generator label"
+    ],
+    "answer": "A private field",
+    "explanation": "Names starting with # define class elements that are inaccessible outside the class body."
+  },
+  {
+    "id": 1310,
+    "question_set": "javascript expert",
+    "prompt": "Which built-in object provides methods that mirror many internal object operations?",
+    "options": [
+      "Reflect",
+      "Intl",
+      "Atomics",
+      "Console"
+    ],
+    "answer": "Reflect",
+    "explanation": "Reflect exposes functions corresponding to many default object operations."
+  },
+  {
+    "id": 1311,
+    "question_set": "javascript expert",
+    "prompt": "What does queueMicrotask do?",
+    "options": [
+      "Schedules work after the current stack but before the next timer task",
+      "Runs code synchronously before the current line finishes",
+      "Schedules work only after a repaint",
+      "Creates a repeating background job"
+    ],
+    "answer": "Schedules work after the current stack but before the next timer task",
+    "explanation": "queueMicrotask adds a callback to the microtask queue."
+  },
+  {
+    "id": 1312,
+    "question_set": "javascript expert",
+    "prompt": "Which method must an async iterable provide for for await...of?",
+    "options": [
+      "nextAsync()",
+      "[Symbol.asyncIterator]()",
+      "[Symbol.iterator]()",
+      "await()"
+    ],
+    "answer": "[Symbol.asyncIterator]()",
+    "explanation": "for await...of gets an async iterator from the [Symbol.asyncIterator]() method."
+  },
+  {
+    "id": 1313,
+    "question_set": "javascript expert",
+    "prompt": "What does Promise.allSettled return?",
+    "options": [
+      "It rejects on the first failure",
+      "It resolves with the first fulfilled value",
+      "It resolves after all inputs settle with each outcome",
+      "It returns only fulfilled results"
+    ],
+    "answer": "It resolves after all inputs settle with each outcome",
+    "explanation": "Promise.allSettled reports every promise's final status without short-circuiting on rejection."
+  },
+  {
+    "id": 1314,
+    "question_set": "javascript expert",
+    "prompt": "If every input promise rejects, what does Promise.any do?",
+    "options": [
+      "It fulfills with undefined",
+      "It retries until one resolves",
+      "It rejects with an AggregateError",
+      "It resolves with an array of reasons"
+    ],
+    "answer": "It rejects with an AggregateError",
+    "explanation": "Promise.any only fulfills on a success and aggregates errors if all inputs fail."
+  },
+  {
+    "id": 1315,
+    "question_set": "javascript expert",
+    "prompt": "Which value cannot be cloned by structuredClone?",
+    "options": [
+      "A plain object",
+      "A function",
+      "An array",
+      "A Date"
+    ],
+    "answer": "A function",
+    "explanation": "Functions are not supported by the structured clone algorithm."
+  },
+  {
+    "id": 1316,
+    "question_set": "javascript expert",
+    "prompt": "What does new.target tell you inside a function or constructor?",
+    "options": [
+      "Whether strict mode is enabled",
+      "Whether the call used new",
+      "Which module imported the function",
+      "How many arguments were passed"
+    ],
+    "answer": "Whether the call used new",
+    "explanation": "new.target is defined when a function or constructor is invoked with new."
+  },
+  {
+    "id": 1317,
+    "question_set": "javascript expert",
+    "prompt": "What does super.save() do inside a subclass method?",
+    "options": [
+      "Calls a static function on the subclass",
+      "Calls the parent class method named save",
+      "Creates a deep copy of this.save",
+      "Invokes every method in the prototype chain"
+    ],
+    "answer": "Calls the parent class method named save",
+    "explanation": "super resolves methods from the parent prototype while keeping the current this value."
+  },
+  {
+    "id": 1318,
+    "question_set": "javascript expert",
+    "prompt": "What does Object.hasOwn(obj, key) check?",
+    "options": [
+      "Whether key exists anywhere in the prototype chain",
+      "Whether obj has key as its own property",
+      "Whether key is enumerable",
+      "Whether obj is frozen"
+    ],
+    "answer": "Whether obj has key as its own property",
+    "explanation": "Object.hasOwn returns true only for properties that belong directly to the object."
+  },
+  {
+    "id": 1319,
+    "question_set": "javascript expert",
+    "prompt": "What must an object define to work with for...of as a custom iterable?",
+    "options": [
+      "A next() method directly on the object",
+      "A [Symbol.iterator]() method that returns an iterator",
+      "A length property and numeric keys",
+      "A toString() method"
+    ],
+    "answer": "A [Symbol.iterator]() method that returns an iterator",
+    "explanation": "for...of asks the iterable for an iterator through its [Symbol.iterator]() method."
+  },
+  {
+    "id": 1320,
+    "question_set": "javascript expert",
+    "prompt": "If a property descriptor has configurable: false, which action is disallowed?",
+    "options": [
+      "Reading the property's value",
+      "Writing the property when writable is true",
+      "Deleting or redefining the property",
+      "Enumerating the property when enumerable is true"
+    ],
+    "answer": "Deleting or redefining the property",
+    "explanation": "A non-configurable property cannot be deleted or have most descriptor settings changed."
   }
 ]
