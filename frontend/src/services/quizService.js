@@ -1,9 +1,5 @@
-// Questions are bundled at build time from the local JSON so the app works
-// without a running API server and loads instantly.
-import allQuestionsData from "../data/questions.json";
+import axios from "axios";
 
-// These constants are kept so external tooling and error messages that
-// reference them continue to compile if the API server is ever used again.
 const normalizeApiUrl = (url) => url.replace(/\/+$/, "");
 
 export const API_BASE_URL = normalizeApiUrl(
@@ -15,53 +11,76 @@ export const QUESTIONS_ENDPOINT = `${API_BASE_URL}/questions`;
 export const CHEAT_SHEET_ENDPOINT = `${API_BASE_URL}/cheat-sheet`;
 export const getAnswerEndpoint = (questionId) => `${API_BASE_URL}/answer/${questionId}`;
 
-const normalize = (s) => s?.trim().toLowerCase() ?? "";
+const DEFAULT_TIMEOUT_MS = 10_000;
+const parsedTimeoutMs = Number.parseInt(
+  import.meta.env.VITE_API_TIMEOUT_MS ?? `${DEFAULT_TIMEOUT_MS}`,
+  10,
+);
+const API_TIMEOUT_MS = Number.isFinite(parsedTimeoutMs) && parsedTimeoutMs > 0
+  ? parsedTimeoutMs
+  : DEFAULT_TIMEOUT_MS;
 
-export const getQuestions = async (questionSet) => {
-  const filtered = questionSet
-    ? allQuestionsData.filter((q) => normalize(q.question_set) === normalize(questionSet))
-    : allQuestionsData;
-  // Omit answer and explanation so they are not trivially readable in the
-  // quiz UI before the user submits — consistent with the former API behaviour.
-  return filtered.map(({ id, question_set, prompt, options }) => ({
-    id,
-    question_set,
-    prompt,
-    options,
-  }));
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: API_TIMEOUT_MS,
+});
+
+const getErrorMessage = (error, fallbackMessage) => {
+  if (axios.isAxiosError(error)) {
+    const detail = error.response?.data?.detail;
+    if (typeof detail === "string" && detail.trim()) {
+      return detail;
+    }
+
+    if (typeof error.message === "string" && error.message.trim()) {
+      return error.message;
+    }
+  }
+
+  return fallbackMessage;
 };
 
-export const getQuestionSets = async () =>
-  [...new Set(allQuestionsData.map((q) => q.question_set))];
+export const getQuestions = async (questionSet) => {
+  try {
+    const response = await apiClient.get("/questions", {
+      params: questionSet ? { question_set: questionSet } : undefined,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load questions."));
+  }
+};
+
+export const getQuestionSets = async () => {
+  try {
+    const response = await apiClient.get("/question-sets");
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load question sets."));
+  }
+};
 
 export const getCheatSheet = async (questionSet) => {
-  const questions = allQuestionsData.filter(
-    (q) => normalize(q.question_set) === normalize(questionSet),
-  );
-  if (!questions.length) {
-    throw new Error(`Question set not found: ${questionSet}`);
+  const normalizedQuestionSet = questionSet?.trim();
+  if (!normalizedQuestionSet) {
+    throw new Error("Question set is required.");
   }
-  return {
-    question_set: normalize(questionSet),
-    total_questions: questions.length,
-    entries: questions.map(({ id, prompt, answer, explanation }) => ({
-      id,
-      prompt,
-      answer,
-      explanation,
-    })),
-  };
+
+  try {
+    const response = await apiClient.get("/cheat-sheet", {
+      params: { question_set: normalizedQuestionSet },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load cheat sheet."));
+  }
 };
 
 export const submitAnswer = async (questionId, answer) => {
-  const question = allQuestionsData.find((q) => q.id === questionId);
-  if (!question) {
-    throw new Error(`Question not found: ${questionId}`);
+  try {
+    const response = await apiClient.post(`/answer/${questionId}`, { answer });
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to submit answer."));
   }
-  const correct = normalize(question.answer) === normalize(answer);
-  return {
-    correct,
-    correct_answer: question.answer,
-    explanation: question.explanation,
-  };
 };

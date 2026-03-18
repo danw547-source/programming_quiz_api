@@ -50,3 +50,34 @@ def test_rate_limit_returns_429_after_limit_is_exceeded():
     assert third.status_code == 429
     assert third.json()["detail"] == "Rate limit exceeded. Please try again shortly."
     assert third.headers["X-RateLimit-Remaining"] == "0"
+    assert 1 <= int(third.headers["Retry-After"]) <= 60
+
+
+def test_rate_limit_retry_after_reflects_remaining_window_time():
+    middleware = RequestObservabilityAndRateLimitMiddleware(
+        app=lambda scope, receive, send: None,
+        requests_per_window=2,
+        window_seconds=60,
+    )
+
+    first = middleware._check_rate_limit("client", 0.0)
+    second = middleware._check_rate_limit("client", 1.0)
+    third = middleware._check_rate_limit("client", 2.0)
+
+    assert first == (False, 1, 60)
+    assert second == (False, 0, 60)
+    assert third == (True, 0, 58)
+
+
+def test_rate_limiter_prunes_stale_buckets_for_inactive_clients():
+    middleware = RequestObservabilityAndRateLimitMiddleware(
+        app=lambda scope, receive, send: None,
+        requests_per_window=2,
+        window_seconds=60,
+    )
+
+    middleware._check_rate_limit("inactive-client", 0.0)
+    middleware._check_rate_limit("active-client", 61.0)
+
+    assert "inactive-client" not in middleware._buckets
+    assert "active-client" in middleware._buckets

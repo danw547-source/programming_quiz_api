@@ -12,6 +12,7 @@ The rate limiter stores one deque per client IP.  Each entry is a monotonic
 timestamp; entries older than `window_seconds` are evicted before each check.
 """
 import logging
+import math
 import time
 import uuid
 from collections import deque
@@ -42,6 +43,26 @@ class RequestObservabilityAndRateLimitMiddleware(BaseHTTPMiddleware):
         # A single lock serialises bucket mutations.  Async request handling
         # means multiple coroutines may touch the same bucket concurrently.
         self._lock = Lock()
+        # Global prune is performed at most once per window to remove stale
+        # buckets for inactive clients and cap memory growth over time.
+        self._next_global_prune_at = 0.0
+
+    def _prune_stale_buckets(self, current_time: float) -> None:
+        if current_time < self._next_global_prune_at:
+            return
+
+        stale_client_keys: list[str] = []
+        for client_key, bucket in self._buckets.items():
+            while bucket and current_time - bucket[0] >= self.window_seconds:
+                bucket.popleft()
+
+            if not bucket:
+                stale_client_keys.append(client_key)
+
+        for client_key in stale_client_keys:
+            self._buckets.pop(client_key, None)
+
+        self._next_global_prune_at = current_time + self.window_seconds
 
     def _check_rate_limit(self, client_key: str, current_time: float) -> tuple[bool, int, int]:
         """
@@ -52,6 +73,7 @@ class RequestObservabilityAndRateLimitMiddleware(BaseHTTPMiddleware):
         counting, so the window always reflects the last `window_seconds`.
         """
         with self._lock:
+            self._prune_stale_buckets(current_time)
             bucket = self._buckets.setdefault(client_key, deque())
 
             # Drop timestamps that are no longer inside the rolling window.
@@ -59,9 +81,11 @@ class RequestObservabilityAndRateLimitMiddleware(BaseHTTPMiddleware):
                 bucket.popleft()
 
             if len(bucket) >= self.requests_per_window:
-                # Bucket is full; do NOT append the current timestamp so the
-                # client does not need to wait longer than `window_seconds`.
-                return True, 0, self.window_seconds
+                # Bucket is full; do NOT append the current timestamp.
+                # Retry-After is based on the oldest kept timestamp so clients
+                # can retry as soon as one slot actually becomes available.
+                retry_after = max(1, math.ceil(self.window_seconds - (current_time - bucket[0])))
+                return True, 0, retry_after
 
             bucket.append(current_time)
             remaining = self.requests_per_window - len(bucket)

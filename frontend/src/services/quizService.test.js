@@ -1,10 +1,27 @@
-/**
- * Unit tests for the quizService data layer.
- *
- * Questions are now bundled from the local JSON file, so all functions are
- * exercised against real seed data — no HTTP mocking required.
- */
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
+const { mockGet, mockPost, mockCreate, mockIsAxiosError } = vi.hoisted(() => {
+  const mockGet = vi.fn();
+  const mockPost = vi.fn();
+  const mockApiClient = {
+    get: mockGet,
+    post: mockPost,
+  };
+
+  return {
+    mockGet,
+    mockPost,
+    mockCreate: vi.fn(() => mockApiClient),
+    mockIsAxiosError: vi.fn((error) => Boolean(error?.isAxiosError)),
+  };
+});
+
+vi.mock("axios", () => ({
+  default: {
+    create: mockCreate,
+    isAxiosError: mockIsAxiosError,
+  },
+}));
 
 import {
   CHEAT_SHEET_ENDPOINT,
@@ -17,85 +34,102 @@ import {
   submitAnswer,
 } from "./quizService";
 
+const buildAxiosError = (detail, message = "Request failed") => ({
+  isAxiosError: true,
+  message,
+  response: detail ? { data: { detail } } : undefined,
+});
+
 describe("quizService", () => {
-  it("getQuestions returns questions without answer or explanation", async () => {
-    const questions = await getQuestions();
-    expect(questions.length).toBeGreaterThan(0);
-    const q = questions[0];
-    expect(q).toHaveProperty("id");
-    expect(q).toHaveProperty("question_set");
-    expect(q).toHaveProperty("prompt");
-    expect(q).toHaveProperty("options");
-    expect(q).not.toHaveProperty("answer");
-    expect(q).not.toHaveProperty("explanation");
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mockCreate.mockImplementation(() => ({
+      get: mockGet,
+      post: mockPost,
+    }));
+    mockIsAxiosError.mockImplementation((error) => Boolean(error?.isAxiosError));
   });
 
-  it("getQuestions filters by question_set", async () => {
-    const all = await getQuestions();
-    const firstSet = all[0].question_set;
-    const filtered = await getQuestions(firstSet);
-    expect(filtered.length).toBeGreaterThan(0);
-    expect(filtered.every((q) => q.question_set === firstSet)).toBe(true);
+  it("getQuestions returns response data and passes question_set filter", async () => {
+    const responsePayload = [{ id: 1, question_set: "solid principles", prompt: "P", options: ["A"] }];
+    mockGet.mockResolvedValueOnce({ data: responsePayload });
+
+    const result = await getQuestions("solid principles");
+
+    expect(mockGet).toHaveBeenCalledWith("/questions", {
+      params: { question_set: "solid principles" },
+    });
+    expect(result).toEqual(responsePayload);
   });
 
-  it("getQuestions filter is case-insensitive", async () => {
-    const all = await getQuestions();
-    const firstSet = all[0].question_set;
-    const filtered = await getQuestions(firstSet.toUpperCase());
-    expect(filtered.length).toBeGreaterThan(0);
+  it("getQuestions omits filter params when question_set is not provided", async () => {
+    mockGet.mockResolvedValueOnce({ data: [] });
+
+    await getQuestions();
+
+    expect(mockGet).toHaveBeenCalledWith("/questions", {
+      params: undefined,
+    });
   });
 
-  it("getQuestions returns empty array for unknown set", async () => {
-    const result = await getQuestions("__nonexistent__");
-    expect(result).toEqual([]);
+  it("getQuestions surfaces API detail from axios errors", async () => {
+    mockGet.mockRejectedValueOnce(buildAxiosError("Question set not found"));
+
+    await expect(getQuestions("unknown")).rejects.toThrow("Question set not found");
   });
 
-  it("getQuestionSets returns a non-empty list of unique set names", async () => {
-    const sets = await getQuestionSets();
-    expect(sets.length).toBeGreaterThan(0);
-    expect(new Set(sets).size).toBe(sets.length);
+  it("getQuestionSets returns response data", async () => {
+    const responsePayload = ["python beginner", "solid principles"];
+    mockGet.mockResolvedValueOnce({ data: responsePayload });
+
+    const result = await getQuestionSets();
+
+    expect(mockGet).toHaveBeenCalledWith("/question-sets");
+    expect(result).toEqual(responsePayload);
   });
 
-  it("getCheatSheet returns entries with answer and explanation", async () => {
-    const [firstSet] = await getQuestionSets();
-    const cheatSheet = await getCheatSheet(firstSet);
-    expect(cheatSheet.entries.length).toBeGreaterThan(0);
-    const entry = cheatSheet.entries[0];
-    expect(entry).toHaveProperty("id");
-    expect(entry).toHaveProperty("prompt");
-    expect(entry).toHaveProperty("answer");
-    expect(entry).toHaveProperty("explanation");
+  it("getCheatSheet trims and forwards the selected question set", async () => {
+    const responsePayload = {
+      question_set: "solid principles",
+      total_questions: 1,
+      entries: [{ id: 1, prompt: "P", answer: "A", explanation: "E" }],
+    };
+    mockGet.mockResolvedValueOnce({ data: responsePayload });
+
+    const result = await getCheatSheet("  solid principles  ");
+
+    expect(mockGet).toHaveBeenCalledWith("/cheat-sheet", {
+      params: { question_set: "solid principles" },
+    });
+    expect(result).toEqual(responsePayload);
   });
 
-  it("getCheatSheet throws for an unknown question set", async () => {
-    await expect(getCheatSheet("__nonexistent__")).rejects.toThrow();
+  it("getCheatSheet rejects blank question_set values", async () => {
+    await expect(getCheatSheet("   ")).rejects.toThrow("Question set is required.");
+    expect(mockGet).not.toHaveBeenCalled();
   });
 
-  it("submitAnswer returns correct:true for the right answer", async () => {
-    const [firstSet] = await getQuestionSets();
-    const [question] = await getQuestions(firstSet);
-    const { entries } = await getCheatSheet(firstSet);
-    const { answer } = entries.find((e) => e.id === question.id);
+  it("submitAnswer posts to the answer endpoint and returns response data", async () => {
+    const responsePayload = {
+      correct: true,
+      correct_answer: "Single Responsibility Principle",
+      explanation: "SRP means one reason to change.",
+    };
+    mockPost.mockResolvedValueOnce({ data: responsePayload });
 
-    const result = await submitAnswer(question.id, answer);
-    expect(result.correct).toBe(true);
-    expect(result.correct_answer).toBe(answer);
-    expect(result).toHaveProperty("explanation");
+    const result = await submitAnswer(1, "Single Responsibility Principle");
+
+    expect(mockPost).toHaveBeenCalledWith("/answer/1", {
+      answer: "Single Responsibility Principle",
+    });
+    expect(result).toEqual(responsePayload);
   });
 
-  it("submitAnswer returns correct:false for a wrong answer", async () => {
-    const [firstSet] = await getQuestionSets();
-    const [question] = await getQuestions(firstSet);
-    const { entries } = await getCheatSheet(firstSet);
-    const { answer } = entries.find((e) => e.id === question.id);
-    const wrong = question.options.find((o) => o !== answer);
+  it("submitAnswer falls back to a friendly message on non-axios errors", async () => {
+    mockIsAxiosError.mockReturnValue(false);
+    mockPost.mockRejectedValueOnce(new Error("Boom"));
 
-    const result = await submitAnswer(question.id, wrong);
-    expect(result.correct).toBe(false);
-  });
-
-  it("submitAnswer throws for an unknown question ID", async () => {
-    await expect(submitAnswer(-999, "anything")).rejects.toThrow();
+    await expect(submitAnswer(999, "anything")).rejects.toThrow("Unable to submit answer.");
   });
 
   it("endpoint URL constants are exported", () => {
