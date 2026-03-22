@@ -9,6 +9,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.gzip import GZipMiddleware
 
 from app.config import get_settings
 from app.controllers.quiz_controller import router as quiz_router
@@ -33,15 +34,19 @@ async def lifespan(_: FastAPI):
 app = FastAPI(title="Programming Concepts Quiz API", lifespan=lifespan)
 
 # Middleware is invoked in *reverse* registration order.
-# Rate limiting + observability is registered first so it wraps everything,
-# including CORS — every request is counted and logged before routing begins.
+# GZIP compression is registered first (will be innermost) to compress all responses.
+# This reduces ~700KB of JSON questions to ~100KB, a 7x improvement in network transfer time.
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+# Rate limiting + observability is registered second so it wraps everything
+# except GZIP compression — every request is counted and logged before routing begins.
 app.add_middleware(
     RequestObservabilityAndRateLimitMiddleware,
     requests_per_window=settings.rate_limit_requests_per_minute,
     window_seconds=60,
 )
 
-# CORS is registered second so its headers appear on every response,
+# CORS is registered third so its headers appear on every response,
 # including 429 rate-limit rejections produced by the middleware above.
 app.add_middleware(
     CORSMiddleware,

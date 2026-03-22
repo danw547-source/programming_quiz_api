@@ -291,14 +291,25 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setError("");
 
     try {
-      const sets = await getQuestionSets();
+      // Fetch question sets and all questions in parallel to reduce total request time.
+      // getQuestionSets completes quickly; getQuestions may take longer.
+      // By starting both immediately, we overlap the latency instead of sequencing them.
+      const [sets, allQuestionData] = await Promise.all([
+        getQuestionSets(),
+        getQuestions(undefined), // Fetch all questions upfront (1320 total)
+      ]);
+
       setQuestionSets(sets);
 
       const filteredSets = getQuestionSetsForCategory(sets, selectedCategory);
       const initialSet = filteredSets[0] ?? sets[0] ?? "";
       setSelectedQuestionSet(initialSet);
 
-      const data = await getQuestions(initialSet || undefined);
+      // Filter the already-fetched questions to the selected set
+      const data = initialSet
+        ? allQuestionData.filter((q) => q.question_set === initialSet)
+        : allQuestionData;
+
       setAllQuestions(data);
       setQuestions(shuffleArray(data));
       setIsRetryRound(false);

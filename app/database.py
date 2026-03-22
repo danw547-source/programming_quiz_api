@@ -57,6 +57,13 @@ class QuestionRecord(Base):
 settings = get_settings()
 engine = create_engine(
     settings.database_url,
+    # Connection pooling for better performance:
+    # pre_ping=True checks connections are alive before reusing them
+    # pool_size=20 maintains 20 ready connections (SQLite uses 1 thread, so lower is ok)
+    # max_overflow=10 allows up to 10 additional connections if needed
+    pool_pre_ping=True,
+    pool_size=5 if settings.database_url.startswith("sqlite") else 20,
+    max_overflow=5 if settings.database_url.startswith("sqlite") else 10,
     # SQLite raises "SQLite objects created in a thread can only be used in that
     # same thread" by default.  FastAPI's async handling may use different
     # threads, so we disable the check.  This is safe because SQLAlchemy's
@@ -105,8 +112,17 @@ def initialize_database() -> None:
         if not missing_records:
             return
 
-        session.add_all(missing_records)
-        session.commit()
+        # Insert in batches of 100 for better performance (avoids memory overhead
+        # of holding all records in a single large batch, and gives the database
+        # more manageable transactions).
+        batch_size = 100
+        for i in range(0, len(missing_records), batch_size):
+            batch = missing_records[i : i + batch_size]
+            session.add_all(batch)
+            session.commit()
+            # Clear the session after each batch to free memory and prevent
+            # the session from holding references to old ORM objects.
+            session.expunge_all()
 
 
 def _to_record(question: Question) -> QuestionRecord:

@@ -6,6 +6,8 @@ Business logic for the quiz.
 the `QuestionRepository` interface, not any concrete implementation, so it
 is trivially testable with an in-memory stub.
 """
+from functools import lru_cache
+
 from app.repositories.question_repository import QuestionRepository
 
 
@@ -25,12 +27,25 @@ def _normalize_question_set(question_set: str | None) -> str | None:
 class QuizService:
     def __init__(self, repository: QuestionRepository):
         self.repository = repository
+        # Cache is stored on the instance so it's automatically cleared
+        # if the service is recreated (e.g., when the app restarts or tests run).
+        self._get_question_sets_cache = None
+        self._get_all_cache = {}  # key: (normalized_question_set or None) -> value: [Questions]
 
     def get_questions(self, question_set: str | None = None):
         # The answer and explanation fields are intentionally excluded from this
         # response.  Exposing them would let clients trivially read the correct
         # answer before attempting the question (bypassing the submit flow).
-        questions = self.repository.get_all(_normalize_question_set(question_set))
+        normalized_set = _normalize_question_set(question_set)
+        
+        # Check cache first
+        cache_key = normalized_set
+        if cache_key in self._get_all_cache:
+            questions = self._get_all_cache[cache_key]
+        else:
+            # Query database and cache result
+            questions = self.repository.get_all(normalized_set)
+            self._get_all_cache[cache_key] = questions
 
         return [
             {
@@ -43,7 +58,10 @@ class QuizService:
         ]
 
     def get_question_sets(self) -> list[str]:
-        return self.repository.get_question_sets()
+        # Cache the result since question sets rarely change at runtime.
+        if self._get_question_sets_cache is None:
+            self._get_question_sets_cache = self.repository.get_question_sets()
+        return self._get_question_sets_cache
 
     def get_cheat_sheet(self, question_set: str):
         normalized_question_set = _normalize_question_set(question_set)

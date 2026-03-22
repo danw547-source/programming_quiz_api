@@ -11,7 +11,9 @@ export const QUESTIONS_ENDPOINT = `${API_BASE_URL}/questions`;
 export const CHEAT_SHEET_ENDPOINT = `${API_BASE_URL}/cheat-sheet`;
 export const getAnswerEndpoint = (questionId) => `${API_BASE_URL}/answer/${questionId}`;
 
-const DEFAULT_TIMEOUT_MS = 10_000;
+// Increased from 10s to 30s to allow for cold start initialization on first load.
+// Subsequently, with HTTP caching and compression, loads should be <1s per spec.
+const DEFAULT_TIMEOUT_MS = 30_000;
 const parsedTimeoutMs = Number.parseInt(
   import.meta.env.VITE_API_TIMEOUT_MS ?? `${DEFAULT_TIMEOUT_MS}`,
   10,
