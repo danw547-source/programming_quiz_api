@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  // Build under /quiz in production while keeping local development at /
-  base: command === 'build' ? '/quiz/' : '/',
+  // Build with root-relative asset paths so shared-host deployments that
+  // extract directly into /public work without an extra /quiz subfolder.
+  base: '/',
   plugins: [react()],
   build: {
     // Flatten generated JS/CSS into the build root. Some shared-host file
