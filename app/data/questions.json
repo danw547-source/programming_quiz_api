@@ -17158,5 +17158,785 @@
     ],
     "answer": "Deleting or redefining the property",
     "explanation": "A non-configurable property cannot be deleted or have most descriptor settings changed."
+  },
+  {
+    "id": 1321,
+    "question_set": "sql beginner",
+    "prompt": "What does SQL stand for?",
+    "options": [
+      "Structured Query Language",
+      "Simple Question Language",
+      "Standard Queue Logic",
+      "System Query Layer"
+    ],
+    "answer": "Structured Query Language",
+    "explanation": "SQL is the standard language used to query and manage relational databases."
+  },
+  {
+    "id": 1322,
+    "question_set": "sql beginner",
+    "prompt": "Which SQL statement is used to read rows from a table?",
+    "options": [
+      "GET",
+      "SELECT",
+      "FETCH TABLE",
+      "OPEN"
+    ],
+    "answer": "SELECT",
+    "explanation": "SELECT is used to retrieve data from one or more tables."
+  },
+  {
+    "id": 1323,
+    "question_set": "sql beginner",
+    "prompt": "Which clause filters rows after SELECT?",
+    "options": [
+      "ORDER BY",
+      "GROUP BY",
+      "WHERE",
+      "HAVING"
+    ],
+    "answer": "WHERE",
+    "explanation": "WHERE applies row-level conditions before grouping or ordering."
+  },
+  {
+    "id": 1324,
+    "question_set": "sql beginner",
+    "prompt": "Which keyword removes duplicate rows from a SELECT result?",
+    "options": [
+      "UNIQUE",
+      "DISTINCT",
+      "ONLY",
+      "FILTER"
+    ],
+    "answer": "DISTINCT",
+    "explanation": "DISTINCT returns unique combinations of selected columns."
+  },
+  {
+    "id": 1325,
+    "question_set": "sql beginner",
+    "prompt": "Which clause sorts query results?",
+    "options": [
+      "GROUP BY",
+      "ORDER BY",
+      "WHERE",
+      "RANK"
+    ],
+    "answer": "ORDER BY",
+    "explanation": "ORDER BY controls ascending or descending sort order."
+  },
+  {
+    "id": 1326,
+    "question_set": "sql beginner",
+    "prompt": "Which function counts rows in a result set?",
+    "options": [
+      "SUM()",
+      "TOTAL()",
+      "COUNT()",
+      "ROWS()"
+    ],
+    "answer": "COUNT()",
+    "explanation": "COUNT() returns how many rows match the query condition."
+  },
+  {
+    "id": 1327,
+    "question_set": "sql beginner",
+    "prompt": "Which command adds a new row to a table?",
+    "options": [
+      "UPDATE",
+      "ADD ROW",
+      "INSERT",
+      "CREATE"
+    ],
+    "answer": "INSERT",
+    "explanation": "INSERT INTO adds new records to a table."
+  },
+  {
+    "id": 1328,
+    "question_set": "sql beginner",
+    "prompt": "Which command changes existing data in rows?",
+    "options": [
+      "CHANGE",
+      "UPDATE",
+      "ALTER",
+      "MODIFY TABLE"
+    ],
+    "answer": "UPDATE",
+    "explanation": "UPDATE modifies existing values in rows that match a condition."
+  },
+  {
+    "id": 1329,
+    "question_set": "sql beginner",
+    "prompt": "Which command removes rows from a table?",
+    "options": [
+      "DROP",
+      "DELETE",
+      "REMOVE",
+      "CLEAR"
+    ],
+    "answer": "DELETE",
+    "explanation": "DELETE removes selected rows, usually combined with WHERE."
+  },
+  {
+    "id": 1330,
+    "question_set": "sql beginner",
+    "prompt": "Which wildcard represents any number of characters in LIKE?",
+    "options": [
+      "*",
+      "%",
+      "_",
+      "?"
+    ],
+    "answer": "%",
+    "explanation": "% matches zero or more characters in a LIKE pattern."
+  },
+  {
+    "id": 1331,
+    "question_set": "sql beginner",
+    "prompt": "Which wildcard represents exactly one character in LIKE?",
+    "options": [
+      "%",
+      "_",
+      "*",
+      "#"
+    ],
+    "answer": "_",
+    "explanation": "The underscore wildcard matches one character in LIKE patterns."
+  },
+  {
+    "id": 1332,
+    "question_set": "sql beginner",
+    "prompt": "What does NULL represent in SQL?",
+    "options": [
+      "Zero",
+      "An empty string",
+      "Unknown or missing value",
+      "False"
+    ],
+    "answer": "Unknown or missing value",
+    "explanation": "NULL means no known value, which is different from 0 or empty text."
+  },
+  {
+    "id": 1333,
+    "question_set": "sql beginner",
+    "prompt": "Which operator checks whether a value is between two boundaries?",
+    "options": [
+      "RANGE",
+      "BETWEEN",
+      "INSIDE",
+      "WITHIN"
+    ],
+    "answer": "BETWEEN",
+    "explanation": "BETWEEN tests inclusive lower and upper bounds."
+  },
+  {
+    "id": 1334,
+    "question_set": "sql beginner",
+    "prompt": "Which keyword checks whether a value exists in a list?",
+    "options": [
+      "IN",
+      "ANY",
+      "HAS",
+      "CONTAINS"
+    ],
+    "answer": "IN",
+    "explanation": "IN compares a value against a set of provided values."
+  },
+  {
+    "id": 1335,
+    "question_set": "sql beginner",
+    "prompt": "Which keyword combines result sets and removes duplicates by default?",
+    "options": [
+      "MERGE",
+      "UNION",
+      "JOIN",
+      "APPEND"
+    ],
+    "answer": "UNION",
+    "explanation": "UNION stacks results and removes duplicates unless UNION ALL is used."
+  },
+  {
+    "id": 1336,
+    "question_set": "sql beginner",
+    "prompt": "Which command creates a new table?",
+    "options": [
+      "NEW TABLE",
+      "CREATE TABLE",
+      "MAKE TABLE",
+      "INSERT TABLE"
+    ],
+    "answer": "CREATE TABLE",
+    "explanation": "CREATE TABLE defines a new table and its columns."
+  },
+  {
+    "id": 1337,
+    "question_set": "sql beginner",
+    "prompt": "Which command changes an existing table structure?",
+    "options": [
+      "UPDATE TABLE",
+      "MODIFY TABLE",
+      "ALTER TABLE",
+      "REWRITE TABLE"
+    ],
+    "answer": "ALTER TABLE",
+    "explanation": "ALTER TABLE is used to add, drop, or modify table columns and constraints."
+  },
+  {
+    "id": 1338,
+    "question_set": "sql beginner",
+    "prompt": "Which command deletes a table and its data permanently?",
+    "options": [
+      "DELETE TABLE",
+      "TRUNCATE TABLE",
+      "DROP TABLE",
+      "REMOVE TABLE"
+    ],
+    "answer": "DROP TABLE",
+    "explanation": "DROP TABLE removes the table definition and all stored rows."
+  },
+  {
+    "id": 1339,
+    "question_set": "sql beginner",
+    "prompt": "Which command removes all rows but keeps the table structure?",
+    "options": [
+      "CLEAR TABLE",
+      "DELETE",
+      "TRUNCATE TABLE",
+      "DROP TABLE"
+    ],
+    "answer": "TRUNCATE TABLE",
+    "explanation": "TRUNCATE TABLE empties data quickly while preserving the table schema."
+  },
+  {
+    "id": 1340,
+    "question_set": "sql beginner",
+    "prompt": "Which constraint ensures each row has a unique, non-null identifier?",
+    "options": [
+      "UNIQUE",
+      "PRIMARY KEY",
+      "FOREIGN KEY",
+      "CHECK"
+    ],
+    "answer": "PRIMARY KEY",
+    "explanation": "A primary key uniquely identifies each row and cannot be NULL."
+  },
+  {
+    "id": 1341,
+    "question_set": "sql intermediate",
+    "prompt": "Which JOIN returns only rows that match in both tables?",
+    "options": [
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "INNER JOIN",
+      "FULL JOIN"
+    ],
+    "answer": "INNER JOIN",
+    "explanation": "INNER JOIN keeps only rows where the join condition matches on both sides."
+  },
+  {
+    "id": 1342,
+    "question_set": "sql intermediate",
+    "prompt": "Which JOIN keeps all rows from the left table and matching rows from the right table?",
+    "options": [
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "CROSS JOIN",
+      "SELF JOIN"
+    ],
+    "answer": "LEFT JOIN",
+    "explanation": "LEFT JOIN preserves all left-side rows even when no right-side match exists."
+  },
+  {
+    "id": 1343,
+    "question_set": "sql intermediate",
+    "prompt": "Which clause filters grouped results after GROUP BY?",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "ORDER BY",
+      "LIMIT"
+    ],
+    "answer": "HAVING",
+    "explanation": "HAVING filters aggregate groups, while WHERE filters raw rows before grouping."
+  },
+  {
+    "id": 1344,
+    "question_set": "sql intermediate",
+    "prompt": "What is the main purpose of GROUP BY?",
+    "options": [
+      "Sort rows alphabetically",
+      "Combine multiple tables",
+      "Aggregate rows by shared column values",
+      "Delete duplicate rows"
+    ],
+    "answer": "Aggregate rows by shared column values",
+    "explanation": "GROUP BY creates groups so aggregate functions can be computed per group."
+  },
+  {
+    "id": 1345,
+    "question_set": "sql intermediate",
+    "prompt": "Which statement about WHERE and HAVING is correct?",
+    "options": [
+      "WHERE filters groups, HAVING filters rows",
+      "WHERE filters rows, HAVING filters groups",
+      "Both always do exactly the same thing",
+      "HAVING must appear before WHERE"
+    ],
+    "answer": "WHERE filters rows, HAVING filters groups",
+    "explanation": "WHERE runs before grouping; HAVING runs after grouping."
+  },
+  {
+    "id": 1346,
+    "question_set": "sql intermediate",
+    "prompt": "Which SQL feature stores a reusable query as a virtual table?",
+    "options": [
+      "TRIGGER",
+      "INDEX",
+      "VIEW",
+      "SEQUENCE"
+    ],
+    "answer": "VIEW",
+    "explanation": "A view encapsulates a SELECT query and can be queried like a table."
+  },
+  {
+    "id": 1347,
+    "question_set": "sql intermediate",
+    "prompt": "What does a foreign key enforce?",
+    "options": [
+      "That values are sorted",
+      "That referenced parent rows exist",
+      "That text is uppercase",
+      "That rows are unique in every column"
+    ],
+    "answer": "That referenced parent rows exist",
+    "explanation": "Foreign keys preserve referential integrity between related tables."
+  },
+  {
+    "id": 1348,
+    "question_set": "sql intermediate",
+    "prompt": "Which operation can multiply rows when join keys are not unique?",
+    "options": [
+      "INNER JOIN",
+      "LIMIT",
+      "DISTINCT",
+      "ORDER BY"
+    ],
+    "answer": "INNER JOIN",
+    "explanation": "Joins on non-unique keys can produce one-to-many or many-to-many row expansion."
+  },
+  {
+    "id": 1349,
+    "question_set": "sql intermediate",
+    "prompt": "Which query best finds customers with no orders?",
+    "options": [
+      "INNER JOIN orders and filter NULL",
+      "LEFT JOIN orders then WHERE orders.id IS NULL",
+      "GROUP BY customers only",
+      "Use UNION between customers and orders"
+    ],
+    "answer": "LEFT JOIN orders then WHERE orders.id IS NULL",
+    "explanation": "A left join keeps all customers, then NULL on the right identifies missing matches."
+  },
+  {
+    "id": 1350,
+    "question_set": "sql intermediate",
+    "prompt": "What does COALESCE(a, b, c) return?",
+    "options": [
+      "The last non-null argument",
+      "The first non-null argument",
+      "The smallest numeric argument",
+      "A concatenation of all arguments"
+    ],
+    "answer": "The first non-null argument",
+    "explanation": "COALESCE returns the first value that is not NULL in the argument list."
+  },
+  {
+    "id": 1351,
+    "question_set": "sql intermediate",
+    "prompt": "What is a common use for a CTE defined with WITH?",
+    "options": [
+      "Create a permanent table",
+      "Make complex queries easier to read and reuse in one statement",
+      "Replace all indexes",
+      "Bypass transaction control"
+    ],
+    "answer": "Make complex queries easier to read and reuse in one statement",
+    "explanation": "CTEs improve readability by naming intermediate result sets inside a query."
+  },
+  {
+    "id": 1352,
+    "question_set": "sql intermediate",
+    "prompt": "Which window function assigns consecutive row numbers within a partition?",
+    "options": [
+      "ROW_NUMBER()",
+      "COUNT()",
+      "MIN()",
+      "RANKED()"
+    ],
+    "answer": "ROW_NUMBER()",
+    "explanation": "ROW_NUMBER() gives each row a unique sequence number in its partition order."
+  },
+  {
+    "id": 1353,
+    "question_set": "sql intermediate",
+    "prompt": "Which index type is typically best for exact-match lookups in relational databases?",
+    "options": [
+      "B-tree",
+      "Bitmap image",
+      "Heap",
+      "Hash join"
+    ],
+    "answer": "B-tree",
+    "explanation": "B-tree indexes are a common default for equality and range predicates."
+  },
+  {
+    "id": 1354,
+    "question_set": "sql intermediate",
+    "prompt": "What is the effect of ORDER BY created_at DESC LIMIT 5?",
+    "options": [
+      "Returns the oldest 5 rows",
+      "Returns any 5 random rows",
+      "Returns the newest 5 rows by created_at",
+      "Returns all rows except 5"
+    ],
+    "answer": "Returns the newest 5 rows by created_at",
+    "explanation": "DESC sorts from largest to smallest, then LIMIT keeps the first 5 rows."
+  },
+  {
+    "id": 1355,
+    "question_set": "sql intermediate",
+    "prompt": "Why is SELECT * often discouraged in production queries?",
+    "options": [
+      "It is invalid SQL",
+      "It can fetch unnecessary columns and increase I/O",
+      "It automatically disables indexes",
+      "It always returns duplicate rows"
+    ],
+    "answer": "It can fetch unnecessary columns and increase I/O",
+    "explanation": "Selecting only needed columns reduces transferred data and can improve plans."
+  },
+  {
+    "id": 1356,
+    "question_set": "sql intermediate",
+    "prompt": "What problem does normalization primarily address?",
+    "options": [
+      "Too many CPU cores",
+      "Data redundancy and update anomalies",
+      "Slow internet speed",
+      "Lack of JSON support"
+    ],
+    "answer": "Data redundancy and update anomalies",
+    "explanation": "Normalization structures data to reduce duplication and inconsistency risks."
+  },
+  {
+    "id": 1357,
+    "question_set": "sql intermediate",
+    "prompt": "In transactions, what does COMMIT do?",
+    "options": [
+      "Undo all uncommitted changes",
+      "Permanently save changes in the current transaction",
+      "Lock every table forever",
+      "Drop temporary tables"
+    ],
+    "answer": "Permanently save changes in the current transaction",
+    "explanation": "COMMIT finalizes the transaction so its updates become durable."
+  },
+  {
+    "id": 1358,
+    "question_set": "sql intermediate",
+    "prompt": "In transactions, what does ROLLBACK do?",
+    "options": [
+      "Save current changes",
+      "Re-run the last query",
+      "Undo uncommitted changes in the current transaction",
+      "Clone the table"
+    ],
+    "answer": "Undo uncommitted changes in the current transaction",
+    "explanation": "ROLLBACK reverts changes made since the transaction began or since a savepoint."
+  },
+  {
+    "id": 1359,
+    "question_set": "sql intermediate",
+    "prompt": "Which SQL construct is used to enforce that a column cannot be NULL?",
+    "options": [
+      "UNIQUE",
+      "NOT NULL",
+      "DEFAULT",
+      "CHECK VALUE"
+    ],
+    "answer": "NOT NULL",
+    "explanation": "NOT NULL requires every inserted or updated row to provide a value."
+  },
+  {
+    "id": 1360,
+    "question_set": "sql intermediate",
+    "prompt": "What does UNION ALL do differently from UNION?",
+    "options": [
+      "It sorts rows automatically",
+      "It removes duplicates",
+      "It keeps duplicates",
+      "It requires matching table names"
+    ],
+    "answer": "It keeps duplicates",
+    "explanation": "UNION ALL combines results without duplicate elimination overhead."
+  },
+  {
+    "id": 1361,
+    "question_set": "sql expert",
+    "prompt": "Which isolation anomaly allows one transaction to read uncommitted data from another?",
+    "options": [
+      "Phantom read",
+      "Dirty read",
+      "Lost update",
+      "Write skew"
+    ],
+    "answer": "Dirty read",
+    "explanation": "A dirty read occurs when data is read before the writing transaction commits."
+  },
+  {
+    "id": 1362,
+    "question_set": "sql expert",
+    "prompt": "What does REPEATABLE READ primarily guarantee for rows already read in a transaction?",
+    "options": [
+      "They cannot be read at all",
+      "Their values stay consistent for subsequent reads",
+      "All phantom rows are always blocked in every engine",
+      "All writes are serialized globally"
+    ],
+    "answer": "Their values stay consistent for subsequent reads",
+    "explanation": "Repeatable read prevents non-repeatable reads for rows seen earlier in the transaction."
+  },
+  {
+    "id": 1363,
+    "question_set": "sql expert",
+    "prompt": "Which execution-plan concern often makes OFFSET very large values slow?",
+    "options": [
+      "The server must skip many rows before returning the page",
+      "OFFSET disables indexes in all databases",
+      "OFFSET forces table locks",
+      "OFFSET can only work with UNION"
+    ],
+    "answer": "The server must skip many rows before returning the page",
+    "explanation": "High OFFSET values can require scanning and discarding many rows first."
+  },
+  {
+    "id": 1364,
+    "question_set": "sql expert",
+    "prompt": "Which pagination strategy is usually preferred for large, ordered datasets?",
+    "options": [
+      "Random sampling pagination",
+      "Keyset pagination using a stable indexed cursor",
+      "OFFSET without ORDER BY",
+      "Nested UNION pagination"
+    ],
+    "answer": "Keyset pagination using a stable indexed cursor",
+    "explanation": "Keyset pagination scales better by seeking from the last seen key instead of skipping rows."
+  },
+  {
+    "id": 1365,
+    "question_set": "sql expert",
+    "prompt": "In PostgreSQL, what does EXPLAIN ANALYZE provide beyond EXPLAIN?",
+    "options": [
+      "Only estimated costs",
+      "Actual runtime metrics after executing the query",
+      "Automatic index creation",
+      "DDL validation only"
+    ],
+    "answer": "Actual runtime metrics after executing the query",
+    "explanation": "EXPLAIN ANALYZE runs the query and reports actual timing and row counts."
+  },
+  {
+    "id": 1366,
+    "question_set": "sql expert",
+    "prompt": "What is a covering index in practical terms?",
+    "options": [
+      "An index that includes all columns needed by a query",
+      "An index that covers every table in the schema",
+      "A duplicated backup index",
+      "An index that prevents deadlocks"
+    ],
+    "answer": "An index that includes all columns needed by a query",
+    "explanation": "Covering indexes can satisfy a query without extra table lookups for projected/filter columns."
+  },
+  {
+    "id": 1367,
+    "question_set": "sql expert",
+    "prompt": "Which join algorithm is typically efficient for large unsorted inputs when memory is sufficient?",
+    "options": [
+      "Nested loop join",
+      "Hash join",
+      "Cartesian join",
+      "Merge append"
+    ],
+    "answer": "Hash join",
+    "explanation": "Hash joins build a hash table for one side, enabling fast matches on join keys."
+  },
+  {
+    "id": 1368,
+    "question_set": "sql expert",
+    "prompt": "Which pattern best helps avoid SQL injection in application code?",
+    "options": [
+      "String concatenation with manual escaping",
+      "Parameterized queries or prepared statements",
+      "Base64-encoding user input",
+      "Only using uppercase SQL keywords"
+    ],
+    "answer": "Parameterized queries or prepared statements",
+    "explanation": "Parameters separate SQL code from user data and prevent malicious query structure changes."
+  },
+  {
+    "id": 1369,
+    "question_set": "sql expert",
+    "prompt": "What is the main trade-off of adding many indexes to a write-heavy table?",
+    "options": [
+      "Reads become impossible",
+      "Writes become slower due to index maintenance",
+      "Transactions no longer need locks",
+      "Storage usage always decreases"
+    ],
+    "answer": "Writes become slower due to index maintenance",
+    "explanation": "Each insert, update, or delete must also update affected indexes."
+  },
+  {
+    "id": 1370,
+    "question_set": "sql expert",
+    "prompt": "What does ACID durability ensure after COMMIT succeeds?",
+    "options": [
+      "Changes survive crashes according to the DB durability guarantees",
+      "All future queries are faster",
+      "Rows become immutable forever",
+      "No other transaction can read the data"
+    ],
+    "answer": "Changes survive crashes according to the DB durability guarantees",
+    "explanation": "Durability means committed changes are persisted even if the system crashes afterward."
+  },
+  {
+    "id": 1371,
+    "question_set": "sql expert",
+    "prompt": "Which statement best describes a phantom read?",
+    "options": [
+      "Re-reading a row returns different column values",
+      "A query re-run returns extra or missing rows matching its predicate",
+      "Reading uncommitted data",
+      "A lock timeout error"
+    ],
+    "answer": "A query re-run returns extra or missing rows matching its predicate",
+    "explanation": "Phantoms are changes in the set of rows that match a repeated predicate."
+  },
+  {
+    "id": 1372,
+    "question_set": "sql expert",
+    "prompt": "Why can SELECT ... FOR UPDATE be useful in concurrent workflows?",
+    "options": [
+      "It drops rows automatically",
+      "It acquires row locks to prevent conflicting updates",
+      "It disables transactions",
+      "It skips indexes"
+    ],
+    "answer": "It acquires row locks to prevent conflicting updates",
+    "explanation": "FOR UPDATE locks selected rows so concurrent transactions cannot modify them until commit."
+  },
+  {
+    "id": 1373,
+    "question_set": "sql expert",
+    "prompt": "Which window function would you use to compute a running total ordered by date?",
+    "options": [
+      "SUM(amount) OVER (ORDER BY date)",
+      "GROUP BY SUM(amount)",
+      "COUNT(*) HAVING date",
+      "DISTINCT ON date"
+    ],
+    "answer": "SUM(amount) OVER (ORDER BY date)",
+    "explanation": "A windowed SUM with ORDER BY accumulates values progressively across rows."
+  },
+  {
+    "id": 1374,
+    "question_set": "sql expert",
+    "prompt": "What is the practical benefit of partitioning very large tables?",
+    "options": [
+      "It guarantees every query is instant",
+      "It can improve manageability and prune scanned data for partition-aware queries",
+      "It removes the need for indexes",
+      "It converts SQL to NoSQL"
+    ],
+    "answer": "It can improve manageability and prune scanned data for partition-aware queries",
+    "explanation": "Partitioning can limit scanned partitions and simplify maintenance operations."
+  },
+  {
+    "id": 1375,
+    "question_set": "sql expert",
+    "prompt": "What does idempotent migration design aim to prevent?",
+    "options": [
+      "Running a migration twice causing unintended side effects",
+      "Any schema change in production",
+      "The use of version control",
+      "Read-only transactions"
+    ],
+    "answer": "Running a migration twice causing unintended side effects",
+    "explanation": "Idempotent migrations are safe to retry without corrupting schema state."
+  },
+  {
+    "id": 1376,
+    "question_set": "sql expert",
+    "prompt": "Why might a query use a materialized view instead of a regular view?",
+    "options": [
+      "Materialized views store precomputed results for faster reads",
+      "Regular views cannot contain joins",
+      "Materialized views ignore permissions",
+      "Regular views always lock tables"
+    ],
+    "answer": "Materialized views store precomputed results for faster reads",
+    "explanation": "Materialized views trade freshness for speed by persisting query output until refreshed."
+  },
+  {
+    "id": 1377,
+    "question_set": "sql expert",
+    "prompt": "What is a deadlock in transactional systems?",
+    "options": [
+      "A syntax error in SQL",
+      "Two or more transactions waiting on each other’s locks",
+      "A query returning no rows",
+      "A failed network request"
+    ],
+    "answer": "Two or more transactions waiting on each other’s locks",
+    "explanation": "Deadlocks occur when lock dependencies form a cycle, requiring one transaction to be aborted."
+  },
+  {
+    "id": 1378,
+    "question_set": "sql expert",
+    "prompt": "Which metric from execution plans most directly indicates cardinality estimation quality?",
+    "options": [
+      "Difference between estimated rows and actual rows",
+      "SQL keyword count",
+      "Number of selected columns",
+      "Length of table names"
+    ],
+    "answer": "Difference between estimated rows and actual rows",
+    "explanation": "Large estimate-vs-actual gaps often signal poor statistics or problematic predicates."
+  },
+  {
+    "id": 1379,
+    "question_set": "sql expert",
+    "prompt": "When is denormalization often justified in relational design?",
+    "options": [
+      "Always, because joins are never needed",
+      "For measured performance gains in read-heavy paths with managed consistency trade-offs",
+      "Only when primary keys are absent",
+      "Only in temporary tables"
+    ],
+    "answer": "For measured performance gains in read-heavy paths with managed consistency trade-offs",
+    "explanation": "Denormalization can reduce join cost but introduces redundancy that must be controlled."
+  },
+  {
+    "id": 1380,
+    "question_set": "sql expert",
+    "prompt": "Which strategy best supports zero-downtime schema evolution for a hot table?",
+    "options": [
+      "Single-step breaking change during peak traffic",
+      "Expand-and-contract changes with backward-compatible phases",
+      "Disabling all indexes first",
+      "Running DDL in application startup synchronously"
+    ],
+    "answer": "Expand-and-contract changes with backward-compatible phases",
+    "explanation": "Expand-contract avoids hard breaks by deploying compatible schema and code in stages."
   }
 ]

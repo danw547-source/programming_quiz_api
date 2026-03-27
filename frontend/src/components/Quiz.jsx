@@ -44,6 +44,9 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "python intermediate": { label: "Python Intermediate", badge: "PY", category: "programming" },
   "python expert": { label: "Python Expert", badge: "PY", category: "programming" },
   "restful api": { label: "REST API", badge: "API", category: "programming" },
+  "sql beginner": { label: "SQL Beginner", badge: "SQL", category: "programming" },
+  "sql intermediate": { label: "SQL Intermediate", badge: "SQL", category: "programming" },
+  "sql expert": { label: "SQL Expert", badge: "SQL", category: "programming" },
   "music theory beginner": { label: "Music Theory Beginner", badge: "MT", category: "music-theory" },
   "music theory intermediate": { label: "Music Theory Intermediate", badge: "MT", category: "music-theory" },
   "music theory expert": { label: "Music Theory Expert", badge: "MT", category: "music-theory" },
@@ -296,7 +299,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       // By starting both immediately, we overlap the latency instead of sequencing them.
       const [sets, allQuestionData] = await Promise.all([
         getQuestionSets(),
-        getQuestions(undefined), // Fetch all questions upfront (1320 total)
+        getQuestions(undefined), // Fetch all questions upfront
       ]);
 
       setQuestionSets(sets);

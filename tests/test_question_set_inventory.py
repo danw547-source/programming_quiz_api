@@ -71,6 +71,9 @@ EXPECTED_QUESTION_SETS = {
     "javascript beginner",
     "javascript intermediate",
     "javascript expert",
+    "sql beginner",
+    "sql intermediate",
+    "sql expert",
     "object oriented programming",
 }
 
