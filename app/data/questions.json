@@ -17938,5 +17938,265 @@
     ],
     "answer": "Expand-and-contract changes with backward-compatible phases",
     "explanation": "Expand-contract avoids hard breaks by deploying compatible schema and code in stages."
+  },
+  {
+    "id": 1381,
+    "question_set": "gear4music",
+    "prompt": "In the Gear4Music interview prep case, what architecture did they describe using for clean separation of concerns?",
+    "options": [
+      "Monolithic script",
+      "Controller-Service-Repository-Presenter",
+      "Event-driven microservices",
+      "Peer-to-peer network"
+    ],
+    "answer": "Controller-Service-Repository-Presenter",
+    "explanation": "The candidate mentioned a clear Controller-Service-Repository-Presenter pattern for single-responsibility modules."
+  },
+  {
+    "id": 1382,
+    "question_set": "gear4music",
+    "prompt": "Which component did they assign to store products and let users search/filter them?",
+    "options": [
+      "Model/Repository",
+      "View/Presenter",
+      "Controller only",
+      "Utility scripts"
+    ],
+    "answer": "Model/Repository",
+    "explanation": "Data storage and retrieval logic was mapped to model and repository classes."
+  },
+  {
+    "id": 1383,
+    "question_set": "gear4music",
+    "prompt": "Why did they prefer Controller-Service-Repository?",
+    "options": [
+      "To keep UI and data logic mixed",
+      "To isolate request flow, business rules, and storage",
+      "To avoid any testing",
+      "To force global state access"
+    ],
+    "answer": "To isolate request flow, business rules, and storage",
+    "explanation": "The pattern keeps each layer focused, reducing full-app side effects."
+  },
+  {
+    "id": 1384,
+    "question_set": "gear4music",
+    "prompt": "How does their design make adding new product types easier?",
+    "options": [
+      "By hardcoding all types in one class",
+      "By using inheritance (e.g., DigitalProduct extends Product) and service-level filter methods",
+      "By disallowing product extensions",
+      "By storing everything as plain text"
+    ],
+    "answer": "By using inheritance (e.g., DigitalProduct extends Product) and service-level filter methods",
+    "explanation": "Inheritance plus separated filter logic supports new types with minimal changes."
+  },
+  {
+    "id": 1385,
+    "question_set": "gear4music",
+    "prompt": "Which SOLID principle was illustrated by separate Product and DigitalProduct models?",
+    "options": [
+      "Single Responsibility",
+      "Open Closed",
+      "Liskov Substitution",
+      "All of the above"
+    ],
+    "answer": "All of the above",
+    "explanation": "They mentioned SRP for distinct classes, OCP for extension, and LSP for substitutable types."
+  },
+  {
+    "id": 1386,
+    "question_set": "gear4music",
+    "prompt": "Why did they add InventoryInterface despite only one repository implementation?",
+    "options": [
+      "Because interfaces are mandatory in PHP",
+      "For easier swapping of implementations and test mocks",
+      "To improve performance",
+      "To reduce code clarity"
+    ],
+    "answer": "For easier swapping of implementations and test mocks",
+    "explanation": "The interface makes it simple to replace or mock the repository in future."
+  },
+  {
+    "id": 1387,
+    "question_set": "gear4music",
+    "prompt": "What higher-priority investment did they say they would make with more time?",
+    "options": [
+      "Remove tests and optimize for speed",
+      "Add unit tests, persistence, and error handling",
+      "Change programming language agnostically",
+      "Introduce fancy UI animations"
+    ],
+    "answer": "Add unit tests, persistence, and error handling",
+    "explanation": "They listed testing, database support, validation, and better errors as key next steps."
+  },
+  {
+    "id": 1388,
+    "question_set": "gear4music",
+    "prompt": "How did they handle validation and bad input in the prototype?",
+    "options": [
+      "They had full strict validation everywhere",
+      "Minimal checks in prototype, with plan for future exception handling",
+      "No validation and no plan",
+      "They used a third-party validation service"
+    ],
+    "answer": "Minimal checks in prototype, with plan for future exception handling",
+    "explanation": "They acknowledged simple prototype validation and future improvements for user-friendly feedback."
+  },
+  {
+    "id": 1389,
+    "question_set": "gear4music",
+    "prompt": "What tradeoff did they mention from using in-memory storage?",
+    "options": [
+      "Great scale and no future changes needed",
+      "Fast development now but slower scale for large datasets",
+      "Database-level security gains",
+      "Infinite storage capacity"
+    ],
+    "answer": "Fast development now but slower scale for large datasets",
+    "explanation": "In-memory storage is easy early on but not ideal for 1000+ item performance without indexing."
+  },
+  {
+    "id": 1390,
+    "question_set": "gear4music",
+    "prompt": "What is the role of InventoryPresenter in their architecture?",
+    "options": [
+      "Manage database schema migrations",
+      "Format raw product objects into display output",
+      "Handle authentication",
+      "Compute complex financials"
+    ],
+    "answer": "Format raw product objects into display output",
+    "explanation": "Presenter decouples UI formatting from business rules and data access."
+  },
+  {
+    "id": 1391,
+    "question_set": "gear4music",
+    "prompt": "How would they add a REST API endpoint without changing core logic?",
+    "options": [
+      "Rewrite InventoryService completely",
+      "Keep InventoryService and Repository, add controller route and JSON presenter",
+      "Put SQL queries in the controller",
+      "Build a brand new app"
+    ],
+    "answer": "Keep InventoryService and Repository, add controller route and JSON presenter",
+    "explanation": "The service and repository stay unchanged; endpoint is layered on top."
+  },
+  {
+    "id": 1392,
+    "question_set": "gear4music",
+    "prompt": "Which practice was cited to keep code readable and maintainable?",
+    "options": [
+      "Single huge class for everything",
+      "Organized folder/namespace structure and small methods",
+      "No comments at all",
+      "Avoiding any tests"
+    ],
+    "answer": "Organized folder/namespace structure and small methods",
+    "explanation": "They emphasized directory structure, small named methods, and one responsibility per class."
+  },
+  {
+    "id": 1393,
+    "question_set": "gear4music",
+    "prompt": "Which assumption did they make for the challenge?",
+    "options": [
+      "Inventory is infinite",
+      "No auth needed and data fits in memory",
+      "Only one user exists",
+      "Database writes are instant"
+    ],
+    "answer": "No auth needed and data fits in memory",
+    "explanation": "They explicitly assumed in-memory dataset and no authentication for prototype scope."
+  },
+  {
+    "id": 1394,
+    "question_set": "gear4music",
+    "prompt": "What is the first development step they described in process?",
+    "options": [
+      "Write UI before any backend",
+      "Read challenge and identify core use cases",
+      "Deploy to production immediately",
+      "Skip planning and code quickly"
+    ],
+    "answer": "Read challenge and identify core use cases",
+    "explanation": "Their process started with understanding needs then designing domain model and layers."
+  },
+  {
+    "id": 1395,
+    "question_set": "gear4music",
+    "prompt": "What manual test action did they describe for the prototype?",
+    "options": [
+      "Run php demo.php and verify path behavior",
+      "Only read the code without running anything",
+      "Deploy to production for testing",
+      "Change framework mid-test"
+    ],
+    "answer": "Run php demo.php and verify path behavior",
+    "explanation": "They confirmed workflow by running a sample script and checking filter/sort paths."
+  },
+  {
+    "id": 1396,
+    "question_set": "gear4music",
+    "prompt": "Which unit tests did they plan to write with PHPUnit?",
+    "options": [
+      "InventoryService and InMemoryProductRepository tests",
+      "Only UI snapshot tests",
+      "Only integration with external API",
+      "No tests at all"
+    ],
+    "answer": "InventoryService and InMemoryProductRepository tests",
+    "explanation": "These cover core business rules and repository data behavior."
+  },
+  {
+    "id": 1397,
+    "question_set": "gear4music",
+    "prompt": "What would they do for 1000+ products for better performance?",
+    "options": [
+      "Continue linear scanning with no changes",
+      "Add indexing/caching or database query layer",
+      "Remove all filters",
+      "Store data in local files only"
+    ],
+    "answer": "Add indexing/caching or database query layer",
+    "explanation": "They said move from in-memory scan to database/caching for scale."
+  },
+  {
+    "id": 1398,
+    "question_set": "gear4music",
+    "prompt": "How would they add persistence in a concrete way?",
+    "options": [
+      "Keep InMemoryProductRepository forever",
+      "Add DatabaseProductRepository implementing the same interface",
+      "Dump data to CSV each request",
+      "Use global variables across modules"
+    ],
+    "answer": "Add DatabaseProductRepository implementing the same interface",
+    "explanation": "This preserves interface-based service usage while swapping persistence layer."
+  },
+  {
+    "id": 1399,
+    "question_set": "gear4music",
+    "prompt": "In this architecture, what ensures the controller does not contain business rules?",
+    "options": [
+      "The controller can still hold all logic",
+      "Service layer handles business rules",
+      "Presenter contains SQL queries",
+      "Repository throws presentation errors"
+    ],
+    "answer": "Service layer handles business rules",
+    "explanation": "Controller delegates logic to service and keeps request coordination only."
+  },
+  {
+    "id": 1400,
+    "question_set": "gear4music",
+    "prompt": "What is the main value of adding interfaces (like InventoryInterface) early?",
+    "options": [
+      "Prevent any further refactoring",
+      "Allow easy implementation swaps and testing",
+      "Make code run faster always",
+      "Guarantee no bugs"
+    ],
+    "answer": "Allow easy implementation swaps and testing",
+    "explanation": "Interfaces decouple high-level code from concrete implementations and simplify test mocks."
   }
 ]

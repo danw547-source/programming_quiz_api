@@ -74,6 +74,7 @@ EXPECTED_QUESTION_SETS = {
     "sql beginner",
     "sql intermediate",
     "sql expert",
+    "gear4music",
     "object oriented programming",
 }
 
