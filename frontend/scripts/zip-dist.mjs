@@ -14,7 +14,9 @@ import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const DIST_DIR = join(__dirname, "..", "dist");
-const OUT_ZIP = join(__dirname, "..", "dist-deploy.zip");
+
+// Output path preference: CLI arg, environment variable, default file.
+const OUT_ZIP = process.argv[2] || process.env.DIST_DEPLOY_PATH || join(__dirname, "..", "dist-deploy.zip");
 
 // ── Minimal ZIP writer ────────────────────────────────────────────────────────
 const buf32LE = (n) => { const b = Buffer.allocUnsafe(4); b.writeUInt32LE(n); return b; };

@@ -48,6 +48,8 @@ npm run build
 - Build base path is /quiz in vite.config.js
 - Upload dist contents (not the dist folder itself) into /public/quiz
 - Keep an SPA rewrite rule file in /public/quiz for deep-link refresh support
+- Use `npm run build:deploy` to produce a zip for website delivery (default: `frontend/../dist-deploy.zip`)
+- Use `npm run build:deploy:local` to keep zip in `frontend/dist-deploy.zip`
 
 ## Troubleshooting
 
