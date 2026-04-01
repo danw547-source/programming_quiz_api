@@ -67,6 +67,7 @@ function App() {
     return isKnownCategory(storedCategory) ? storedCategory : "programming";
   });
   const [isCategoryPickerOpen, setIsCategoryPickerOpen] = useState(false);
+  const [isAiQuiz, setIsAiQuiz] = useState(false);
   const [categoryQuery, setCategoryQuery] = useState("");
   const [recentCategoryIds, setRecentCategoryIds] = useState(() => {
     const storedRecentCategories = localStorage.getItem("quiz-recent-categories");
@@ -277,6 +278,21 @@ function App() {
 
           <button
             type="button"
+            onClick={() => setIsAiQuiz((prev) => !prev)}
+            aria-pressed={isAiQuiz}
+            aria-label={`Switch to ${isAiQuiz ? "standard" : "AI"} quiz mode`}
+            className={`relative z-20 flex shrink-0 items-center gap-3 rounded-full border px-3 py-2 backdrop-blur transition ${
+              isAiQuiz
+                ? "border-[#55bfff] bg-[#e8f7ff]/90 text-[#0a4f70]"
+                : "border-[#a98bff] bg-[#f4ebff]/85 text-[#3e2b7f]"
+            }`}
+          >
+            <span className={`text-xs font-semibold uppercase tracking-[0.14em]`}>AI Quiz</span>
+            <span className={`text-xs opacity-70`}>{isAiQuiz ? "Enabled" : "Disabled"}</span>
+          </button>
+
+          <button
+            type="button"
             // Toggle between dark and light mode for readability preference.
             onClick={() => setIsLightTheme((prev) => !prev)}
             aria-pressed={isLightTheme}
@@ -305,8 +321,9 @@ function App() {
           <div className="mx-auto w-full max-w-180 pb-2">
             <Quiz
               isLightTheme={isLightTheme}
-              selectedCategory={selectedCategory}
+              selectedCategory={isAiQuiz ? "aiquiz" : selectedCategory}
               onCategoryChange={setSelectedCategory}
+              mode={isAiQuiz ? "ai" : "standard"}
             />
           </div>
         </div>

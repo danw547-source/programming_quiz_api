@@ -31,15 +31,26 @@ class Question:
         # `casefold` is stronger than `lower` for Unicode correctness (e.g. ß→ss).
         self.question_set = self.question_set.strip().casefold()
         self.options = list(self.options)
-        # Validate here as a second safety net; SeedQuestionPayload already
-        # checks this, but the domain model must not allow an invalid state
-        # regardless of how it was constructed.
-        if self.answer.strip().casefold() not in {opt.strip().casefold() for opt in self.options}:
-            raise ValueError(
-                f"Question {self.id}: answer {self.answer!r} is not among the options {self.options}"
-            )
+
+        # In multiple-choice quizzes, we require the answer to be one of the
+        # provided options. In AIQuiz free-text mode, options are empty and
+        # any non-empty answer is allowed.
+        if self.options:
+            if self.answer.strip().casefold() not in {opt.strip().casefold() for opt in self.options}:
+                raise ValueError(
+                    f"Question {self.id}: answer {self.answer!r} is not among the options {self.options}"
+                )
 
     def check_answer(self, user_answer: str) -> bool:
-        # Strip whitespace and casefold so "  A  " matches "a" without special
-        # handling on the frontend or in the controller.
-        return user_answer.strip().casefold() == self.answer.casefold()
+        # Strip whitespace and handle case-insensitive comparison.
+        normalized_user = user_answer.strip().casefold()
+        normalized_answer = self.answer.strip().casefold()
+
+        if self.options:
+            return normalized_user == normalized_answer
+
+        # AIQuiz / free-text path: use semantic similarity as an AI-powered
+        # heuristic evaluator rather than exact option matching.
+        from app.services.ai_answer_evaluator import is_answer_correct
+
+        return is_answer_correct(normalized_answer, normalized_user)

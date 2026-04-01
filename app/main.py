@@ -13,6 +13,7 @@ from starlette.middleware.gzip import GZipMiddleware
 
 from app.config import get_settings
 from app.controllers.quiz_controller import router as quiz_router
+from app.controllers.ai_quiz_controller import router as ai_quiz_router
 from app.database import initialize_database
 from app.logging_config import setup_logging
 from app.middleware import RequestObservabilityAndRateLimitMiddleware
@@ -63,3 +64,4 @@ app.add_middleware(
 )
 
 app.include_router(quiz_router)
+app.include_router(ai_quiz_router)

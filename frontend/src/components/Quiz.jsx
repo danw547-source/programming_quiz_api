@@ -18,6 +18,10 @@ import {
   getQuestionSets,
   getQuestions,
   submitAnswer,
+  getAiQuestionSets,
+  getAiQuestions,
+  getAiCheatSheet,
+  submitAiAnswer,
 } from "../services/quizService";
 
 const OPTION_INDEX_BY_KEY = Object.freeze({ a: 0, b: 1, c: 2, d: 3 });
@@ -214,7 +218,8 @@ const getPerformanceFeedback = (percentage) => {
 
 
 
-export default function Quiz({ isLightTheme, selectedCategory = "programming", onCategoryChange }) {
+export default function Quiz({ isLightTheme, selectedCategory = "programming", onCategoryChange, mode = "standard" }) {
+  const isAiMode = mode === "ai";
   const [questions, setQuestions] = useState([]);
   const [allQuestions, setAllQuestions] = useState([]);
   const [questionSets, setQuestionSets] = useState([]);
@@ -278,7 +283,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setError("");
 
     try {
-      const data = await getQuestions(questionSet);
+      const data = isAiMode ? await getAiQuestions() : await getQuestions(questionSet);
       setAllQuestions(data);
       setQuestions(shuffleArray(data));
       setIsRetryRound(false);
@@ -287,13 +292,26 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [isAiMode]);
 
   const loadQuestionSets = useCallback(async () => {
     setIsLoading(true);
     setError("");
 
     try {
+      if (isAiMode) {
+        const sets = await getAiQuestionSets();
+        setQuestionSets(sets);
+        const initialSet = sets[0] ?? "aiquiz";
+        setSelectedQuestionSet(initialSet);
+
+        const data = await getAiQuestions();
+        setAllQuestions(data);
+        setQuestions(shuffleArray(data));
+        setIsRetryRound(false);
+        return;
+      }
+
       // Fetch question sets and all questions in parallel to reduce total request time.
       // getQuestionSets completes quickly; getQuestions may take longer.
       // By starting both immediately, we overlap the latency instead of sequencing them.
@@ -321,7 +339,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     } finally {
       setIsLoading(false);
     }
-  }, [selectedCategory]);
+  }, [isAiMode, selectedCategory]);
 
   useEffect(() => {
     void loadQuestionSets();
@@ -382,7 +400,9 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setError("");
 
     try {
-      const response = await submitAnswer(question.id, selectedAnswer);
+      const response = isAiMode
+        ? await submitAiAnswer(question.id, selectedAnswer)
+        : await submitAnswer(question.id, selectedAnswer);
       setResult(response);
 
       setIncorrectAnswers((previousAnswers) => {
@@ -784,7 +804,9 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     ? "Submitting..."
     : selectedAnswer
       ? "Submit Answer ->"
-      : "Select an answer to continue";
+      : isAiMode
+        ? "Type an answer to continue"
+        : "Select an answer to continue";
 
   return (
     <div
@@ -913,7 +935,30 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
         </section>
 
         <section key={question.id} className="mx-auto w-full max-w-176 space-y-1.5 pt-1 sm:space-y-3 sm:pt-2.5">
-          {question.options.map((opt, index) => {
+          {isAiMode ? (
+            <div>
+              <label className="sr-only" htmlFor="ai-user-answer">
+                Type your answer
+              </label>
+              <input
+                id="ai-user-answer"
+                type="text"
+                value={selectedAnswer}
+                onChange={(event) => setSelectedAnswer(event.target.value)}
+                disabled={Boolean(result)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && selectedAnswer && !isSubmitting && !result) {
+                    void handleSubmit();
+                  }
+                }}
+                placeholder="Type your answer here"
+                className="w-full rounded-xl border px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[#8f46ff]"
+              />
+              <p className="mt-2 text-xs text-slate-400">
+                AI evaluation allows flexible, real-language answers.
+              </p>
+            </div>
+          ) : question.options.map((opt, index) => {
             const isSelected = selectedAnswer === opt;
             const isSelectedResult = result && isSelected;
             const isCorrectAnswer = result && opt === result.correct_answer;

@@ -132,3 +132,19 @@ def test_submit_answer_returns_404_for_missing_question(client: TestClient):
 
     assert response.status_code == 404
     assert response.json()["detail"] == "Question not found"
+
+
+def test_ai_quiz_endpoints(client: TestClient):
+    response_sets = client.get("/ai/question-sets")
+    assert response_sets.status_code == 200
+    assert response_sets.json() == ["aiquiz"]
+
+    response_questions = client.get("/ai/questions")
+    assert response_questions.status_code == 200
+    first_question = response_questions.json()[0]
+    assert "prompt" in first_question
+    assert "answer" not in first_question
+
+    response_submit = client.post("/ai/answer/1", json={"answer": "Each module should have only one reason to change."})
+    assert response_submit.status_code == 200
+    assert response_submit.json()["correct"] is True
