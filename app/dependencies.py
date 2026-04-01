@@ -15,7 +15,6 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 
 from app.database import get_session
-from app.repositories.ai_question_repository import AIQuestionRepository
 from app.repositories.question_repository import QuestionRepository
 from app.repositories.sqlalchemy_question_repository import SqlAlchemyQuestionRepository
 from app.services.quiz_service import QuizService
@@ -35,12 +34,7 @@ def get_quiz_service(
     return QuizService(repository)
 
 
-def get_ai_question_repository() -> QuestionRepository:
-    # AIQUESTIONS.md is in repository root; services run with project root as cwd.
-    return AIQuestionRepository("AIQUESTIONS.md")
-
-
 def get_ai_quiz_service(
-    repository: Annotated[QuestionRepository, Depends(get_ai_question_repository)],
+    repository: Annotated[QuestionRepository, Depends(get_question_repository)],
 ) -> QuizService:
     return QuizService(repository)

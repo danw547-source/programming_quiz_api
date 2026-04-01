@@ -101,18 +101,27 @@ export const getAiQuestionSets = async () => {
   }
 };
 
-export const getAiQuestions = async () => {
+export const getAiQuestions = async (questionSet) => {
   try {
-    const response = await apiClient.get("/ai/questions");
+    const response = await apiClient.get("/ai/questions", {
+      params: questionSet ? { question_set: questionSet } : undefined,
+    });
     return response.data;
   } catch (error) {
     throw new Error(getErrorMessage(error, "Unable to load AI questions."));
   }
 };
 
-export const getAiCheatSheet = async () => {
+export const getAiCheatSheet = async (questionSet) => {
+  const normalizedQuestionSet = questionSet?.trim();
+  if (!normalizedQuestionSet) {
+    throw new Error("Question set is required.");
+  }
+
   try {
-    const response = await apiClient.get("/ai/cheat-sheet");
+    const response = await apiClient.get("/ai/cheat-sheet", {
+      params: { question_set: normalizedQuestionSet },
+    });
     return response.data;
   } catch (error) {
     throw new Error(getErrorMessage(error, "Unable to load AI cheat sheet."));

@@ -45,12 +45,4 @@ class Question:
         # Strip whitespace and handle case-insensitive comparison.
         normalized_user = user_answer.strip().casefold()
         normalized_answer = self.answer.strip().casefold()
-
-        if self.options:
-            return normalized_user == normalized_answer
-
-        # AIQuiz / free-text path: use semantic similarity as an AI-powered
-        # heuristic evaluator rather than exact option matching.
-        from app.services.ai_answer_evaluator import is_answer_correct
-
-        return is_answer_correct(normalized_answer, normalized_user)
+        return normalized_user == normalized_answer

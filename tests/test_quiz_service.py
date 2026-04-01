@@ -144,7 +144,7 @@ def test_check_answer_ai_mode_matches_fuzzy_text():
     result = service.check_answer(99, "single responsibility principle")
     assert result["correct"] is True
 
-    result2 = service.check_answer(99, "Single Responsibility")
+    result2 = service.check_answer(99, "Single Responsibility", ai_mode=True)
     assert result2["correct"] is True
 
     result3 = service.check_answer(99, "not related")

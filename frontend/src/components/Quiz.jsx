@@ -283,7 +283,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setError("");
 
     try {
-      const data = isAiMode ? await getAiQuestions() : await getQuestions(questionSet);
+      const data = isAiMode ? await getAiQuestions(questionSet) : await getQuestions(questionSet);
       setAllQuestions(data);
       setQuestions(shuffleArray(data));
       setIsRetryRound(false);
@@ -302,10 +302,10 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       if (isAiMode) {
         const sets = await getAiQuestionSets();
         setQuestionSets(sets);
-        const initialSet = sets[0] ?? "aiquiz";
+        const initialSet = sets[0] ?? "";
         setSelectedQuestionSet(initialSet);
 
-        const data = await getAiQuestions();
+        const data = await getAiQuestions(initialSet);
         setAllQuestions(data);
         setQuestions(shuffleArray(data));
         setIsRetryRound(false);
@@ -501,7 +501,9 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setCheatSheetError("");
 
     try {
-      const response = await getCheatSheet(selectedSet);
+      const response = isAiMode
+        ? await getAiCheatSheet(selectedSet)
+        : await getCheatSheet(selectedSet);
       const entryById = new Map(response.entries.map((entry) => [entry.id, entry]));
       const currentQuestion = questions[currentIndex];
       const currentEntry = currentQuestion ? entryById.get(currentQuestion.id) : undefined;

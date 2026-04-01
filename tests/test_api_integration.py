@@ -14,7 +14,7 @@ from collections.abc import Generator
 import pytest
 from fastapi.testclient import TestClient
 
-from app.dependencies import get_quiz_service
+from app.dependencies import get_quiz_service, get_ai_quiz_service
 from app.main import app
 from app.models.question import Question
 from app.repositories.question_repository import QuestionRepository
@@ -69,6 +69,7 @@ def client(sample_questions: list[Question]) -> Generator[TestClient, None, None
     # Override the dependency for every test using this fixture.
     # The override is cleared at teardown so it doesn't leak into other tests.
     app.dependency_overrides[get_quiz_service] = _build_service
+    app.dependency_overrides[get_ai_quiz_service] = _build_service
 
     with TestClient(app) as test_client:
         yield test_client
@@ -137,8 +138,7 @@ def test_submit_answer_returns_404_for_missing_question(client: TestClient):
 def test_ai_quiz_endpoints(client: TestClient):
     response_sets = client.get("/ai/question-sets")
     assert response_sets.status_code == 200
-    assert response_sets.json() == ["aiquiz"]
-
+    assert "solid principles" in response_sets.json()
     response_questions = client.get("/ai/questions")
     assert response_questions.status_code == 200
     first_question = response_questions.json()[0]

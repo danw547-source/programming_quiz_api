@@ -1,7 +1,7 @@
 """HTTP routing layer for AIQuiz endpoints (free-text answer mode)."""
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, Response
+from fastapi import APIRouter, Depends, HTTPException, Query, Response
 
 from app.dependencies import get_ai_quiz_service
 from app.schemas.answer import AnswerResult, AnswerSubmission
@@ -19,23 +19,40 @@ def get_question_sets(service: QuizServiceDependency, response: Response):
 
 
 @router.get("/questions", response_model=list[QuestionSummary])
-def get_questions(service: QuizServiceDependency, response: Response):
+def get_questions(
+    service: QuizServiceDependency,
+    response: Response,
+    question_set: Annotated[str | None, Query(min_length=1, max_length=50)] = None,
+):
     response.headers["Cache-Control"] = "public, max-age=86400"
-    return service.get_questions(question_set="aiquiz")
+
+    question_set = question_set.strip() if question_set else None
+    questions = service.get_questions(question_set=question_set)
+
+    # AI quiz gets a capped subset to keep rounds short and consistent.
+    from random import shuffle
+
+    selected = list(questions)
+    shuffle(selected)
+    return selected[:20]
 
 
 @router.post("/answer/{question_id}", response_model=AnswerResult)
 def submit_answer(question_id: int, submission: AnswerSubmission, service: QuizServiceDependency):
-    result = service.check_answer(question_id, submission.answer)
+    result = service.check_answer(question_id, submission.answer, ai_mode=True)
     if result is None:
         raise HTTPException(status_code=404, detail="Question not found")
     return result
 
 
 @router.get("/cheat-sheet", response_model=dict)
-def get_cheat_sheet(service: QuizServiceDependency, response: Response):
+def get_cheat_sheet(
+    service: QuizServiceDependency,
+    response: Response,
+    question_set: Annotated[str, Query(min_length=1, max_length=50)],
+):
     response.headers["Cache-Control"] = "public, max-age=86400"
-    cheat_sheet = service.get_cheat_sheet(question_set="aiquiz")
+    cheat_sheet = service.get_cheat_sheet(question_set=question_set)
     if cheat_sheet is None:
         raise HTTPException(status_code=404, detail="Question set not found")
     return cheat_sheet
