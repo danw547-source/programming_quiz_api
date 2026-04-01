@@ -945,6 +945,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
               <input
                 id="ai-user-answer"
                 type="text"
+                autoComplete="off"
+                autoCapitalize="off"
                 value={selectedAnswer}
                 onChange={(event) => setSelectedAnswer(event.target.value)}
                 disabled={Boolean(result)}
