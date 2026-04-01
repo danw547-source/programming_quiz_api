@@ -17942,7 +17942,7 @@
   {
     "id": 1381,
     "question_set": "gear4music",
-    "prompt": "In the Gear4Music interview prep case, what architecture did they describe using for clean separation of concerns?",
+    "prompt": "In the Gear4Music interview prep case, what architecture did I describe using for clean separation of concerns?",
     "options": [
       "Monolithic script",
       "Controller-Service-Repository-Presenter",
@@ -17955,7 +17955,7 @@
   {
     "id": 1382,
     "question_set": "gear4music",
-    "prompt": "Which component did they assign to store products and let users search/filter them?",
+    "prompt": "Which component did I assign to store products and let users search/filter them?",
     "options": [
       "Model/Repository",
       "View/Presenter",
@@ -17968,7 +17968,7 @@
   {
     "id": 1383,
     "question_set": "gear4music",
-    "prompt": "Why did they prefer Controller-Service-Repository?",
+    "prompt": "Why did I prefer Controller-Service-Repository?",
     "options": [
       "To keep UI and data logic mixed",
       "To isolate request flow, business rules, and storage",
@@ -17981,7 +17981,7 @@
   {
     "id": 1384,
     "question_set": "gear4music",
-    "prompt": "How does their design make adding new product types easier?",
+    "prompt": "How does my design make adding new product types easier?",
     "options": [
       "By hardcoding all types in one class",
       "By using inheritance (e.g., DigitalProduct extends Product) and service-level filter methods",
@@ -18007,7 +18007,7 @@
   {
     "id": 1386,
     "question_set": "gear4music",
-    "prompt": "Why did they add InventoryInterface despite only one repository implementation?",
+    "prompt": "Why did I add InventoryInterface despite only one repository implementation?",
     "options": [
       "Because interfaces are mandatory in PHP",
       "For easier swapping of implementations and test mocks",
@@ -18020,7 +18020,7 @@
   {
     "id": 1387,
     "question_set": "gear4music",
-    "prompt": "What higher-priority investment did they say they would make with more time?",
+    "prompt": "What higher-priority investment did I say I would make with more time?",
     "options": [
       "Remove tests and optimize for speed",
       "Add unit tests, persistence, and error handling",
@@ -18033,7 +18033,7 @@
   {
     "id": 1388,
     "question_set": "gear4music",
-    "prompt": "How did they handle validation and bad input in the prototype?",
+    "prompt": "How did I handle validation and bad input in the prototype?",
     "options": [
       "They had full strict validation everywhere",
       "Minimal checks in prototype, with plan for future exception handling",
@@ -18046,7 +18046,7 @@
   {
     "id": 1389,
     "question_set": "gear4music",
-    "prompt": "What tradeoff did they mention from using in-memory storage?",
+    "prompt": "What tradeoff did I mention from using in-memory storage?",
     "options": [
       "Great scale and no future changes needed",
       "Fast development now but slower scale for large datasets",
@@ -18059,7 +18059,7 @@
   {
     "id": 1390,
     "question_set": "gear4music",
-    "prompt": "What is the role of InventoryPresenter in their architecture?",
+    "prompt": "What is the role of InventoryPresenter in my architecture?",
     "options": [
       "Manage database schema migrations",
       "Format raw product objects into display output",
@@ -18072,7 +18072,7 @@
   {
     "id": 1391,
     "question_set": "gear4music",
-    "prompt": "How would they add a REST API endpoint without changing core logic?",
+    "prompt": "How would I add a REST API endpoint without changing core logic?",
     "options": [
       "Rewrite InventoryService completely",
       "Keep InventoryService and Repository, add controller route and JSON presenter",
@@ -18098,7 +18098,7 @@
   {
     "id": 1393,
     "question_set": "gear4music",
-    "prompt": "Which assumption did they make for the challenge?",
+    "prompt": "Which assumption did I make for the challenge?",
     "options": [
       "Inventory is infinite",
       "No auth needed and data fits in memory",
@@ -18111,7 +18111,7 @@
   {
     "id": 1394,
     "question_set": "gear4music",
-    "prompt": "What is the first development step they described in process?",
+    "prompt": "What is the first development step I described in process?",
     "options": [
       "Write UI before any backend",
       "Read challenge and identify core use cases",
@@ -18124,7 +18124,7 @@
   {
     "id": 1395,
     "question_set": "gear4music",
-    "prompt": "What manual test action did they describe for the prototype?",
+    "prompt": "What manual test action did I describe for the prototype?",
     "options": [
       "Run php demo.php and verify path behavior",
       "Only read the code without running anything",
@@ -18137,7 +18137,7 @@
   {
     "id": 1396,
     "question_set": "gear4music",
-    "prompt": "Which unit tests did they plan to write with PHPUnit?",
+    "prompt": "Which unit tests did I plan to write with PHPUnit?",
     "options": [
       "InventoryService and InMemoryProductRepository tests",
       "Only UI snapshot tests",
@@ -18150,7 +18150,7 @@
   {
     "id": 1397,
     "question_set": "gear4music",
-    "prompt": "What would they do for 1000+ products for better performance?",
+    "prompt": "What would I do for 1000+ products for better performance?",
     "options": [
       "Continue linear scanning with no changes",
       "Add indexing/caching or database query layer",
@@ -18163,7 +18163,7 @@
   {
     "id": 1398,
     "question_set": "gear4music",
-    "prompt": "How would they add persistence in a concrete way?",
+    "prompt": "How would I add persistence in a concrete way?",
     "options": [
       "Keep InMemoryProductRepository forever",
       "Add DatabaseProductRepository implementing the same interface",
