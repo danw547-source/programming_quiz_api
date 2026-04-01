@@ -18198,5 +18198,265 @@
     ],
     "answer": "Allow easy implementation swaps and testing",
     "explanation": "Interfaces decouple high-level code from concrete implementations and simplify test mocks."
+  },
+  {
+    "id": 1401,
+    "question_set": "g4m project workflow",
+    "prompt": "What did the initial approach focus on for the challenge?",
+    "options": [
+      "Read the brief and break features into i18n/currency/visibility/product types",
+      "Start coding immediately without reading requirements",
+      "Use a third-party monolith framework without design",
+      "Skip documentation and go to deployment"
+    ],
+    "answer": "Read the brief and break features into i18n/currency/visibility/product types",
+    "explanation": "Understanding requirements up front prevents rework and supports a clear plan."
+  },
+  {
+    "id": 1402,
+    "question_set": "g4m project workflow",
+    "prompt": "How was the basic project structure set up?",
+    "options": [
+      "Using Composer, PSR-4 autoloading, and separate model/service/controller/presenter layers",
+      "All code in one script with no namespaces",
+      "Procedural file per route with globals",
+      "No autoload, manual includes only"
+    ],
+    "answer": "Using Composer, PSR-4 autoloading, and separate model/service/controller/presenter layers",
+    "explanation": "This structure keeps classes discoverable and maintainable as the project grows."
+  },
+  {
+    "id": 1403,
+    "question_set": "g4m project workflow",
+    "prompt": "What was the first code component implemented?",
+    "options": [
+      "The Product model class with properties and methods",
+      "The full user interface with JS frameworks",
+      "Database migration scripts only",
+      "Performance profiling tools"
+    ],
+    "answer": "The Product model class with properties and methods",
+    "explanation": "Starting with the domain model ensures later layers have a solid foundation."
+  },
+  {
+    "id": 1404,
+    "question_set": "g4m project workflow",
+    "prompt": "How was multi-language support handled?",
+    "options": [
+      "Product names were stored in a names array with a getName(language) fallback chain",
+      "All languages were concatenated into one string",
+      "Only English was supported permanently",
+      "Use a separate database for each language"
+    ],
+    "answer": "Product names were stored in a names array with a getName(language) fallback chain",
+    "explanation": "Fallback logic ensures a predictable name is returned even when a locale is missing."
+  },
+  {
+    "id": 1405,
+    "question_set": "g4m project workflow",
+    "prompt": "How was currency conversion implemented?",
+    "options": [
+      "Base prices were in GBP and InventoryService converted using exchange rate table",
+      "Prices were left in GBP and ignored for conversion",
+      "Currency math was done in the frontend only",
+      "Each country used a hardcoded separate function"
+    ],
+    "answer": "Base prices were in GBP and InventoryService converted using exchange rate table",
+    "explanation": "Centralizing currency logic in the service supports consistent rounding and conversions."
+  },
+  {
+    "id": 1406,
+    "question_set": "g4m project workflow",
+    "prompt": "What mechanism was used for country visibility filtering?",
+    "options": [
+      "A visibleInCountries array with case-insensitive checks and filter in service",
+      "A separate endpoint per country",
+      "No visibility checks at all",
+      "A global flag that shows everything to everyone"
+    ],
+    "answer": "A visibleInCountries array with case-insensitive checks and filter in service",
+    "explanation": "This approach is flexible and easy to maintain across locale logic."
+  },
+  {
+    "id": 1407,
+    "question_set": "g4m project workflow",
+    "prompt": "When was layered architecture introduced?",
+    "options": [
+      "After the core model, with interface, repository, service, controller, and presenter",
+      "At the very end as a refactor step only",
+      "Never; all code remained monolithic",
+      "Only for the UI layer"
+    ],
+    "answer": "After the core model, with interface, repository, service, controller, and presenter",
+    "explanation": "Layering early improves modularity and testability."
+  },
+  {
+    "id": 1408,
+    "question_set": "g4m project workflow",
+    "prompt": "How did Part 2 (digital products and conditions) get added?",
+    "options": [
+      "By adding Condition enum and DigitalProduct subclass with appropriate overrides",
+      "By storing all products as strings",
+      "By creating a new app just for digital products",
+      "By dropping support for physical products"
+    ],
+    "answer": "By adding Condition enum and DigitalProduct subclass with appropriate overrides",
+    "explanation": "This keeps physical and digital behavior separated while reusing common logic."
+  },
+  {
+    "id": 1409,
+    "question_set": "g4m project workflow",
+    "prompt": "What sample data approach was used?",
+    "options": [
+      "Hardcoded products in MemoryRepository for fast iteration",
+      "A full Postgres database setup immediately",
+      "Live production data dumps",
+      "No sample data at all"
+    ],
+    "answer": "Hardcoded products in MemoryRepository for fast iteration",
+    "explanation": "This avoids real DB complexity while validating behavior quickly."
+  },
+  {
+    "id": 1410,
+    "question_set": "g4m project workflow",
+    "prompt": "How was everything wired together?",
+    "options": [
+      "Via demo.php that builds layer dependencies and executes controller action",
+      "Through an automated CI pipeline only",
+      "By running each file independently without integration",
+      "Using a frontend toolchain exclusively"
+    ],
+    "answer": "Via demo.php that builds layer dependencies and executes controller action",
+    "explanation": "Manual end-to-end demo validates that components communicate correctly."
+  },
+  {
+    "id": 1411,
+    "question_set": "g4m project workflow",
+    "prompt": "What testing strategy was described during development?",
+    "options": [
+      "Repeat demo.php with different scenarios and inspect JSON output",
+      "No testing was done",
+      "Only static code analysis",
+      "Full performance benchmarking with load tests"
+    ],
+    "answer": "Repeat demo.php with different scenarios and inspect JSON output",
+    "explanation": "Incremental manual testing catches functional problems quickly."
+  },
+  {
+    "id": 1412,
+    "question_set": "g4m project workflow",
+    "prompt": "What edge case refinements were added?",
+    "options": [
+      "Fallbacks for missing translations, normalized currency/country inputs, digital as guaranteed new",
+      "Removed all input normalization to simplify code",
+      "Used complex global state for edge cases",
+      "Ignored edge cases entirely"
+    ],
+    "answer": "Fallbacks for missing translations, normalized currency/country inputs, digital as guaranteed new",
+    "explanation": "Robust handling of real input variation improves quality."
+  },
+  {
+    "id": 1413,
+    "question_set": "g4m project workflow",
+    "prompt": "What documentation artifacts were added?",
+    "options": [
+      "approach.md, README updates, and Questions.md",
+      "No documentation",
+      "Only code comments in one function",
+      "A huge launch blog post only"
+    ],
+    "answer": "approach.md, README updates, and Questions.md",
+    "explanation": "Documentation was created to describe design decisions and usage."
+  },
+  {
+    "id": 1414,
+    "question_set": "g4m project workflow",
+    "prompt": "What improvements were planned for more time?",
+    "options": [
+      "Unit tests, database support, validation, error handling, caching",
+      "Throwing away the whole project",
+      "Removing layers in favor of one file",
+      "Focusing only on UI animations"
+    ],
+    "answer": "Unit tests, database support, validation, error handling, caching",
+    "explanation": "These are standard production hardening priorities."
+  },
+  {
+    "id": 1415,
+    "question_set": "g4m project workflow",
+    "prompt": "How did the workflow demonstrate development process?",
+    "options": [
+      "Requirements analysis, iterative implementation, testing, and docs",
+      "Rushing with no planning",
+      "Skipping testing after first prototype",
+      "Never reviewing design decisions"
+    ],
+    "answer": "Requirements analysis, iterative implementation, testing, and docs",
+    "explanation": "The workflow shows a structured, risk-managed approach."
+  },
+  {
+    "id": 1416,
+    "question_set": "g4m project workflow",
+    "prompt": "Why is a names array better than a single name field for i18n?",
+    "options": [
+      "It stores localized strings and enables language fallbacks",
+      "It stores only one language and ignores others",
+      "It duplicates data across languages",
+      "It requires a database for every name"
+    ],
+    "answer": "It stores localized strings and enables language fallbacks",
+    "explanation": "This strategy supports translation without complicating lookup."
+  },
+  {
+    "id": 1417,
+    "question_set": "g4m project workflow",
+    "prompt": "What does the Condition enum support?",
+    "options": [
+      "Defines new/used/refurbished states for product behavior",
+      "Forces all products to be new",
+      "Manages user roles in system",
+      "Defines database columns only"
+    ],
+    "answer": "Defines new/used/refurbished states for product behavior",
+    "explanation": "Condition enum encapsulates state-specific rules clearly."
+  },
+  {
+    "id": 1418,
+    "question_set": "g4m project workflow",
+    "prompt": "How does the service layer reduce controller complexity?",
+    "options": [
+      "By containing business logic, leaving controller for request/response handling",
+      "By adding more logic into controller",
+      "By removing validation entirely",
+      "By duplicating code across routes"
+    ],
+    "answer": "By containing business logic, leaving controller for request/response handling",
+    "explanation": "Separation of concerns keeps controllers lean and testable."
+  },
+  {
+    "id": 1419,
+    "question_set": "g4m project workflow",
+    "prompt": "What was the benefit of demo.php manual runs?",
+    "options": [
+      "Quickly verify filtering, translation, and pricing behaviors",
+      "Only to test CSS styles",
+      "To avoid writing code",
+      "To deploy directly to production"
+    ],
+    "answer": "Quickly verify filtering, translation, and pricing behaviors",
+    "explanation": "Manual runs help catch functional issues before formal tests."
+  },
+  {
+    "id": 1420,
+    "question_set": "g4m project workflow",
+    "prompt": "What is the key take-away from the entire workflow?",
+    "options": [
+      "Plan requirements, build iteratively, test often, and document",
+      "Build everything at once with no plan",
+      "Ignore user needs and move fast",
+      "Avoid any form of architecture"
+    ],
+    "answer": "Plan requirements, build iteratively, test often, and document",
+    "explanation": "A disciplined process leads to reliable, maintainable systems."
   }
 ]

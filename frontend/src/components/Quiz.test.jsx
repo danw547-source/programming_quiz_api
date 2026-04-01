@@ -19,11 +19,17 @@ vi.mock("../services/quizService", () => ({
   CHEAT_SHEET_ENDPOINT: "http://127.0.0.1:8000/cheat-sheet",
   QUESTIONS_ENDPOINT: "http://127.0.0.1:8000/questions",
   QUESTION_SETS_ENDPOINT: "http://127.0.0.1:8000/question-sets",
+  AI_QUESTION_SETS_ENDPOINT: "http://127.0.0.1:8000/ai/question-sets",
+  AI_QUESTIONS_ENDPOINT: "http://127.0.0.1:8000/ai/questions",
   getAnswerEndpoint: (questionId) => `http://127.0.0.1:8000/answer/${questionId}`,
   getCheatSheet: vi.fn(),
   getQuestionSets: vi.fn(),
   getQuestions: vi.fn(),
+  getAiQuestionSets: vi.fn(),
+  getAiQuestions: vi.fn(),
+  getAiCheatSheet: vi.fn(),
   submitAnswer: vi.fn(),
+  submitAiAnswer: vi.fn(),
 }));
 
 const SAMPLE_QUESTIONS = [
@@ -70,6 +76,40 @@ describe("Quiz component", () => {
     quizService.getQuestionSets.mockResolvedValue(["solid principles"]);
     quizService.getQuestions.mockResolvedValue(SAMPLE_QUESTIONS);
     quizService.getCheatSheet.mockResolvedValue(SAMPLE_CHEAT_SHEET);
+
+    quizService.getAiQuestionSets.mockResolvedValue(["solid principles", "aiquiz"]);
+    quizService.getAiQuestions.mockImplementation(async (questionSet) => {
+      if (questionSet === "solid principles") {
+        return [
+          {
+            id: 100,
+            question_set: "solid principles",
+            prompt: "What is AI mode for solid principles?",
+            options: [],
+          },
+        ];
+      }
+      return [
+        {
+          id: 1,
+          question_set: "aiquiz",
+          prompt: "What is AI quiz?",
+          options: [],
+        },
+      ];
+    });
+    quizService.getAiCheatSheet.mockResolvedValue({
+      question_set: "aiquiz",
+      total_questions: 1,
+      entries: [
+        {
+          id: 1,
+          prompt: "What is AI quiz?",
+          answer: "AI question mode",
+          explanation: "AI mode accepts free text.",
+        },
+      ],
+    });
   });
 
   afterEach(() => {
@@ -94,6 +134,24 @@ describe("Quiz component", () => {
     });
 
     expect(screen.getByText("What does SRP stand for?")).toBeInTheDocument();
+  });
+
+  it("loads AI questions for the current category set when mode is ai", async () => {
+    render(
+      <Quiz
+        isLightTheme
+        selectedCategory="programming"
+        onCategoryChange={vi.fn()}
+        mode="ai"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(quizService.getAiQuestionSets).toHaveBeenCalledTimes(1);
+      expect(quizService.getAiQuestions).toHaveBeenCalledWith("solid principles");
+    });
+
+    expect(screen.getByText("What is AI mode for solid principles?")).toBeInTheDocument();
   });
 
   it("shows answer and explanation for the current question in cheat sheet", async () => {

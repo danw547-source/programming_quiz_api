@@ -29,6 +29,10 @@ def get_questions(
     question_set = question_set.strip() if question_set else None
     questions = service.get_questions(question_set=question_set)
 
+    # For AI mode, remove options to make questions free-text
+    for q in questions:
+        q["options"] = []
+
     # AI quiz gets a capped subset to keep rounds short and consistent.
     from random import shuffle
 

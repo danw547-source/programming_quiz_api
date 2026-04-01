@@ -321,7 +321,7 @@ function App() {
           <div className="mx-auto w-full max-w-180 pb-2">
             <Quiz
               isLightTheme={isLightTheme}
-              selectedCategory={isAiQuiz ? "aiquiz" : selectedCategory}
+              selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
               mode={isAiQuiz ? "ai" : "standard"}
             />

@@ -58,6 +58,22 @@ def sample_questions() -> list[Question]:
             answer="print",
             explanation="print() writes to standard output.",
         ),
+        Question(
+            id=3,
+            question_set="gear4music",
+            prompt="What is the first question from AIQUESTIONS.md?",
+            options=["A", "B"],
+            answer="A",
+            explanation="First question test.",
+        ),
+        Question(
+            id=4,
+            question_set="g4m project workflow",
+            prompt="What is the first question from AIQUESTIONS2.md?",
+            options=["X", "Y"],
+            answer="X",
+            explanation="Second file first question test.",
+        ),
     ]
 
 
@@ -81,7 +97,7 @@ def test_get_question_sets_returns_sorted_unique_values(client: TestClient):
     response = client.get("/question-sets")
 
     assert response.status_code == 200
-    assert response.json() == ["python beginner", "solid principles"]
+    assert response.json() == ["g4m project workflow", "gear4music", "python beginner", "solid principles"]
 
 
 def test_get_questions_can_filter_by_question_set(client: TestClient):
@@ -139,6 +155,7 @@ def test_ai_quiz_endpoints(client: TestClient):
     response_sets = client.get("/ai/question-sets")
     assert response_sets.status_code == 200
     assert "solid principles" in response_sets.json()
+    assert "gear4music" in response_sets.json()
     response_questions = client.get("/ai/questions")
     assert response_questions.status_code == 200
     first_question = response_questions.json()[0]

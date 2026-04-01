@@ -12,7 +12,7 @@
  * place that cares about it, and the component unmounts cleanly when the
  * user navigates away.
  */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   getCheatSheet,
   getQuestionSets,
@@ -68,6 +68,9 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "scales intermediate": { label: "Scales Intermediate", badge: "SC", category: "music-theory" },
   "scales expert": { label: "Scales Expert", badge: "SC", category: "music-theory" },
   "keyboard music theory beginner": { label: "Keyboard Theory Beginner", badge: "KB", category: "music-theory" },
+  "gear4music": { label: "Gear4Music", badge: "G4M", category: "programming" },
+  "g4m project workflow": { label: "G4M Project Workflow", badge: "G4M", category: "programming" },
+  "aiquiz": { label: "AI Quiz", badge: "AI", category: "ai" },
   "keyboard music theory intermediate": { label: "Keyboard Theory Intermediate", badge: "KB", category: "music-theory" },
   "keyboard music theory expert": { label: "Keyboard Theory Expert", badge: "KB", category: "music-theory" },
   "guitar based music theory beginner": { label: "Guitar Theory Beginner", badge: "GT", category: "music-theory" },
@@ -158,6 +161,10 @@ const getCategoryLabel = (category) => {
     return "Fitness";
   }
 
+  if (category === "aiquiz" || category === "ai") {
+    return "AI";
+  }
+
   return "Programming";
 };
 
@@ -233,6 +240,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   const [isRetryRound, setIsRetryRound] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
+  const aiAnswerInputRef = useRef(null);
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
   const [result, setResult] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -302,10 +310,16 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       if (isAiMode) {
         const sets = await getAiQuestionSets();
         setQuestionSets(sets);
-        const initialSet = sets[0] ?? "";
+
+        const currentSet = selectedQuestionSet && sets.includes(selectedQuestionSet)
+          ? selectedQuestionSet
+          : undefined;
+        const categorySets = isAiMode ? sets : getQuestionSetsForCategory(sets, selectedCategory);
+        const initialSet = currentSet || categorySets[0] || sets[0] || "";
+
         setSelectedQuestionSet(initialSet);
 
-        const data = await getAiQuestions(initialSet);
+        const data = initialSet ? await getAiQuestions(initialSet) : [];
         setAllQuestions(data);
         setQuestions(shuffleArray(data));
         setIsRetryRound(false);
@@ -346,7 +360,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   }, [loadQuestionSets]);
 
   useEffect(() => {
-    if (!questionSets.length) {
+if (!questionSets.length) {
       return;
     }
 
@@ -389,6 +403,14 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   // Quiz is complete after the user advances past the last question index.
   const isFinished = totalQuestions > 0 && currentIndex >= totalQuestions;
   const question = questions[currentIndex];
+
+  useEffect(() => {
+    if (!isAiMode || !aiAnswerInputRef.current) {
+      return;
+    }
+
+    aiAnswerInputRef.current.focus();
+  }, [isAiMode, question]);
 
   const handleSubmit = useCallback(async () => {
     // Prevent duplicate submissions or empty answer submits.
@@ -681,13 +703,13 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   }
 
   if (!questions.length) {
-    const hasAlternativeCategory = alternateCategorySets.length > 0;
+    const hasAlternativeCategory = !isAiMode && alternateCategorySets.length > 0;
 
     return (
       <div
         className={`rounded-2xl border p-5 ${neutralCardClasses} ${neutralTextClasses}`}
       >
-        <p className="text-base font-semibold">No {selectedCategoryLabel} sets are available right now.</p>
+        <p className="text-base font-semibold">No {isAiMode ? "AI quiz" : selectedCategoryLabel} sets are available right now.</p>
 
         {hasAlternativeCategory && typeof onCategoryChange === "function" ? (
           <>
@@ -931,9 +953,11 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
           >
             {question.prompt}
           </h2>
-          <p className={`mt-1 hidden text-xs sm:block sm:text-sm ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
-            Keyboard: Press A-D or use arrow keys to choose. Press Enter to submit or continue.
-          </p>
+          {!isAiMode && (
+            <p className={`mt-1 hidden text-xs sm:block sm:text-sm ${isLightTheme ? "text-slate-400" : "text-slate-500"}`}>
+              Keyboard: Press A-D or use arrow keys to choose. Press Enter to submit or continue.
+            </p>
+          )}
         </section>
 
         <section key={question.id} className="mx-auto w-full max-w-176 space-y-1.5 pt-1 sm:space-y-3 sm:pt-2.5">
@@ -943,6 +967,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
                 Type your answer
               </label>
               <input
+                ref={aiAnswerInputRef}
                 id="ai-user-answer"
                 type="text"
                 autoComplete="off"
