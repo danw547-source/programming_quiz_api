@@ -18458,5 +18458,109 @@
     ],
     "answer": "Plan requirements, build iteratively, test often, and document",
     "explanation": "A disciplined process leads to reliable, maintainable systems."
+  },
+  {
+    "id": 1421,
+    "question_set": "caching & indexing beginner",
+    "prompt": "What is the primary purpose of caching in computer systems?",
+    "options": [
+      "To permanently store data on disk",
+      "To temporarily store frequently accessed data for faster retrieval",
+      "To organize data in alphabetical order",
+      "To encrypt sensitive information"
+    ],
+    "answer": "To temporarily store frequently accessed data for faster retrieval",
+    "explanation": "Caching improves performance by keeping copies of data in faster storage closer to where it's needed."
+  },
+  {
+    "id": 1422,
+    "question_set": "caching & indexing beginner",
+    "prompt": "What does indexing do in a database?",
+    "options": [
+      "Temporarily stores query results",
+      "Creates a data structure to speed up data searches",
+      "Compresses database files",
+      "Backs up data automatically"
+    ],
+    "answer": "Creates a data structure to speed up data searches",
+    "explanation": "Indexes allow databases to find data quickly without scanning entire tables."
+  },
+  {
+    "id": 1423,
+    "question_set": "caching & indexing beginner",
+    "prompt": "Which of the following is a main benefit of caching?",
+    "options": [
+      "Reduces storage costs",
+      "Speeds up data access and improves performance",
+      "Increases data redundancy",
+      "Simplifies data backup"
+    ],
+    "answer": "Speeds up data access and improves performance",
+    "explanation": "Caching reduces latency by serving data from faster memory instead of slower storage."
+  },
+  {
+    "id": 1424,
+    "question_set": "caching & indexing beginner",
+    "prompt": "What is a primary advantage of database indexing?",
+    "options": [
+      "Makes data immutable",
+      "Allows faster query execution",
+      "Replaces the need for primary keys",
+      "Automatically sorts all data"
+    ],
+    "answer": "Allows faster query execution",
+    "explanation": "Indexes enable quick lookups, especially for large datasets."
+  },
+  {
+    "id": 1425,
+    "question_set": "caching & indexing beginner",
+    "prompt": "What is the main difference between caching and indexing?",
+    "options": [
+      "Caching is for memory, indexing is for databases",
+      "Caching stores temporary copies for speed, indexing creates permanent structures for search",
+      "They are the same thing",
+      "Caching organizes data, indexing speeds up writes"
+    ],
+    "answer": "Caching stores temporary copies for speed, indexing creates permanent structures for search",
+    "explanation": "Caching is about temporary storage for performance, while indexing is about data organization for efficient querying."
+  },
+  {
+    "id": 1426,
+    "question_set": "caching & indexing beginner",
+    "prompt": "In which of these scenarios is caching most beneficial?",
+    "options": [
+      "Storing user passwords securely",
+      "Speeding up web page loads by storing static content",
+      "Organizing files on a hard drive",
+      "Creating backup copies of data"
+    ],
+    "answer": "Speeding up web page loads by storing static content",
+    "explanation": "Web caches store frequently requested content to reduce server load and response time."
+  },
+  {
+    "id": 1427,
+    "question_set": "caching & indexing beginner",
+    "prompt": "Where would you most likely use indexing?",
+    "options": [
+      "In web browsers for faster page loading",
+      "In databases to speed up search queries",
+      "In memory for temporary data storage",
+      "In file systems for compression"
+    ],
+    "answer": "In databases to speed up search queries",
+    "explanation": "Database indexes are crucial for efficient data retrieval in large tables."
+  },
+  {
+    "id": 1428,
+    "question_set": "caching & indexing beginner",
+    "prompt": "Can caching and indexing be used together in a system?",
+    "options": [
+      "No, they are mutually exclusive",
+      "Yes, they complement each other for better performance",
+      "Only in specific programming languages",
+      "Only for read operations"
+    ],
+    "answer": "Yes, they complement each other for better performance",
+    "explanation": "Indexing speeds up data location, while caching speeds up data access once located."
   }
 ]
