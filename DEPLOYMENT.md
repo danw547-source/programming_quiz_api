@@ -46,7 +46,7 @@ This guide covers deploying the Beat the Backlog Quiz application to IONOS hosti
 
 4. **Run Migrations and Start Server**
    ```bash
-   python -m app.main
+   python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
    # Or use gunicorn for production:
    # pip install gunicorn
    # gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
@@ -78,11 +78,14 @@ Shared hosting typically only supports PHP. You may need to upgrade to VPS for P
    ```bash
    cd frontend
    npm install
-   API_URL=https://your-api-domain.com npm run build:production
+   # Set VITE_API_URL in frontend/.env.production
+   npm run build:deploy
    ```
 
 2. **Upload Static Files**
-   - Upload the `dist/` folder contents to your IONOS web space
+   - Upload `dist-deploy.zip` from the repository root to your IONOS web space
+   - Extract it so files land under your `/public/quiz` directory
+   - If your host cannot extract zip files, run `npm run build` and upload the `dist/` contents manually
    - Ensure the base path is set correctly (currently `/quiz/`)
 
 3. **Configure Domain**

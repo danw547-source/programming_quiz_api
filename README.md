@@ -198,7 +198,8 @@ npm run build
 ## Deployment Notes
 
 - Frontend production build base path is /quiz (see frontend/vite.config.js)
-- Upload frontend/dist contents into /public/quiz on the host
+- Preferred: run `npm run build:deploy` in `frontend` to generate `dist-deploy.zip` at the repo root, then extract into /public/quiz
+- Fallback: run `npm run build` and upload frontend/dist contents into /public/quiz on the host
 - Keep an SPA rewrite rule file in the deployed /quiz directory
 
 ## License
