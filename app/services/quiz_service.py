@@ -9,6 +9,7 @@ is trivially testable with an in-memory stub.
 from functools import lru_cache
 
 from app.repositories.question_repository import QuestionRepository
+from app.services.ai_answer_evaluator import is_answer_correct
 
 
 def _normalize_question_set(question_set: str | None) -> str | None:
@@ -91,7 +92,7 @@ class QuizService:
             "entries": entries,
         }
 
-    def check_answer(self, question_id: int, answer: str):
+    def check_answer(self, question_id: int, answer: str, ai_mode: bool = False):
         question = self.repository.get_by_id(question_id)
 
         # None here means the ID does not exist; the controller converts this to
@@ -99,7 +100,13 @@ class QuizService:
         if not question:
             return None
 
-        correct = question.check_answer(answer)
+        if ai_mode:
+            correct = (
+                is_answer_correct(question.answer, answer)
+                or is_answer_correct(question.explanation, answer)
+            )
+        else:
+            correct = question.check_answer(answer)
 
         return {
             "correct": correct,

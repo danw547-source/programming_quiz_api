@@ -14,7 +14,7 @@ from collections.abc import Generator
 import pytest
 from fastapi.testclient import TestClient
 
-from app.dependencies import get_quiz_service
+from app.dependencies import get_quiz_service, get_ai_quiz_service
 from app.main import app
 from app.models.question import Question
 from app.repositories.question_repository import QuestionRepository
@@ -58,6 +58,22 @@ def sample_questions() -> list[Question]:
             answer="print",
             explanation="print() writes to standard output.",
         ),
+        Question(
+            id=3,
+            question_set="gear4music",
+            prompt="What is the first question from AIQUESTIONS.md?",
+            options=["A", "B"],
+            answer="A",
+            explanation="First question test.",
+        ),
+        Question(
+            id=4,
+            question_set="g4m project workflow",
+            prompt="What is the first question from AIQUESTIONS2.md?",
+            options=["X", "Y"],
+            answer="X",
+            explanation="Second file first question test.",
+        ),
     ]
 
 
@@ -69,6 +85,7 @@ def client(sample_questions: list[Question]) -> Generator[TestClient, None, None
     # Override the dependency for every test using this fixture.
     # The override is cleared at teardown so it doesn't leak into other tests.
     app.dependency_overrides[get_quiz_service] = _build_service
+    app.dependency_overrides[get_ai_quiz_service] = _build_service
 
     with TestClient(app) as test_client:
         yield test_client
@@ -80,7 +97,7 @@ def test_get_question_sets_returns_sorted_unique_values(client: TestClient):
     response = client.get("/question-sets")
 
     assert response.status_code == 200
-    assert response.json() == ["python beginner", "solid principles"]
+    assert response.json() == ["g4m project workflow", "gear4music", "python beginner", "solid principles"]
 
 
 def test_get_questions_can_filter_by_question_set(client: TestClient):
@@ -132,3 +149,19 @@ def test_submit_answer_returns_404_for_missing_question(client: TestClient):
 
     assert response.status_code == 404
     assert response.json()["detail"] == "Question not found"
+
+
+def test_ai_quiz_endpoints(client: TestClient):
+    response_sets = client.get("/ai/question-sets")
+    assert response_sets.status_code == 200
+    assert "solid principles" in response_sets.json()
+    assert "gear4music" in response_sets.json()
+    response_questions = client.get("/ai/questions")
+    assert response_questions.status_code == 200
+    first_question = response_questions.json()[0]
+    assert "prompt" in first_question
+    assert "answer" not in first_question
+
+    response_submit = client.post("/ai/answer/1", json={"answer": "Each module should have only one reason to change."})
+    assert response_submit.status_code == 200
+    assert response_submit.json()["correct"] is True

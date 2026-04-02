@@ -75,6 +75,7 @@ EXPECTED_QUESTION_SETS = {
     "sql intermediate",
     "sql expert",
     "gear4music",
+    "g4m project workflow",
     "object oriented programming",
 }
 

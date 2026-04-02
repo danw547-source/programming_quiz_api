@@ -11,6 +11,11 @@ export const QUESTIONS_ENDPOINT = `${API_BASE_URL}/questions`;
 export const CHEAT_SHEET_ENDPOINT = `${API_BASE_URL}/cheat-sheet`;
 export const getAnswerEndpoint = (questionId) => `${API_BASE_URL}/answer/${questionId}`;
 
+export const AI_QUESTION_SETS_ENDPOINT = `${API_BASE_URL}/ai/question-sets`;
+export const AI_QUESTIONS_ENDPOINT = `${API_BASE_URL}/ai/questions`;
+export const AI_CHEAT_SHEET_ENDPOINT = `${API_BASE_URL}/ai/cheat-sheet`;
+export const getAiAnswerEndpoint = (questionId) => `${API_BASE_URL}/ai/answer/${questionId}`;
+
 // Increased from 10s to 30s to allow for cold start initialization on first load.
 // Subsequently, with HTTP caching and compression, loads should be <1s per spec.
 const DEFAULT_TIMEOUT_MS = 30_000;
@@ -84,5 +89,50 @@ export const submitAnswer = async (questionId, answer) => {
     return response.data;
   } catch (error) {
     throw new Error(getErrorMessage(error, "Unable to submit answer."));
+  }
+};
+
+export const getAiQuestionSets = async () => {
+  try {
+    const response = await apiClient.get("/ai/question-sets");
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load AI question sets."));
+  }
+};
+
+export const getAiQuestions = async (questionSet) => {
+  try {
+    const response = await apiClient.get("/ai/questions", {
+      params: questionSet ? { question_set: questionSet } : undefined,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load AI questions."));
+  }
+};
+
+export const getAiCheatSheet = async (questionSet) => {
+  const normalizedQuestionSet = questionSet?.trim();
+  if (!normalizedQuestionSet) {
+    throw new Error("Question set is required.");
+  }
+
+  try {
+    const response = await apiClient.get("/ai/cheat-sheet", {
+      params: { question_set: normalizedQuestionSet },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load AI cheat sheet."));
+  }
+};
+
+export const submitAiAnswer = async (questionId, answer) => {
+  try {
+    const response = await apiClient.post(`/ai/answer/${questionId}`, { answer });
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to submit AI answer."));
   }
 };

@@ -128,3 +128,24 @@ def test_check_answer_returns_real_explanation_when_wrong():
 def test_check_answer_returns_none_for_unknown_question():
     result = make_service().check_answer(999, "A")
     assert result is None
+
+
+def test_check_answer_ai_mode_matches_fuzzy_text():
+    ai_question = Question(
+        id=99,
+        question_set="aiquiz",
+        prompt="What programming principle means each module has one responsibility?",
+        options=[],
+        answer="Single responsibility principle",
+        explanation="SRP encourages one reason to change.",
+    )
+    service = QuizService(InMemoryRepository([ai_question]))
+
+    result = service.check_answer(99, "single responsibility principle")
+    assert result["correct"] is True
+
+    result2 = service.check_answer(99, "Single Responsibility", ai_mode=True)
+    assert result2["correct"] is True
+
+    result3 = service.check_answer(99, "not related")
+    assert result3["correct"] is False

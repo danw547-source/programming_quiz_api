@@ -9,10 +9,12 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from starlette.middleware.gzip import GZipMiddleware
 
 from app.config import get_settings
 from app.controllers.quiz_controller import router as quiz_router
+from app.controllers.ai_quiz_controller import router as ai_quiz_router
 from app.database import initialize_database
 from app.logging_config import setup_logging
 from app.middleware import RequestObservabilityAndRateLimitMiddleware
@@ -62,4 +64,9 @@ app.add_middleware(
     expose_headers=["X-Request-ID", "X-RateLimit-Limit", "X-RateLimit-Remaining", "Retry-After"],
 )
 
+@app.get("/", include_in_schema=False)
+def root() -> RedirectResponse:
+    return RedirectResponse(url="/docs")
+
 app.include_router(quiz_router)
+app.include_router(ai_quiz_router)
