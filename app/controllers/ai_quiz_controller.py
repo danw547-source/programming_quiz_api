@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Response
 from app.dependencies import get_ai_quiz_service
 from app.schemas.answer import AnswerResult, AnswerSubmission
 from app.schemas.question import QuestionSummary
+from app.schemas.hint import HintResult
 
 QuizServiceDependency = Annotated[object, Depends(get_ai_quiz_service)]
 
@@ -60,3 +61,11 @@ def get_cheat_sheet(
     if cheat_sheet is None:
         raise HTTPException(status_code=404, detail="Question set not found")
     return cheat_sheet
+
+
+@router.get("/hint/{question_id}", response_model=HintResult)
+def get_hint(question_id: int, service: QuizServiceDependency):
+    hint = service.get_hint(question_id)
+    if hint is None:
+        raise HTTPException(status_code=404, detail="Question not found")
+    return hint

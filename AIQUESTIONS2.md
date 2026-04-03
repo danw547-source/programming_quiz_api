@@ -14,7 +14,7 @@ I began with the `Product` model class, defining its properties (SKU, names arra
 
 ## 4. How did you handle the multi-language requirement?
 **Answer:**  
-In the `Product` class, I added a `names` array for translations and a `getName($language)` method with fallbacks (requested language → English → SKU). This simple approach allowed quick addition of languages without complex i18n libraries.
+In the `Product` class, I added a `names` array for translations and a `getName($language)` method with fallbacks (requested language → English → SKU). This simple approach allowed quick addition of languages without complex multi-language libraries.
 
 ## 5. What about currency conversion—how did you implement that?
 **Answer:**  
@@ -63,7 +63,7 @@ It shows a structured approach: understand requirements, set up basics, implemen
 # AIQuiz Questions (auto-parsed)
 
 - prompt: What was your initial approach to understanding the challenge?
-  answer: Read the brief thoroughly and break the problem into features (i18n, currency, visibility, product types), then design a plan before coding.
+  answer: Read the brief thoroughly and break the problem into features (multi-language support, currency, visibility, product types), then design a plan before coding.
   explanation: This creates focus and avoids early rewrites by ensuring requirements are clear first.
 
 - prompt: How did you set up the basic project structure?

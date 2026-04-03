@@ -22,6 +22,7 @@ import {
   getAiQuestions,
   getAiCheatSheet,
   submitAiAnswer,
+  getAiHint,
 } from "../services/quizService";
 
 const OPTION_INDEX_BY_KEY = Object.freeze({ a: 0, b: 1, c: 2, d: 3 });
@@ -237,6 +238,9 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   const [cheatSheetEntries, setCheatSheetEntries] = useState([]);
   const [cheatSheetQuestionSet, setCheatSheetQuestionSet] = useState("");
   const [cheatSheetError, setCheatSheetError] = useState("");
+  const [isHintLoading, setIsHintLoading] = useState(false);
+  const [hintError, setHintError] = useState("");
+  const [hintText, setHintText] = useState("");
   const [isRetryRound, setIsRetryRound] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -277,6 +281,8 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
     setSelectedAnswer("");
     setResult(null);
     setError("");
+    setHintError("");
+    setHintText("");
   }, []);
 
   const resetRoundState = useCallback(() => {
@@ -541,6 +547,32 @@ if (!questionSets.length) {
       setIsCheatSheetLoading(false);
     }
   }, [currentIndex, questions, selectedQuestionSet]);
+
+  const getHint = useCallback(async () => {
+    if (!question || result) {
+      return;
+    }
+
+    setHintError("");
+    setIsHintLoading(true);
+
+    try {
+      const hintResponse = await getAiHint(question.id);
+      const hint = hintResponse.partial_answer;
+      
+      // Set the hint as placeholder text in the answer input
+      setHintText(hint);
+      
+      // Automatically focus the input so user can immediately start typing
+      if (aiAnswerInputRef.current) {
+        aiAnswerInputRef.current.focus();
+      }
+    } catch (err) {
+      setHintError(`Unable to load hint. ${err?.message ?? "Please try again."}`);
+    } finally {
+      setIsHintLoading(false);
+    }
+  }, [question, result]);
 
   const handleQuestionSetChange = useCallback(async (nextSet) => {
     if (nextSet === selectedQuestionSet) {
@@ -902,6 +934,23 @@ if (!questionSets.length) {
                     >
                       Cheat Sheet
                     </button>
+
+                    {isAiMode && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          void getHint();
+                        }}
+                        disabled={!question || Boolean(result) || isHintLoading || isSubmitting}
+                        className={`inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                          isLightTheme
+                            ? "border-[#b8d4ff] bg-[#eef5ff] text-[#2d5aa3] hover:bg-[#e5edff]"
+                            : "border-[#7b9dd9] bg-[#4a6fa1]/25 text-[#c5e0ff] hover:bg-[#5577b8]/30"
+                        } disabled:cursor-not-allowed disabled:opacity-60`}
+                      >
+                        {isHintLoading ? "Loading..." : "Hint"}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -980,7 +1029,7 @@ if (!questionSets.length) {
                     void handleSubmit();
                   }
                 }}
-                placeholder="Type your answer here"
+                placeholder={hintText || "Type your answer here"}
                 className="w-full rounded-xl border px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-[#8f46ff]"
               />
               <p className="mt-2 text-xs text-slate-400">

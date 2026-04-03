@@ -10,6 +10,7 @@ from functools import lru_cache
 
 from app.repositories.question_repository import QuestionRepository
 from app.services.ai_answer_evaluator import is_answer_correct
+from app.services.hint_generator import generate_hint
 
 
 def _normalize_question_set(question_set: str | None) -> str | None:
@@ -112,4 +113,17 @@ class QuizService:
             "correct": correct,
             "correct_answer": question.answer,
             "explanation": question.explanation,
+        }
+
+    def get_hint(self, question_id: int):
+        question = self.repository.get_by_id(question_id)
+
+        # None here means the ID does not exist; the controller converts this to
+        # a 404 rather than a 500 so the client gets a useful error message.
+        if not question:
+            return None
+
+        partial_answer = generate_hint(question.answer)
+        return {
+            "partial_answer": partial_answer,
         }

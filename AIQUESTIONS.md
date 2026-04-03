@@ -47,10 +47,11 @@
 - Add error handling (invalid input, missing fields).
 - Add clear input validation and consistent error messages.
 
-## 8. How did you handle validation and errors?
+## 8. What validation and error handling would you add in production?
 **Answer:**
-- For the prototype, I did minimal checks and focused on architecture.
-- I would add validation methods, exceptions for invalid states, and user-friendly feedback in production.
+- Add validation methods to check input types, ranges, and dependencies.
+- Use exceptions for invalid states and provide user-friendly error messages.
+- Implement consistent validation across all user inputs (country, language, currency, product data).
 
 ## 9. What tradeoffs did you make (speed vs robustness)?
 **Answer:**
@@ -112,7 +113,7 @@
 - Keep `InventoryService` unchanged; it just talks to the interface. Then set up DI so controller can choose the implementation.
 - This matters because separating the interface from implementation lets your app run in production without changing business logic, and it makes testing easier with mock objects.
 
-## 19. How did you implement internationalization (i18n) for product names?
+## 19. How did you implement multi-language support for product names?
 Answer:
 I stored product names as an array in the Product class, like ['en' => 'Guitar', 'fr' => 'Guitare'], so each product can have translations for different languages. In the service, I call getName($language) to pick the right one. This is important because it keeps translations close to the data, makes it easy to add new languages without changing code, and falls back to English or the SKU if a translation is missing—preventing errors and keeping the app user-friendly.
 
@@ -160,7 +161,7 @@ Inputs like country/language/currency come from users, so I'd add validation (e.
   answer: Each module or class should have only one reason to change.
   explanation: This is the core idea of SRP.
 
-- prompt: In MVC, which component handles user input and routes requests?
+- prompt: What component in MVC handles user input and routes requests?
   answer: The Controller handles user input and routes requests.
   explanation: Controller processes inputs and coordinates model/view updates.
 
@@ -184,9 +185,9 @@ Inputs like country/language/currency come from users, so I'd add validation (e.
   answer: Add thorough unit/integration tests, a database backend, more input validation, and robust error handling.
   explanation: Those improvements increase reliability and maintainability.
 
-- prompt: How did you handle validation and errors?
-  answer: Minimal checks were used for prototype speed, with the plan to add explicit validation and user-friendly error messages in production.
-  explanation: This keeps early development fast while still providing a clear roadmap for hardening.
+- prompt: What validation and error handling would you add in production?
+  answer: Add input validation for types and ranges, use exceptions for invalid states, and provide user-friendly error messages across all endpoints.
+  explanation: Proper validation prevents crashes and security issues while keeping the system robust for real users.
 
 - prompt: What tradeoffs did you make (speed vs robustness)?
   answer: Chose simple in-memory storage and minimal features to deliver functionality quickly, with the tradeoff that large datasets may need refactor.
@@ -228,7 +229,7 @@ Inputs like country/language/currency come from users, so I'd add validation (e.
   answer: Create a new DatabaseProductRepository implementing the same interface, use DI in controllers, and keep services unchanged.
   explanation: This cleanly swaps storage without touching core quiz logic.
 
-- prompt: How did you implement internationalization (i18n) for product names?
+- prompt: How did you implement multi-language support for product names?
   answer: Store localized names in Product (e.g., {en, fr}) and resolve via getName(language) with fallback to English or SKU.
   explanation: This keeps translation in the model and avoids scattered formatting logic.
 

@@ -136,3 +136,12 @@ export const submitAiAnswer = async (questionId, answer) => {
     throw new Error(getErrorMessage(error, "Unable to submit AI answer."));
   }
 };
+
+export const getAiHint = async (questionId) => {
+  try {
+    const response = await apiClient.get(`/ai/hint/${questionId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(getErrorMessage(error, "Unable to load hint."));
+  }
+};

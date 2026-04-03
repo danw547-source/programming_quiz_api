@@ -18488,7 +18488,7 @@
   {
     "id": 1423,
     "question_set": "caching & indexing beginner",
-    "prompt": "Which of the following is a main benefit of caching?",
+    "prompt": "What is a main benefit of caching?",
     "options": [
       "Reduces storage costs",
       "Speeds up data access and improves performance",
@@ -18527,7 +18527,7 @@
   {
     "id": 1426,
     "question_set": "caching & indexing beginner",
-    "prompt": "In which of these scenarios is caching most beneficial?",
+    "prompt": "Describe a scenario where caching would be most beneficial.",
     "options": [
       "Storing user passwords securely",
       "Speeding up web page loads by storing static content",
