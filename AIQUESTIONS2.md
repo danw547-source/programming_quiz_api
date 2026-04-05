@@ -246,3 +246,178 @@ It shows a structured approach: understand requirements, set up basics, implemen
   question_set: g4m 2
   answer: InventoryInterface lets service work with any product type that implements the interface.
   explanation: Interface-driven design supports extension without rewriting core service logic.
+
+- prompt: Where should authentication happen first in this architecture?
+  question_set: g4mextended
+  answer: Authentication should happen at the request boundary in controller or middleware before service logic runs.
+  explanation: Early authentication blocks unauthorized requests before deeper layers execute.
+
+- prompt: If using JWT, what should the controller do with token claims before calling the service?
+  question_set: g4mextended
+  answer: Validate token signature and expiry, then pass only trusted identity and role context to the service.
+  explanation: Services should receive trusted context, not raw unverified token payloads.
+
+- prompt: What user-specific data should reach the service and why?
+  question_set: g4mextended
+  answer: Only minimal validated context like user ID, roles, and tenant when required should reach the service.
+  explanation: Minimal trusted context reduces coupling and lowers security risk.
+
+- prompt: How would role-based access be enforced without polluting model classes?
+  question_set: g4mextended
+  answer: Enforce roles using authorization policies or guards at controller or service boundaries.
+  explanation: Authorization belongs in application policy layers, not domain data classes.
+
+- prompt: What parts of authentication should be unit tested versus integration tested?
+  question_set: g4mextended
+  answer: Unit test token parsing and policy logic, and integration test end-to-end request authentication flow.
+  explanation: This combines isolated correctness checks with wiring and contract verification.
+
+- prompt: Which validation belongs at controller boundary versus service rules?
+  question_set: g4mextended
+  answer: Controller validates shape and required fields, while service enforces business constraints.
+  explanation: Boundary validation protects interface contracts; service validation protects domain rules.
+
+- prompt: How would you structure validation errors so presenter output stays consistent?
+  question_set: g4mextended
+  answer: Use a standard error envelope with code, message, and optional field-level details.
+  explanation: A stable error schema keeps client handling predictable.
+
+- prompt: How would you prevent invalid country, language, or currency values from reaching deeper layers?
+  question_set: g4mextended
+  answer: Normalize and whitelist values at the boundary and reject unknown inputs early.
+  explanation: Early rejection prevents bad data from spreading into service and repository logic.
+
+- prompt: If validation rules grow, where would a dedicated validator component fit?
+  question_set: g4mextended
+  answer: Place a reusable validator between controller and service or as a service collaborator.
+  explanation: This keeps controller and service focused while centralizing complex rules.
+
+- prompt: What is the difference between validation failure and business rule failure?
+  question_set: g4mextended
+  answer: Validation failure means malformed input, while business rule failure means valid input attempted a forbidden action.
+  explanation: They represent different failure classes and should be handled distinctly.
+
+- prompt: If replacing hardcoded rates with an external currency API, what component would you add?
+  question_set: g4mextended
+  answer: Add an exchange-rate provider adapter that wraps external API calls.
+  explanation: An adapter isolates third-party integration from business logic.
+
+- prompt: Should service call the currency API directly or through an adapter interface?
+  question_set: g4mextended
+  answer: Rates should come through an interface adapter so service depends on abstraction.
+  explanation: This improves testability, resilience, and provider swap flexibility.
+
+- prompt: How would you handle currency API outages while keeping responses stable?
+  question_set: g4mextended
+  answer: Use cached or last-known-good rates and degrade gracefully when live fetch fails.
+  explanation: Graceful fallback preserves user value during external outages.
+
+- prompt: Where would you cache rates and what TTL would you start with?
+  question_set: g4mextended
+  answer: Cache rates in the provider layer with a moderate TTL such as 10 to 30 minutes.
+  explanation: Provider-level cache centralizes freshness policy and reduces API load.
+
+- prompt: How would you test conversion logic without live API calls?
+  question_set: g4mextended
+  answer: Inject a fake or mocked rate provider with deterministic rates in tests.
+  explanation: Deterministic mocks keep tests fast and reliable.
+
+- prompt: If moving from in-memory to MySQL, what should change and what should remain unchanged?
+  question_set: g4mextended
+  answer: Repository implementation changes, while service, controller, and presenter contracts should remain stable.
+  explanation: Proper layering isolates persistence changes behind repository abstractions.
+
+- prompt: What migration strategy would you propose for existing sample data?
+  question_set: g4mextended
+  answer: Use idempotent seed migrations with upsert behavior.
+  explanation: Idempotent migrations are safe to rerun in repeated deployments.
+
+- prompt: How would you protect data access with transactions when adding writes?
+  question_set: g4mextended
+  answer: Wrap write workflows in explicit transactions with rollback on failure.
+  explanation: Transactions protect consistency for multi-step operations.
+
+- prompt: What indexes would you add first for country visibility and product lookup?
+  question_set: g4mextended
+  answer: Add composite indexes aligned to visibility filters and primary lookup keys.
+  explanation: Indexes should match frequent query patterns first.
+
+- prompt: How would you design repository interfaces to support read and write models cleanly?
+  question_set: g4mextended
+  answer: Split repository contracts by query and command responsibilities.
+  explanation: Focused interfaces reduce coupling and simplify evolution.
+
+- prompt: Where would you add structured logging for easy debugging across layers?
+  question_set: g4mextended
+  answer: Add structured logs at controller entry and exit, service decisions, and repository calls.
+  explanation: Layered logs provide observability across request flow.
+
+- prompt: What metrics would you capture first?
+  question_set: g4mextended
+  answer: Start with error rate, latency, fallback usage, and invalid input counts.
+  explanation: These baseline metrics quickly show reliability and quality trends.
+
+- prompt: How would you trace one request from controller to presenter in logs?
+  question_set: g4mextended
+  answer: Propagate a correlation ID through all layers and include it in logs.
+  explanation: Shared correlation IDs tie distributed log lines to one request.
+
+- prompt: What retry policy is acceptable for external dependencies like currency provider?
+  question_set: g4mextended
+  answer: Use bounded retries with exponential backoff and jitter for transient failures.
+  explanation: Controlled retries improve resilience without causing retry storms.
+
+- prompt: How would you introduce feature flags for enabling API rates per environment?
+  question_set: g4mextended
+  answer: Drive behavior with centralized configuration flags resolved at composition time.
+  explanation: Central flags allow safe rollout and rollback without code scattering.
+
+- prompt: Which security checks belong at request boundary versus business layer?
+  question_set: g4mextended
+  answer: Boundary handles authentication and input constraints; business layer handles authorization and domain rule checks.
+  explanation: Separating responsibilities keeps security logic coherent and maintainable.
+
+- prompt: How should secrets be managed across environments?
+  question_set: g4mextended
+  answer: Store secrets in environment variables or a secret manager and never in source control.
+  explanation: External secret management supports rotation and reduces leak risk.
+
+- prompt: What abuse controls would you add first?
+  question_set: g4mextended
+  answer: Add rate limiting, request size limits, and audit logging for sensitive actions.
+  explanation: These controls mitigate common abuse and provide traceability.
+
+- prompt: What data should never be returned by presenter responses?
+  question_set: g4mextended
+  answer: Never return secrets, tokens, password hashes, or internal stack traces.
+  explanation: Preventing sensitive leakage is a core hardening requirement.
+
+- prompt: Which automated checks should CI run to prevent auth, validation, and security regressions?
+  question_set: g4mextended
+  answer: Run unit and integration tests plus static analysis and dependency vulnerability scanning.
+  explanation: Combining behavior and security checks catches regressions early.
+
+- prompt: A user passes currency equals XYZ; what layer resolves this and what response shape should they get?
+  question_set: g4mextended
+  answer: Service resolves to a supported fallback currency and returns the normal response schema.
+  explanation: Invalid currency handling belongs in business logic while preserving contract shape.
+
+- prompt: The currency API is down for twenty minutes; what fallback keeps the app useful?
+  question_set: g4mextended
+  answer: Use cached rates or base-currency fallback with clear degraded-mode behavior.
+  explanation: Graceful degradation maintains utility during provider outages.
+
+- prompt: A new endpoint requires admin access only; where is the minimum change surface?
+  question_set: g4mextended
+  answer: Add an authorization guard or policy check at route and service boundary.
+  explanation: Focused policy checks avoid unnecessary cross-layer refactors.
+
+- prompt: Validation now depends on country and product type together; where should that rule live?
+  question_set: g4mextended
+  answer: Put this cross-field rule in service logic or a dedicated domain validator.
+  explanation: Cross-context validation belongs where domain semantics are available.
+
+- prompt: You need per-user preferred language and currency; how should this flow from controller to service?
+  question_set: g4mextended
+  answer: Controller reads trusted user preferences and passes them as explicit service parameters.
+  explanation: Boundary extracts context and service applies business behavior.

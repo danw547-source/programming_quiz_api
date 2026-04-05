@@ -18887,5 +18887,460 @@
     ],
     "answer": "The InventoryInterface means the service already works with any product type that implements it",
     "explanation": "Interface-driven design allows extension with new product classes without rewriting service code."
+  },
+  {
+    "id": 1454,
+    "question_set": "g4mextended",
+    "prompt": "Where should authentication happen first in this architecture: controller, service, repository, or presenter?",
+    "options": [
+      "At the request boundary in controller or middleware before service logic runs",
+      "Inside the repository before reading data",
+      "In the presenter when formatting output",
+      "Inside model constructors"
+    ],
+    "answer": "At the request boundary in controller or middleware before service logic runs",
+    "explanation": "Authentication should be enforced early to block unauthorized requests before business logic executes."
+  },
+  {
+    "id": 1455,
+    "question_set": "g4mextended",
+    "prompt": "If using JWT, what should the controller do with token claims before calling the service?",
+    "options": [
+      "Ignore claims and pass token text straight to the service",
+      "Validate signature and expiry, then pass only trusted identity and roles context",
+      "Store claims directly in the database first",
+      "Convert claims into presenter response fields"
+    ],
+    "answer": "Validate signature and expiry, then pass only trusted identity and roles context",
+    "explanation": "Controllers should pass validated, minimal identity context rather than raw token data."
+  },
+  {
+    "id": 1456,
+    "question_set": "g4mextended",
+    "prompt": "What user-specific data should reach the service, and why?",
+    "options": [
+      "Only validated user context such as user ID, roles, and tenant when needed",
+      "Raw password hash and refresh token",
+      "Full JWT payload including unused claims",
+      "No user data under any circumstance"
+    ],
+    "answer": "Only validated user context such as user ID, roles, and tenant when needed",
+    "explanation": "Passing minimal trusted context keeps services secure and avoids coupling to auth implementation details."
+  },
+  {
+    "id": 1457,
+    "question_set": "g4mextended",
+    "prompt": "How would role-based access admin vs customer be enforced without polluting model classes?",
+    "options": [
+      "Add role checks directly to every model getter",
+      "Use authorization policies or guards at controller or service boundaries",
+      "Store role flags in presenter templates",
+      "Let repositories deny writes randomly"
+    ],
+    "answer": "Use authorization policies or guards at controller or service boundaries",
+    "explanation": "Authorization belongs in policy or application layers, not in domain model data classes."
+  },
+  {
+    "id": 1458,
+    "question_set": "g4mextended",
+    "prompt": "What parts of authentication should be unit tested vs integration tested?",
+    "options": [
+      "Unit test token parsing and policy decisions; integration test full request auth flow",
+      "Only integration tests are needed for authentication",
+      "Only unit tests are needed for authentication",
+      "Authentication should never be tested"
+    ],
+    "answer": "Unit test token parsing and policy decisions; integration test full request auth flow",
+    "explanation": "Unit tests isolate logic while integration tests verify middleware, routing, and dependency wiring together."
+  },
+  {
+    "id": 1459,
+    "question_set": "g4mextended",
+    "prompt": "Which input validation belongs at the controller boundary, and which belongs in service rules?",
+    "options": [
+      "Controller validates format and required fields; service validates business constraints",
+      "Controller and service should both skip validation",
+      "Service handles all validation including HTTP schema parsing",
+      "Repository performs all validation"
+    ],
+    "answer": "Controller validates format and required fields; service validates business constraints",
+    "explanation": "Boundary validation protects interfaces, while service validation enforces domain rules."
+  },
+  {
+    "id": 1460,
+    "question_set": "g4mextended",
+    "prompt": "How would you structure validation errors so presenter output stays consistent?",
+    "options": [
+      "Return plain exception stack traces directly",
+      "Use a standard error envelope with code, message, and field details",
+      "Return different shapes for each endpoint",
+      "Hide all error details in production and tests"
+    ],
+    "answer": "Use a standard error envelope with code, message, and field details",
+    "explanation": "A consistent error contract keeps clients predictable and simplifies frontend handling."
+  },
+  {
+    "id": 1461,
+    "question_set": "g4mextended",
+    "prompt": "How would you prevent invalid country language currency values from reaching deeper layers?",
+    "options": [
+      "Normalize and whitelist at boundary, rejecting unknown values early",
+      "Allow any value and fix it in SQL",
+      "Let presenter silently substitute defaults",
+      "Validate only after writing to database"
+    ],
+    "answer": "Normalize and whitelist at boundary, rejecting unknown values early",
+    "explanation": "Early normalization and validation prevents invalid values from contaminating downstream logic."
+  },
+  {
+    "id": 1462,
+    "question_set": "g4mextended",
+    "prompt": "If validation rules grow, where would a dedicated validator component fit?",
+    "options": [
+      "Between controller and service as a reusable validation layer",
+      "Inside presenter formatting methods",
+      "Only inside repository SQL statements",
+      "Inside static constants on model classes"
+    ],
+    "answer": "Between controller and service as a reusable validation layer",
+    "explanation": "A dedicated validator keeps controllers and services focused while centralizing complex rule checks."
+  },
+  {
+    "id": 1463,
+    "question_set": "g4mextended",
+    "prompt": "What is the difference between validation bad input and business rule failure valid input forbidden action?",
+    "options": [
+      "They are identical and should return the same outcome always",
+      "Validation rejects malformed input; business failure rejects valid input that violates policy",
+      "Validation happens only in repositories, business rules only in presenters",
+      "Business failures should never be reported to callers"
+    ],
+    "answer": "Validation rejects malformed input; business failure rejects valid input that violates policy",
+    "explanation": "Validation checks input shape, while business rules check whether an allowed operation is permitted."
+  },
+  {
+    "id": 1464,
+    "question_set": "g4mextended",
+    "prompt": "If replacing hardcoded rates with an external currency API, which new component would you add?",
+    "options": [
+      "A rate provider adapter that encapsulates external API access",
+      "A presenter-only formatter for exchange rates",
+      "An enum with all live rates hardcoded",
+      "A repository trigger for each request"
+    ],
+    "answer": "A rate provider adapter that encapsulates external API access",
+    "explanation": "An adapter isolates third-party concerns and keeps service logic clean and testable."
+  },
+  {
+    "id": 1465,
+    "question_set": "g4mextended",
+    "prompt": "Should the service call the API directly, or should rates come through an interface adapter?",
+    "options": [
+      "Call API directly from service to reduce files",
+      "Use an interface adapter so service depends on abstraction not transport details",
+      "Use presenter to fetch rates",
+      "Store rates only in frontend state"
+    ],
+    "answer": "Use an interface adapter so service depends on abstraction not transport details",
+    "explanation": "Dependency inversion allows easier testing, mocking, and provider replacement."
+  },
+  {
+    "id": 1466,
+    "question_set": "g4mextended",
+    "prompt": "How would you handle API outages while keeping inventory responses stable?",
+    "options": [
+      "Fail every request immediately with uncaught exception",
+      "Fallback to cached or last-known-good rates with clear degradation behavior",
+      "Disable all currency outputs permanently",
+      "Retry forever until API recovers"
+    ],
+    "answer": "Fallback to cached or last-known-good rates with clear degradation behavior",
+    "explanation": "Graceful fallback preserves useful responses during external dependency failures."
+  },
+  {
+    "id": 1467,
+    "question_set": "g4mextended",
+    "prompt": "Where would you cache rates, and what TTL strategy would you start with?",
+    "options": [
+      "In the rate provider cache with a moderate TTL like 10 to 30 minutes",
+      "In presenter template variables forever",
+      "In controller local variables with no expiry",
+      "Only in browser localStorage across all users"
+    ],
+    "answer": "In the rate provider cache with a moderate TTL like 10 to 30 minutes",
+    "explanation": "Provider-level caching centralizes freshness control and avoids repeated network calls."
+  },
+  {
+    "id": 1468,
+    "question_set": "g4mextended",
+    "prompt": "How would you test conversion logic without making live API calls?",
+    "options": [
+      "Use fake or mocked rate providers with deterministic test rates",
+      "Run tests only against production API",
+      "Skip conversion tests entirely",
+      "Test only presenter rendering"
+    ],
+    "answer": "Use fake or mocked rate providers with deterministic test rates",
+    "explanation": "Mocked providers make tests fast, repeatable, and independent from network conditions."
+  },
+  {
+    "id": 1469,
+    "question_set": "g4mextended",
+    "prompt": "If moving from in-memory to MySQL, what should change in repository and what should remain unchanged in service controller presenter?",
+    "options": [
+      "Repository implementation changes while service, controller, and presenter contracts stay stable",
+      "All layers must be rewritten",
+      "Only presenter should change",
+      "Only controller should change"
+    ],
+    "answer": "Repository implementation changes while service, controller, and presenter contracts stay stable",
+    "explanation": "Layered architecture isolates persistence changes behind repository interfaces."
+  },
+  {
+    "id": 1470,
+    "question_set": "g4mextended",
+    "prompt": "What migration strategy would you propose for existing sample data?",
+    "options": [
+      "Idempotent seed migration with checksum or upsert behavior",
+      "Manual SQL edits in production only",
+      "Delete all old data and start empty",
+      "Duplicate rows on each startup"
+    ],
+    "answer": "Idempotent seed migration with checksum or upsert behavior",
+    "explanation": "Idempotent migrations allow safe repeated deployments without duplicating records."
+  },
+  {
+    "id": 1471,
+    "question_set": "g4mextended",
+    "prompt": "How would you protect data access with transactions when adding write operations?",
+    "options": [
+      "Wrap write workflows in transactional units with rollback on failure",
+      "Commit after each field update regardless of errors",
+      "Handle transactions only in presenter",
+      "Never use transactions for write operations"
+    ],
+    "answer": "Wrap write workflows in transactional units with rollback on failure",
+    "explanation": "Transactions preserve consistency when multi-step writes partially fail."
+  },
+  {
+    "id": 1472,
+    "question_set": "g4mextended",
+    "prompt": "What indexes would you add first for country visibility and product lookup use cases?",
+    "options": [
+      "Composite indexes on visibility country columns and product lookup keys",
+      "No indexes until one million rows",
+      "Only full-text indexes on every column",
+      "Indexes only on explanation text"
+    ],
+    "answer": "Composite indexes on visibility country columns and product lookup keys",
+    "explanation": "Index strategy should align with the most common filter and lookup paths first."
+  },
+  {
+    "id": 1473,
+    "question_set": "g4mextended",
+    "prompt": "How would you design repository interfaces to support both read and write models cleanly?",
+    "options": [
+      "Split interfaces by query and command responsibilities",
+      "Use one giant interface for every operation",
+      "Place write methods in presenter",
+      "Expose SQL statements directly to controllers"
+    ],
+    "answer": "Split interfaces by query and command responsibilities",
+    "explanation": "Separating read and write responsibilities keeps interfaces focused and easier to evolve."
+  },
+  {
+    "id": 1474,
+    "question_set": "g4mextended",
+    "prompt": "Where would you add structured logging so debugging remains easy across layers?",
+    "options": [
+      "At controller entry exit, service decision points, and repository calls with shared context",
+      "Only in frontend components",
+      "Only in database migrations",
+      "Only in presenter success paths"
+    ],
+    "answer": "At controller entry exit, service decision points, and repository calls with shared context",
+    "explanation": "Layered structured logs provide end-to-end visibility without duplicating noisy output."
+  },
+  {
+    "id": 1475,
+    "question_set": "g4mextended",
+    "prompt": "What metrics would you capture first error rate latency fallback usage invalid input counts?",
+    "options": [
+      "Error rate, request latency, fallback count, and validation failure count",
+      "Only CPU temperature and disk size",
+      "Only total lines of code",
+      "No metrics until incidents occur"
+    ],
+    "answer": "Error rate, request latency, fallback count, and validation failure count",
+    "explanation": "These baseline metrics reveal stability, performance, and quality regressions quickly."
+  },
+  {
+    "id": 1476,
+    "question_set": "g4mextended",
+    "prompt": "How would you trace one request from controller to presenter in logs?",
+    "options": [
+      "Propagate a correlation or request ID through all layers",
+      "Log random text without identifiers",
+      "Log only final presenter output",
+      "Use separate unrelated IDs per layer"
+    ],
+    "answer": "Propagate a correlation or request ID through all layers",
+    "explanation": "A shared request ID links logs from all components for one execution path."
+  },
+  {
+    "id": 1477,
+    "question_set": "g4mextended",
+    "prompt": "What retry policy is acceptable for external dependencies like a currency provider?",
+    "options": [
+      "Bounded retries with exponential backoff and jitter for transient failures",
+      "Infinite retries on every failure",
+      "No retries even for temporary network errors",
+      "Retry only in presenter output formatting"
+    ],
+    "answer": "Bounded retries with exponential backoff and jitter for transient failures",
+    "explanation": "Controlled retries improve resilience without causing cascading overload."
+  },
+  {
+    "id": 1478,
+    "question_set": "g4mextended",
+    "prompt": "How would you introduce feature flags for example enabling API rates per environment?",
+    "options": [
+      "Use configuration-driven flags resolved in service composition",
+      "Hardcode environment checks throughout controller methods",
+      "Toggle by editing database rows manually in production",
+      "Implement flags only in CSS"
+    ],
+    "answer": "Use configuration-driven flags resolved in service composition",
+    "explanation": "Centralized flags provide safe rollout control with minimal code scattering."
+  },
+  {
+    "id": 1479,
+    "question_set": "g4mextended",
+    "prompt": "Which security checks belong at request boundary vs business layer?",
+    "options": [
+      "Boundary handles authn and input constraints; business layer handles authorization and rule checks",
+      "All security belongs only in presenter",
+      "All security belongs only in repository",
+      "Security checks are unnecessary in internal APIs"
+    ],
+    "answer": "Boundary handles authn and input constraints; business layer handles authorization and rule checks",
+    "explanation": "Separating concerns avoids duplicated checks and keeps each layer responsible for the right risks."
+  },
+  {
+    "id": 1480,
+    "question_set": "g4mextended",
+    "prompt": "How should secrets API keys DB credentials be managed across environments?",
+    "options": [
+      "Use environment variables or a secret manager and never commit secrets",
+      "Store secrets directly in source control for convenience",
+      "Return secrets in health endpoints",
+      "Embed secrets in frontend JavaScript bundles"
+    ],
+    "answer": "Use environment variables or a secret manager and never commit secrets",
+    "explanation": "Externalized secret management reduces exposure risk and supports rotation."
+  },
+  {
+    "id": 1481,
+    "question_set": "g4mextended",
+    "prompt": "What abuse controls would you add first rate limiting input size limits audit logs?",
+    "options": [
+      "Rate limiting, payload limits, and audit logging for sensitive actions",
+      "Only a custom color theme",
+      "Only disable error messages",
+      "Only increase request timeout"
+    ],
+    "answer": "Rate limiting, payload limits, and audit logging for sensitive actions",
+    "explanation": "These controls reduce brute-force abuse, oversized payload risk, and accountability gaps."
+  },
+  {
+    "id": 1482,
+    "question_set": "g4mextended",
+    "prompt": "What data should never be returned by presenter responses?",
+    "options": [
+      "Secrets, tokens, password hashes, and internal stack traces",
+      "Question IDs and prompts",
+      "Public category labels",
+      "Standard success status codes"
+    ],
+    "answer": "Secrets, tokens, password hashes, and internal stack traces",
+    "explanation": "Sensitive internals must be excluded from client responses to prevent leakage."
+  },
+  {
+    "id": 1483,
+    "question_set": "g4mextended",
+    "prompt": "Which automated checks would you add to CI to prevent regressions in auth validation security?",
+    "options": [
+      "Unit and integration tests plus SAST and dependency vulnerability scanning",
+      "Only visual snapshot tests",
+      "Only code formatting checks",
+      "No CI checks for security"
+    ],
+    "answer": "Unit and integration tests plus SAST and dependency vulnerability scanning",
+    "explanation": "Combined functional and security checks catch regressions before deployment."
+  },
+  {
+    "id": 1484,
+    "question_set": "g4mextended",
+    "prompt": "A user passes currency equals XYZ what layer resolves this and what response shape should they get?",
+    "options": [
+      "Service resolves currency fallback and returns standard response shape with normalized currency",
+      "Presenter silently drops the field and returns random schema",
+      "Repository edits the question set name",
+      "Controller crashes with uncaught exception"
+    ],
+    "answer": "Service resolves currency fallback and returns standard response shape with normalized currency",
+    "explanation": "Currency normalization belongs to service logic while preserving a consistent contract."
+  },
+  {
+    "id": 1485,
+    "question_set": "g4mextended",
+    "prompt": "The currency API is down for twenty minutes what fallback behavior keeps the app useful?",
+    "options": [
+      "Use cached rates or base currency fallback and surface degraded mode clearly",
+      "Return 500 for every request with no fallback",
+      "Disable product listing entirely",
+      "Delete all cached rates immediately"
+    ],
+    "answer": "Use cached rates or base currency fallback and surface degraded mode clearly",
+    "explanation": "Graceful degradation keeps core functionality available during dependency outages."
+  },
+  {
+    "id": 1486,
+    "question_set": "g4mextended",
+    "prompt": "A new endpoint requires admin access only where is the minimum change surface?",
+    "options": [
+      "Add route-level or service policy guard and reuse existing authorization plumbing",
+      "Rewrite all model classes",
+      "Move endpoint logic to presenter",
+      "Duplicate repository implementation"
+    ],
+    "answer": "Add route-level or service policy guard and reuse existing authorization plumbing",
+    "explanation": "Applying a focused policy check minimizes risk and avoids broad architecture changes."
+  },
+  {
+    "id": 1487,
+    "question_set": "g4mextended",
+    "prompt": "Validation now depends on country plus product type together where should that rule live?",
+    "options": [
+      "In service or dedicated domain validator where cross-field business context exists",
+      "Only in HTTP query parser",
+      "Only in frontend UI labels",
+      "Only in presenter templates"
+    ],
+    "answer": "In service or dedicated domain validator where cross-field business context exists",
+    "explanation": "Cross-field business validation belongs close to domain rules, not simple boundary parsing."
+  },
+  {
+    "id": 1488,
+    "question_set": "g4mextended",
+    "prompt": "You need to support per-user preferred language and currency how does this flow through controller to service?",
+    "options": [
+      "Controller resolves user preferences from trusted context and passes them as service parameters",
+      "Presenter decides user preferences without inputs",
+      "Repository reads browser cookies directly",
+      "Service ignores user preferences and always uses fixed defaults"
+    ],
+    "answer": "Controller resolves user preferences from trusted context and passes them as service parameters",
+    "explanation": "This keeps request-context handling at the boundary and business behavior in the service."
   }
 ]

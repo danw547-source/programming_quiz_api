@@ -69,8 +69,10 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "scales intermediate": { label: "Scales Intermediate", badge: "SC", category: "music-theory" },
   "scales expert": { label: "Scales Expert", badge: "SC", category: "music-theory" },
   "keyboard music theory beginner": { label: "Keyboard Theory Beginner", badge: "KB", category: "music-theory" },
-  "gear4music": { label: "Gear4Music", badge: "G4M", category: "programming" },
-  "g4m project workflow": { label: "G4M Project Workflow", badge: "G4M", category: "programming" },
+  "gear4music": { label: "Gear4Music", badge: "G4M", category: "gear4music" },
+  "g4m project workflow": { label: "G4M Project Workflow", badge: "G4M", category: "gear4music" },
+  "g4m 2": { label: "G4M 2", badge: "G4M", category: "gear4music" },
+  "g4mextended": { label: "G4M Extended", badge: "G4M", category: "gear4music" },
   "aiquiz": { label: "AI Quiz", badge: "AI", category: "ai" },
   "keyboard music theory intermediate": { label: "Keyboard Theory Intermediate", badge: "KB", category: "music-theory" },
   "keyboard music theory expert": { label: "Keyboard Theory Expert", badge: "KB", category: "music-theory" },
@@ -150,6 +152,10 @@ const getCategoryLabel = (category) => {
     return "Music Theory";
   }
 
+  if (category === "gear4music") {
+    return "Gear4Music";
+  }
+
   if (category === "charlotte") {
     return "Charlotte";
   }
@@ -184,6 +190,14 @@ const getAlternateCategory = (selectedCategory) => {
 
   if (selectedCategory === "fitness") {
     return "programming";
+  }
+
+  if (selectedCategory === "programming") {
+    return "gear4music";
+  }
+
+  if (selectedCategory === "gear4music") {
+    return "music-theory";
   }
 
   return "music-theory";

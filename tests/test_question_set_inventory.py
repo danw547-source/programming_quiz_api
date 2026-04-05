@@ -7,6 +7,7 @@ QUESTIONS_FILE_PATH = Path("app/data/questions.json")
 QUESTIONS_PER_SET = 20
 SPECIAL_SET_COUNTS = {
     "g4m 2": 25,
+    "g4mextended": 35,
     "caching & indexing beginner": 8,
 }
 EXPECTED_QUESTION_SETS = {
@@ -81,6 +82,7 @@ EXPECTED_QUESTION_SETS = {
     "gear4music",
     "g4m project workflow",
     "g4m 2",
+    "g4mextended",
     "caching & indexing beginner",
     "object oriented programming",
 }

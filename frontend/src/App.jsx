@@ -25,6 +25,12 @@ const QUIZ_CATEGORIES = Object.freeze([
     description: "From fundamentals to advanced harmony and analysis.",
   },
   {
+    id: "gear4music",
+    label: "Gear4Music",
+    group: "core",
+    description: "Interview and architecture-focused Gear4Music challenge sets.",
+  },
+  {
     id: "tech-support",
     label: "Tech Support",
     group: "specialist",
@@ -44,7 +50,7 @@ const QUIZ_CATEGORIES = Object.freeze([
   },
 ]);
 
-const PINNED_CATEGORY_IDS = Object.freeze(["programming", "music-theory", "tech-support"]);
+const PINNED_CATEGORY_IDS = Object.freeze(["programming", "gear4music", "music-theory"]);
 
 const CATEGORY_GROUPS = Object.freeze([
   { id: "core", label: "Core Categories" },
