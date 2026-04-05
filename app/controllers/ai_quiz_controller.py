@@ -1,4 +1,5 @@
 """HTTP routing layer for AIQuiz endpoints (free-text answer mode)."""
+import re
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
@@ -10,7 +11,29 @@ from app.schemas.hint import HintResult
 
 QuizServiceDependency = Annotated[object, Depends(get_ai_quiz_service)]
 
+_WHICH_OF_THESE_SCENARIOS_PATTERN = re.compile(
+    r"^\s*(?:In\s+)?Which of these scenarios is (.+?)\?\s*$",
+    re.IGNORECASE,
+)
+
 router = APIRouter(prefix="/ai")
+
+
+def _normalize_ai_prompt(prompt: str) -> str:
+    """Rewrite common multiple-choice stems into free-text friendly wording."""
+    match = _WHICH_OF_THESE_SCENARIOS_PATTERN.match(prompt)
+    if match:
+        return f"In what scenario is {match.group(1)}?"
+
+    normalized_prompt = prompt.strip().lower()
+
+    if normalized_prompt.startswith("which of these"):
+        return prompt.replace("Which of these", "Which scenario", 1)
+
+    if normalized_prompt.startswith("in which of these"):
+        return prompt.replace("In which of these", "In which scenario", 1)
+
+    return prompt
 
 
 @router.get("/question-sets", response_model=list[str])
@@ -32,6 +55,7 @@ def get_questions(
 
     # For AI mode, remove options to make questions free-text
     for q in questions:
+        q["prompt"] = _normalize_ai_prompt(q["prompt"])
         q["options"] = []
 
     # AI quiz gets a capped subset to keep rounds short and consistent.

@@ -5,6 +5,10 @@ from pathlib import Path
 
 QUESTIONS_FILE_PATH = Path("app/data/questions.json")
 QUESTIONS_PER_SET = 20
+SPECIAL_SET_COUNTS = {
+    "g4m 2": 25,
+    "caching & indexing beginner": 8,
+}
 EXPECTED_QUESTION_SETS = {
     "solid principles",
     "mvc model view controller beginner",
@@ -76,6 +80,8 @@ EXPECTED_QUESTION_SETS = {
     "sql expert",
     "gear4music",
     "g4m project workflow",
+    "g4m 2",
+    "caching & indexing beginner",
     "object oriented programming",
 }
 
@@ -87,5 +93,11 @@ def test_seed_questions_have_expected_set_inventory_and_counts():
     question_set_counts = Counter(question["question_set"] for question in questions)
 
     assert set(question_set_counts) == EXPECTED_QUESTION_SETS
-    assert all(count == QUESTIONS_PER_SET for count in question_set_counts.values())
-    assert len(questions) == len(EXPECTED_QUESTION_SETS) * QUESTIONS_PER_SET
+
+    expected_total = 0
+    for question_set in EXPECTED_QUESTION_SETS:
+        expected_count = SPECIAL_SET_COUNTS.get(question_set, QUESTIONS_PER_SET)
+        assert question_set_counts[question_set] == expected_count
+        expected_total += expected_count
+
+    assert len(questions) == expected_total

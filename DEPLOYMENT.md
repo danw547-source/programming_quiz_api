@@ -99,6 +99,7 @@ Shared hosting typically only supports PHP. You may need to upgrade to VPS for P
 DATABASE_URL=mysql+pymysql://user:pass@host:3306/db
 LOG_LEVEL=INFO
 RATE_LIMIT_REQUESTS_PER_MINUTE=120
+INITIALIZE_DATABASE_ON_STARTUP=false
 ```
 
 ### Frontend Build
@@ -108,7 +109,17 @@ VITE_API_URL=https://api.yourdomain.com
 
 ## Database Migration
 
-The application automatically runs migrations and seeds data on startup. The JSON questions will be imported into the MySQL database.
+For production, prefer running migrations/seeding as a one-time deployment step and keep startup init disabled to reduce cold-start latency.
+
+```bash
+python -c "from app.database import initialize_database; initialize_database()"
+```
+
+If you need startup auto-initialization temporarily, set:
+
+```bash
+INITIALIZE_DATABASE_ON_STARTUP=true
+```
 
 ## Testing Deployment
 

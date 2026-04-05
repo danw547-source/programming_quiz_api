@@ -6,8 +6,10 @@ All per-request wiring lives in dependencies.py so that tests can swap
 implementations without touching this file.
 """
 from contextlib import asynccontextmanager
+import logging
+from time import perf_counter
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from starlette.middleware.gzip import GZipMiddleware
@@ -21,19 +23,50 @@ from app.middleware import RequestObservabilityAndRateLimitMiddleware
 
 
 settings = get_settings()
+logger = logging.getLogger(__name__)
 # Configure logging before the app starts so startup log lines are captured.
 setup_logging(settings.log_level)
 
 
 @asynccontextmanager
-async def lifespan(_: FastAPI):
-    # Run Alembic migrations and seed missing questions each time the app boots.
-    # Both operations are idempotent, so restarting is always safe.
-    initialize_database()
+async def lifespan(app_instance: FastAPI):
+    startup_started_at = perf_counter()
+    app_instance.state.startup_ready = False
+    app_instance.state.database_initialization = "pending"
+
+    # Local SQLite environments default to startup initialization.
+    # Production-style deployments can disable this to avoid cold-start delays.
+    if settings.initialize_database_on_startup:
+        logger.info("Starting startup database initialization")
+        database_initialization_started_at = perf_counter()
+        try:
+            initialize_database()
+        except Exception:
+            initialization_duration = perf_counter() - database_initialization_started_at
+            app_instance.state.database_initialization = "failed"
+            logger.exception("Startup database initialization failed after %.3fs", initialization_duration)
+            raise
+        else:
+            initialization_duration = perf_counter() - database_initialization_started_at
+            app_instance.state.database_initialization = "completed"
+            logger.info("Startup database initialization completed in %.3fs", initialization_duration)
+    else:
+        app_instance.state.database_initialization = "skipped"
+        logger.info("Skipping startup database initialization (INITIALIZE_DATABASE_ON_STARTUP=false)")
+
+    startup_duration = perf_counter() - startup_started_at
+    app_instance.state.startup_ready = True
+    logger.info(
+        "Application startup completed in %.3fs (database_initialization=%s)",
+        startup_duration,
+        app_instance.state.database_initialization,
+    )
     yield
 
 
 app = FastAPI(title="Programming Concepts Quiz API", lifespan=lifespan)
+app.state.startup_ready = False
+app.state.database_initialization = "pending"
 
 # Middleware is invoked in *reverse* registration order.
 # GZIP compression is registered first (will be innermost) to compress all responses.
@@ -67,6 +100,17 @@ app.add_middleware(
 @app.get("/", include_in_schema=False)
 def root() -> RedirectResponse:
     return RedirectResponse(url="/docs")
+
+
+@app.get("/ready")
+def ready(request: Request) -> dict[str, bool | str]:
+    startup_ready = bool(getattr(request.app.state, "startup_ready", False))
+    database_initialization = getattr(request.app.state, "database_initialization", "unknown")
+    return {
+        "status": "ready" if startup_ready else "starting",
+        "ready": startup_ready,
+        "database_initialization": str(database_initialization),
+    }
 
 app.include_router(quiz_router)
 app.include_router(ai_quiz_router)

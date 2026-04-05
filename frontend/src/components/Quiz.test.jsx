@@ -130,7 +130,7 @@ describe("Quiz component", () => {
     });
 
     await waitFor(() => {
-      expect(quizService.getQuestions).toHaveBeenCalledWith(undefined);
+      expect(quizService.getQuestions).toHaveBeenCalledWith("solid principles");
     });
 
     expect(screen.getByText("What does SRP stand for?")).toBeInTheDocument();

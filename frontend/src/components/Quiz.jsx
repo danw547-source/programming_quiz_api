@@ -332,13 +332,9 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
         return;
       }
 
-      // Fetch question sets and all questions in parallel to reduce total request time.
-      // getQuestionSets completes quickly; getQuestions may take longer.
-      // By starting both immediately, we overlap the latency instead of sequencing them.
-      const [sets, allQuestionData] = await Promise.all([
-        getQuestionSets(),
-        getQuestions(undefined), // Fetch all questions upfront
-      ]);
+      // Load set names first, then fetch only the initially selected set.
+      // This avoids downloading the entire question bank on first paint.
+      const sets = await getQuestionSets();
 
       setQuestionSets(sets);
 
@@ -346,10 +342,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
       const initialSet = filteredSets[0] ?? sets[0] ?? "";
       setSelectedQuestionSet(initialSet);
 
-      // Filter the already-fetched questions to the selected set
-      const data = initialSet
-        ? allQuestionData.filter((q) => q.question_set === initialSet)
-        : allQuestionData;
+      const data = initialSet ? await getQuestions(initialSet) : [];
 
       setAllQuestions(data);
       setQuestions(shuffleArray(data));

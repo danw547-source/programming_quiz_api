@@ -49,6 +49,7 @@ Frontend layers:
 | GET | /questions | Fetch questions, optional question_set filter |
 | GET | /cheat-sheet | Fetch answer + explanation data for a question set |
 | POST | /answer/{question_id} | Submit an answer and receive correctness feedback |
+| GET | /ready | Readiness probe with startup status and DB initialization state |
 | GET | /docs | Swagger UI |
 | GET | /redoc | ReDoc |
 
@@ -172,6 +173,7 @@ Backend variables:
 - QUESTION_SEED_FILE (optional)
 - LOG_LEVEL (optional, default INFO)
 - RATE_LIMIT_REQUESTS_PER_MINUTE (optional, default 120)
+- INITIALIZE_DATABASE_ON_STARTUP (optional; defaults to true for SQLite, false for non-SQLite)
 
 Frontend variables (frontend/.env*):
 

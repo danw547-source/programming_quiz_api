@@ -18565,20 +18565,20 @@
   },
   {
     "id": 1429,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "If DigitalProduct did not follow InventoryInterface, what code in the service would become harder to write?",
     "options": [
-      "The repository constructor, because it would not know how to store DigitalProduct objects",
+      "The repository constructor, because it wouldn't know how to store DigitalProduct objects",
       "The part of getInventory that treats all products the same way using the interface methods",
       "The demo.php file, because it relies on DigitalProduct being instantiated",
-      "The Presenter, because it would not know how to format DigitalProduct data"
+      "The Presenter, because it wouldn't know how to format DigitalProduct data"
     ],
     "answer": "The part of getInventory that treats all products the same way using the interface methods",
-    "explanation": "The service depends on a common contract so it can process products polymorphically without special cases."
+    "explanation": "Using a shared interface lets service logic treat all product types uniformly."
   },
   {
     "id": 1430,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Which methods in the interface describe behavior, and which describe plain data access?",
     "options": [
       "Behavior: getPrice, isVisibleIn; Data: getName, getCondition",
@@ -18587,76 +18587,76 @@
       "Behavior: getPrice, getCondition; Data: getName, getWeight, isVisibleIn"
     ],
     "answer": "Behavior: getPrice, isVisibleIn; Data: getName, getCondition",
-    "explanation": "isVisibleIn and price interpretation are behavior-oriented, while name and condition read stored values."
+    "explanation": "Price conversion and visibility checks are behavioral, while name and condition are direct data lookups."
   },
   {
     "id": 1431,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why is Condition::Used safer than writing 'used' directly in many places?",
     "options": [
-      "It prevents typos, enables autocomplete in IDEs, and catches mistakes earlier",
+      "It prevents typos, enables autocomplete in IDEs, and catches typos at design time instead of runtime",
       "It makes the code run faster because enum values are cached",
       "It allows PHP to automatically validate string inputs at the database level",
       "It reduces the file size of the application"
     ],
-    "answer": "It prevents typos, enables autocomplete in IDEs, and catches mistakes earlier",
-    "explanation": "Enums constrain values to known cases and avoid silent string mismatches."
+    "answer": "It prevents typos, enables autocomplete in IDEs, and catches typos at design time instead of runtime",
+    "explanation": "Enums constrain allowed values so invalid spellings are caught early."
   },
   {
     "id": 1432,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "What kind of bug could happen if condition was just a free-text string?",
     "options": [
       "The database would reject invalid condition values",
-      "Inconsistent spellings like used, Used, or typos would create silent data bugs",
+      "Inconsistent spellings ('used', 'Used', 'USED') or typos ('usedd') would create silent data bugs",
       "The presentation layer would automatically reject malformed input",
       "Memory usage would increase exponentially"
     ],
-    "answer": "Inconsistent spellings like used, Used, or typos would create silent data bugs",
-    "explanation": "Unconstrained strings allow inconsistent values that break filtering and reporting."
+    "answer": "Inconsistent spellings ('used', 'Used', 'USED') or typos ('usedd') would create silent data bugs",
+    "explanation": "Free-text values allow inconsistent variants that silently break filtering and logic."
   },
   {
     "id": 1433,
-    "question_set": "gear4music mcq",
-    "prompt": "Why does getName use fallback order requested language then English then SKU?",
+    "question_set": "g4m 2",
+    "prompt": "Why does getName use fallback order (requested language -> English -> SKU)?",
     "options": [
-      "To ensure a name is always available even if translation data is incomplete",
+      "To ensure a name is always available, even if translation data is incomplete",
       "To prioritize English speakers over other languages",
       "To avoid storing SKU data duplicated in multiple fields",
       "To make database queries run faster"
     ],
-    "answer": "To ensure a name is always available even if translation data is incomplete",
-    "explanation": "Fallbacks prevent empty display values and keep responses robust."
+    "answer": "To ensure a name is always available, even if translation data is incomplete",
+    "explanation": "Fallbacks guarantee a usable display name even with missing translations."
   },
   {
     "id": 1434,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why does isVisibleIn normalize country code with strtoupper?",
     "options": [
       "To match database encoding standards",
-      "To make comparisons case-insensitive and safer so gb matches GB",
+      "To make comparisons case-insensitive and safer, so 'gb' matches 'GB'",
       "To improve API performance",
       "To validate that the country code is in ISO format"
     ],
-    "answer": "To make comparisons case-insensitive and safer so gb matches GB",
-    "explanation": "Normalization avoids input casing differences causing false negatives."
+    "answer": "To make comparisons case-insensitive and safer, so 'gb' matches 'GB'",
+    "explanation": "Normalizing case avoids input-variation bugs during country checks."
   },
   {
     "id": 1435,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why does getPrice return GBP even though it accepts a currency argument?",
     "options": [
       "The system stores all prices in GBP internally, so conversion would be inaccurate",
       "Currency conversion is not implemented yet",
-      "The currency argument is ignored by design in the model contract",
+      "The currency argument is ignored by design",
       "It returns the requested currency converted from GBP using a conversion table"
     ],
-    "answer": "The currency argument is ignored by design in the model contract",
-    "explanation": "Conversion logic lives in the service; the model exposes the canonical base price."
+    "answer": "The currency argument is ignored by design",
+    "explanation": "The method signature accepts currency, but current implementation intentionally returns base GBP."
   },
   {
     "id": 1436,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Which behaviors are inherited from Product, and which are overridden?",
     "options": [
       "Inherited: getName, getPrice, isVisibleIn; Overridden: getCondition, getWeight, getBoxVolume, daysToDeliver",
@@ -18665,24 +18665,24 @@
       "Inherited: getCondition; Overridden: all others"
     ],
     "answer": "Inherited: getName, getPrice, isVisibleIn; Overridden: getCondition, getWeight, getBoxVolume, daysToDeliver",
-    "explanation": "DigitalProduct reuses core naming and pricing behavior while customizing physical and condition fields."
+    "explanation": "DigitalProduct reuses common behavior and overrides physical/condition-specific methods."
   },
   {
     "id": 1437,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why are weight, boxVolume, and daysToDeliver set to 0 for digital products?",
     "options": [
       "Because the database schema requires numeric values",
       "Because digital products have none of these physical properties",
       "To save memory in the application",
-      "Because they are inherited from Product and must be set to something"
+      "Because they're inherited from Product and must be set to something"
     ],
     "answer": "Because digital products have none of these physical properties",
-    "explanation": "The values represent non-applicable physical logistics for a digital item."
+    "explanation": "Digital items have no shipping weight, volume, or delivery delay."
   },
   {
     "id": 1438,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why is condition always new for digital products?",
     "options": [
       "Because digital products have no physical wear or degradation",
@@ -18691,50 +18691,50 @@
       "Because the condition field is mandatory in the interface"
     ],
     "answer": "Because digital products have no physical wear or degradation",
-    "explanation": "Condition states physical wear, which does not apply to digital goods."
+    "explanation": "Without physical wear, digital goods do not become used or refurbished."
   },
   {
     "id": 1439,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why is this data inside a repository class instead of directly in the service?",
     "options": [
-      "To separate data access from business logic, making data source swaps easier",
+      "To separate data access from business logic, making it easier to replace in-memory data with a real database later",
       "Because PHP requires data to be stored in a separate class",
       "To make the service run faster",
       "To satisfy a coding style preference"
     ],
-    "answer": "To separate data access from business logic, making data source swaps easier",
+    "answer": "To separate data access from business logic, making it easier to replace in-memory data with a real database later",
     "explanation": "Repository abstraction keeps service logic independent from storage details."
   },
   {
     "id": 1440,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Which product in the sample data proves country filtering is working?",
     "options": [
-      "Laptop visible in GB and FR",
-      "Wireless Mouse visible only in FR",
-      "USB Cable visible only in GB",
-      "eBook visible in both GB and FR"
+      "Laptop (visible in GB and FR)",
+      "Wireless Mouse (visible only in FR)",
+      "USB Cable (visible only in GB)",
+      "eBook (visible in both GB and FR)"
     ],
-    "answer": "USB Cable visible only in GB",
-    "explanation": "The GB-only item disappearing in FR validates country filtering behavior."
+    "answer": "USB Cable (visible only in GB)",
+    "explanation": "A country-specific product is clear evidence that visibility filtering is active."
   },
   {
     "id": 1441,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Which products prove digital behavior is working?",
     "options": [
       "Laptop and Wireless Mouse",
       "USB Cable and Wireless Mouse",
-      "eBook with zero weight and always new condition",
+      "eBook (zero weight, always new condition)",
       "All products except Laptop"
     ],
-    "answer": "eBook with zero weight and always new condition",
-    "explanation": "The eBook demonstrates overridden digital defaults in output."
+    "answer": "eBook (zero weight, always new condition)",
+    "explanation": "The eBook demonstrates digital-specific overrides like zero weight and always-new condition."
   },
   {
     "id": 1442,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "What exact business rules are implemented in getInventory?",
     "options": [
       "Filter by country and currency, calculate visibility, round prices to 2 decimals",
@@ -18743,149 +18743,149 @@
       "Validate product data, check stock levels, apply tax calculations"
     ],
     "answer": "Filter by country, resolve currency, round prices, return only visible products",
-    "explanation": "The service enforces visibility and pricing rules and returns filtered results."
+    "explanation": "getInventory handles filtering, currency normalization, rounding, and visibility output selection."
   },
   {
     "id": 1443,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why is rounding done in the service, not in the presenter?",
     "options": [
-      "Because the presenter should format output, not apply business calculations",
-      "Because JavaScript cannot handle decimal precision",
-      "Because the database does not support decimal values",
+      "Because the presenter should only format data, not calculate business logic",
+      "Because JavaScript can't handle decimal precision",
+      "Because the database doesn't support decimal values",
       "Because it makes the code run faster"
     ],
-    "answer": "Because the presenter should format output, not apply business calculations",
-    "explanation": "Rounding is a business rule and belongs where domain logic is applied."
+    "answer": "Because the presenter should only format data, not calculate business logic",
+    "explanation": "Rounding is part of business rules, so it belongs in the service layer."
   },
   {
     "id": 1444,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "What problem does resolveCurrency prevent when users pass invalid input?",
     "options": [
-      "Invalid currency codes being displayed directly in output",
+      "Invalid currency codes being displayed directly in the output",
       "The service crashing with an error message",
       "Invalid currency codes being sent to the database",
       "The getPrice method returning incorrect values"
     ],
-    "answer": "Invalid currency codes being displayed directly in output",
-    "explanation": "Currency normalization and fallback prevents invalid symbols from leaking into API responses."
+    "answer": "Invalid currency codes being displayed directly in the output",
+    "explanation": "Currency normalization ensures unsupported input is mapped to a safe value before output."
   },
   {
     "id": 1445,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why is this controller called thin?",
     "options": [
-      "It has minimal code and delegates work to service and presenter",
-      "It is physically smaller in file size than other classes",
+      "It has minimal code and delegates most work to the repository and service",
+      "It's physically smaller in file size than other classes",
       "It uses compressed variable names",
       "It only handles HTTP GET requests"
     ],
-    "answer": "It has minimal code and delegates work to service and presenter",
-    "explanation": "A thin controller coordinates flow and leaves rules and formatting to dedicated layers."
+    "answer": "It has minimal code and delegates most work to the repository and service",
+    "explanation": "A thin controller coordinates flow but avoids embedding business logic."
   },
   {
     "id": 1446,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "What would be a warning sign that too much logic moved into the controller?",
     "options": [
-      "The controller grows and contains business rules that belong in the service",
+      "The controller file becomes noticeably longer and contains business rule logic that should be in the service",
       "The controller calls multiple services simultaneously",
       "The controller uses POST requests instead of GET",
       "The controller imports five or more classes"
     ],
-    "answer": "The controller grows and contains business rules that belong in the service",
-    "explanation": "Business logic accumulation in controllers is a common maintainability smell."
+    "answer": "The controller file becomes noticeably longer and contains business rule logic that should be in the service",
+    "explanation": "Business-rule growth in controllers breaks separation of concerns and hurts maintainability."
   },
   {
     "id": 1447,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Why is output formatting separated from the service?",
     "options": [
-      "So service logic can be reused with different output formats without modification",
+      "So the service can be reused with different output formats (JSON, XML, CSV) without modification",
       "To make the code run faster",
       "Because PHP requires formatting to be in a separate class",
       "To reduce the number of lines in the service"
     ],
-    "answer": "So service logic can be reused with different output formats without modification",
-    "explanation": "Separation keeps business logic portable and presentation swappable."
+    "answer": "So the service can be reused with different output formats (JSON, XML, CSV) without modification",
+    "explanation": "Separating formatting keeps service logic reusable across multiple presentation outputs."
   },
   {
     "id": 1448,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "What does JSON_UNESCAPED_UNICODE improve for this dataset?",
     "options": [
-      "It keeps special characters like euro symbols readable instead of escaped",
+      "It allows product names with special characters (€, £, ñ) to display correctly instead of as escape sequences",
       "It reduces the size of the JSON output",
       "It makes the JSON compatible with older browsers",
       "It encrypts sensitive data in the JSON"
     ],
-    "answer": "It keeps special characters like euro symbols readable instead of escaped",
-    "explanation": "Readable Unicode output improves clarity for multilingual content and symbols."
+    "answer": "It allows product names with special characters (€, £, ñ) to display correctly instead of as escape sequences",
+    "explanation": "Unescaped Unicode improves readability and preserves intended special characters."
   },
   {
     "id": 1449,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "Can you describe the dependency chain from repository to final JSON?",
     "options": [
-      "Repository to Controller to Service to Presenter to JSON output",
-      "Repository to Service to Controller to Presenter to JSON output",
-      "Service to Repository to Controller to Presenter to JSON output",
-      "Presenter to Service to Repository to Controller to JSON output"
+      "Repository → Controller → Service → Presenter → JSON output",
+      "Repository → Service → Controller → Presenter → JSON output",
+      "Service → Repository → Controller → Presenter → JSON output",
+      "Presenter → Service → Repository → Controller → JSON output"
     ],
-    "answer": "Repository to Service to Controller to Presenter to JSON output",
-    "explanation": "Data starts at repository, rules in service, orchestration in controller, and final formatting in presenter."
+    "answer": "Repository → Service → Controller → Presenter → JSON output",
+    "explanation": "Data flows from storage through business logic and orchestration before presentation formatting."
   },
   {
     "id": 1450,
-    "question_set": "gear4music mcq",
-    "prompt": "Why are two examples GB GBP and FR EUR useful for verifying behavior quickly?",
+    "question_set": "g4m 2",
+    "prompt": "Why are two examples (GB/GBP and FR/EUR) useful for verifying behavior quickly?",
     "options": [
-      "They test different code paths in one run such as filtering, currency, and visibility",
+      "They test different code paths (country filtering, currency handling, product visibility) in one demo",
       "They ensure the application works in all countries",
       "They satisfy the requirements from the brief",
       "They demonstrate that the code is fast"
     ],
-    "answer": "They test different code paths in one run such as filtering, currency, and visibility",
-    "explanation": "A compact pair of scenarios quickly exercises key business rules."
+    "answer": "They test different code paths (country filtering, currency handling, product visibility) in one demo",
+    "explanation": "Two contrasting scenarios quickly validate several core rules in one run."
   },
   {
     "id": 1451,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "If you had to add CAD currency, which file changes and why?",
     "options": [
-      "Only demo.php to add a new test case",
-      "Only InventoryInterface.php to add a new currency constant",
-      "Service and demo files because service needs CAD support and demo validates it",
-      "Only the repository to store CAD prices"
+      "Only demo.php, to add a new test case",
+      "Only InventoryInterface.php, to add a new currency constant",
+      "Service.php and demo.php — the service needs to know about CAD, and demo.php needs a test case",
+      "Only the repository, to store CAD prices"
     ],
-    "answer": "Service and demo files because service needs CAD support and demo validates it",
-    "explanation": "Currency support is a business rule in service, and demo usage verifies the behavior end-to-end."
+    "answer": "Service.php and demo.php — the service needs to know about CAD, and demo.php needs a test case",
+    "explanation": "Add CAD handling in business logic and verify behavior with a demo scenario."
   },
   {
     "id": 1452,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "If you had to replace in-memory data with MySQL, which layer changes and which should stay unchanged?",
     "options": [
-      "Only repository changes; service, controller, presenter stay unchanged",
-      "Repository and service change; controller and presenter stay unchanged",
+      "Only Repository changes; Service, Controller, Presenter stay unchanged",
+      "Repository and Service change; Controller and Presenter stay unchanged",
       "All layers change",
       "Only the database connection file changes"
     ],
-    "answer": "Only repository changes; service, controller, presenter stay unchanged",
-    "explanation": "The repository abstraction isolates storage concerns from orchestration and presentation layers."
+    "answer": "Only Repository changes; Service, Controller, Presenter stay unchanged",
+    "explanation": "The repository abstraction isolates storage concerns from upper layers."
   },
   {
     "id": 1453,
-    "question_set": "gear4music mcq",
+    "question_set": "g4m 2",
     "prompt": "If a third product type is added later, what in this design makes that easier?",
     "options": [
-      "InventoryInterface lets the service work with any conforming product type",
+      "The InventoryInterface means the service already works with any product type that implements it",
       "The repository has space reserved for new product types",
       "The presenter automatically detects new product types",
-      "Nothing; the application would need to be rewritten"
+      "Nothing — the entire application would need to be rewritten"
     ],
-    "answer": "InventoryInterface lets the service work with any conforming product type",
-    "explanation": "Polymorphism via interface contracts allows adding types with minimal service changes."
+    "answer": "The InventoryInterface means the service already works with any product type that implements it",
+    "explanation": "Interface-driven design allows extension with new product classes without rewriting service code."
   }
 ]

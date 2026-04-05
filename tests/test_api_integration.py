@@ -74,6 +74,17 @@ def sample_questions() -> list[Question]:
             answer="X",
             explanation="Second file first question test.",
         ),
+        Question(
+            id=5,
+            question_set="gear4music",
+            prompt="In which of these scenarios is caching most beneficial?",
+            options=[
+                "When the same expensive data is requested repeatedly",
+                "When every request is unique and never repeated",
+            ],
+            answer="When the same expensive data is requested repeatedly",
+            explanation="Caching helps most when repeated reads can reuse stored results.",
+        ),
     ]
 
 
@@ -151,6 +162,17 @@ def test_submit_answer_returns_404_for_missing_question(client: TestClient):
     assert response.json()["detail"] == "Question not found"
 
 
+def test_ready_endpoint_reports_startup_readiness(client: TestClient):
+    response = client.get("/ready")
+
+    assert response.status_code == 200
+    payload = response.json()
+
+    assert payload["status"] == "ready"
+    assert payload["ready"] is True
+    assert payload["database_initialization"] in {"completed", "skipped"}
+
+
 def test_ai_quiz_endpoints(client: TestClient):
     response_sets = client.get("/ai/question-sets")
     assert response_sets.status_code == 200
@@ -159,8 +181,15 @@ def test_ai_quiz_endpoints(client: TestClient):
     response_questions = client.get("/ai/questions")
     assert response_questions.status_code == 200
     first_question = response_questions.json()[0]
+    assert first_question["options"] == []
     assert "prompt" in first_question
     assert "answer" not in first_question
+
+    response_gear4music_questions = client.get("/ai/questions", params={"question_set": "gear4music"})
+    assert response_gear4music_questions.status_code == 200
+    prompts = [question["prompt"] for question in response_gear4music_questions.json()]
+    assert "In what scenario is caching most beneficial?" in prompts
+    assert all("which of these" not in prompt.lower() for prompt in prompts)
 
     response_submit = client.post("/ai/answer/1", json={"answer": "Each module should have only one reason to change."})
     assert response_submit.status_code == 200

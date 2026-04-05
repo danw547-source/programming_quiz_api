@@ -121,3 +121,128 @@ It shows a structured approach: understand requirements, set up basics, implemen
 - prompt: How does this workflow demonstrate your development process?
   answer: It shows requirement gathering, architecture design, incremental implement/test cycles, and documentation.
   explanation: This approach yields consistent progress and mitigates risk.
+
+- prompt: If DigitalProduct did not follow InventoryInterface, what service code becomes harder to write?
+  question_set: g4m 2
+  answer: The part of getInventory that treats all products uniformly through interface methods becomes harder to write.
+  explanation: Without a shared contract, service logic must branch per product type.
+
+- prompt: Which interface methods are behavior versus plain data access?
+  question_set: g4m 2
+  answer: Behavior methods are getPrice and isVisibleIn; plain data access methods are getName and getCondition.
+  explanation: Behavior methods compute or decide; data methods fetch stored state.
+
+- prompt: Why is using Condition::Used safer than repeating the string used everywhere?
+  question_set: g4m 2
+  answer: It prevents typos, improves IDE autocomplete, and catches mistakes earlier.
+  explanation: Enum values constrain inputs to valid, known states.
+
+- prompt: What bug appears when condition is free text instead of enum-based?
+  question_set: g4m 2
+  answer: Inconsistent spellings and typos like used, Used, or usedd can silently break logic.
+  explanation: Free text allows invalid variants that pass unnoticed.
+
+- prompt: Why does getName use requested language then English then SKU fallback?
+  question_set: g4m 2
+  answer: It guarantees a usable name even when translation data is incomplete.
+  explanation: Fallback order prevents empty display values.
+
+- prompt: Why does isVisibleIn uppercase country codes before comparing?
+  question_set: g4m 2
+  answer: To make checks case-insensitive so gb and GB match consistently.
+  explanation: Normalization removes user input casing differences.
+
+- prompt: Why does getPrice return GBP despite accepting a currency argument?
+  question_set: g4m 2
+  answer: In this implementation, the currency argument is intentionally ignored and GBP is returned.
+  explanation: Currency conversion is handled elsewhere in service logic.
+
+- prompt: In DigitalProduct, what is inherited versus overridden from Product?
+  question_set: g4m 2
+  answer: getName, getPrice, and isVisibleIn are inherited; getCondition, getWeight, getBoxVolume, and daysToDeliver are overridden.
+  explanation: Shared behavior is reused while physical-specific behavior is specialized.
+
+- prompt: Why are weight, boxVolume, and daysToDeliver zero for digital products?
+  question_set: g4m 2
+  answer: Digital products do not have physical shipping properties.
+  explanation: Zero values encode non-physical characteristics clearly.
+
+- prompt: Why is digital product condition always new?
+  question_set: g4m 2
+  answer: Digital products do not physically wear down, so they remain new.
+  explanation: Condition maps to physical state, which digital items lack.
+
+- prompt: Why keep product data in a repository instead of directly in service?
+  question_set: g4m 2
+  answer: To separate data access from business logic and allow future storage swaps.
+  explanation: This keeps service code stable when persistence changes.
+
+- prompt: Which sample product proves country filtering works?
+  question_set: g4m 2
+  answer: USB Cable visible only in GB proves country-specific filtering works.
+  explanation: A restricted product demonstrates the filter excluding non-matching regions.
+
+- prompt: Which sample product proves digital behavior works?
+  question_set: g4m 2
+  answer: The eBook, because it has zero weight and always-new condition.
+  explanation: Those values demonstrate digital-specific overrides.
+
+- prompt: What business rules does getInventory implement exactly?
+  question_set: g4m 2
+  answer: It filters by country, resolves currency, rounds prices, and returns only visible products.
+  explanation: The method combines visibility and output-value normalization rules.
+
+- prompt: Why is rounding done in service and not presenter?
+  question_set: g4m 2
+  answer: Rounding is business logic, while presenter should only handle output formatting.
+  explanation: Separation of concerns keeps formatting and rules distinct.
+
+- prompt: What issue does resolveCurrency prevent for invalid user input?
+  question_set: g4m 2
+  answer: It prevents invalid currency codes from being echoed into output responses.
+  explanation: Invalid inputs are normalized to supported values before response generation.
+
+- prompt: Why is this controller described as thin?
+  question_set: g4m 2
+  answer: It contains minimal orchestration code and delegates logic to service and repository layers.
+  explanation: Thin controllers avoid business-rule bloat.
+
+- prompt: What is a warning sign too much logic moved into controller?
+  question_set: g4m 2
+  answer: The controller grows long and starts containing business rules that belong in service.
+  explanation: This signals broken layer boundaries.
+
+- prompt: Why separate output formatting from service logic?
+  question_set: g4m 2
+  answer: So the same service can be reused for JSON, XML, CSV, or other formats without changes.
+  explanation: Formatting concerns should stay in presenter/output layer.
+
+- prompt: What does JSON_UNESCAPED_UNICODE improve in this dataset?
+  question_set: g4m 2
+  answer: It keeps special characters like euro, pound, and accented letters readable instead of escaped.
+  explanation: This improves human readability and output fidelity.
+
+- prompt: Describe the dependency chain from repository to final JSON output.
+  question_set: g4m 2
+  answer: Repository to Service to Controller to Presenter to JSON output.
+  explanation: Data retrieval, business rules, orchestration, and formatting happen in that order.
+
+- prompt: Why are GB/GBP and FR/EUR demo examples useful together?
+  question_set: g4m 2
+  answer: They quickly exercise multiple paths for filtering, currency handling, and visibility.
+  explanation: Two contrasting scenarios provide fast high-value validation.
+
+- prompt: If adding CAD currency, what files should change and why?
+  question_set: g4m 2
+  answer: Update Service.php for CAD support and demo.php to add a CAD test case.
+  explanation: Service defines currency behavior; demo verifies it end-to-end.
+
+- prompt: If switching from in-memory data to MySQL, which layer should change?
+  question_set: g4m 2
+  answer: Only repository should change, while service, controller, and presenter can stay unchanged.
+  explanation: Repository abstraction isolates persistence concerns.
+
+- prompt: What makes adding a third product type easier in this design?
+  question_set: g4m 2
+  answer: InventoryInterface lets service work with any product type that implements the interface.
+  explanation: Interface-driven design supports extension without rewriting core service logic.
