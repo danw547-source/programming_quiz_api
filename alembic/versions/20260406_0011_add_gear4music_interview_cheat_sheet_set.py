@@ -35,7 +35,7 @@ QUESTIONS_TABLE = sa.table(
 
 
 def _load_seed_questions() -> list[dict]:
-    with QUESTIONS_JSON_PATH.open("r", encoding="utf-8") as file:
+    with QUESTIONS_JSON_PATH.open("r", encoding="utf-8-sig") as file:
         return json.load(file)
 
 
@@ -45,17 +45,20 @@ def _sync_missing_seed_rows() -> None:
         return
 
     bind = op.get_bind()
-    target_ids = [question["id"] for question in questions_to_add]
-    existing_ids = {
-        row[0]
-        for row in bind.execute(
-            sa.select(QUESTIONS_TABLE.c.id).where(QUESTIONS_TABLE.c.id.in_(target_ids))
-        )
-    }
+    # Fetch existing IDs first
+    existing_ids = set(
+        row[0] for row in bind.execute(sa.select(QUESTIONS_TABLE.c.id))
+    )
 
-    missing_rows = [question for question in questions_to_add if question["id"] not in existing_ids]
+    missing_rows = [
+        question for question in questions_to_add if question["id"] not in existing_ids
+    ]
     if missing_rows:
-        op.bulk_insert(QUESTIONS_TABLE, missing_rows)
+        # Insert in batches to avoid memory and query size limits
+        batch_size = 50
+        for i in range(0, len(missing_rows), batch_size):
+            batch = missing_rows[i : i + batch_size]
+            op.bulk_insert(QUESTIONS_TABLE, batch)
 
 
 def upgrade() -> None:

@@ -70,6 +70,7 @@ const QUESTION_SET_DISPLAY_METADATA = Object.freeze({
   "scales expert": { label: "Scales Expert", badge: "SC", category: "music-theory" },
   "keyboard music theory beginner": { label: "Keyboard Theory Beginner", badge: "KB", category: "music-theory" },
   "gear4music": { label: "Gear4Music", badge: "G4M", category: "gear4music" },
+  "gear4music interview cheat sheet": { label: "G4M Interview Cheat Sheet", badge: "G4M", category: "gear4music" },
   "g4m project workflow": { label: "G4M Project Workflow", badge: "G4M", category: "gear4music" },
   "g4m 2": { label: "G4M 2", badge: "G4M", category: "gear4music" },
   "g4mextended": { label: "G4M Extended", badge: "G4M", category: "gear4music" },

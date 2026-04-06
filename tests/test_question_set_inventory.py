@@ -8,6 +8,7 @@ QUESTIONS_PER_SET = 20
 SPECIAL_SET_COUNTS = {
     "g4m 2": 25,
     "g4mextended": 35,
+    "gear4music interview cheat sheet": 20,
     "caching & indexing beginner": 8,
 }
 EXPECTED_QUESTION_SETS = {
@@ -80,6 +81,7 @@ EXPECTED_QUESTION_SETS = {
     "sql intermediate",
     "sql expert",
     "gear4music",
+    "gear4music interview cheat sheet",
     "g4m project workflow",
     "g4m 2",
     "g4mextended",
