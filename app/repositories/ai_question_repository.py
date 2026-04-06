@@ -13,6 +13,7 @@ AI_QUESTION_SET_NAME = "aiquiz"
 AI_QUESTION_FILE_PATHS = [
     "AIQUESTIONS.md",
     "AIQUESTIONS2.md",
+    "AIQUESTIONS_CHEAT_SHEET.md",
 ]
 
 
@@ -76,6 +77,7 @@ class AIQuestionRepository(QuestionRepository):
         file_set_mapping = {
             "AIQUESTIONS.md": "gear4music",
             "AIQUESTIONS2.md": "g4m project workflow",
+            "AIQUESTIONS_CHEAT_SHEET.md": "gear4music interview cheat sheet",
         }
 
         paths = [file_path] if file_path else AI_QUESTION_FILE_PATHS
