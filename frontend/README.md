@@ -24,6 +24,7 @@ Create env files inside frontend:
 Variables:
 
 - VITE_API_URL (required for deployment)
+- VITE_AI_API_URL (optional; defaults to VITE_API_URL, used for AI mode endpoints)
 - VITE_API_TIMEOUT_MS (optional, default 10000)
 
 ## Local Development
