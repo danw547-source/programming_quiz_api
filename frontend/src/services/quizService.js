@@ -1,4 +1,5 @@
 import axios from "axios";
+import localQuestions from "../data/questions.json";
 
 const normalizeApiUrl = (url) => url.replace(/\/+$/, "");
 
@@ -32,6 +33,12 @@ const apiClient = axios.create({
   timeout: API_TIMEOUT_MS,
 });
 
+const normalizeQuestionSet = (questionSet) => questionSet?.trim().toLowerCase();
+
+const sortedQuestionSets = Array.from(
+  new Set(localQuestions.map((question) => question.question_set)),
+).sort((a, b) => a.localeCompare(b));
+
 const getErrorMessage = (error, fallbackMessage) => {
   if (axios.isAxiosError(error)) {
     const detail = error.response?.data?.detail;
@@ -48,23 +55,18 @@ const getErrorMessage = (error, fallbackMessage) => {
 };
 
 export const getQuestions = async (questionSet) => {
-  try {
-    const response = await apiClient.get("/questions", {
-      params: questionSet ? { question_set: questionSet } : undefined,
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(getErrorMessage(error, "Unable to load questions."));
+  const normalizedSet = normalizeQuestionSet(questionSet);
+  if (!normalizedSet) {
+    return localQuestions.map(({ answer, explanation, ...question }) => question);
   }
+
+  return localQuestions
+    .filter((question) => question.question_set === normalizedSet)
+    .map(({ answer, explanation, ...question }) => question);
 };
 
 export const getQuestionSets = async () => {
-  try {
-    const response = await apiClient.get("/question-sets");
-    return response.data;
-  } catch (error) {
-    throw new Error(getErrorMessage(error, "Unable to load question sets."));
-  }
+  return sortedQuestionSets;
 };
 
 export const getCheatSheet = async (questionSet) => {
@@ -73,23 +75,41 @@ export const getCheatSheet = async (questionSet) => {
     throw new Error("Question set is required.");
   }
 
-  try {
-    const response = await apiClient.get("/cheat-sheet", {
-      params: { question_set: normalizedQuestionSet },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(getErrorMessage(error, "Unable to load cheat sheet."));
+  const normalizedSet = normalizeQuestionSet(normalizedQuestionSet);
+  const entries = localQuestions
+    .filter((question) => question.question_set === normalizedSet)
+    .map(({ id, prompt, answer, explanation }) => ({
+      id,
+      prompt,
+      answer,
+      explanation,
+    }));
+
+  if (!entries.length) {
+    throw new Error("Question set not found");
   }
+
+  return {
+    question_set: normalizedSet,
+    total_questions: entries.length,
+    entries,
+  };
 };
 
 export const submitAnswer = async (questionId, answer) => {
-  try {
-    const response = await apiClient.post(`/answer/${questionId}`, { answer });
-    return response.data;
-  } catch (error) {
-    throw new Error(getErrorMessage(error, "Unable to submit answer."));
+  const question = localQuestions.find((item) => item.id === questionId);
+  if (!question) {
+    throw new Error("Question not found");
   }
+
+  const normalizedUserAnswer = answer?.trim().toLowerCase() ?? "";
+  const normalizedCorrectAnswer = question.answer?.trim().toLowerCase() ?? "";
+
+  return {
+    correct: normalizedUserAnswer === normalizedCorrectAnswer,
+    correct_answer: question.answer,
+    explanation: question.explanation,
+  };
 };
 
 export const getAiQuestionSets = async () => {
