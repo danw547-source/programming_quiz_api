@@ -72,24 +72,6 @@ const getAiErrorMessage = (error, fallbackMessage) => {
   return getErrorMessage(error, fallbackMessage);
 };
 
-const requestWithRetry = async (requestFn, retries = 1) => {
-  let lastError;
-
-  for (let attempt = 0; attempt <= retries; attempt += 1) {
-    try {
-      return await requestFn();
-    } catch (error) {
-      lastError = error;
-      const isNetworkError = axios.isAxiosError(error) && !error.response;
-      if (!isNetworkError || attempt === retries) {
-        break;
-      }
-    }
-  }
-
-  throw lastError;
-};
-
 export const getQuestions = async (questionSet) => {
   const normalizedSet = normalizeQuestionSet(questionSet);
   if (!normalizedSet) {
@@ -150,7 +132,7 @@ export const submitAnswer = async (questionId, answer) => {
 
 export const getAiQuestionSets = async () => {
   try {
-    const response = await requestWithRetry(() => aiApiClient.get("/ai/question-sets"));
+    const response = await aiApiClient.get("/ai/question-sets");
     return response.data;
   } catch (error) {
     throw new Error(getAiErrorMessage(error, "Unable to load AI question sets."));
@@ -159,9 +141,9 @@ export const getAiQuestionSets = async () => {
 
 export const getAiQuestions = async (questionSet) => {
   try {
-    const response = await requestWithRetry(() => aiApiClient.get("/ai/questions", {
+    const response = await aiApiClient.get("/ai/questions", {
       params: questionSet ? { question_set: questionSet } : undefined,
-    }));
+    });
     return response.data;
   } catch (error) {
     throw new Error(getAiErrorMessage(error, "Unable to load AI questions."));
@@ -175,9 +157,9 @@ export const getAiCheatSheet = async (questionSet) => {
   }
 
   try {
-    const response = await requestWithRetry(() => aiApiClient.get("/ai/cheat-sheet", {
+    const response = await aiApiClient.get("/ai/cheat-sheet", {
       params: { question_set: normalizedQuestionSet },
-    }));
+    });
     return response.data;
   } catch (error) {
     throw new Error(getAiErrorMessage(error, "Unable to load AI cheat sheet."));
@@ -186,7 +168,7 @@ export const getAiCheatSheet = async (questionSet) => {
 
 export const submitAiAnswer = async (questionId, answer) => {
   try {
-    const response = await requestWithRetry(() => aiApiClient.post(`/ai/answer/${questionId}`, { answer }));
+    const response = await aiApiClient.post(`/ai/answer/${questionId}`, { answer });
     return response.data;
   } catch (error) {
     throw new Error(getAiErrorMessage(error, "Unable to submit AI answer."));
@@ -195,9 +177,18 @@ export const submitAiAnswer = async (questionId, answer) => {
 
 export const getAiHint = async (questionId) => {
   try {
-    const response = await requestWithRetry(() => aiApiClient.get(`/ai/hint/${questionId}`));
+    const response = await aiApiClient.get(`/ai/hint/${questionId}`);
     return response.data;
   } catch (error) {
     throw new Error(getAiErrorMessage(error, "Unable to load hint."));
+  }
+};
+
+export const checkAiBackendAvailable = async () => {
+  try {
+    await aiApiClient.get("/ai/question-sets", { timeout: 5000 });
+    return true;
+  } catch {
+    return false;
   }
 };

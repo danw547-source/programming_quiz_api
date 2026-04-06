@@ -23,6 +23,7 @@ import {
   getAiCheatSheet,
   submitAiAnswer,
   getAiHint,
+  checkAiBackendAvailable,
 } from "../services/quizService";
 
 const OPTION_INDEX_BY_KEY = Object.freeze({ a: 0, b: 1, c: 2, d: 3 });
@@ -266,6 +267,7 @@ export default function Quiz({ isLightTheme, selectedCategory = "programming", o
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [score, setScore] = useState(0);
+  const [toastMessage, setToastMessage] = useState("");
   const selectedCategoryLabel = getCategoryLabel(selectedCategory);
   const alternateCategory = getAlternateCategory(selectedCategory);
   const alternateCategoryLabel = getCategoryLabel(alternateCategory);
@@ -412,6 +414,48 @@ if (!questionSets.length) {
     resetRoundState();
     void loadQuestions(nextSet || undefined);
   }, [loadQuestions, questionSets, resetRoundState, selectedCategory, selectedQuestionSet]);
+
+  // Poll AI backend health and show notification when it becomes available.
+  useEffect(() => {
+    if (!isAiMode) {
+      return;
+    }
+
+    let isSubscribed = true;
+    let wasUnavailable = true;
+
+    const pollBackend = async () => {
+      if (!isSubscribed) {
+        return;
+      }
+
+      const isAvailable = await checkAiBackendAvailable();
+
+      if (isSubscribed) {
+        if (isAvailable && wasUnavailable) {
+          setToastMessage("✓ AI backend is now available!");
+          wasUnavailable = false;
+          // Auto-hide toast after 4 seconds
+          setTimeout(() => {
+            if (isSubscribed) {
+              setToastMessage("");
+            }
+          }, 4000);
+        } else if (!isAvailable) {
+          wasUnavailable = true;
+        }
+      }
+    };
+
+    const pollInterval = setInterval(() => {
+      void pollBackend();
+    }, 5000);
+
+    return () => {
+      isSubscribed = false;
+      clearInterval(pollInterval);
+    };
+  }, [isAiMode]);
 
   const totalQuestions = questions.length;
   // Quiz is complete after the user advances past the last question index.
@@ -876,6 +920,11 @@ if (!questionSets.length) {
     <div
       className={`flex min-h-0 w-full flex-col rounded-2xl border p-2 shadow-[0_20px_40px_rgba(2,6,23,0.28),0_0_0_1px_rgba(255,255,255,0.04)] backdrop-blur-xl sm:p-4 ${surfaceCardClasses}`}
     >
+      {toastMessage && (
+        <div className="mb-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 px-3 py-2 text-sm font-medium text-emerald-100 text-center">
+          {toastMessage}
+        </div>
+      )}
       <div className="mx-auto min-h-0 flex w-full flex-1 flex-col">
         <section className={`border-b pb-1 sm:pb-2.5 ${dividerTone}`}>
           <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
